@@ -1,0 +1,149 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-image: url(./images/bg.jpg);
+    background-position: center center; 
+     background-repeat: no-repeat; 
+    background-size: cover;
+    width: 100%; 
+    height: auto; 
+}
+
+.error {
+    color: red;
+    font-family: "Libre Baskerville", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.signup_container {
+    float: right;
+    background: white;
+    height: 72vh;
+    width: 20vw;
+    margin-top: 3%;
+    margin-right: 5%;
+    border-radius: 5%;
+    padding: 1%;
+    padding: 2%;
+}
+
+.title{
+    text-align: center;
+    font-size: 1.9vw;
+    color: #252525;
+    font-family: "Libre Baskerville", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+input{
+    font-family: "Libre Baskerville", serif;
+    font-weight: 400;
+    font-style: normal;
+    width: 100%;
+}
+label{
+    font-family: "Libre Baskerville", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+.divemail {
+    margin-top: 5%;
+    margin-bottom: 1%;
+    font-family: "Righteous", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #252525;
+    width: 100%;
+}
+.labelemail{
+    width: 100%;
+}
+
+
+.divusern {
+    margin-top: 5%;
+    margin-bottom: 1%;
+    font-family: "Righteous", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #252525;
+}
+.divpass {
+    margin-top: 5%;
+    margin-bottom: 1%;
+    font-family: "Righteous", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #252525;
+}
+
+/* .divsub {
+    margin-top: 7%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    width: 100%;
+} */
+
+.subbtn {
+    margin-top: 7%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    width: 80%;
+    --color: #00A97F;
+    padding: 0.8em 1.7em;
+    background-color: transparent;
+    border-radius: .3em;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: .5s;
+    font-weight: 400;
+    font-size: 17px;
+    border: 1px solid;
+    font-family: inherit;
+    text-transform: uppercase;
+    color: var(--color);
+    z-index: 1;
+   }
+   
+   .subbtn ::before, .subbtn ::after {
+    content: '';
+    display: block;
+    width: 30px;
+    height: 20px;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    border-radius: 50%;
+    z-index: -1;
+    background-color: var(--color);
+    transition: 1s ease;
+   }
+   
+   .subbtn::before {
+    top: -1em;
+    left: -1em;
+   }
+   
+   .subbtn::after {
+    left: calc(100% + 1em);
+    top: calc(100% + 1em);
+   }
+   
+   .subbtn :hover::before, .subbtn :hover::after {
+    height: 410px;
+    width: 410px;
+   }
+   
+   .subbtn :hover {
+    color: rgb(10, 25, 30);
+   }
+   
+   .subbtn :active {
+    filter: brightness(.8);
+   }
+   
