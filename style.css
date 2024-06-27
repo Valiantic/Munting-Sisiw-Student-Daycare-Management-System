@@ -19,7 +19,7 @@ body{
 .signup_container {
     float: right;
     background: white;
-    height: 72vh;
+    height: 75vh;
     width: 20vw;
     margin-top: 3%;
     margin-right: 5%;
@@ -30,7 +30,7 @@ body{
 
 .title{
     text-align: center;
-    font-size: 1.9vw;
+    font-size: 1.5vw;
     color: #252525;
     font-family: "Libre Baskerville", serif;
     font-weight: 400;
@@ -41,11 +41,17 @@ input{
     font-weight: 400;
     font-style: normal;
     width: 100%;
+    background-color: beige;
+    border-radius: 3px;
 }
 label{
     font-family: "Libre Baskerville", serif;
     font-weight: 400;
     font-style: normal;
+}
+img {
+    height: 4.4vw;
+    width: 4.9vw;
 }
 
 
@@ -93,7 +99,7 @@ label{
     justify-content: center;
     align-items: center;
     display: flex;
-    width: 80%;
+    width: 100%;
     --color: #00A97F;
     padding: 0.8em 1.7em;
     background-color: transparent;
@@ -111,39 +117,4 @@ label{
     z-index: 1;
    }
    
-   .subbtn ::before, .subbtn ::after {
-    content: '';
-    display: block;
-    width: 30px;
-    height: 20px;
-    transform: translate(-50%, -50%);
-    position: absolute;
-    border-radius: 50%;
-    z-index: -1;
-    background-color: var(--color);
-    transition: 1s ease;
-   }
-   
-   .subbtn::before {
-    top: -1em;
-    left: -1em;
-   }
-   
-   .subbtn::after {
-    left: calc(100% + 1em);
-    top: calc(100% + 1em);
-   }
-   
-   .subbtn :hover::before, .subbtn :hover::after {
-    height: 410px;
-    width: 410px;
-   }
-   
-   .subbtn :hover {
-    color: rgb(10, 25, 30);
-   }
-   
-   .subbtn :active {
-    filter: brightness(.8);
-   }
-   
+ 

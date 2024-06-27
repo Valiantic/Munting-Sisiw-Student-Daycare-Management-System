@@ -49,7 +49,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 
 <div class="signup_container">
-    <p class="title">Become a part of our Learning Education!</p>
+    <p class="title">Become a part of our Learning Education!<img src="./images/cvsulogo.png"></p>
 
 <form class="inputing" method="POST" action="<?php htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
 
@@ -74,7 +74,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 </div>
 
 <div class="divsub">
-<input class="subbtn" type="submit" value="Submit">
+<input class="subbtn" type="submit" value="Sign up">
 </div>
 
 </form>
