@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign up</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="./images/cvsulogo.png" type="image/x-icon">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -48,6 +49,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
 ?>
 
+<!-- signup field container -->
+
 <div class="signup_container">
     <p class="title">Become a part of our Learning Education!<img src="./images/cvsulogo.png"></p>
 
@@ -83,6 +86,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <?php
 
+// database connector
 include("connections.php");
 
 

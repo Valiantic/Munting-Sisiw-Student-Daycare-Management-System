@@ -6,7 +6,7 @@ $connections = mysqli_connect("localhost","root","","db_signup");
         echo "Failed to connect to MySQL " .mysqli_connect_error();
     }
     // else {
-    //     echo "connected";
+    //     echo "connected"; indicate that the database is connected
     // }
    
 
