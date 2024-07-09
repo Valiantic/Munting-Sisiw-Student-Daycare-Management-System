@@ -1,4 +1,7 @@
-body{
+
+/* CSS NOT WORKING DUE TO PHP REFRESH RATE */
+
+/* body{
     margin: 0;
     padding: 0;
     background-image: url(./images/bg.jpg);
@@ -113,7 +116,7 @@ img {
     width: 100%;
 } */
 
-.subbtn {
+/* .subbtn {
     margin-top: 7%;
     justify-content: center;
     align-items: center;
@@ -136,4 +139,4 @@ img {
     z-index: 1;
    }
    
- 
+  */ 
