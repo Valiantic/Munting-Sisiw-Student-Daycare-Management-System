@@ -79,10 +79,16 @@ align-items-center flex-column">
   </div>
   <div class="mb-3">
     <label class="form-label">Login As</label>
-    
+    <select class="form-control">
+        <option value="1">Admin</option>
+        <option value="2">Student</option>
+        <option value="3">Teacher</option>
+    </select> 
   </div>
-  <button type="submit" class="btn btn-primary">Login</button>
+    <button type="submit" class="btn btn-primary">Login</button>
+    <a href="index.php" class="text-decoration-none">Home</a>
 </form>
+</br> </br>
 
 
       
