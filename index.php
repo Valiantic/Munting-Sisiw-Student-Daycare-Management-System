@@ -131,7 +131,7 @@
          <!-- TO MAKE THE LOGIN STICK TO THE RIGHT SIDE CHANGE ME-->
          <ul class="navbar-nav me-right mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link" href="#">Login</a>
+          <a class="nav-link" href="login.php">Login</a>
         </li>
         </ul>
 
@@ -223,6 +223,9 @@ align-items-center flex-column">
   <button type="submit" class="btn btn-primary">Send</button>
 </form>
 </section>
+<div class="text-center text-light">
+    Copyright &copy; 2024 Munting Sisiw. All rights reserved.
+</div>
 
     </div>
 </div>
