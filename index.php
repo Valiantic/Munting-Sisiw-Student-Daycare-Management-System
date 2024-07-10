@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome!</title>
     <link rel="stylesheet" href="./css/style.css">
-    <link rel="shortcut icon" href="./images/cvsulogo.png" type="image/x-icon">
+    <link rel="shortcut icon" href="./images/logo.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,7 +22,7 @@
     body{
         margin: 0;
         padding: 0;
-        background-image: url(./images/bg.jpg);
+        background-image: url(./images/bg2.jpg);
         background-position: center center; 
          background-repeat: no-repeat; 
         background-size: cover;
@@ -38,21 +38,36 @@
     }
     #homeNav {
         /* TO MAKE THE NAVBAR TRANSPARENT */
-        background: rgba(255,255,255, 0.5) !important;
+        /* background: rgba(255,255,255, 0.5) !important; */
     }
-    
+    .welcome-text{
+      min-height: 80vh;
+    }
+    .welcome-text img {
+      width: 100px;
+    }
+    .welcome-text h4 {
+      color: #eee;
+      font-size: 51px;
+    }
+    .welcome-text p {
+      color: #222;
+      background: rgba(255,255,255,  0.5);
+      padding: 5px;
+      border-radius: 4px;
+    }
 
 </style>
 
 <body class="body-home">
 
-<div class="black-fill">
+<div class="black-fill"> </br>
     <div class="container">
 
         <!-- NAVBAR -->
         <nav class="navbar navbar-expand-lg bg-body-tertiary" id="homeNav">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#"><img src="./images/cvsulogo.png" width="30"></a>
+    <a class="navbar-brand" href="#"><img src="./images/logo.png" width="30"></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -109,6 +124,15 @@
 
   </div>
 </nav>
+
+<section class="welcome-text d-flex justify-content-center
+align-items-center flex-column">
+
+    <img src="./images/logo.png">
+    <h4>Munting Sisiw Daycare</h4>
+    <p>Make your child at Home</p>
+
+</section>
 
     </div>
 </div>
