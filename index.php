@@ -74,7 +74,26 @@
     }
     #about .card-1 h5{
       font-family: "Lobster", sans-serif;
+      font-size: 25px;
      
+    }
+    #contacts {
+      min-height: 100vh;
+
+    }
+    #contacts form {
+      max-width: 600px;
+      width: 90%;
+      background: rgba(255,255,255, 0.7);
+      padding: 20px;
+      border-radius: 5px;
+    }
+    #contacts form h3{
+      text-align:center;
+      font-family: "Lobster", sans-serif;
+    }
+    textarea{
+      resize:none;
     }
 
 
@@ -105,7 +124,7 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="#">Contact</a>
+          <a class="nav-link" href="#contacts">Contact</a>
         </li>
         </ul>
 
@@ -155,11 +174,12 @@
 
 </section>
 
+<!-- SECTION FOR ABOUT  -->
 <section id="about" class="d-flex justify-content-center
 align-items-center flex-column">
 
 
-<!-- CARD -->
+<!-- ABOUT CARD -->
 <div class="card mb-3 card-1">
   <div class="row g-0">
     <div class="col-md-4">
@@ -175,6 +195,33 @@ align-items-center flex-column">
   </div>
 </div>
 
+</section>
+
+
+<!-- SECTION FOR CONTACTS  -->
+<section id="contacts" class="d-flex justify-content-center
+align-items-center flex-column">
+
+
+<!-- CONTACTS FORM -->
+<form>
+  <h3>Reach us!</h3>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Name</label>
+    <input type="text" class="form-control" id="exampleInputPassword1">
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Name</label>
+    <textarea class="form-control" rows="4"></textarea>
+  </div>
+  
+  <button type="submit" class="btn btn-primary">Send</button>
+</form>
 </section>
 
     </div>
