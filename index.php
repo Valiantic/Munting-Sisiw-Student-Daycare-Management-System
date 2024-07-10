@@ -13,6 +13,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 </head>
 
+<!-- TODO:
+9:34 CONTINUE NAVBAR -->
+
 <!-- OWN CSS IS HERE! -->
 
 <style>
@@ -33,6 +36,10 @@
         /* background: rgba(0, 0, 0, 0.7);
         min-height: 100vh; */
     }
+    #homeNav {
+        /* TO MAKE THE NAVBAR TRANSPARENT */
+        background: rgba(255,255,255, 0.5) !important;
+    }
     
 
 </style>
@@ -43,7 +50,7 @@
     <div class="container">
 
         <!-- NAVBAR -->
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary" id="homeNav">
   <div class="container-fluid">
     <a class="navbar-brand" href="#"><img src="./images/cvsulogo.png" width="30"></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -66,12 +73,14 @@
         </li>
         </ul>
 
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+         <!-- TO MAKE THE LOGIN STICK TO THE RIGHT SIDE CHANGE ME-->
+         <ul class="navbar-nav me-right mb-2 mb-lg-0">
         <li class="nav-item">
           <a class="nav-link" href="#">Login</a>
         </li>
         </ul>
 
+  
             <!-- DON'T NEED UNLESS NECCESSARY UNCOMMENT! -->
         <!-- <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -97,6 +106,7 @@
 
 
     </div>
+
   </div>
 </nav>
 
