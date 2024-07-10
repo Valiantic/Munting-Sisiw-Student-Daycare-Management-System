@@ -11,7 +11,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-</head>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+  </head>
 
 <!-- TODO:
 9:34 CONTINUE NAVBAR -->
@@ -32,9 +36,9 @@
         height: auto; 
     }
     .black-fill {
-        /* FOR BLACK AESTHETIC BACKGROUND */
-        /* background: rgba(0, 0, 0, 0.7);
-        min-height: 100vh; */
+        /* FOR BLACK AESTHETIC BACKGROUND ADJUST THE LAST DIGIT FOR BRIGHTNESS*/
+        background: rgba(0, 0, 0, 0.4);
+        min-height: 100vh;
     }
     #homeNav {
         /* TO MAKE THE NAVBAR TRANSPARENT */
@@ -49,6 +53,7 @@
     .welcome-text h4 {
       color: #eee;
       font-size: 51px;
+      font-family: "Lobster", sans-serif;
     }
     .welcome-text p {
       color: #222;
@@ -56,6 +61,22 @@
       padding: 5px;
       border-radius: 4px;
     }
+    #about {
+      min-height: 100vh;
+    }
+    #about .card-1{
+      max-width: 600px;
+      width:90%;
+      /* MAKE THE BACKGROUND TRANSPARENT */
+      background: rgba(255,255,255, 0.7);
+	    padding: 20px;
+	    border-radius: 5px;
+    }
+    #about .card-1 h5{
+      font-family: "Lobster", sans-serif;
+     
+    }
+
 
 </style>
 
@@ -80,7 +101,7 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="#">About</a>
+          <a class="nav-link" href="#about">About</a>
         </li>
 
         <li class="nav-item">
@@ -125,12 +146,34 @@
   </div>
 </nav>
 
-<section class="welcome-text d-flex justify-content-center
-align-items-center flex-column">
+<!-- WELCOME TEXT  -->
+<section class="welcome-text d-flex justify-content-center align-items-center flex-column">
 
     <img src="./images/logo.png">
-    <h4>Munting Sisiw Daycare</h4>
+    <h4>Welcome to Munting Sisiw Daycare!</h4>
     <p>Make your child at Home</p>
+
+</section>
+
+<section id="about" class="d-flex justify-content-center
+align-items-center flex-column">
+
+
+<!-- CARD -->
+<div class="card mb-3 card-1">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="./images/logo.png" class="img-fluid rounded-start" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">About</h5>
+        <p class="card-text">At Munting Sisiw Daycare, we provide a loving and nurturing environment where your little ones can learn, grow, and thrive. We believe in fostering a child's natural curiosity and creativity through play-based learning activities that are both educational and fun.</p>
+        <p class="card-text"><small class="text-body-secondary"></small></p>
+      </div>
+    </div>
+  </div>
+</div>
 
 </section>
 

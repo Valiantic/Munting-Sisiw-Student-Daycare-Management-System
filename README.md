@@ -1,1 +1,1 @@
-A Side Project I made for our school, Cavite State University Carmona Campus. A student management system that is designed to optimize the faculty members workload and schoolwork management for their students.
+A Side Project I made to add to my porfolio, Munting Sisiw Daycare is a student daycare management system that is designed to optimize the faculty members workload and schoolwork management for their students.
