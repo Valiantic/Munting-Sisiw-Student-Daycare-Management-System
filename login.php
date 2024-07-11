@@ -63,7 +63,7 @@
     <div class="d-flex justify-content-center
 align-items-center flex-column">
 
-    <form class="login">
+    <form class="login" method="post" action="req/login.php">
     <div class="text-center">
         <img src="./images/logo.png" width="100">
     </div>
@@ -71,15 +71,15 @@ align-items-center flex-column">
     <h3>LOGIN</h3>
   <div class="mb-3">
     <label class="form-label">Username</label>
-    <input type="text" class="form-control">
+    <input type="text" class="form-control" name="uname">
   </div>
   <div class="mb-3">
     <label class="form-label">Password</label>
-    <input type="password" class="form-control">
+    <input type="password" class="form-control" name="pass">
   </div>
   <div class="mb-3">
     <label class="form-label">Login As</label>
-    <select class="form-control">
+    <select class="form-control" name="role">
         <option value="1">Admin</option>
         <option value="2">Student</option>
         <option value="3">Teacher</option>

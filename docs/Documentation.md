@@ -9,3 +9,5 @@ STUDENT MANAGEMENT CREATION DOCUMENTATION
 7.add another section below just copy paste its
 8.add bootstrap card
 9.style bootstrap card and add navigation to navbar
+10.add contacts card and style it 
+11.add login page
