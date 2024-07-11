@@ -63,12 +63,21 @@
     <div class="d-flex justify-content-center
 align-items-center flex-column">
 
-    <form class="login" method="post" action="req/login.php">
+    <form class="login" method="post" action="./req/login.php">
     <div class="text-center">
         <img src="./images/logo.png" width="100">
     </div>
 
     <h3>LOGIN</h3>
+
+
+    <!-- ERROR HANDLING  -->
+    <?php if (isset($_GET['error'])) { ?>
+    		<div class="alert alert-danger" role="alert">
+			  <?=$_GET['error']?>
+			</div>
+	<?php } ?>
+
   <div class="mb-3">
     <label class="form-label">Username</label>
     <input type="text" class="form-control" name="uname">
