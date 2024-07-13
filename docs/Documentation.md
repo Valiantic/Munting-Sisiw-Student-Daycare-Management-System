@@ -65,3 +65,26 @@ include "inc/navbar.php";
     });
 
 </script>
+13.add font awesome link in admin/index.php
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+14.create div class container 
+<div class="container mt-5">
+
+    <div class="container text-center">
+        <div class="row row-cols-5">
+            <a href="" class="col btn btn-dark m-2 py-3">
+            <i class="fa fa-user-circle fs-1" aria-hidden="true"></i>
+            <br>
+            Teachers
+            </a>
+        </div>
+    </div>
+15.using the a tag duplicate it and style it by changing the class
+<a href="" class="col btn btn-dark m-2 py-3">
+            <i class="fa fa-user-circle fs-1" aria-hidden="true"></i>
+            <br>
+            Teachers
+</a>
+16.refer to navbar.php on how many a tag you need to create
+17.the a tag for settings and logout style it make the col-5 to be responsive 
+18.btn-primary for settings and btn-warning for logout
