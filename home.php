@@ -108,12 +108,36 @@ if(isset($_SESSION['id']) && isset($_SESSION['role'])) {
     textarea{
       resize:none;
     }
+    .w-450{
+        width:450px;
+        border-radius:20px;
+    }
 
 
 </style>
 
 <body class="body-home">
-hello
+
+    <div class="d-flex justify-content-center align-items-center vh-100">
+        <div class="shadow w-450 p-3 text-center bg-light">
+            <small>Role:
+                <b>
+                    <?php
+                    if($_SESSION['role'] == 'Admin'){
+                         echo "Admin";
+                    }else if ($_SESSION['role'] == 'Teacher'){
+                        echo "Teacher";
+                    }else {
+                        echo "Student";
+                    }
+                    
+                    ?>
+                </b><br>
+                <h3 class="display-4"> <?=$_SESSION['fname']?> </h3>
+                <a href="logout.php" class="btn btn-warning">Logout</a>
+            </small>
+        </div>
+    </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
