@@ -54,16 +54,22 @@ if(isset($_POST['uname']) &&
 				// continue 19:52
 				$username = $user['username'];
 				$password = $user['password'];
-				$fname = $user['fname'];
-				$id = $user['id'];
+			
 				if($username === $uname){
 					if(password_verify($pass, $password)){
-						$_SESSION['id'] = $id;
-						$_SESSION['fname'] = $fname;
+					
 						$_SESSION['role'] = $role;
 						// continue 27:01
-						header("Location: ../home.php");
-						exit;
+						if($role == 'Admin'){
+							$id = $user['admin_id'];
+							$_SESSION['fname'] = $fname;
+							$_SESSION['admin_id'] = $id;
+							header("Location: ../admin/index.php");
+							exit;
+
+						}
+
+		
 					}else {
 						$em  = "Incorrect Username or Password";
 						header("Location: ../login.php?error=$em");

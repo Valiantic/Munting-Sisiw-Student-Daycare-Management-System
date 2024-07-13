@@ -104,6 +104,8 @@ align-items-center flex-column">
 <div class="text-center text-light">
     Copyright &copy; 2024 Munting Sisiw. All rights reserved.
 
+     <!-- UNKNOWN PROBLEM ONLY ADMIN WORKS AND STUDENT AND TEACHER CREDENTIALS DOES'NT WORK -->
+
      <!-- ADMIN HASH PASSWORD CREATE THIS AND INSERT ANOTHER DATA ON PHPMYADMIN
         DON'T FORGET THE PHP TAG!
         $pass = 123;
