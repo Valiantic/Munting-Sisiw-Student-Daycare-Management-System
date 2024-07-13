@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 
 // ALWAYS REMEMBER TO THE SESSION IF-ELSE STATEMENT 
 // isset($_POST['variable'])
@@ -58,7 +58,12 @@ if(isset($_POST['uname']) &&
 				$id = $user['id'];
 				if($username === $uname){
 					if(password_verify($pass, $password)){
-						echo "Success";
+						$_SESSION['id'] = $id;
+						$_SESSION['fname'] = $fname;
+						$_SESSION['role'] = $role;
+						// continue 27:01
+						header("Location: ../home.php");
+						exit;
 					}else {
 						$em  = "Incorrect Username or Password";
 						header("Location: ../login.php?error=$em");

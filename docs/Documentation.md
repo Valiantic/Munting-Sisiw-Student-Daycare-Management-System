@@ -20,10 +20,15 @@ SECOND CHAPTER
 15.add error handling on /req/login.php
 16.create login verification on /req/login.php
 17.create an admin log pass code on login.php
+
+NOTE: the reason behind this is because the password_hash that will be saved to myphpmyadmin will be 
+overwrited by this $pass code value once you login to login.php so insert this on login.php
 <?php
         $pass = 123;
         $pass = password_hash($pass, PASSWORD_DEFAULT);
         echo $pass;
 ?>
+
 18.insert admin data on phpmyadmin database
-19.
+19.copy all the code from index.php and create and paste the code on home.php
+20.add session on home.php
