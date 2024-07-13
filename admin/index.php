@@ -11,7 +11,7 @@ if (isset($_SESSION['admin_id']) &&
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Admin - Home</title>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="shortcut icon" href="../images/logo.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
@@ -32,7 +32,7 @@ if (isset($_SESSION['admin_id']) &&
     body{
         margin: 0;
         padding: 0;
-        background-image: url(../images/bg2.jpg);
+        /* background-image: url(../images/bg2.jpg); */
         background-position: center center; 
          background-repeat: no-repeat; 
         background-size: cover;
@@ -116,97 +116,12 @@ if (isset($_SESSION['admin_id']) &&
 </style>
 
 <body>
-<!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg bg-body-tertiary" id="homeNav">
 
-<div class="container-fluid">
-  <a class="navbar-brand" href="#"><img src="../images/logo.png" width="30"></a>
-  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
+<?php
 
-  </button>
+include "inc/navbar.php";
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-      <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="#">Dashboard</a>
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link" href="#about">Teachers</a>
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link" href="#contacts">Students</a>
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link" href="#contacts">Registrar-Office</a>
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link" href="#contacts">Class</a>
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link" href="#contacts">Section</a>
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link" href="#contacts">Schedule</a>
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link" href="#contacts">Course</a>
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link" href="#contacts">Message</a>
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link" href="#contacts">Settings</a>
-      </li>
-
-      </ul>
-
-       <!-- TO MAKE THE LOGIN STICK TO THE RIGHT SIDE CHANGE ME-->
-       <ul class="navbar-nav me-right mb-2 mb-lg-0">
-      <li class="nav-item">
-        <a class="nav-link" href="../logout.php">Logout</a>
-      </li>
-      </ul>
-
-
-          <!-- DON'T NEED UNLESS NECCESSARY UNCOMMENT! -->
-      <!-- <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-          Dropdown
-        </a>
-        <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="#">Action</a></li>
-          <li><a class="dropdown-item" href="#">Another action</a></li>
-          <li><hr class="dropdown-divider"></li>
-          <li><a class="dropdown-item" href="#">Something else here</a></li>
-        </ul>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-      </li> -->
-
-
-
-    <!-- <form class="d-flex" role="search">
-      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success" type="submit">Search</button>
-    </form> -->
-
-
-  </div>
-
-</div>
-</nav>
+?>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 

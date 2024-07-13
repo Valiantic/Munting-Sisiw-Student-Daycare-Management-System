@@ -42,4 +42,13 @@ overwrited by this $pass code value once you login to login.php so insert this o
 1.create admin folder and within it index.php
 2.copy the code from home.php and delete it paste the copy code to admin/index.php
 3.change directory on req/login.php
-4.in admin/index.php create navbar and add list items as well change login to logout
+4.in admin/index.php copy paste bootstrap navbar and add list items as well change login to logout
+5.create inc folder and within it a navbar.php
+6.copy paste the code from admin/index.php to navbar.php this is to implement the DRY technique
+7.in index.php create include and write the navbar
+<?php
+
+include "inc/navbar.php";
+
+?>
+8.remove the active on daskboard in navbar.php
