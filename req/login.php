@@ -52,12 +52,33 @@ if(isset($_POST['uname']) &&
 			if($stmt->rowCount() == 1){
 				$user = $stmt->fetch();
 				// continue 19:52
+				$username = $user['username'];
+				$password = $user['password'];
+				$fname = $user['fname'];
+				$id = $user['id'];
+				if($username === $uname){
+					if(password_verify($pass, $password)){
+						echo "Success";
+					}else {
+						$em  = "Incorrect Username or Password";
+						header("Location: ../login.php?error=$em");
+						exit;
+						}
+				}
+				else {
+				$em  = "Incorrect Username or Password";
+				header("Location: ../login.php?error=$em");
+				exit;
+				}
+
+				
 			}else {
 				$em  = "Incorrect Username or Password";
 				header("Location: ../login.php?error=$em");
 				exit;
 			}
 
+	
     }
 
 }else {

@@ -103,6 +103,14 @@ align-items-center flex-column">
       
 <div class="text-center text-light">
     Copyright &copy; 2024 Munting Sisiw. All rights reserved.
+
+     <!-- ADMIN HASH PASSWORD CREATE THIS AND INSERT ANOTHER DATA ON PHPMYADMIN
+        DON'T FORGET THE PHP TAG!
+        $pass = 123;
+        $pass = password_hash($pass, PASSWORD_DEFAULT);
+        echo $pass;
+     
+     -->
 </div>
 
     </div>

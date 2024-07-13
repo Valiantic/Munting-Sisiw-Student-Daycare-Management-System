@@ -17,4 +17,13 @@ SECOND CHAPTER
 12.add bootstrap alert
 13.created req folder and login.php for blank field detector
 14.add session on /req/login.php (MAKE SURE TO CHECK ALL INPUTS ARE ADDED!)
-15.add error handling on login.php
+15.add error handling on /req/login.php
+16.create login verification on /req/login.php
+17.create an admin log pass code on login.php
+<?php
+        $pass = 123;
+        $pass = password_hash($pass, PASSWORD_DEFAULT);
+        echo $pass;
+?>
+18.insert admin data on phpmyadmin database
+19.
