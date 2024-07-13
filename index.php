@@ -17,8 +17,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
   </head>
 
-<!-- TODO:
-9:34 CONTINUE NAVBAR -->
 
 <!-- OWN CSS IS HERE! -->
 
@@ -42,7 +40,8 @@
     }
     #homeNav {
         /* TO MAKE THE NAVBAR TRANSPARENT */
-        /* background: rgba(255,255,255, 0.5) !important; */
+         /* background: rgba(255,255,255, 0.5) !important;  */
+         border-radius:20px;
     }
     .welcome-text{
       min-height: 80vh;
@@ -56,8 +55,10 @@
       font-family: "Lobster", sans-serif;
     }
     .welcome-text p {
-      color: #222;
-      background: rgba(255,255,255,  0.5);
+      color: goldenrod;
+      /* TRANSPARENCY */
+      /* background: rgba(255,255,255,  0.5); */
+      background: lightblue;
       padding: 5px;
       border-radius: 4px;
     }
@@ -68,9 +69,10 @@
       max-width: 600px;
       width:90%;
       /* MAKE THE BACKGROUND TRANSPARENT */
-      background: rgba(255,255,255, 0.7);
+      /* background: rgba(255,255,255, 0.7); */
+      background: white;
 	    padding: 20px;
-	    border-radius: 5px;
+	    border-radius: 20px;
     }
     #about .card-1 h5{
       font-family: "Lobster", sans-serif;
@@ -84,9 +86,11 @@
     #contacts form {
       max-width: 600px;
       width: 90%;
-      background: rgba(255,255,255, 0.7);
+      /* TRANSPARENCY */
+      /* background: rgba(255,255,255, 0.7); */ 
+      background: white;
       padding: 20px;
-      border-radius: 5px;
+      border-radius: 20px;
     }
     #contacts form h3{
       text-align:center;
@@ -106,10 +110,12 @@
 
         <!-- NAVBAR -->
         <nav class="navbar navbar-expand-lg bg-body-tertiary" id="homeNav">
+
   <div class="container-fluid">
     <a class="navbar-brand" href="#"><img src="./images/logo.png" width="30"></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
+
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -216,7 +222,7 @@ align-items-center flex-column">
     <input type="text" class="form-control" id="exampleInputPassword1">
   </div>
   <div class="mb-3">
-    <label class="form-label">Name</label>
+    <label class="form-label">Message</label>
     <textarea class="form-control" rows="4"></textarea>
   </div>
   

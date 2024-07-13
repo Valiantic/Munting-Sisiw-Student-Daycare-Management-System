@@ -51,6 +51,7 @@ if(isset($_POST['uname']) &&
 
 			if($stmt->rowCount() == 1){
 				$user = $stmt->fetch();
+				// continue 19:52
 			}else {
 				$em  = "Incorrect Username or Password";
 				header("Location: ../login.php?error=$em");
