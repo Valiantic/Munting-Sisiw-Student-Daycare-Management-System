@@ -52,3 +52,16 @@ include "inc/navbar.php";
 
 ?>
 8.remove the active on daskboard in navbar.php
+9.paste this on admin/index.php
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+10.go to navbar.php and add id="navLinks"
+<ul class="navbar-nav me-auto mb-2 mb-lg-0" id="navLinks">
+11.create a script tag below in admin/index.php
+12.add this inside the script tag 
+<script>
+
+    $(document).ready(function(){
+        $("#navLinks li:nth-child(1) a").addClass('active');
+    });
+
+</script>

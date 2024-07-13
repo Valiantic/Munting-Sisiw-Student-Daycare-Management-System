@@ -23,6 +23,9 @@ if (isset($_SESSION['admin_id']) &&
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+
+    <!-- JQUERY LINK -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   </head>
 
 
@@ -124,6 +127,13 @@ include "inc/navbar.php";
 ?>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+
+    $(document).ready(function(){
+        $("#navLinks li:nth-child(1) a").addClass('active');
+    });
+
+</script>
 
 </body>
 </html>
