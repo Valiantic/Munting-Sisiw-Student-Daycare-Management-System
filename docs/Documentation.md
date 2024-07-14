@@ -17,12 +17,12 @@ FEATURES TO ADD
 11. add login page
 
 >SECOND CHAPTER
-12. add bootstrap alert
-13. created req folder and login.php for blank field detector
-14. add session on /req/login.php (MAKE SURE TO CHECK ALL INPUTS ARE ADDED!)
-15. add error handling on /req/login.php
-16. create login verification on /req/login.php
-17. create an admin log pass code on login.php
+1. add bootstrap alert
+2. created req folder and login.php for blank field detector
+3. add session on /req/login.php (MAKE SURE TO CHECK ALL INPUTS ARE ADDED!)
+4. add error handling on /req/login.php
+5. create login verification on /req/login.php
+6. create an admin log pass code on login.php
 
 >NOTE: the reason behind this is because the password_hash that will be saved to myphpmyadmin will be 
 overwrited by this $pass code value once you login to login.php so insert this on login.php
@@ -32,11 +32,11 @@ overwrited by this $pass code value once you login to login.php so insert this o
         echo $pass;
 ?>
 
-18. insert admin data on phpmyadmin database
-19. copy all the code from index.php and create and paste the code on home.php
-20. add session on home.php
-21. create a div in home.php and create a echo to show what role is the user
-22. create logout.php and add session_unset and destroy
+7. insert admin data on phpmyadmin database
+8. copy all the code from index.php and create and paste the code on home.php
+9. add session on home.php
+10. create a div in home.php and create a echo to show what role is the user
+11. create logout.php and add session_unset and destroy
 
 >THIRD CHAPTER
 1. create admin folder and within it index.php
@@ -189,3 +189,77 @@ function getAllTeacher($conn){
 33. add another column on tbl_teachers for subjects and grades with a lenght value of 31 both varchar
 34. create another table on the database named grades
 35. create another table on the database named subjects
+36. try and insert data within the two tables grades and subjects
+37. create another php file within data named subject.php and create a function 
+<?php
+
+//CREATE A FUNCTION TO GET ALL THE DATA FROM TBL_SUBJECTS
+function getAllSubjects($conn){
+    $sql = "SELECT * FROM tbl_subjects";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+
+    if($stmt->rowCount() >= 1){
+        $subjects = $stmt->fetchAll();
+        return $subjects;
+    }else {
+        return 0;
+    }
+
+
+}
+
+// FETCH THE SUBJECT BY ID 
+function getSubjectById($subject_id, $conn){
+    $sql = "SELECT * FROM subjects
+            WHERE subject_id=? ";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute([$subject_id]);
+
+    if($stmt->rowCount() == 1){
+        $subject = $stmt->fetch();
+        return $subject;
+    }else {
+        return 0;
+    }
+
+
+}
+
+
+
+?>
+38.  create another php file within data named grade.php and create a function 
+
+<?php
+
+function getGradeById($grade_id, $conn){
+    $sql = "SELECT * FROM grades
+            WHERE grade_id=?";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute([$grade_id]);
+
+    if($stmt->rowCount() == 1){
+        $grade = $stmt->fetch();
+        return $grade;
+    }else {
+        return 0;
+    }
+
+
+}
+
+
+?>
+39.within admin/teachers.php
+CREATE this one for subject and grade just modify the variable's
+<?php 
+                           $s = '';
+                           $subjects = str_split(trim($teacher['subjects']));
+                           foreach ($subjects as $subject) {
+                              $s_temp = getSubjectById($subject, $conn);
+                              if ($s_temp != 0) 
+                                $s .=$s_temp['subject_code'].', ';
+                           }
+                           echo $s;
+?>

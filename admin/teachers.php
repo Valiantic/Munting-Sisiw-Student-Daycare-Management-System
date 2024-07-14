@@ -5,7 +5,9 @@ if (isset($_SESSION['admin_id']) &&
 
     if ($_SESSION['role'] == 'Admin') {
         include "../connections.php";
-        include "data/teachers.php";
+        include "data/teacher.php";
+        include "data/subject.php";
+        include "data/grade.php";
         $teachers = getAllTeachers($conn);
  ?>
 
@@ -153,6 +155,7 @@ if (isset($_SESSION['admin_id']) &&
                   </tr>
                 </thead>
                 <tbody>
+                    <!--CREATE THIS FOR LOOP TO DISPLAY THE DATABASE DATA ON THE TABLE -->
                   <?php foreach ($teachers as $teacher ) { ?>
                   <tr>
                     <th scope="row">1</th>
