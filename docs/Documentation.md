@@ -88,3 +88,16 @@ include "inc/navbar.php";
 16.refer to navbar.php on how many a tag you need to create
 17.the a tag for settings and logout style it make the col-5 to be responsive 
 18.btn-primary for settings and btn-warning for logout
+19.create a teachers.php file within admin folder and edit the href of teacher to both nav and a button tag
+20.copy the code of admin index to admin teachers.php
+21.delete all the div within teachers.php
+22.put href on logo inside the navbar.php
+23.also in teachers.php make sure to update the jquery active hover on navbar 
+<script>
+
+    $(document).ready(function(){
+        // change the nth-child value depending on the page number 
+        $("#navLinks li:nth-child(2) a").addClass('active');
+    });
+
+</script>
