@@ -185,3 +185,7 @@ function getAllTeacher($conn){
         include "data/teachers.php";
         getAllTeachers($conn);
 31. get create an alert button to show no records this is quite confusing to refer to the code written in admin/teachers.php
+32. within the admin/teachers.php create a for loop in order to display the data within the database to the table
+33. add another column on tbl_teachers for subjects and grades with a lenght value of 31 both varchar
+34. create another table on the database named grades
+35. create another table on the database named subjects
