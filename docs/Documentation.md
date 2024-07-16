@@ -272,4 +272,37 @@ CREATE this one for subject and grade just modify the variable's
 47. delete error handling in teachers-add.php
 48. add new class within class="shadow p-3 mt-4 form-w" 
 49. add max-width and width to it 
-50. modify input username to firstname and add another input lastname
+50. modify and create inputs for firstname, lastname, username, password, subject and grade.
+51. within the password label create a div for random password generator see code below
+
+<div class="mb-3">
+    <label class="form-label">Password</label>
+    <div class="input-group mb-3">
+    <input type="text" class="form-control" name="pass">
+    <button class="btn btn-secondary">Random Password</button>
+    </div>
+  </div>
+
+52. get the javascript random password generator and paste it inside the script under teacher-add.php
+
+<script>
+  function makePass(length) {
+            var result           = '';
+            var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            var charactersLength = characters.length;
+            for ( var i = 0; i < length; i++ ) {
+              result += characters.charAt(Math.floor(Math.random() * 
+         charactersLength));
+
+           }
+           var passInput = document.getElementById('passInput');
+           passInput.value = result;
+        }
+
+        var gBtn = document.getElementById('gBtn');
+        gBtn.addEventListener('click', function(e){
+          e.preventDefault();
+          makePass(4);
+        });
+
+</script>

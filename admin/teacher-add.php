@@ -168,22 +168,30 @@ if (isset($_SESSION['admin_id']) &&
     <label class="form-label">First name</label>
     <input type="text" class="form-control" name="fname">
   </div>
+
   <div class="mb-3">
     <label class="form-label">Last name</label>
     <input type="text" class="form-control" name="lname">
   </div>
+
   <div class="mb-3">
     <label class="form-label">Username</label>
     <input type="text" class="form-control" name="Username">
   </div>
+
   <div class="mb-3">
     <label class="form-label">Password</label>
-    <input type="text" class="form-control" name="Username">
+    <div class="input-group mb-3">
+    <input type="text" class="form-control" name="pass" id="passInput">
+    <button class="btn btn-secondary" id="gBtn">Random Password</button>
+    </div>
   </div>
+
   <div class="mb-3">
     <label class="form-label">Subject</label>
     <input type="text" class="form-control" name="Username">
   </div>
+
   <div class="mb-3">
     <label class="form-label">Grade</label>
     <input type="text" class="form-control" name="Username">
@@ -198,6 +206,26 @@ if (isset($_SESSION['admin_id']) &&
     <script>
         $(document).ready(function(){
              $("#navLinks li:nth-child(2) a").addClass('active');
+        });
+
+        // RANDOM PASSWORD GENERATOR 
+        function makePass(length) {
+            var result           = '';
+            var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            var charactersLength = characters.length;
+            for ( var i = 0; i < length; i++ ) {
+              result += characters.charAt(Math.floor(Math.random() * 
+         charactersLength));
+
+           }
+           var passInput = document.getElementById('passInput');
+           passInput.value = result;
+        }
+
+        var gBtn = document.getElementById('gBtn');
+        gBtn.addEventListener('click', function(e){
+          e.preventDefault();
+          makePass(7); // just adjust the number to increase the character length of the password generator
         });
     </script>
 
