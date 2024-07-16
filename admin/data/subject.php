@@ -2,7 +2,7 @@
 
 //CREATE A FUNCTION TO GET ALL THE DATA FROM TBL_SUBJECTS
 function getAllSubjects($conn){
-    $sql = "SELECT * FROM tbl_subjects";
+    $sql = "SELECT * FROM subjects"; //DOUBLECHECK THE TABLE 
     $stmt = $conn->prepare($sql);
     $stmt->execute();
 

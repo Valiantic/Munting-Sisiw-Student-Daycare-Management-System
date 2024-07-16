@@ -306,3 +306,29 @@ CREATE this one for subject and grade just modify the variable's
         });
 
 </script>
+
+53. add checkbox on subject div
+54. envelope the checkbox on col div like this. to make the checkbox align to left
+
+ <div class="col">
+    <input type="checkbox" name="Username"> English
+    </div>
+
+55. envelope again the checkbox on col to display all grades within the database to the checkbox
+
+ <?php foreach ($subjects as $subject): ?>
+      
+        <div class="col">
+        <input type="checkbox" name="subjects[]" value="<?=$subject['subject_id']?>"> 
+        <?=$subject['subjects']?>
+        </div>
+<?php endforeach ?>
+
+56. don't forget to add these connection for both subject and grades on top of teachers-add.php
+
+$subjects = getAllSubjects($conn);
+$grades = getAllGrades($conn);
+
+57.
+
+

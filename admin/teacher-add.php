@@ -8,7 +8,8 @@ if (isset($_SESSION['admin_id']) &&
         include "data/teacher.php";
         include "data/subject.php";
         include "data/grade.php";
-        $teachers = getAllTeachers($conn);
+        $subjects = getAllSubjects($conn);
+        $grades = getAllGrades($conn);
  ?>
 
 <!DOCTYPE html>
@@ -189,7 +190,19 @@ if (isset($_SESSION['admin_id']) &&
 
   <div class="mb-3">
     <label class="form-label">Subject</label>
-    <input type="text" class="form-control" name="Username">
+    <div class="row row-cols-5">
+
+    <!-- USE TO DISPLAY SUBJECTS USING FOR LOOP  -->
+    <?php foreach ($subjects as $subject): ?>
+      
+        <div class="col">
+        <input type="checkbox" name="subjects[]" value="<?=$subject['subject_id']?>"> 
+        <?=$subject['subjects']?>
+        </div>
+
+    <?php endforeach ?>
+
+    </div>
   </div>
 
   <div class="mb-3">
