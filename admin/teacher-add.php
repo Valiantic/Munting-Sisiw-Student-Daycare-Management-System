@@ -138,6 +138,10 @@ if (isset($_SESSION['admin_id']) &&
 	text-align: center;
 	font-size: 50px;
     }
+    .form-w{
+        max-width:600px;
+        width: 100%;
+    }
 
 
 
@@ -152,26 +156,40 @@ if (isset($_SESSION['admin_id']) &&
         <a href="teachers.php"
            class="btn btn-dark">Go Back</a>
 
-<form class="shadow p-3 mt-4" method="post" action="">
+<form class="shadow p-3 mt-4 form-w" method="post" action="">
 
 
-    <h3>Add new user</h3>
+   <hr><h3>Add new teacher</h3></hr>
 
 
-    <!-- ERROR HANDLING  -->
-    <?php if (isset($_GET['error'])) { ?>
-    		<div class="alert alert-danger" role="alert">
-			  <?=$_GET['error']?>
-			</div>
-	<?php } ?>
+
 
   <div class="mb-3">
+    <label class="form-label">First name</label>
+    <input type="text" class="form-control" name="fname">
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Last name</label>
+    <input type="text" class="form-control" name="lname">
+  </div>
+  <div class="mb-3">
     <label class="form-label">Username</label>
-    <input type="text" class="form-control" name="uname">
+    <input type="text" class="form-control" name="Username">
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Password</label>
+    <input type="text" class="form-control" name="Username">
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Subject</label>
+    <input type="text" class="form-control" name="Username">
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Grade</label>
+    <input type="text" class="form-control" name="Username">
   </div>
 
-    <button type="submit" class="btn btn-primary">Login</button>
-    <a href="index.php" class="text-decoration-none">Home</a>
+    <button type="submit" class="btn btn-primary">Add</button>
 </form>
        
      </div>

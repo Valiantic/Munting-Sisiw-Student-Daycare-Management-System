@@ -251,7 +251,7 @@ function getGradeById($grade_id, $conn){
 
 
 ?>
-39.within admin/teachers.php
+39. within admin/teachers.php
 CREATE this one for subject and grade just modify the variable's
 <?php 
                            $s = '';
@@ -263,3 +263,13 @@ CREATE this one for subject and grade just modify the variable's
                            }
                            echo $s;
 ?>
+40. create teacher-add.php within admin folder
+42. copy the code from teachers.php to teacher-add.php
+43. remove the table responsive
+44. copy the login form from login.php to teacher.php inside the div container
+45. change the class of the login form to class="shadow p-3 mt-4" 
+46. remove the picture logo
+47. delete error handling in teachers-add.php
+48. add new class within class="shadow p-3 mt-4 form-w" 
+49. add max-width and width to it 
+50. modify input username to firstname and add another input lastname
