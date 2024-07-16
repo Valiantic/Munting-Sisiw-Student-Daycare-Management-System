@@ -127,6 +127,18 @@ if (isset($_SESSION['admin_id']) &&
     .n-table{
         max-width: 800px;
     }
+    .login {
+	max-width: 500px;
+	width: 90%;
+	background: rgba(255,255,255, 0.7);
+	padding: 10px;
+	border-radius: 10px;
+    }
+    .login h3{
+	text-align: center;
+	font-size: 50px;
+    }
+
 
 
 </style>
@@ -140,12 +152,10 @@ if (isset($_SESSION['admin_id']) &&
         <a href="teachers.php"
            class="btn btn-dark">Go Back</a>
 
-           <form class="login" method="post" action="./req/login.php">
-    <div class="text-center">
-        <img src="../images/logo.png" width="100">
-    </div>
+<form class="shadow p-3 mt-4" method="post" action="">
 
-    <h3>LOGIN</h3>
+
+    <h3>Add new user</h3>
 
 
     <!-- ERROR HANDLING  -->
@@ -159,18 +169,7 @@ if (isset($_SESSION['admin_id']) &&
     <label class="form-label">Username</label>
     <input type="text" class="form-control" name="uname">
   </div>
-  <div class="mb-3">
-    <label class="form-label">Password</label>
-    <input type="password" class="form-control" name="pass">
-  </div>
-  <div class="mb-3">
-    <label class="form-label">Login As</label>
-    <select class="form-control" name="role">
-        <option value="1">Admin</option>
-        <option value="2">Student</option>
-        <option value="3">Teacher</option>
-    </select> 
-  </div>
+
     <button type="submit" class="btn btn-primary">Login</button>
     <a href="index.php" class="text-decoration-none">Home</a>
 </form>
