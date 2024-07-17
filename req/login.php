@@ -62,7 +62,6 @@ if(isset($_POST['uname']) &&
 						// continue 27:01
 						if($role == 'Admin'){
 							$id = $user['admin_id'];
-							$_SESSION['fname'] = $fname;
 							$_SESSION['admin_id'] = $id;
 							header("Location: ../admin/index.php");
 							exit;

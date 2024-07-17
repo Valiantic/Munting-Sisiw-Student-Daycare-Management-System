@@ -207,7 +207,18 @@ if (isset($_SESSION['admin_id']) &&
 
   <div class="mb-3">
     <label class="form-label">Grade</label>
-    <input type="text" class="form-control" name="Username">
+
+    <div class="row row-cols-5"> 
+    <?php foreach ($grades as $grade): ?>
+      
+      <div class="col">
+      <input type="checkbox" name="subjects[]" value="<?=$grade['grade_id']?>"> 
+      <?=$grade['grade']?>
+
+    </div>
+    <?php endforeach ?>
+    </div>
+
   </div>
 
     <button type="submit" class="btn btn-primary">Add</button>

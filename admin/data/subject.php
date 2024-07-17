@@ -1,6 +1,6 @@
 <?php
 
-//CREATE A FUNCTION TO GET ALL THE DATA FROM TBL_SUBJECTS
+//CREATE A FUNCTION TO GET ALL THE DATA FROM SUBJECTS
 function getAllSubjects($conn){
     $sql = "SELECT * FROM subjects"; //DOUBLECHECK THE TABLE 
     $stmt = $conn->prepare($sql);

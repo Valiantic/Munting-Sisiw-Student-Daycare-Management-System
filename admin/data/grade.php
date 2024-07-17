@@ -2,13 +2,13 @@
 
 //CREATE A FUNCTION TO GET ALL THE GRADE FROM GRADES
 function getAllGrades($conn){
-    $sql = "SELECT * FROM subjects"; //DOUBLECHECK THE TABLE 
+    $sql = "SELECT * FROM grades"; //DOUBLECHECK THE TABLE 
     $stmt = $conn->prepare($sql);
     $stmt->execute();
 
     if($stmt->rowCount() >= 1){
-        $subjects = $stmt->fetchAll();
-        return $subjects;
+        $grades = $stmt->fetchAll();
+        return $grades;
     }else {
         return 0;
     }
