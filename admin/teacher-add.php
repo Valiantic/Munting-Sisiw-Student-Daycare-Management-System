@@ -157,7 +157,7 @@ if (isset($_SESSION['admin_id']) &&
         <a href="teachers.php"
            class="btn btn-dark">Go Back</a>
 
-<form class="shadow p-3 mt-4 form-w" method="post" action="">
+<form class="shadow p-3 mt-4 form-w" method="post" action="req/teacher-add.php">
 
 
    <hr><h3>Add new teacher</h3></hr>
@@ -212,8 +212,10 @@ if (isset($_SESSION['admin_id']) &&
     <?php foreach ($grades as $grade): ?>
       
       <div class="col">
-      <input type="checkbox" name="subjects[]" value="<?=$grade['grade_id']?>"> 
-      <?=$grade['grade']?>
+      <input type="checkbox" name="grades[]" value="<?=$grade['grade_id']?>"> 
+      <?=$grade['grade_code']?>-<?=$grade['grade']?>
+      <!-- ENCLOSED IN PHP TAG ARE THE VARIABLES YOU WANT TO DISPLAY -->
+
 
     </div>
     <?php endforeach ?>
