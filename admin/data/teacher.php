@@ -16,6 +16,21 @@ function getAllTeachers($conn){
 
 }
 
+// FUNCTION TO FOR UNIQUE USERNAME CHECKER
+
+function unameIsUnique($uname, $conn){
+    $sql = "SELECT username FROM tbl_teachers
+            WHERE username=?";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute([$uname]);
+ 
+    if ($stmt->rowCount() >= 1) {
+      return 0;
+    }else {
+        return 1;
+    }
+ }
+
 
 
 ?>

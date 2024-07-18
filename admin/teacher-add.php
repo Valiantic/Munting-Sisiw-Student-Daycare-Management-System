@@ -4,6 +4,7 @@ if (isset($_SESSION['admin_id']) &&
     isset($_SESSION['role'])) {
 
     if ($_SESSION['role'] == 'Admin') {
+
         include "../connections.php";
         include "data/teacher.php";
         include "data/subject.php";
@@ -162,8 +163,13 @@ if (isset($_SESSION['admin_id']) &&
 
    <hr><h3>Add new teacher</h3></hr>
 
-
-
+     <!-- ERROR HANDLING  1:16:22 -->
+     <?php if (isset($_GET['error'])) { ?>
+    		<div class="alert alert-danger" role="alert">
+			  <?=$_GET['error']?>
+			</div>
+	<?php } ?>
+    
 
   <div class="mb-3">
     <label class="form-label">First name</label>
@@ -177,7 +183,7 @@ if (isset($_SESSION['admin_id']) &&
 
   <div class="mb-3">
     <label class="form-label">Username</label>
-    <input type="text" class="form-control" name="Username">
+    <input type="text" class="form-control" name="username">
   </div>
 
   <div class="mb-3">

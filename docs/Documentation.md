@@ -370,4 +370,94 @@ if(isset($_POST['fname']) &&
 	exit;
 } 
 
+60. below the blank field detector in req/teacher-add.php add this code.
+this code signals the interface if the user didn't input any data
 
+ $grades = "";
+    foreach ($_POST['grades'] as $grade){
+        $grades .=$grade;
+    }
+    
+    $subjects = "";
+    foreach ($_POST['subjects'] as $subject){
+        $subjects .=$subject;
+    }
+
+    if (empty($fname)) {
+		$em  = "First name is required";
+		header("Location: ../login.php?error=$em");
+		exit;
+	}else if (empty($lname)) {
+		$em  = "Last name is required";
+		header("Location: ../login.php?error=$em");
+		exit;
+	}else if (empty($uname)) {
+		$em  = "Username is required";
+		header("Location: ../login.php?error=$em");
+		exit;
+	}else if () {
+		$em  = "Username is taken! try another one";
+		header("Location: ../login.php?error=$em");
+		exit;
+	}else if (empty($pass)) {
+		$em  = "Password is required";
+		header("Location: ../login.php?error=$em");
+		exit;
+	}else {
+        
+    }
+
+61. in admin/teacher-add.php add this error handling below h3 add new teacher 
+
+ <!-- ERROR HANDLING  -->
+     <?php if (isset($_GET['error'])) { ?>
+    		<div class="alert alert-danger" role="alert">
+			  <?=$_GET['error']?>
+			</div>
+	<?php } ?>
+
+62. create a new function to check if the username is already registered in the database 
+in admin/data/teacher.php
+
+//CREATE A FUNCTION TO GET ALL THE DATA FROM SUBJECTS
+function getAllSubjects($conn){
+    $sql = "SELECT * FROM subjects"; //DOUBLECHECK THE TABLE 
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+
+    if($stmt->rowCount() >= 1){
+        $subjects = $stmt->fetchAll();
+        return $subjects;
+    }else {
+        return 0;
+    }
+
+}
+
+63. in req/teacher-add.php modify the if statement code to this.
+this modify code has now pass the parameter of the function that checks 
+the email is unique. 
+
+ if (empty($fname)) {
+      $em  = "First name is required";
+      header("Location: ../teacher-add.php?error=$em&$data");
+      exit;
+    }else if (empty($lname)) {
+      $em  = "Last name is required";
+      header("Location: ../teacher-add.php?error=$em&$data");
+      exit;
+    }else if (empty($uname)) {
+      $em  = "Username is required";
+      header("Location: ../teacher-add.php?error=$em&$data");
+      exit;
+    }else if (!unameIsUnique($uname, $conn)) {
+      $em  = "Username is taken! try another";
+      header("Location: ../teacher-add.php?error=$em&$data");
+      exit;
+    }else if (empty($pass)) {
+      $em  = "Password is required";
+      header("Location: ../teacher-add.php?error=$em&$data");
+      exit;
+    }else {
+        echo "Success!";
+    }
