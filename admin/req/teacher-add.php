@@ -59,7 +59,23 @@ if(isset($_POST['fname']) &&
       header("Location: ../teacher-add.php?error=$em&$data");
       exit;
     }else {
-        echo "Success!";
+        // echo "Success!";
+
+        // password hashing
+        $pass = password_hash($pass, PASSWORD_DEFAULT);
+
+        $sql = "INSERT INTO
+                tbl_teachers(username, password, fname, lname,
+                            subjects, grades)
+                            VALUES(?,?,?,?,?,?)";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute([$uname, $pass, $fname, $lname, $subjects, 
+              $grades]);
+
+              $sm = "New teacher has been registered successfully";
+              header("Location: ../teacher-add.php?success=$sm");
+              exit;
+
     }
   
 

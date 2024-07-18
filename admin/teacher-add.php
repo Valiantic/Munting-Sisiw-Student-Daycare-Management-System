@@ -163,10 +163,17 @@ if (isset($_SESSION['admin_id']) &&
 
    <hr><h3>Add new teacher</h3></hr>
 
-     <!-- ERROR HANDLING  1:16:22 -->
+     <!-- ERROR HANDLING   -->
      <?php if (isset($_GET['error'])) { ?>
     		<div class="alert alert-danger" role="alert">
 			  <?=$_GET['error']?>
+			</div>
+	<?php } ?>
+
+    <!-- SUCCESS HANDLING   -->
+    <?php if (isset($_GET['success'])) { ?>
+    		<div class="alert alert-success" role="alert">
+			  <?=$_GET['success']?>
 			</div>
 	<?php } ?>
     

@@ -461,3 +461,23 @@ the email is unique.
     }else {
         echo "Success!";
     }
+
+64. add this in the else replace echo "Success"; 
+with this block of code to insert account on the database.
+
+ $pass = password_hash($pass, PASSWORD_DEFAULT);
+
+        $sql = "INSERT INTO
+                tbl_teachers(username, password, fname, lname,
+                            subjects, grades)
+                            VALUES(?,?,?,?,?,?)";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute([$uname, $pass, $fname, $lname, $subjects, 
+              $grades]);
+
+              $sm = "New teacher has been registered successfully";
+              header("Location: ../teacher-add.php?success=$sm");
+              exit;
+
+
+65. go to admin/teacher-add.php and copy the error handling replace it with the success handling.
