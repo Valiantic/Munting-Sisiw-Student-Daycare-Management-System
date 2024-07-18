@@ -481,3 +481,24 @@ with this block of code to insert account on the database.
 
 
 65. go to admin/teacher-add.php and copy the error handling replace it with the success handling.
+
+66. add validation session on admin/req/teacher-add.php
+
+ // VALIDATION SESSION
+    $data = 'uname'.$uname.'&fname'.$fname.'&lname='.$lname;
+
+67. in admin/teacher-add/php add this 
+
+  // VARIABLE INITIALIZATION FOR VALIDATION SESSION
+        $fname = '';
+        $lname = '';
+        $uname = '';
+
+        // VARIABLE INITIALIZATION FOR SESSION
+        if (isset($_GET['fname'])) $fname = $_GET['fname'];
+        if (isset($_GET['lname'])) $lname = $_GET['lname'];
+        if (isset($_GET['uname'])) $uname = $_GET['uname'];
+
+        // PUT VALUE ON THREE INPUT FNAME,LNAME, AND UNAME
+
+68. add value on 3 input fname,lname and uname.

@@ -38,6 +38,10 @@ if(isset($_POST['fname']) &&
         $subjects .=$subject;
     }
 
+
+    // VALIDATION SESSION
+    $data = 'uname'.$uname.'&fname'.$fname.'&lname='.$lname;
+
     if (empty($fname)) {
       $em  = "First name is required";
       header("Location: ../teacher-add.php?error=$em&$data");

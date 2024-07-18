@@ -11,6 +11,20 @@ if (isset($_SESSION['admin_id']) &&
         include "data/grade.php";
         $subjects = getAllSubjects($conn);
         $grades = getAllGrades($conn);
+
+
+        // VARIABLE INITIALIZATION FOR VALIDATION SESSION
+        $fname = '';
+        $lname = '';
+        $uname = '';
+
+        // VARIABLE INITIALIZATION FOR SESSION
+        if (isset($_GET['fname'])) $fname = $_GET['fname'];
+        if (isset($_GET['lname'])) $lname = $_GET['lname'];
+        if (isset($_GET['uname'])) $uname = $_GET['uname'];
+
+        // PUT VALUE ON THREE INPUT FNAME,LNAME, AND UNAME
+
  ?>
 
 <!DOCTYPE html>
@@ -180,17 +194,17 @@ if (isset($_SESSION['admin_id']) &&
 
   <div class="mb-3">
     <label class="form-label">First name</label>
-    <input type="text" class="form-control" name="fname">
+    <input type="text" class="form-control" value="<?=$fname?>" name="fname">
   </div>
 
   <div class="mb-3">
     <label class="form-label">Last name</label>
-    <input type="text" class="form-control" name="lname">
+    <input type="text" class="form-control" value="<?=$lname?>" name="lname">
   </div>
 
   <div class="mb-3">
     <label class="form-label">Username</label>
-    <input type="text" class="form-control" name="username">
+    <input type="text" class="form-control" value="<?=$uname?>" name="username">
   </div>
 
   <div class="mb-3">
