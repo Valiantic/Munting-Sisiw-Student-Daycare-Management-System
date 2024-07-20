@@ -192,7 +192,7 @@ if (isset($_SESSION['admin_id']) &&
                     <td>
                         <a href=""
                            class="btn btn-warning">Edit</a>
-                        <a href=""
+                        <a href="teacher-delete.php?teacher_id=<?=$teacher['teacher_id']?>"
                            class="btn btn-danger">Delete</a>
                     </td>
                   </tr>

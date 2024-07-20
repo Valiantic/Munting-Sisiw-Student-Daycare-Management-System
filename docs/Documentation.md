@@ -502,3 +502,12 @@ with this block of code to insert account on the database.
         // PUT VALUE ON THREE INPUT FNAME,LNAME, AND UNAME
 
 68. add value on 3 input fname,lname and uname.
+
+>FOURTH CHAPTER
+1. Add href="teacher-delete.php" on teachers.php
+2. Do this on the href. make sure that the teacher_id= is close
+
+ <a href="teacher-delete.php?teacher_id=<?=$teacher['teacher_id']?>"
+                           class="btn btn-danger">Delete</a>
+
+3. now create teacher-delete.php within the admin folder
