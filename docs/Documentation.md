@@ -511,3 +511,39 @@ with this block of code to insert account on the database.
                            class="btn btn-danger">Delete</a>
 
 3. now create teacher-delete.php within the admin folder
+4. create a sessions start, include a database system and data/teacher.php
+with if else location catcher
+
+<?php
+session_start();
+if (isset($_SESSION['admin_id']) && 
+    isset($_SESSION['role'])) {
+
+    if ($_SESSION['role'] == 'Admin') {
+     
+        include "../connections.php";
+        include "data/teacher.php";
+
+    }else {
+        header("Location: ../login.php");
+        exit;
+      } 
+    }else {
+        header("Location: ../login.php");
+        exit;
+    } 
+
+
+?>
+
+5. add another get method inside the if condition. this is to fetch 
+the teacher id data within teachers.php
+
+isset($_GET['teacher_id'])
+
+6. change also the location on the else statement to teachers.php
+7. inside the if statement create a variable for id and paste this get method 
+
+ $id = $_GET['teacher_id'];
+
+ 8. 
