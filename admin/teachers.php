@@ -141,6 +141,20 @@ if (isset($_SESSION['admin_id']) &&
         <a href="teacher-add.php"
            class="btn btn-dark">Add New Teacher</a>
 
+                      <!-- ERROR HANDLING  -->
+            <?php if (isset($_GET['error'])) { ?>
+                <div class="alert alert-danger mt-3 n-table" role="alert">
+                <?=$_GET['error']?>
+              </div>
+             <?php } ?>
+
+                         <!-- SUCCESS HANDLING FOR TEACHER-DELETE -->
+             <?php if (isset($_GET['success'])) { ?>
+                <div class="alert alert-info mt-3 n-table" role="alert">
+                <?=$_GET['success']?>
+              </div>
+             <?php } ?>
+
            <div class="table-responsive">
               <table class="table table-bordered mt-3 n-table">
                 <thead>

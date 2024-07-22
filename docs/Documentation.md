@@ -578,3 +578,25 @@ removeTeacher($id, $conn)
 $em = "Unknown Error Occurred";
             header("Location: teacher.php?error=$em");
             exit;
+
+13. now if that goes on copy paste this error and success handling in teachers.php 
+this is to indicate that if the data is successfully deleted or not 
+
+              <!-- ERROR HANDLING  -->
+                        <?php if (isset($_GET['error'])) { ?>
+                            <div class="alert alert-danger" role="alert">
+                            <?=$_GET['error']?>
+                          </div>
+                        <?php } ?>
+
+                         <!-- SUCCESS HANDLING FOR TEACHER-DELETE -->
+             <?php if (isset($_GET['success'])) { ?>
+                <div class="alert alert-info" role="alert">
+                <?=$_GET['success']?>
+              </div>
+             <?php } ?>
+
+14. inside the class of both error and successs handling put a boostrap code 
+for mt-5 for margin and n-table to properly align on the data table below 
+
+ <div class="alert alert-danger mt-3 n-table" role="alert">
