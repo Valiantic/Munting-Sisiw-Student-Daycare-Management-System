@@ -31,6 +31,23 @@ function unameIsUnique($uname, $conn){
     }
  }
 
+//  <!-- CREATING A DELETE FUNCTION -->
+ 
+
+ function removeTeacher($id, $conn){
+    $sql = "DELETE FROM tbl_teachers
+            WHERE teacher_id=?";
+    $stmt = $conn->prepare($sql);
+    $re = $stmt->execute([$id]);
+ 
+    if ($re) {
+      return 1;
+    }else {
+        return 0;
+    }
+ }
+
 
 
 ?>
+

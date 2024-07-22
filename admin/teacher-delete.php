@@ -10,6 +10,15 @@ if (isset($_SESSION['admin_id']) &&
         include "data/teacher.php";
 
         $id = $_GET['teacher_id'];
+        if (removeTeacher($id, $conn)) {
+            $sm = "Successfully Deleted";
+            header("Location: teachers.php?success=$sm"); // TAKE NOTE THE HEADER MAKE SURE IT'S THE RIGHT PHP FILE
+            exit;
+        }else{
+            $em = "Unknown Error Occurred";
+            header("Location: teachers.php?error=$em");
+            exit;
+        }
 
     }else {
         header("Location: teachers.php");

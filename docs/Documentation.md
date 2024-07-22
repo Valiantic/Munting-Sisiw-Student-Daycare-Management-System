@@ -546,4 +546,35 @@ isset($_GET['teacher_id'])
 
  $id = $_GET['teacher_id'];
 
- 8. 
+ 8. inside the admin/data/teacher.php create a function for remove teachers
+ 9. paste this function for remove teachers data 
+
+ function removeTeacher($id, $conn){
+    $sql = "DELETE FROM tbl_teachers
+            WHERE teacher_id=?";
+    $stmt = $conn->prepare($sql);
+    $re = $stmt->execute([$id]);
+ 
+    if ($re) {
+      return 1;
+    }else {
+        return 0;
+    }
+ }
+
+10. now in teacher-delete.php create an if else statement and put this into if 
+condition
+
+removeTeacher($id, $conn)
+
+11. then inside the if statement put this to indicate that the data is deleted
+
+ $sm = "Successfully Deleted!";
+            header("Location: teacher.php?success=$sm");
+            exit;
+
+12. and this for error catching in else method 
+
+$em = "Unknown Error Occurred";
+            header("Location: teacher.php?error=$em");
+            exit;
