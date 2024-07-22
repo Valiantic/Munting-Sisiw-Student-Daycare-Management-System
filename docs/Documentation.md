@@ -674,3 +674,33 @@ do this for lname and username too so that we can fetch the data within the data
     <label class="form-label">First name</label>
     <input type="text" class="form-control" value="<?=$teacher['fname']?>" name="fname">
   </div>
+
+17. in teacher-edit.php we need to alter the code in order to save the checked data in the form 
+to the database see the code below. just replace the subject to grade in the php 
+
+  <!-- USE TO DISPLAY SUBJECTS USING FOR LOOP  -->
+        <?php 
+        // USED TO SPLIT SUBJECT DATA'S
+        $subject_ids = str_split(trim($teacher['subjects']));
+    
+        // INDICATION TO ADD DATA USING SUBJECT ID
+        foreach ($subjects as $subject){ 
+            $checked = 0;
+            foreach ($subject_ids as $subject_id){
+                if ($subject_id == $subject['subject_id']) {
+                    $checked = 1;
+                }
+            }
+
+            ?>
+      
+        <div class="col">
+        <input type="checkbox" name="subjects[]" 
+        <?php if($checked) echo "checked"; ?>
+        value="<?=$subject['subject_id']?>"> 
+        <?=$subject['subjects']?>
+        </div>
+
+    <?php } ?>
+
+18. 

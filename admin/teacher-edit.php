@@ -211,14 +211,29 @@ if (isset($_SESSION['admin_id']) &&
     <div class="row row-cols-5">
 
     <!-- USE TO DISPLAY SUBJECTS USING FOR LOOP  -->
-    <?php foreach ($subjects as $subject): ?>
+        <?php 
+        // USED TO SPLIT SUBJECT DATA'S
+        $subject_ids = str_split(trim($teacher['subjects']));
+    
+        // INDICATION TO ADD DATA USING SUBJECT ID
+        foreach ($subjects as $subject){ 
+            $checked = 0;
+            foreach ($subject_ids as $subject_id){
+                if ($subject_id == $subject['subject_id']) {
+                    $checked = 1;
+                }
+            }
+
+            ?>
       
         <div class="col">
-        <input type="checkbox" name="subjects[]" value="<?=$subject['subject_id']?>"> 
+        <input type="checkbox" name="subjects[]" 
+        <?php if($checked) echo "checked"; ?>
+        value="<?=$subject['subject_id']?>"> 
         <?=$subject['subjects']?>
         </div>
 
-    <?php endforeach ?>
+    <?php } ?>
 
     </div>
   </div>
@@ -227,16 +242,33 @@ if (isset($_SESSION['admin_id']) &&
     <label class="form-label">Grade</label>
 
     <div class="row row-cols-5"> 
-    <?php foreach ($grades as $grade): ?>
+    <!-- USE TO DISPLAY GRADES USING FOR LOOP  -->
+    <?php 
+        // USED TO SPLIT GRADES DATA'S
+        $grade_ids = str_split(trim($teacher['grades']));
+    
+
+        foreach ($grades as $grade){ 
+            $checked = 0;
+            foreach ($grade_ids as $grade_id){
+                if ($grade_id == $grade['grade_id']) {
+                    $checked = 1;
+                }
+            }
+
+            ?>
       
       <div class="col">
-      <input type="checkbox" name="grades[]" value="<?=$grade['grade_id']?>"> 
+      <input type="checkbox" 
+      name="grades[]" 
+      <?php if($checked) echo "checked"; ?>
+      value="<?=$grade['grade_id']?>"> 
       <?=$grade['grade_code']?>-<?=$grade['grade']?>
       <!-- ENCLOSED IN PHP TAG ARE THE VARIABLES YOU WANT TO DISPLAY -->
 
 
     </div>
-    <?php endforeach ?>
+    <?php } ?>
     </div>
 
   </div>
