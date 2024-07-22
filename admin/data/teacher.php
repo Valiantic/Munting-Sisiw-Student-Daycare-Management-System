@@ -36,17 +36,32 @@ function getAllTeachers($conn){
 
 // FUNCTION TO FOR UNIQUE USERNAME CHECKER
 
-function unameIsUnique($uname, $conn){
-    $sql = "SELECT username FROM tbl_teachers
+function unameIsUnique($uname, $conn, $teacher_id=0){
+    $sql = "SELECT username, teacher_id FROM tbl_teachers
             WHERE username=?";
     $stmt = $conn->prepare($sql);
     $stmt->execute([$uname]);
  
-    if ($stmt->rowCount() >= 1) {
-      return 0;
+    // To check if the teacher id is unique
+    if($teacher_id == 0){
+
+        if ($stmt->rowCount() >= 1) {
+            return 0;
+          }else {
+              return 1;
+          }
     }else {
-        return 1;
+        // check if the data is recorded
+        if ($stmt->rowCount() >= 1) {
+             $teacher = $stmt->fetch();
+             if($teacher['teacher_id'] == $teacher_id){
+                return 1;
+             }else return 0;
+          }else {
+              return 1;
+          }
     }
+
  }
 
 //  <!-- CREATING A DELETE FUNCTION -->

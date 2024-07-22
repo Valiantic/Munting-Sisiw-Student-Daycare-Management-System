@@ -169,7 +169,8 @@ if (isset($_SESSION['admin_id']) &&
         <a href="teachers.php"
            class="btn btn-dark">Go Back</a>
 
-<form class="shadow p-3 mt-4 form-w" method="post" action="req/teacher-add.php">
+                                                <!-- ADD ACTION TO REDIRECT TO TEACHER EDIT IN REQ FOLDER -->
+<form class="shadow p-3 mt-4 form-w" method="post" action="req/teacher-edit.php">
 
 
    <hr><h3>Edit teacher</h3></hr>
@@ -205,6 +206,10 @@ if (isset($_SESSION['admin_id']) &&
     <input type="text" class="form-control" value="<?=$teacher['username']?>" name="username">
   </div>
 
+  <!-- INDICATION FOR TEACHER ID -->
+  <input type="text" value="<?=$teacher['teacher_id']?>"
+         name="teacher_id"
+         hidden>
 
   <div class="mb-3">
     <label class="form-label">Subject</label>
@@ -273,7 +278,9 @@ if (isset($_SESSION['admin_id']) &&
 
   </div>
 
-    <button type="submit" class="btn btn-primary">Add</button>
+    <button type="submit" 
+            class="btn btn-primary">
+            Update</button>
 </form>
 
 <form class="shadow p-3 mt-4 form-w" method="post" action="req/teacher-add.php">

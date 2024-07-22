@@ -703,4 +703,107 @@ to the database see the code below. just replace the subject to grade in the php
 
     <?php } ?>
 
-18. 
+18. edit the button in teacher-edit.php from add to update
+
+19. create an input to hold the variable for teacher id in teacher-edit.php.
+put this block of code below the div username 
+
+<!-- INDICATION FOR TEACHER ID -->
+  <input type="text" value="<?=$teacher['teacher_id']?>"
+         name="teacher_id"
+         hidden>
+
+20. create a new file teacher-edit.php in the folder req/admin
+
+21. copy the whole code block of teacher-add to /admin/req/teacher-edit.php
+
+22. inside the isset if statement paste this code in admin/req/teacher-edit.php 
+
+ // DATABASE CONNECTION
+    include '../../connections.php';
+    include "../data/teacher.php";
+    
+    $fname = $_POST['fname'];
+    $lname = $_POST['lname'];
+    $uname = $_POST['username'];
+    $teacher_id = $_POST['teacher_id'];
+
+    $grades = "";
+    foreach ($_POST['grades'] as $grade){
+        $grades .=$grade;
+    }
+    
+    $subjects = "";
+    foreach ($_POST['subjects'] as $subject){
+        $subjects .=$subject;
+    }
+
+
+    // VALIDATION SESSION 
+    // TAKE NOTE FOR THE DATA SHOULD BE TEACHER_ID= 
+    $data = 'teacher_id='.$teacher_id;
+
+    if (empty($fname)) {
+      $em  = "First name is required";
+      header("Location: ../teacher-edit.php?error=$em&$data");
+      exit;
+    }else if (empty($lname)) {
+      $em  = "Last name is required";
+      header("Location: ../teacher-edit.php?error=$em&$data");
+      exit;
+    }else if (empty($uname)) {
+      $em  = "Username is required";
+      header("Location: ../teacher-edit.php?error=$em&$data");
+      exit;
+    }else if (!unameIsUnique($uname, $conn, $teacher_id)) {
+      $em  = "Username is taken! try another";
+      header("Location: ../teacher-edit.php?error=$em&$data");
+      exit;
+    }else {
+    // NOTE CHECK THE ALWAYS THE TABLE NAME!
+      $sql = "UPDATE tbl_teachers SET 
+              username = ?, fname=?, lname=?, subjects=?, grades=?
+              WHERE teacher_id=?";
+            
+      $stmt = $conn->prepare($sql);
+      $stmt->execute([$uname, $fname, $lname, $subjects, $grades
+                    , $teacher_id]);
+    
+      $sm = "Successfully Updated!";
+      header("Location: ../teacher-edit.php?success=$sm&$data");
+      exit;
+
+    
+    }
+
+23. in the admin/data/teacher.php file modify the function uniquebyname into this 
+this is to ensure that the updated data is not the same within the recorded data 
+in the database.
+
+function unameIsUnique($uname, $conn, $teacher_id=0){
+    $sql = "SELECT username, teacher_id FROM tbl_teachers
+            WHERE username=?";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute([$uname]);
+ 
+    // To check if the teacher id is unique
+    if($teacher_id == 0){
+
+        if ($stmt->rowCount() >= 1) {
+            return 0;
+          }else {
+              return 1;
+          }
+    }else {
+        // check if the data is recorded
+        if ($stmt->rowCount() >= 1) {
+             $teacher = $stmt->fetch();
+             if($teacher['teacher_id'] == $teacher_id){
+                return 1;
+             }else return 0;
+          }else {
+              return 1;
+          }
+    }
+
+ }
