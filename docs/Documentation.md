@@ -600,3 +600,77 @@ this is to indicate that if the data is successfully deleted or not
 for mt-5 for margin and n-table to properly align on the data table below 
 
  <div class="alert alert-danger mt-3 n-table" role="alert">
+
+15. in teachers.php copy the anchor tag of teacher delete and paste it to teacher edit anchor tag.
+just modify the href file from teacher delete to teacher edit
+
+16. copy the whole code for teacher.add to teacher-edit 
+17. edit the title and href to edit teachers for identification 
+18. add this one the session condition. Don't forget the && clause for second condition.
+
+&& isset($_GET['teacher_id'])
+
+19. delete the initialization variable for session in teacher-edit.php this is the code under 
+if session role 
+
+10. cut the password div in teacher-edit.php and paste it under the form 
+11. copy the form tag class and paste it under. enveloping the pasted teacher-edit.php. make sure that the form tag endline spare another endline for div under it. 
+
+12. inside the form below with password paste this code for success and error handling on password 
+modification. 
+
+<!-- COPY THIS CODE FROM ABOVE -->
+<hr><h3>Edit Password</h3></hr>
+
+<!-- ERROR HANDLING   -->
+<?php if (isset($_GET['error'])) { ?>
+       <div class="alert alert-danger" role="alert">
+         <?=$_GET['error']?>
+       </div>
+<?php } ?>
+
+<!-- SUCCESS HANDLING   -->
+<?php if (isset($_GET['success'])) { ?>
+       <div class="alert alert-success" role="alert">
+         <?=$_GET['success']?>
+       </div>
+<?php } ?>
+
+
+13. copy the getsubjectid function on subject.php to admin/data/teacher.php
+
+14. modify the code into this 
+
+function getTeacherById($teacher_id, $conn){
+    $sql = "SELECT * FROM tbl_teachers
+            WHERE teacher_id=? ";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute([$teacher_id]);
+
+    if($stmt->rowCount() == 1){
+        $teacher = $stmt->fetch();
+        return $teacher;
+    }else {
+        return 0;
+    }
+
+}
+
+15. on teacher-edit.php create a variable to get the id of the teacher and an if statement
+to catch the redirection link 
+
+  $teacher_id = $_GET['teacher_id'];
+        $teacher = getTeacherById($teacher_id, $conn);
+       
+        if ($teacher == 0){
+            header("Location: teachers.php");
+	        exit;
+        }
+
+16. add value for each input. 
+do this for lname and username too so that we can fetch the data within the database.
+
+<div class="mb-3">
+    <label class="form-label">First name</label>
+    <input type="text" class="form-control" value="<?=$teacher['fname']?>" name="fname">
+  </div>

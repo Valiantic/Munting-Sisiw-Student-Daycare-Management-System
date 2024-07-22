@@ -1,5 +1,23 @@
 <?php
 
+
+// FETCH THE SUBJECT BY ID 
+function getTeacherById($teacher_id, $conn){
+    $sql = "SELECT * FROM tbl_teachers
+            WHERE teacher_id=? ";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute([$teacher_id]);
+
+    if($stmt->rowCount() == 1){
+        $teacher = $stmt->fetch();
+        return $teacher;
+    }else {
+        return 0;
+    }
+
+
+}
+
 //CREATE A FUNCTION TO GET ALL THE DATA FROM TBL_TEACHERS
 function getAllTeachers($conn){
     $sql = "SELECT * FROM tbl_teachers";
