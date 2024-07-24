@@ -807,3 +807,34 @@ function unameIsUnique($uname, $conn, $teacher_id=0){
     }
 
  }
+
+24. in teacher-edit.php change the variable name on the get method of both
+error and success handling to perror and psuccess
+
+25. copy the password div in teacher-edit and paste it below the current password div
+
+26. modify a little the change password div 
+
+<!-- CONFIRMATION CHANGE PASSWORD DIV -->
+<div class="mb-3">
+    <label class="form-label">Password</label>
+      
+    <input type="text" class="form-control" name="pass" id="passInput2">
+  
+
+</div>  
+
+27. add documentgetbyid and value result on password generator for change password div just duplicate the code
+
+28. copy the confirm new pass word and paste it on top of the label password
+
+29. change the pasted password to admin password 
+
+30. change the current password div to new password while the password div below is the confirm new password
+
+31. in the admin password remove the id=passInput2 so that the generated password will not print on the input for admin 
+password
+
+32. put name value on every input for example admin name=admin_pass same goes for new password and confirm password
+
+33. 

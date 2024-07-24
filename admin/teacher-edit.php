@@ -283,36 +283,56 @@ if (isset($_SESSION['admin_id']) &&
             Update</button>
 </form>
 
-<form class="shadow p-3 mt-4 form-w" method="post" action="req/teacher-add.php">
+<form class="shadow p-3 my-5 form-w" method="post" action="req/teacher-add.php">
 
 
 <!-- COPY THIS CODE FROM ABOVE -->
 <hr><h3>Change Password</h3></hr>
 
 <!-- ERROR HANDLING   -->
-<?php if (isset($_GET['error'])) { ?>
+<?php if (isset($_GET['perror'])) { ?>
        <div class="alert alert-danger" role="alert">
-         <?=$_GET['error']?>
+         <?=$_GET['perror']?>
        </div>
 <?php } ?>
+
+<!-- continue 38:22 -->
 
 <!-- SUCCESS HANDLING   -->
-<?php if (isset($_GET['success'])) { ?>
+<?php if (isset($_GET['psuccess'])) { ?>
        <div class="alert alert-success" role="alert">
-         <?=$_GET['success']?>
+         <?=$_GET['psuccess']?>
        </div>
 <?php } ?>
 
-<div class="mb-3">
-    <label class="form-label">Password</label>
+<!-- PASSWORD DIV -->
+<div class="mb-3"> 
+    <div class="mb-3">
+        <label class="form-label">Admin Password</label>
+          
+        <input type="text" class="form-control" name="admin_pass">
+      
+
+    </div>  
+
+    <label class="form-label">New Password</label>
     <div class="input-group mb-3">
-    <input type="text" class="form-control" name="pass" id="passInput">
+    <input type="text" class="form-control" name="new_pass" id="passInput">
     <button class="btn btn-secondary" id="gBtn">Random Password</button>
     </div>
 
+</div>  
+<!-- CONFIRMATION CHANGE PASSWORD DIV -->
+<div class="mb-3">
+    <label class="form-label">Confirm new Password</label>
+      
+    <input type="text" class="form-control" name="c_new_pass" id="passInput2">
+  
+
+</div>  
+
+
     </form>
-  </div>
-       
      </div>
      
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>	
@@ -331,8 +351,13 @@ if (isset($_SESSION['admin_id']) &&
          charactersLength));
 
            }
+          //  FUNCTIONALITY FOR PASSWORD DIV 1
            var passInput = document.getElementById('passInput');
+          //  FUNCTIONALITY FOR CHANGE PASSWORD DIV 
+           var passInput2 = document.getElementById('passInput2');
+          // ACTIVE THE FUNCTIONALITY
            passInput.value = result;
+           passInput2.value = result;
         }
 
         var gBtn = document.getElementById('gBtn');
