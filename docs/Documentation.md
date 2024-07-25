@@ -837,4 +837,55 @@ password
 
 32. put name value on every input for example admin name=admin_pass same goes for new password and confirm password
 
-33. 
+33. add action to the change password section req/teacher-change.php
+
+34. copy the content of req/teacher-edit.php to req/teacher-change.php
+
+35. paste this code below the new password div in teacher edit.php 
+
+ <!-- INDICATION FOR TEACHER ID -->
+  <input type="text" value="<?=$teacher['teacher_id']?>"
+         name="teacher_id"
+         hidden>
+
+36. put this below the confirm password div. this is to update the password credential 
+of a certain user 
+
+<button type="submit" 
+            class="btn btn-primary">
+            Update</button>
+
+  
+37. copy the name value of every input and paste it on the teacher-change.php 
+isset post parameters
+
+38. copy the name value of every input and paste it on the teacher-change.php 
+post method parameter
+
+39. the post method function should be like this 
+
+ $admin_pass = $_POST['admin_pass'];
+    $new_pass = $_POST['new_pass'];
+    $c_new_pass = $_POST['c_new_pass'];
+    $teacher_id = $_POST['teacher_id'];
+    $id = $_SESSION['admin_id'];
+
+40. put an id value on the form change password id="change_password"
+
+41. in the validation session on req/teacher-change.php put this 
+
+   $data = 'teacher_id='.$teacher_id.'#change_password';
+
+42. change the header error validator value to perror
+
+    header("Location: ../teacher-edit.php?perror=$em&$data");
+
+43. delete the else if unique name detector in req.teacher-change.php
+
+44. replace it with this code for new password and confirm password confirmation 
+
+else if ($new_pass === $c_new_pass) {
+      $em  = "New Password and Confirmation password does not match";
+      header("Location: ../teacher-edit.php?perror=$em&$data");
+      exit;
+    }

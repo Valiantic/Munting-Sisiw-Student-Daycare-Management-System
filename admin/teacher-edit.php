@@ -282,8 +282,8 @@ if (isset($_SESSION['admin_id']) &&
             class="btn btn-primary">
             Update</button>
 </form>
-
-<form class="shadow p-3 my-5 form-w" method="post" action="req/teacher-add.php">
+                  <!-- CHANGE PASSWORD SECTION -->
+<form class="shadow p-3 my-5 form-w" method="post" action="req/teacher-change.php" id="change_password">
 
 
 <!-- COPY THIS CODE FROM ABOVE -->
@@ -322,14 +322,26 @@ if (isset($_SESSION['admin_id']) &&
     </div>
 
 </div>  
+
+<!-- continue 42:43 -->
+
+ <!-- INDICATION FOR TEACHER ID -->
+ <input type="text" value="<?=$teacher['teacher_id']?>"
+         name="teacher_id"
+         hidden>
+
 <!-- CONFIRMATION CHANGE PASSWORD DIV -->
 <div class="mb-3">
     <label class="form-label">Confirm new Password</label>
       
     <input type="text" class="form-control" name="c_new_pass" id="passInput2">
-  
 
 </div>  
+
+<!-- SUBMIT BUTTOM FOR CHANGE PASSWORD  -->
+<button type="submit" 
+            class="btn btn-primary">
+            Change</button>
 
 
     </form>
