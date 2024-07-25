@@ -18,6 +18,7 @@ if(isset($_POST['admin_pass'])    &&
     // DATABASE CONNECTION
     include '../../connections.php';
     include "../data/teacher.php";
+    include "../data/admin.php";
     
     // CHANGE PASSWORD FUNCTION
     // put inside the parameters are the name of every input
@@ -44,8 +45,12 @@ if(isset($_POST['admin_pass'])    &&
       $em  = "Confirmation password is required";
       header("Location: ../teacher-edit.php?perror=$em&$data");
       exit;
-    }else if ($new_pass !== $c_new_pass) {
+    }else if ($new_pass !== $c_new_pass) { // FOR NEW AND CONFIRM PASSWORD VERIFICATION 
       $em  = "New Password and Confirmation password does not match";
+      header("Location: ../teacher-edit.php?perror=$em&$data");
+      exit;
+    }else if (!adminPasswordVerify($admin_pass, $conn, $id)) { // FOR ADMIN PASSWORD VERIFICATION 
+      $em  = "Incorrect admin password";
       header("Location: ../teacher-edit.php?perror=$em&$data");
       exit;
     }else {

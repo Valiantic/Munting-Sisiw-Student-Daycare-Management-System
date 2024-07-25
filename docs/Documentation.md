@@ -925,7 +925,7 @@ function adminPasswordVerify($admin_pass, $conn, $admin_id){
 
     if($stmt->rowCount() == 1){
         $admin = $stmt->fetch();
-        $pass = $admin['admin_pass'];
+        $pass = $admin['password'];
         if(password_verify($admin_pass, $pass)){
             return 1;
         } else {
@@ -937,3 +937,11 @@ function adminPasswordVerify($admin_pass, $conn, $admin_id){
 
 
 }
+
+
+50. include this on teacher-change.php database connection 
+
+  include "../data/admin.php";
+
+
+>FIFTH CHAPTER
