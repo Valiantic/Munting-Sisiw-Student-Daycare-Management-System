@@ -44,22 +44,25 @@ if(isset($_POST['admin_pass'])    &&
       $em  = "Confirmation password is required";
       header("Location: ../teacher-edit.php?perror=$em&$data");
       exit;
-    }else if ($new_pass === $c_new_pass) {
+    }else if ($new_pass !== $c_new_pass) {
       $em  = "New Password and Confirmation password does not match";
       header("Location: ../teacher-edit.php?perror=$em&$data");
       exit;
     }else {
+        // password hashing
+        $new_pass = password_hash($pass, PASSWORD_DEFAULT);
+
+
     // NOTE CHECK THE ALWAYS THE TABLE NAME!
       $sql = "UPDATE tbl_teachers SET 
-              username = ?, fname=?, lname=?, subjects=?, grades=?
+              password = ?
               WHERE teacher_id=?";
             
       $stmt = $conn->prepare($sql);
-      $stmt->execute([$uname, $fname, $lname, $subjects, $grades
-                    , $teacher_id]);
+      $stmt->execute([$new_pass, $teacher_id]);
     
-      $sm = "Successfully Updated!";
-      header("Location: ../teacher-edit.php?success=$sm&$data");
+      $sm = "The password has been changed successfully!";
+      header("Location: ../teacher-edit.php?psuccess=$sm&$data");
       exit;
 
     

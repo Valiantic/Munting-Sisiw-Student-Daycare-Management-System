@@ -310,7 +310,7 @@ if (isset($_SESSION['admin_id']) &&
     <div class="mb-3">
         <label class="form-label">Admin Password</label>
           
-        <input type="text" class="form-control" name="admin_pass">
+        <input type="password" class="form-control" name="admin_pass">
       
 
     </div>  

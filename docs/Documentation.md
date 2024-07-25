@@ -884,8 +884,31 @@ post method parameter
 
 44. replace it with this code for new password and confirm password confirmation 
 
-else if ($new_pass === $c_new_pass) {
+else if ($new_pass !== $c_new_pass) {
       $em  = "New Password and Confirmation password does not match";
       header("Location: ../teacher-edit.php?perror=$em&$data");
       exit;
     }
+
+45. change the input type of admin password to password
+
+46. put this password hash on req/teacher-change.php inside the else statement 
+
+  // password hashing
+        $new_pass = password_hash($pass, PASSWORD_DEFAULT);
+  
+47. modify the update query below the password hashing in req/teacher-change.php 
+
+// NOTE CHECK THE ALWAYS THE TABLE NAME!
+      $sql = "UPDATE tbl_teachers SET 
+              password = ?
+              WHERE teacher_id=?";
+            
+      $stmt = $conn->prepare($sql);
+      $stmt->execute([$new_pass, $teacher_id]);
+    
+      $sm = "The password has been changed successfully!";
+      header("Location: ../teacher-edit.php?psuccess=$sm&$data");
+      exit;
+
+48. 
