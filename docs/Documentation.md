@@ -945,3 +945,13 @@ function adminPasswordVerify($admin_pass, $conn, $admin_id){
 
 
 >FIFTH CHAPTER
+1. create students.php on admin folder then on navbar.php put href link on students also in index.
+2. go to teachers.php under admin folder. edit the code below to make sure that the id value will 
+iterate 
+  <?php $i = 0; foreach ($teachers as $teacher ) { 
+                    $i++; ?>
+                  <tr>
+                    <th scope="row"><?=$i?></th>
+
+3. copy the whole code of teachers.php to students.php
+4. 

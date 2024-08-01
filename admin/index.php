@@ -141,7 +141,7 @@ include "inc/navbar.php";
             <br>
             Teachers
             </a>
-            <a href="" class="col btn btn-dark m-2 py-3">
+            <a href="students.php" class="col btn btn-dark m-2 py-3">
             <i class="fa fa-graduation-cap fs-1" aria-hidden="true"></i>
             <br>
             Students

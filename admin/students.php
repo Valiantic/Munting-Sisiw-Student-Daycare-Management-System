@@ -16,7 +16,7 @@ if (isset($_SESSION['admin_id']) &&
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin - Teachers</title>
+    <title>Admin - Students</title>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="shortcut icon" href="../images/logo.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
