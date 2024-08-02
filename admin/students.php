@@ -5,10 +5,9 @@ if (isset($_SESSION['admin_id']) &&
 
     if ($_SESSION['role'] == 'Admin') {
         include "../connections.php";
-        include "data/teacher.php";
-        include "data/subject.php";
+        include "data/student.php";
         include "data/grade.php";
-        $teachers = getAllTeachers($conn);
+        $students = getAllStudents($conn);
  ?>
 
 <!DOCTYPE html>
@@ -134,12 +133,13 @@ if (isset($_SESSION['admin_id']) &&
 <body>
     <?php 
         include "inc/navbar.php";
-        if ($teachers != 0) {
+        if ($students != 0) {
      ?>
      <div class="container mt-5">
-        <!-- continue 52:17 -->
+       
         <a href="teacher-add.php"
-           class="btn btn-dark">Add New Teacher</a>
+           class="btn btn-dark">Add New Students</a>
+           <!-- CONTINUE 2:35 -->
 
                       <!-- ERROR HANDLING  -->
             <?php if (isset($_GET['error'])) { ?>
@@ -164,46 +164,34 @@ if (isset($_SESSION['admin_id']) &&
                     <th scope="col">First Name</th>
                     <th scope="col">Last Name</th>
                     <th scope="col">Username</th>
-                    <th scope="col">Subject</th>
                     <th scope="col">Grade</th>
                     <th scope="col">Action</th>
                   </tr>
                 </thead>
                 <tbody>
                     <!--CREATE THIS FOR LOOP TO DISPLAY THE DATABASE DATA ON THE TABLE -->
-                  <?php $i = 0; foreach ($teachers as $teacher ) { 
+                  <?php $i = 0; foreach ($students as $student ) { 
                     $i++; ?>
                   <tr>
                     <th scope="row"><?=$i?></th>
-                    <td><?=$teacher['teacher_id']?></td>
-                    <td><?=$teacher['fname']?></td>
-                    <td><?=$teacher['lname']?></td>
-                    <td><?=$teacher['username']?></td>
-                    <td>
-                       <?php 
-                           $s = '';
-                           $subjects = str_split(trim($teacher['subjects']));
-                           foreach ($subjects as $subject) {
-                              $s_temp = getSubjectById($subject, $conn);
-                              if ($s_temp != 0) 
-                                $s .=$s_temp['subject_code'].', ';
-                           }
-                           echo $s;
-                        ?>
-                    </td>
+                    <td><?=$student['student_id']?></td>
+                    <td><?=$student['fname']?></td>
+                    <td><?=$student['lname']?></td>
+                    <td><?=$student['username']?></td>
+                  
                     <td>
                       <?php 
-                           $g = '';
-                           $grades = str_split(trim($teacher['grades']));
-                           foreach ($grades as $grade) {
-                              $g_temp = getGradeById($grade, $conn);
-                              if ($g_temp != 0) 
-                                $g .=$g_temp['grade_code'].'-'.
-                                     $g_temp['grade'].', ';
-                           }
-                           echo $g;
+                          // fix 9:03
+                           $grade = $students['grade'];
+                           $g_temp = getGradeById($grade, $conn);
+                              
+                           echo $g_temp['grade_code'].'-'.
+                                $g_temp['grade'].', ';
+                        
+                       
                         ?>
                     </td>
+                    
                     <td>
                         <a href="teacher-edit.php?teacher_id=<?=$teacher['teacher_id']?>"
                            class="btn btn-warning">Edit</a>
@@ -226,7 +214,7 @@ if (isset($_SESSION['admin_id']) &&
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>	
     <script>
         $(document).ready(function(){
-             $("#navLinks li:nth-child(2) a").addClass('active');
+             $("#navLinks li:nth-child(3) a").addClass('active');
         });
     </script>
 

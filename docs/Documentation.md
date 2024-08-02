@@ -954,4 +954,27 @@ iterate
                     <th scope="row"><?=$i?></th>
 
 3. copy the whole code of teachers.php to students.php
-4. 
+4. change the jquery hover active on students.php to 3
+5. in the table tag on students.php delete subject and create a student.php on the admin/data
+6. copy the function getAllStudents from data/teachers.php to student.php 
+7. modify the variables 
+8. student.php change the variable function on if condition
+
+$students = getAllStudents($conn);
+
+9. delete include subject on students.php 
+10. modify this on student.php to display the student details 
+
+  <?php $i = 0; foreach ($students as $student ) { 
+                    $i++; ?>
+                  <tr>
+                    <th scope="row"><?=$i?></th>
+                    <td><?=$student['student_id']?></td>
+                    <td><?=$student['fname']?></td>
+                    <td><?=$student['lname']?></td>
+                    <td><?=$student['username']?></td>
+                  
+                    <td>
+
+11. delete td on subjects in students.php
+12. fix the td grade on students.php
