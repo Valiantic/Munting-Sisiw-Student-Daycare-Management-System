@@ -958,6 +958,21 @@ iterate
 5. in the table tag on students.php delete subject and create a student.php on the admin/data
 6. copy the function getAllStudents from data/teachers.php to student.php 
 7. modify the variables 
+  function getAllStudents($conn){
+      $sql = "SELECT * FROM tbl_students";
+      $stmt = $conn->prepare($sql);
+      $stmt->execute();
+
+      if($stmt->rowCount() >= 1){
+          $students = $stmt->fetchAll();
+          return $students;
+      }else {
+          return 0;
+      }
+
+
+  }
+
 8. student.php change the variable function on if condition
 
 $students = getAllStudents($conn);
@@ -977,4 +992,23 @@ $students = getAllStudents($conn);
                     <td>
 
 11. delete td on subjects in students.php
-12. fix the td grade on students.php
+12. to show the students grades make sure to check each column on parameters 
+to be same with the table in the database 
+
+ <!-- TABLE DATA TO SHOW THE STUDENTS GRADE -->
+                    <td>
+                      <?php 
+                          // fixed  Undefined array key "grade" 
+                          // This means there are no tables within students named grade
+                           $grade = $student['grade'];
+                           $g_temp = getGradeById($grade, $conn);
+                           if ($g_temp != 0){
+                            echo $g_temp['grade_code'].'-'.
+                            $g_temp['grade'].', ';
+
+                           }
+                  
+                      
+                        ?>
+                    </td>
+                    

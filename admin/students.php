@@ -179,16 +179,21 @@ if (isset($_SESSION['admin_id']) &&
                     <td><?=$student['lname']?></td>
                     <td><?=$student['username']?></td>
                   
+
+                    <!-- TABLE DATA TO SHOW THE STUDENTS GRADE -->
                     <td>
                       <?php 
-                          // fix 9:03
-                           $grade = $students['grade'];
+                          // fixed  Undefined array key "grade" 
+                          // This means there are no tables within students named grade
+                           $grade = $student['grade'];
                            $g_temp = getGradeById($grade, $conn);
-                              
-                           echo $g_temp['grade_code'].'-'.
-                                $g_temp['grade'].', ';
-                        
-                       
+                           if ($g_temp != 0){
+                            echo $g_temp['grade_code'].'-'.
+                            $g_temp['grade'];
+
+                           }
+                  
+                      
                         ?>
                     </td>
                     
