@@ -4,10 +4,24 @@ if (isset($_SESSION['admin_id']) &&
     isset($_SESSION['role'])) {
 
     if ($_SESSION['role'] == 'Admin') {
-        include "../connections.php";
-        include "data/student.php";
+
+        include "../connections.php";;
         include "data/grade.php";
-        $students = getAllStudents($conn);
+        $grades = getAllGrades($conn);
+
+
+        // VARIABLE INITIALIZATION FOR VALIDATION SESSION
+        $fname = '';
+        $lname = '';
+        $uname = '';
+
+        // VARIABLE INITIALIZATION FOR SESSION
+        if (isset($_GET['fname'])) $fname = $_GET['fname'];
+        if (isset($_GET['lname'])) $lname = $_GET['lname'];
+        if (isset($_GET['uname'])) $uname = $_GET['uname'];
+
+        // PUT VALUE ON THREE INPUT FNAME,LNAME, AND UNAME
+
  ?>
 
 <!DOCTYPE html>
@@ -15,7 +29,7 @@ if (isset($_SESSION['admin_id']) &&
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin - Students</title>
+    <title>Admin - Add Students</title>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="shortcut icon" href="../images/logo.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
@@ -126,6 +140,22 @@ if (isset($_SESSION['admin_id']) &&
     .n-table{
         max-width: 800px;
     }
+    .login {
+	max-width: 500px;
+	width: 90%;
+	background: rgba(255,255,255, 0.7);
+	padding: 10px;
+	border-radius: 10px;
+    }
+    .login h3{
+	text-align: center;
+	font-size: 50px;
+    }
+    .form-w{
+        max-width:600px;
+        width: 100%;
+    }
+
 
 
 </style>
@@ -133,96 +163,103 @@ if (isset($_SESSION['admin_id']) &&
 <body>
     <?php 
         include "inc/navbar.php";
-        if ($students != 0) {
      ?>
      <div class="container mt-5">
+        <!-- continue 52:17 -->
+        <a href="students.php"
+           class="btn btn-dark">Go Back</a>
+
+<form class="shadow p-3 mt-4 form-w" method="post" action="req/teacher-add.php">
+
+
+   <hr><h3>Add new student</h3></hr>
+
+     <!-- ERROR HANDLING   -->
+     <?php if (isset($_GET['error'])) { ?>
+    		<div class="alert alert-danger" role="alert">
+			  <?=$_GET['error']?>
+			</div>
+	<?php } ?>
+
+    <!-- SUCCESS HANDLING   -->
+    <?php if (isset($_GET['success'])) { ?>
+    		<div class="alert alert-success" role="alert">
+			  <?=$_GET['success']?>
+			</div>
+	<?php } ?>
+    
+
+  <div class="mb-3">
+    <label class="form-label">First name</label>
+    <input type="text" class="form-control" value="<?=$fname?>" name="fname">
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Last name</label>
+    <input type="text" class="form-control" value="<?=$lname?>" name="lname">
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Username</label>
+    <input type="text" class="form-control" value="<?=$uname?>" name="username">
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Password</label>
+    <div class="input-group mb-3">
+    <input type="text" class="form-control" name="pass" id="passInput">
+    <button class="btn btn-secondary" id="gBtn">Random Password</button>
+    </div>
+  </div>
+
+
+  <div class="mb-3">
+    <label class="form-label">Grade</label>
+
+    <div class="row row-cols-5"> 
+    <?php foreach ($grades as $grade): ?>
+      
+      <div class="col">
+      <input type="radio" name="grades[]" value="<?=$grade['grade_id']?>"> 
+      <?=$grade['grade_code']?>-<?=$grade['grade']?>
+      <!-- ENCLOSED IN PHP TAG ARE THE VARIABLES YOU WANT TO DISPLAY -->
+
+
+    </div>
+    <?php endforeach ?>
+    </div>
+
+  </div>
+
+    <button type="submit" class="btn btn-primary">Add</button>
+</form>
        
-        <a href="student-add.php"
-           class="btn btn-dark">Add New Students</a>
-           <!-- CONTINUE 2:35 -->
-
-                      <!-- ERROR HANDLING  -->
-            <?php if (isset($_GET['error'])) { ?>
-                <div class="alert alert-danger mt-3 n-table" role="alert">
-                <?=$_GET['error']?>
-              </div>
-             <?php } ?>
-
-                         <!-- SUCCESS HANDLING FOR TEACHER-DELETE -->
-             <?php if (isset($_GET['success'])) { ?>
-                <div class="alert alert-info mt-3 n-table" role="alert">
-                <?=$_GET['success']?>
-              </div>
-             <?php } ?>
-
-           <div class="table-responsive">
-              <table class="table table-bordered mt-3 n-table">
-                <thead>
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">ID</th>
-                    <th scope="col">First Name</th>
-                    <th scope="col">Last Name</th>
-                    <th scope="col">Username</th>
-                    <th scope="col">Grade</th>
-                    <th scope="col">Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                    <!--CREATE THIS FOR LOOP TO DISPLAY THE DATABASE DATA ON THE TABLE -->
-                  <?php $i = 0; foreach ($students as $student ) { 
-                    $i++; ?>
-                  <tr>
-                    <th scope="row"><?=$i?></th>
-                    <td><?=$student['student_id']?></td>
-                    <td><?=$student['fname']?></td>
-                    <td><?=$student['lname']?></td>
-                    <td><?=$student['username']?></td>
-                  
-
-                    <!-- TABLE DATA TO SHOW THE STUDENTS GRADE -->
-                    <td>
-                      <?php 
-                          // fixed  Undefined array key "grade" 
-                          // This means there are no tables within students named grade
-                           $grade = $student['grade'];
-                           $g_temp = getGradeById($grade, $conn);
-                           if ($g_temp != 0){
-                            echo $g_temp['grade_code'].'-'.
-                            $g_temp['grade'];
-
-                           }
-                  
-                      
-                        ?>
-                    </td>
-                    
-                    <!-- Table column for edit and delete button -->
-                    <td>
-                          <!-- Buttons for edit and delete -->
-                        <a href="student-edit.php?student_id=<?=$student['student_id']?>"
-                           class="btn btn-warning">Edit</a>
-                        <a href="student-delete.php?student_id=<?=$student['student_id']?>"
-                           class="btn btn-danger">Delete</a>
-                    </td>
-
-                  </tr>
-                <?php } ?>
-                </tbody>
-              </table>
-           </div>
-         <?php }else{ ?>
-             <div class="alert alert-info .w-450 m-5" 
-                  role="alert">
-                There are no Records!
-              </div>
-         <?php } ?>
      </div>
      
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>	
     <script>
         $(document).ready(function(){
              $("#navLinks li:nth-child(3) a").addClass('active');
+        });
+
+        // RANDOM PASSWORD GENERATOR 
+        function makePass(length) {
+            var result           = '';
+            var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            var charactersLength = characters.length;
+            for ( var i = 0; i < length; i++ ) {
+              result += characters.charAt(Math.floor(Math.random() * 
+         charactersLength));
+
+           }
+           var passInput = document.getElementById('passInput');
+           passInput.value = result;
+        }
+
+        var gBtn = document.getElementById('gBtn');
+        gBtn.addEventListener('click', function(e){
+          e.preventDefault();
+          makePass(7); // just adjust the number to increase the character length of the password generator
         });
     </script>
 

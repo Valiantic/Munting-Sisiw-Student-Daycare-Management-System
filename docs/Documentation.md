@@ -1011,4 +1011,31 @@ to be same with the table in the database
                       
                         ?>
                     </td>
-                    
+
+13. modify the variable on edit and delete button table data 
+
+   <!-- Table column for edit and delete button -->
+                    <td>
+                          <!-- Buttons for edit and delete -->
+                        <a href="student-edit.php?student_id=<?=$student['student_id']?>"
+                           class="btn btn-warning">Edit</a>
+                        <a href="student-delete.php?student_id=<?=$student['student_id']?>"
+                           class="btn btn-danger">Delete</a>
+                    </td>
+14. modify the variable and href value of edit and delete button
+
+                    <td>
+                          <!-- Buttons for edit and delete -->
+                        <a href="student-edit.php?student_id=<?=$student['student_id']?>"
+                           class="btn btn-warning">Edit</a>
+                        <a href="student-delete.php?student_id=<?=$student['student_id']?>"
+                           class="btn btn-danger">Delete</a>
+                    </td>
+
+
+15. modify the href value of add new students to student-add.php
+16. create student-add.php on admin folder
+17. copy the whole code of teacher-add.php to student-add.php
+18. modify some variable name title, href, h1 and jquery active link hover value
+19. delete the subject div on student-add.php
+20. change the type value of grade in student-add.php to radio
