@@ -223,7 +223,8 @@ if (isset($_SESSION['admin_id']) &&
       <input type="radio" name="grades[]" value="<?=$grade['grade_id']?>"> 
       <?=$grade['grade_code']?>-<?=$grade['grade']?>
       <!-- ENCLOSED IN PHP TAG ARE THE VARIABLES YOU WANT TO DISPLAY -->
-
+        
+      <!-- continue 13:58 -->
 
     </div>
     <?php endforeach ?>

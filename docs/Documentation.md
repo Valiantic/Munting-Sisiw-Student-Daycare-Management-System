@@ -1039,3 +1039,5 @@ to be same with the table in the database
 18. modify some variable name title, href, h1 and jquery active link hover value
 19. delete the subject div on student-add.php
 20. change the type value of grade in student-add.php to radio
+21. create a student-add.php on admin/req folder
+22. 
