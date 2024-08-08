@@ -1,97 +1,75 @@
-
-
-
-<?php
+<?php 
 session_start();
 if (isset($_SESSION['admin_id']) && 
     isset($_SESSION['role'])) {
 
     if ($_SESSION['role'] == 'Admin') {
+    	
 
-
-//BLANK FIELD DETECTOR
-
-if(isset($_POST['fname']) && 
-   isset($_POST['lname']) &&
-   isset($_POST['username']) &&
-   isset($_POST['pass']) &&
-   isset($_POST['subjects']) &&
-   isset($_POST['grades'])) {
-
-    // DATABASE CONNECTION
-    include '../../connections.php';
-    include "../data/teacher.php";
+if (isset($_POST['fname']) &&
+    isset($_POST['lname']) &&
+    isset($_POST['username']) &&
+    isset($_POST['pass']) &&
+    //THE GRADE COLUMN IS NAMED GRADES THATS WHY IT WON'T WORK EARLIER
+    //LESSON: ALWAYS CHECK THE NAME VALUE IF THE ERROR VALIDATOR IS NOT WORKING!!!
+    isset($_POST['grade'])) {
     
+    include '../../connections.php';
+    include "../data/student.php";
+
     $fname = $_POST['fname'];
     $lname = $_POST['lname'];
     $uname = $_POST['username'];
     $pass = $_POST['pass'];
 
-    $grades = "";
-    foreach ($_POST['grades'] as $grade){
-        $grades .=$grade;
-    }
+    $grade = $_POST['grade'];
     
-    $subjects = "";
-    foreach ($_POST['subjects'] as $subject){
-        $subjects .=$subject;
-    }
+    // continue 14:07
 
 
-    // VALIDATION SESSION
-    $data = 'uname'.$uname.'&fname'.$fname.'&lname='.$lname;
+    $data = 'uname='.$uname.'&fname='.$fname.'&lname='.$lname;
 
     if (empty($fname)) {
-      $em  = "First name is required";
-      header("Location: ../student-add.php?error=$em&$data");
-      exit;
-    }else if (empty($lname)) {
-      $em  = "Last name is required";
-      header("Location: ../student-add.php?error=$em&$data");
-      exit;
-    }else if (empty($uname)) {
-      $em  = "Username is required";
-      header("Location: ../student-add.php?error=$em&$data");
-      exit;
-    }else if (!unameIsUnique($uname, $conn)) {
-      $em  = "Username is taken! try another";
-      header("Location: ../student-add.php?error=$em&$data");
-      exit;
-    }else if (empty($pass)) {
-      $em  = "Password is required";
-      header("Location: ../student-add.php?error=$em&$data");
-      exit;
-    }else {
-        // echo "Success!";
-
-        // password hashing
+		$em  = "First name is required";
+		header("Location: ../student-add.php?error=$em&$data");
+		exit;
+	}else if (empty($lname)) {
+		$em  = "Last name is required";
+		header("Location: ../student-add.php?error=$em&$data");
+		exit;
+	}else if (empty($uname)) {
+		$em  = "Username is required";
+		header("Location: ../student-add.php?error=$em&$data");
+		exit;
+	}else if (!unameIsUnique($uname, $conn)) {
+		$em  = "Username is taken! try another";
+		header("Location: ../student-add.php?error=$em&$data");
+		exit;
+	}else if (empty($pass)) {
+		$em  = "Password is required";
+		header("Location: ../student-add.php?error=$em&$data");
+		exit;
+	}else {
+        // hashing the password
         $pass = password_hash($pass, PASSWORD_DEFAULT);
 
-        $sql = "INSERT INTO
-                tbl_teachers(username, password, fname, lname,
-                            subjects, grades)
-                            VALUES(?,?,?,?,?,?)";
+        $sql  = "INSERT INTO
+                 tbl_students(username, password, fname, lname, grade)
+                 VALUES(?,?,?,?,?)";
         $stmt = $conn->prepare($sql);
-        $stmt->execute([$uname, $pass, $fname, $lname, $subjects, 
-              $grades]);
-
-              $sm = "New student has been registered successfully";
-              header("Location: ../teacher-add.php?success=$sm");
-              exit;
-
-    }
-  
-
-
-    // IF NO DATA INSERTED THEN USER CLICK ADD BUTTON
-   }else {
-    $em = "Error Occurred";
+        $stmt->execute([$uname, $pass, $fname, $lname, $grade]);
+        $sm = "New student registered successfully";
+        header("Location: ../student-add.php?success=$sm");
+        exit;
+	}
+    
+  }else {
+  	$em = "An error occurred";
     header("Location: ../student-add.php?error=$em");
     exit;
-  } 
+  }
 
-   }else {
-    // TWO FOLDERS ARE CONTAINED SO TWO ../../
+  }else {
     header("Location: ../../logout.php");
     exit;
   } 

@@ -1040,4 +1040,7 @@ to be same with the table in the database
 19. delete the subject div on student-add.php
 20. change the type value of grade in student-add.php to radio
 21. create a student-add.php on admin/req folder
-22. 
+22. create an error null input validator N
+NOTE: ALWAYS CHECK THE name value!
+23. create a function for getallstudent and uniquename in admin/req student.php
+24. 

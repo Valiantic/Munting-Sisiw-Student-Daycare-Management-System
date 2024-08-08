@@ -169,7 +169,9 @@ if (isset($_SESSION['admin_id']) &&
         <a href="students.php"
            class="btn btn-dark">Go Back</a>
 
-<form class="shadow p-3 mt-4 form-w" method="post" action="req/teacher-add.php">
+
+                                                    <!-- ALWAYS CHECK THE ACTION -->
+<form class="shadow p-3 mt-4 form-w" method="post" action="req/student-add.php">
 
 
    <hr><h3>Add new student</h3></hr>
@@ -220,7 +222,7 @@ if (isset($_SESSION['admin_id']) &&
     <?php foreach ($grades as $grade): ?>
       
       <div class="col">
-      <input type="radio" name="grades[]" value="<?=$grade['grade_id']?>"> 
+      <input type="radio" name="grade" value="<?=$grade['grade_id']?>"> 
       <?=$grade['grade_code']?>-<?=$grade['grade']?>
       <!-- ENCLOSED IN PHP TAG ARE THE VARIABLES YOU WANT TO DISPLAY -->
         
