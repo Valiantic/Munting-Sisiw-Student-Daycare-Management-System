@@ -1048,4 +1048,10 @@ NOTE: ALWAYS CHECK THE name value!
 26. edit variables of student-delete.php
 27. create a function on student.php inside admin/data named removeStudent.
 This function allows the system to delete a student record 
-28. 
+28. create student-edit.php within admin folder
+29. edit variables of student-edit.php
+30. create a function on student.php on admin/data folder named getStudentById copied from the function 
+getTeacherbyId on teacher.php in admin/data folder
+31. modify the function getStudentById 
+NOTE: Make sure the variables are properly renamed!!! for it serves as redirect and updatation of the 
+student-edit.php page 

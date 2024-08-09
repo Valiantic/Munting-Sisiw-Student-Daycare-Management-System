@@ -16,6 +16,25 @@ function getAllStudents($conn){
 
 }
 
+
+// FETCH THE STUDENT BY ID 
+function getStudentById($student_id, $conn){
+    $sql = "SELECT * FROM tbl_students
+            WHERE student_id=? ";
+    $stmt = $conn->prepare($sql);
+    // ALWAYS CHECK THE EXECUTABLE VARIABLE THIS REDIRECT YOU TO THE STUDENT-EDIT.PHP
+    $stmt->execute([$student_id]);
+
+    if($stmt->rowCount() == 1){
+        $student = $stmt->fetch();
+        return $student;
+    }else {
+        return 0;
+    }
+
+
+}
+
 // FUNCTION TO FOR UNIQUE USERNAME CHECKER
 
 function unameIsUnique($uname, $conn, $student_id=0){
