@@ -1043,4 +1043,9 @@ to be same with the table in the database
 22. create an error null input validator N
 NOTE: ALWAYS CHECK THE name value!
 23. create a function for getallstudent and uniquename in admin/req student.php
-24. 
+24. create student-delete.php within admin folder 
+25. copy the whole code of teacher-delete.php of admin folder to student-delete.php
+26. edit variables of student-delete.php
+27. create a function on student.php inside admin/data named removeStudent.
+This function allows the system to delete a student record 
+28. 
