@@ -1056,3 +1056,6 @@ getTeacherbyId on teacher.php in admin/data folder
 NOTE: Make sure the variables are properly renamed!!! for it serves as redirect and updatation of the 
 student-edit.php page 
 32. modify the variable in student-edit.php and delete the div class for subjects
+33. create student-edit.php on admin/req folder 
+34. modify the variable within student-edit.php on admin/req folder 
+35. double check that should update the edit student info
