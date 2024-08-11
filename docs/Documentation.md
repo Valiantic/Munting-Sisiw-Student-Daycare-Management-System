@@ -1055,3 +1055,4 @@ getTeacherbyId on teacher.php in admin/data folder
 31. modify the function getStudentById 
 NOTE: Make sure the variables are properly renamed!!! for it serves as redirect and updatation of the 
 student-edit.php page 
+32. modify the variable in student-edit.php and delete the div class for subjects

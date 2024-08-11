@@ -174,7 +174,7 @@ if (isset($_SESSION['admin_id']) &&
 <form class="shadow p-3 mt-4 form-w" method="post" action="req/student-edit.php">
 
 
-   <hr><h3>Edit student</h3></hr>
+   <hr><h3>Edit Student Info</h3></hr>
 
      <!-- ERROR HANDLING   -->
      <?php if (isset($_GET['error'])) { ?>
@@ -194,55 +194,25 @@ if (isset($_SESSION['admin_id']) &&
 
   <div class="mb-3">
     <label class="form-label">First name</label>
-    <input type="text" class="form-control" value="<?=$teacher['fname']?>" name="fname">
+    <input type="text" class="form-control" value="<?=$student['fname']?>" name="fname">
   </div>
 
   <div class="mb-3">
     <label class="form-label">Last name</label>
-    <input type="text" class="form-control" value="<?=$teacher['lname']?>" name="lname">
+    <input type="text" class="form-control" value="<?=$student['lname']?>" name="lname">
   </div>
 
   <div class="mb-3">
     <label class="form-label">Username</label>
-    <input type="text" class="form-control" value="<?=$teacher['username']?>" name="username">
+    <input type="text" class="form-control" value="<?=$student['username']?>" name="username">
   </div>
 
   <!-- INDICATION FOR TEACHER ID -->
-  <input type="text" value="<?=$teacher['teacher_id']?>"
-         name="teacher_id"
+  <input type="text" value="<?=$student['student_id']?>"
+         name="student_id"
          hidden>
 
-  <div class="mb-3">
-    <label class="form-label">Subject</label>
-    <div class="row row-cols-5">
-
-    <!-- USE TO DISPLAY SUBJECTS USING FOR LOOP  -->
-        <?php 
-        // USED TO SPLIT SUBJECT DATA'S
-        $subject_ids = str_split(trim($teacher['subjects']));
-    
-        // INDICATION TO ADD DATA USING SUBJECT ID
-        foreach ($subjects as $subject){ 
-            $checked = 0;
-            foreach ($subject_ids as $subject_id){
-                if ($subject_id == $subject['subject_id']) {
-                    $checked = 1;
-                }
-            }
-
-            ?>
-      
-        <div class="col">
-        <input type="checkbox" name="subjects[]" 
-        <?php if($checked) echo "checked"; ?>
-        value="<?=$subject['subject_id']?>"> 
-        <?=$subject['subjects']?>
-        </div>
-
-    <?php } ?>
-
-    </div>
-  </div>
+ 
 
   <div class="mb-3">
     <label class="form-label">Grade</label>
@@ -251,7 +221,7 @@ if (isset($_SESSION['admin_id']) &&
     <!-- USE TO DISPLAY GRADES USING FOR LOOP  -->
     <?php 
         // USED TO SPLIT GRADES DATA'S
-        $grade_ids = str_split(trim($teacher['grades']));
+        $grade_ids = str_split(trim($student['grade']));
     
 
         foreach ($grades as $grade){ 
@@ -265,8 +235,8 @@ if (isset($_SESSION['admin_id']) &&
             ?>
       
       <div class="col">
-      <input type="checkbox" 
-      name="grades[]" 
+      <input type="radio" 
+      name="grade" 
       <?php if($checked) echo "checked"; ?>
       value="<?=$grade['grade_id']?>"> 
       <?=$grade['grade_code']?>-<?=$grade['grade']?>
