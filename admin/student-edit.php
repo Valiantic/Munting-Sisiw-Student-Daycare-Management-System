@@ -296,9 +296,9 @@ if (isset($_SESSION['admin_id']) &&
 
 <!-- continue 42:43 -->
 
- <!-- INDICATION FOR TEACHER ID -->
- <input type="text" value="<?=$teacher['teacher_id']?>"
-         name="teacher_id"
+ <!-- INDICATION FOR STUDENT ID -->
+ <input type="text" value="<?=$student['student_id']?>"
+         name="student_id"
          hidden>
 
 <!-- CONFIRMATION CHANGE PASSWORD DIV -->

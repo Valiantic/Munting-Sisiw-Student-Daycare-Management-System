@@ -1059,3 +1059,7 @@ student-edit.php page
 33. create student-edit.php on admin/req folder 
 34. modify the variable within student-edit.php on admin/req folder 
 35. double check that should update the edit student info
+36. create student-change.php on admin/req folder 
+37. copy the code from teacher-change.php to student-change.php and modify the variables
+38. put &$data for else statement "An Error Occured" in student-change and teacher-change.php
+39. 
