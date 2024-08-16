@@ -1128,3 +1128,9 @@ value="<?=$search_key?>"
 name="searchKey"
 
 8. put a method="post" on the teacher-search form 
+
+9. add a back button incase the user search nothing in teacher-search.php.
+put this below "There are no Records!"
+
+  <a href="teachers.php"
+           class="btn btn-dark">Go Back</a>

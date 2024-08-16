@@ -241,6 +241,14 @@ if (isset($_SESSION['admin_id']) &&
              <div class="alert alert-info .w-450 m-5" 
                   role="alert">
                 There are no Records!
+                  <!-- spacing -->
+                &nbsp
+                &nbsp
+
+                <!-- if the user search nothing this is the back button -->
+                <a href="teachers.php"
+                class="btn btn-dark">Go Back</a>
+
               </div>
          <?php } ?>
      </div>
