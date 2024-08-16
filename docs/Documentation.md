@@ -1062,4 +1062,24 @@ student-edit.php page
 36. create student-change.php on admin/req folder 
 37. copy the code from teacher-change.php to student-change.php and modify the variables
 38. put &$data for else statement "An Error Occured" in student-change and teacher-change.php
-39. 
+
+>SIX CHAPTER
+1. copy this code and paste this to teachers.php. this is to create a search button for teachers.php
+
+ <form action="" class="mt-3 n-table">
+
+           <div class="input-group mb-3">
+          <input type="text" class="form-control" name="new_pass" placeholder="Search...">
+          <button class="btn btn-primary" id="gBtn">
+            Search
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+            </svg> 
+          
+          </button>
+          </div>
+
+  </form>
+
+2. 
+3. 
