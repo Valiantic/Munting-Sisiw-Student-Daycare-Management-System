@@ -1137,4 +1137,9 @@ put this below "There are no Records!"
 
 
 10. copy the search form tag in teachers.php to students.php 
-11. 
+11. create student-search in admin folder and copy the code of students to student-search
+12. create a function for searchStudents in student.php just copy the function on teacher.php
+searcTeachers and modify it 
+13. call the searchStudent method that should make the search button function
+
+
