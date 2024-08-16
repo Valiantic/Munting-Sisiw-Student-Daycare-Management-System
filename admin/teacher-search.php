@@ -12,7 +12,7 @@ if (isset($_SESSION['admin_id']) &&
         include "data/teacher.php";
         include "data/subject.php";
         include "data/grade.php";
-        $teachers = getAllTeachers($conn);
+        $teachers = searchTeachers($search_key, $conn);
  ?>
 
 <!DOCTYPE html>

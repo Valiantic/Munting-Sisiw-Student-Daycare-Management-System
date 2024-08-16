@@ -1094,4 +1094,28 @@ if ($_SESSION['role'] == 'Admin') {
     exit;
   } 
 
-4. 
+4. create a function to search data on tbl_teachers on admin/data teacher.php
+
+// SEARCH FUNCTION TO GET DATA FROM TBL TEACHERS
+function searchTeachers($key, $conn){
+    $key = "%{$key}%";
+    $sql = "SELECT * FROM tbl_teachers
+            WHERE teacher_id LIKE ? 
+            OR fname LIKE ?
+            OR lname LIKE ? 
+            OR username LIKE ?";
+    $stmt = $conn->prepare($sql);
+    // HANDLING COLUMN KEYS
+    $stmt->execute([$key, $key, $key, $key]);
+
+    if($stmt->rowCount() == 1){
+        $teachers = $stmt->fetchAll();
+        return $teachers;
+    }else {
+        return 0;
+    }
+
+
+}
+
+5. add searcTeachers method to teacher-search.php

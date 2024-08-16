@@ -80,6 +80,27 @@ function unameIsUnique($uname, $conn, $teacher_id=0){
     }
  }
 
+ // SEARCH FUNCTION TO GET DATA FROM TBL TEACHERS
+function searchTeachers($key, $conn){
+    $key = "%{$key}%";
+    $sql = "SELECT * FROM tbl_teachers
+            WHERE teacher_id LIKE ? 
+            OR fname LIKE ?
+            OR lname LIKE ? 
+            OR username LIKE ?";
+    $stmt = $conn->prepare($sql);
+    // HANDLING COLUMN KEYS
+    $stmt->execute([$key, $key, $key, $key]);
+
+    if($stmt->rowCount() == 1){
+        $teachers = $stmt->fetchAll();
+        return $teachers;
+    }else {
+        return 0;
+    }
+
+
+}
 
 ?>
 
