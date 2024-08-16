@@ -1134,3 +1134,7 @@ put this below "There are no Records!"
 
   <a href="teachers.php"
            class="btn btn-dark">Go Back</a>
+
+
+10. copy the search form tag in teachers.php to students.php 
+11. 
