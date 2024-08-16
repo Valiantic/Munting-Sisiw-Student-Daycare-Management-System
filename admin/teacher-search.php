@@ -147,10 +147,10 @@ if (isset($_SESSION['admin_id']) &&
 
 
             <!-- SEARCH BUTTON  -->
-           <form action="teacher-search.php" class="mt-3 n-table">
+           <form action="teacher-search.php" class="mt-3 n-table" method="post">
 
            <div class="input-group mb-3">
-          <input type="text" class="form-control" name="new_pass" placeholder="Search...">
+          <input type="text" class="form-control" name="searchKey" value="<?=$search_key?>" placeholder="Search...">
           <button class="btn btn-primary" id="gBtn">
             Search
             <!-- Search button svg icon -->

@@ -1119,3 +1119,12 @@ function searchTeachers($key, $conn){
 }
 
 5. add searcTeachers method to teacher-search.php
+6. in teacher-search add a value on input search bar 
+
+value="<?=$search_key?>"
+
+7. also modify the name value of teacher-search in input search bar
+
+name="searchKey"
+
+8. put a method="post" on the teacher-search form 
