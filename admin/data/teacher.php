@@ -81,6 +81,5 @@ function unameIsUnique($uname, $conn, $teacher_id=0){
  }
 
 
-
 ?>
 

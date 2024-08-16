@@ -4,6 +4,10 @@ if (isset($_SESSION['admin_id']) &&
     isset($_SESSION['role'])) {
 
     if ($_SESSION['role'] == 'Admin') {
+
+        if (isset($_POST['searchKey'])){
+
+        $search_key = $_POST['searchKey'];
         include "../connections.php";
         include "data/teacher.php";
         include "data/subject.php";
@@ -16,7 +20,7 @@ if (isset($_SESSION['admin_id']) &&
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin - Teachers</title>
+    <title>Admin Search - Teachers</title>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="shortcut icon" href="../images/logo.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
@@ -143,10 +147,10 @@ if (isset($_SESSION['admin_id']) &&
 
 
             <!-- SEARCH BUTTON  -->
-           <form action="teacher-search.php" class="mt-3 n-table" method="post">
+           <form action="teacher-search.php" class="mt-3 n-table">
 
            <div class="input-group mb-3">
-          <input type="text" class="form-control" name="searchKey" placeholder="Search...">
+          <input type="text" class="form-control" name="new_pass" placeholder="Search...">
           <button class="btn btn-primary" id="gBtn">
             Search
             <!-- Search button svg icon -->
@@ -252,6 +256,11 @@ if (isset($_SESSION['admin_id']) &&
 
 </html>
 <?php 
+
+    }else {
+    header("Location: teachers.php");
+    exit;
+  } 
 
   }else {
     header("Location: ../login.php");

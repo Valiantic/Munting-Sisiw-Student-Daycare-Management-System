@@ -1081,5 +1081,17 @@ student-edit.php page
 
   </form>
 
-2. 
-3. 
+2. create teacher-search.php and add action to the search bar in teachers.php
+3. create an session and a post method on teacher-search.php with else method handling for redirection
+
+if ($_SESSION['role'] == 'Admin') {
+
+        if (isset($_POST['searchKey'])){
+
+// PUT THIS ELSE BLOCK UNDERNEATH THE /html tag 
+   }else {
+    header("Location: teachers.php");
+    exit;
+  } 
+
+4. 
