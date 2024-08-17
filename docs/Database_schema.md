@@ -24,6 +24,16 @@ tbl_teachers
 >fname
 >lname
 >grade
+(to add) 
+>address 
+>employee number
+>date of birth 
+>phone number 
+>qualification 
+>gender 
+>email address
+>date of joined
+
 
 grades
 >grade_id

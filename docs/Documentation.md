@@ -1142,4 +1142,14 @@ put this below "There are no Records!"
 searcTeachers and modify it 
 13. call the searchStudent method that should make the search button function
 
-
+>SEVENTH CHAPTER
+1. add new columns in tbl_teachers 
+2. 
+3. 
+4. 
+5. 
+6. 
+7. 
+8. 
+9. 
+10. 
