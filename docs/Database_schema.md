@@ -24,10 +24,10 @@ tbl_teachers
 >fname VARCHAR(25)
 >lname VARCHAR(25)
 >grade INT(25)
---(to add)--
+--(to add NOTE: ADD THIS ONE BY ONE UNKNOWN ERROR ADDING ALL 8 AT ONCE)-- 
 >address VARCHAR(31)
 >employee_number INT(11)
->date_of_birth DATE NULL
+>date_of_birth DATE 
 >phone_number VARCHAR(31)
 >qualification VARCHAR(127)
 >gender VARCHAR(7)

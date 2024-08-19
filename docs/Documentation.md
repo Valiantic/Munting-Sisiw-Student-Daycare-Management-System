@@ -1144,7 +1144,48 @@ searcTeachers and modify it
 
 >SEVENTH CHAPTER
 1. add new columns in tbl_teachers 
-2. 
+2. add this new columns in teacher-add.php 
+
+  <!-- TO ADD NEW COLUMNS -->
+  <div class="mb-3">
+    <label class="form-label">Address</label>
+    <input type="text" class="form-control" value="<?=$uname?>" name="address">
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Employee number</label>
+    <input type="text" class="form-control" value="<?=$uname?>" name="employee_number">
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Phone number</label>
+    <input type="text" class="form-control" value="<?=$uname?>" name="phone_number">
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Qualification</label>
+    <input type="text" class="form-control" value="<?=$uname?>" name="qualification">
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Email address</label>
+    <input type="text" class="form-control" value="<?=$uname?>" name="email_address">
+  </div>
+
+  <div class="mb-3">
+     <label class="form-label">Gender</label><br>
+    <input type="radio"checked value="Male" name="gender">Male
+      &nbsp
+    <input type="radio" value="Female" name="gender">Female
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Date of birth</label>
+    <input type="text" class="form-control" value="<?=$uname?>" name="date of birth">
+  </div>
+
+   <!-- TO ADD NEW COLUMNS -->
+
 3. 
 4. 
 5. 

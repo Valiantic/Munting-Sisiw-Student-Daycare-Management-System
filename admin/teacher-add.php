@@ -215,6 +215,46 @@ if (isset($_SESSION['admin_id']) &&
     </div>
   </div>
 
+  <!-- TO ADD NEW COLUMNS -->
+  <div class="mb-3">
+    <label class="form-label">Address</label>
+    <input type="text" class="form-control" value="<?=$uname?>" name="address">
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Employee number</label>
+    <input type="text" class="form-control" value="<?=$uname?>" name="employee_number">
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Phone number</label>
+    <input type="text" class="form-control" value="<?=$uname?>" name="phone_number">
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Qualification</label>
+    <input type="text" class="form-control" value="<?=$uname?>" name="qualification">
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Email address</label>
+    <input type="text" class="form-control" value="<?=$uname?>" name="email_address">
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Gender</label><br>
+    <input type="radio" checked value="Male" name="gender">Male
+      &nbsp;
+    <input type="radio" value="Female" name="gender">Female
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Date of birth</label>
+    <input type="date" class="form-control" value="<?=$uname?>" name="date of birth">
+  </div>
+
+   <!-- TO ADD NEW COLUMNS -->
+
   <div class="mb-3">
     <label class="form-label">Subject</label>
     <div class="row row-cols-5">
