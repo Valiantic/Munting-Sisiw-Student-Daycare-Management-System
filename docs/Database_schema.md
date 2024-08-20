@@ -25,6 +25,7 @@ tbl_teachers
 >lname VARCHAR(25)
 >grade INT(25)
 --(to add NOTE: ADD THIS ONE BY ONE UNKNOWN ERROR ADDING ALL 8 AT ONCE)-- 
+>section INT 
 >address VARCHAR(31)
 >employee_number INT(11)
 >date_of_birth DATE 
@@ -44,3 +45,7 @@ subjects
 >subject_id INT(11) AUTO_INCREMENT
 >subjects VARCHAR(31)
 >subject_code VARCHAR(7)
+
+section
+>section_id INT 
+>section VARCHAR 7

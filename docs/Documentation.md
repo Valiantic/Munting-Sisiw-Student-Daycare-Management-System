@@ -1186,7 +1186,7 @@ searcTeachers and modify it
 
    <!-- TO ADD NEW COLUMNS -->
 
-3. 
+3. create new tables for section see database_schema.md for reference.
 4. 
 5. 
 6. 

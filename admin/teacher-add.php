@@ -254,6 +254,7 @@ if (isset($_SESSION['admin_id']) &&
   </div>
 
    <!-- TO ADD NEW COLUMNS -->
+    <!-- 17:15 adding new column in database  -->
 
   <div class="mb-3">
     <label class="form-label">Subject</label>
