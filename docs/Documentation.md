@@ -1187,10 +1187,97 @@ searcTeachers and modify it
    <!-- TO ADD NEW COLUMNS -->
 
 3. create new tables for section see database_schema.md for reference.
-4. 
-5. 
-6. 
-7. 
-8. 
+4. paste this below grade div in teacher-add.php. stay put in order to fetch data from the database
+we need to create section.php on data folder in admin
+
+ <div class="mb-3">
+    <label class="form-label">Section</label>
+    <div class="row row-cols-5">
+
+    <!-- USE TO DISPLAY SUBJECTS USING FOR LOOP  -->
+    <?php foreach ($subjects as $subject): ?>
+      
+        <div class="col">
+        <input type="checkbox" name="subjects[]" value="<?=$subject['subject_id']?>"> 
+        <?=$subject['subjects']?>
+        </div>
+
+    <?php endforeach ?>
+
+    </div>
+  </div>
+
+
+5. put this on top with other include statements to fetch data on section table database 
+
+   include "data/section.php";
+
+6. within section.php in admin/data folder paste this function in order to get the data within the database
+
+<?php
+
+//CREATE A FUNCTION TO GET ALL THE GRADE FROM GRADES
+function getAllSections($conn){
+    $sql = "SELECT * FROM section"; //DOUBLECHECK THE TABLE 
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+
+    if($stmt->rowCount() >= 1){
+        $sections = $stmt->fetchAll();
+        return $sections;
+    }else {
+        return 0;
+    }
+
+
+}
+
+
+// FUNCTION TO GET ALL ID_GRADE FROM GRADES
+function getSectionById($section_id, $conn){
+    $sql = "SELECT * FROM section
+            WHERE section_id=?";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute([$section_id]);
+
+    if($stmt->rowCount() == 1){
+        $section = $stmt->fetch();
+        return $section;
+    }else {
+        return 0;
+    }
+
+
+}
+
+
+?>
+
+
+7. inlcude this function on teacher-add.php in order to fetch data 
+
+ $sections = getAllSections($conn);
+
+
+8. modify the variables witin section div in teacher-add.php 
+
+      <!-- NEW COLUMN THAT HAS BEEN ADDED -->
+  <div class="mb-3">
+    <label class="form-label">Section</label>
+    <div class="row row-cols-5">
+
+    <!-- USE TO DISPLAY SECTION USING FOR LOOP  -->
+    <?php foreach ($sections as $section): ?>
+      
+        <div class="col">
+        <input type="checkbox" name="section[]" value="<?=$section['section_id']?>"> 
+        <?=$section['section']?>
+        </div>
+
+    <?php endforeach ?>
+
+    </div>
+  </div>
+
 9. 
 10. 

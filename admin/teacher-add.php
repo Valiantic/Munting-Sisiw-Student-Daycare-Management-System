@@ -9,8 +9,10 @@ if (isset($_SESSION['admin_id']) &&
         include "data/teacher.php";
         include "data/subject.php";
         include "data/grade.php";
+        include "data/section.php";
         $subjects = getAllSubjects($conn);
         $grades = getAllGrades($conn);
+        $sections = getAllSections($conn);
 
 
         // VARIABLE INITIALIZATION FOR VALIDATION SESSION
@@ -289,6 +291,24 @@ if (isset($_SESSION['admin_id']) &&
     <?php endforeach ?>
     </div>
 
+  </div>
+
+        <!-- NEW COLUMN THAT HAS BEEN ADDED -->
+  <div class="mb-3">
+    <label class="form-label">Section</label>
+    <div class="row row-cols-5">
+
+    <!-- USE TO DISPLAY SECTION USING FOR LOOP  -->
+    <?php foreach ($sections as $section): ?>
+      
+        <div class="col">
+        <input type="checkbox" name="section[]" value="<?=$section['section_id']?>"> 
+        <?=$section['section']?>
+        </div>
+
+    <?php endforeach ?>
+
+    </div>
   </div>
 
     <button type="submit" class="btn btn-primary">Add</button>
