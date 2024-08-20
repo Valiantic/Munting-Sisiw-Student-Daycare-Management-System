@@ -136,13 +136,17 @@ if(isset($_POST['fname']) &&
         // password hashing
         $pass = password_hash($pass, PASSWORD_DEFAULT);
 
+        // query to push data on the database
         $sql = "INSERT INTO
                 tbl_teachers(username, password, fname, lname,
-                            subjects, grades)
-                            VALUES(?,?,?,?,?,?)";
+                            subjects, grades, section, address,
+                            employee_number, date_of_birth, phone_number,
+                            qualification, gender, email_address)
+                            VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)"; // 14 
         $stmt = $conn->prepare($sql);
         $stmt->execute([$uname, $pass, $fname, $lname, $subjects, 
-              $grades]);
+              $grades, $sections, $address, $employee_number, $date_of_birth, 
+              $phone_number, $qualification, $gender, $email_address]);
 
               $sm = "New teacher has been registered successfully";
               header("Location: ../teacher-add.php?success=$sm");

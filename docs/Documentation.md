@@ -1353,6 +1353,24 @@ function getSectionById($section_id, $conn){
     
 
 
-13. 
+13. updated insert query on admin/req folder teacher-add.php 
+
+ // query to push data on the database
+        $sql = "INSERT INTO
+                tbl_teachers(username, password, fname, lname,
+                            subjects, grades, section, address,
+                            employee_number, date_of_birth, phone_number,
+                            qualification, gender, email_address)
+                            VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)"; // 14 
+        $stmt = $conn->prepare($sql);
+        $stmt->execute([$uname, $pass, $fname, $lname, $subjects, 
+              $grades, $sections, $address, $employee_number, $date_of_birth, 
+              $phone_number, $qualification, $gender, $email_address]);
+
+              $sm = "New teacher has been registered successfully";
+              header("Location: ../teacher-add.php?success=$sm");
+              exit;
+
+
 14. 
 15. 
