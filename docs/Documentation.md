@@ -1279,5 +1279,80 @@ function getSectionById($section_id, $conn){
     </div>
   </div>
 
-9. 
-10. 
+9. add new isset for blank field detector in admin/data teacher-add.php
+
+ // NEW COLUMNS ADDED
+   isset($_POST['address']) &&
+   isset($_POST['employee_number']) &&
+   isset($_POST['phone_number']) &&
+   isset($_POST['qualification']) &&
+   isset($_POST['email_address']) &&
+   isset($_POST['gender']) &&
+   isset($_POST['date_of_birth']) &&
+   isset($_POST['section']) &&
+
+
+10. foreach loop for section
+
+  // BLANK FIELD CHECKBOX VALIDATOR FOR SECTIONS
+    $sections = "";
+    foreach ($_POST['sections'] as $section){
+        $sections .=$section;
+    }
+
+11. add new post for blank field detector same as step 9 
+
+      // NEW COLUMNS ADDED
+    $address = $_POST['address'];
+    $employee_number = $_POST['employee_number'];
+    $phone_number = $_POST['phone_number'];
+    $qualification = $_POST['qualification'];
+    $email_address = $_POST['email_address'];
+    $gender = $_POST['gender'];
+    $date_of_birth = $_POST['date_of_birth'];
+
+
+12. create if else statement for the blank field validator
+
+   // NEW COLUMNS ADDED DUE TO SECTION TABLE 
+    else if (empty($address)) {
+      $em  = "Address is required";
+      header("Location: ../teacher-add.php?error=$em&$data");
+      exit;
+    }
+    else if (empty($employee_number)) {
+      $em  = "Employee number is required";
+      header("Location: ../teacher-add.php?error=$em&$data");
+      exit;
+    }
+    else if (empty($phone_number)) {
+      $em  = "Phone number is required";
+      header("Location: ../teacher-add.php?error=$em&$data");
+      exit;
+    }
+    else if (empty($qualification)) {
+      $em  = "Qualification is required";
+      header("Location: ../teacher-add.php?error=$em&$data");
+      exit;
+    }
+    else if (empty($email_address)) {
+      $em  = "Email address is required";
+      header("Location: ../teacher-add.php?error=$em&$data");
+      exit;
+    }
+    else if (empty($gender)) {
+      $em  = "Gender is required";
+      header("Location: ../teacher-add.php?error=$em&$data");
+      exit;
+    }
+    else if (empty($date_of_birth)) {
+      $em  = "Date of birth is required";
+      header("Location: ../teacher-add.php?error=$em&$data");
+      exit;
+    }
+    
+
+
+13. 
+14. 
+15. 

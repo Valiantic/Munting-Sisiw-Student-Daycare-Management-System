@@ -252,7 +252,7 @@ if (isset($_SESSION['admin_id']) &&
 
   <div class="mb-3">
     <label class="form-label">Date of birth</label>
-    <input type="date" class="form-control" value="<?=$uname?>" name="date of birth">
+    <input type="date" class="form-control" value="<?=$uname?>" name="date_of_birth">
   </div>
 
    <!-- TO ADD NEW COLUMNS -->

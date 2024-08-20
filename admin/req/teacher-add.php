@@ -10,12 +10,25 @@ if (isset($_SESSION['admin_id']) &&
     if ($_SESSION['role'] == 'Admin') {
 
 
-//BLANK FIELD DETECTOR
+//BLANK FIELD DETECTOR 
+// note: names inside the parenthesis 
+// are the names of the input value in teacher-add.php
 
 if(isset($_POST['fname']) && 
    isset($_POST['lname']) &&
    isset($_POST['username']) &&
    isset($_POST['pass']) &&
+
+   // NEW COLUMNS ADDED DUE TO SECTION TABLE 
+   isset($_POST['address']) &&
+   isset($_POST['employee_number']) &&
+   isset($_POST['phone_number']) &&
+   isset($_POST['qualification']) &&
+   isset($_POST['email_address']) &&
+   isset($_POST['gender']) &&
+   isset($_POST['date_of_birth']) &&
+   isset($_POST['section']) &&
+
    isset($_POST['subjects']) &&
    isset($_POST['grades'])) {
 
@@ -28,6 +41,15 @@ if(isset($_POST['fname']) &&
     $uname = $_POST['username'];
     $pass = $_POST['pass'];
 
+       // NEW COLUMNS ADDED DUE TO SECTION TABLE 
+    $address = $_POST['address'];
+    $employee_number = $_POST['employee_number'];
+    $phone_number = $_POST['phone_number'];
+    $qualification = $_POST['qualification'];
+    $email_address = $_POST['email_address'];
+    $gender = $_POST['gender'];
+    $date_of_birth = $_POST['date_of_birth'];
+
     $grades = "";
     foreach ($_POST['grades'] as $grade){
         $grades .=$grade;
@@ -36,6 +58,12 @@ if(isset($_POST['fname']) &&
     $subjects = "";
     foreach ($_POST['subjects'] as $subject){
         $subjects .=$subject;
+    }
+
+    // BLANK FIELD CHECKBOX VALIDATOR FOR SECTIONS
+    $sections = "";
+    foreach ($_POST['sections'] as $section){
+        $sections .=$section;
     }
 
 
@@ -58,7 +86,47 @@ if(isset($_POST['fname']) &&
       $em  = "Username is taken! try another";
       header("Location: ../teacher-add.php?error=$em&$data");
       exit;
-    }else if (empty($pass)) {
+    }
+    
+    // NEW COLUMNS ADDED DUE TO SECTION TABLE 
+    else if (empty($address)) {
+      $em  = "Address is required";
+      header("Location: ../teacher-add.php?error=$em&$data");
+      exit;
+    }
+    else if (empty($employee_number)) {
+      $em  = "Employee number is required";
+      header("Location: ../teacher-add.php?error=$em&$data");
+      exit;
+    }
+    else if (empty($phone_number)) {
+      $em  = "Phone number is required";
+      header("Location: ../teacher-add.php?error=$em&$data");
+      exit;
+    }
+    else if (empty($qualification)) {
+      $em  = "Qualification is required";
+      header("Location: ../teacher-add.php?error=$em&$data");
+      exit;
+    }
+    else if (empty($email_address)) {
+      $em  = "Email address is required";
+      header("Location: ../teacher-add.php?error=$em&$data");
+      exit;
+    }
+    else if (empty($gender)) {
+      $em  = "Gender is required";
+      header("Location: ../teacher-add.php?error=$em&$data");
+      exit;
+    }
+    else if (empty($date_of_birth)) {
+      $em  = "Date of birth is required";
+      header("Location: ../teacher-add.php?error=$em&$data");
+      exit;
+    }
+    
+
+    else if (empty($pass)) {
       $em  = "Password is required";
       header("Location: ../teacher-add.php?error=$em&$data");
       exit;
