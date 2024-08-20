@@ -19,11 +19,21 @@ if (isset($_SESSION['admin_id']) &&
         $fname = '';
         $lname = '';
         $uname = '';
+        $address = '';
+        $en = '';
+        $pn = '';
+        $qf = '';
+        $email = '';
 
         // VARIABLE INITIALIZATION FOR SESSION
         if (isset($_GET['fname'])) $fname = $_GET['fname'];
         if (isset($_GET['lname'])) $lname = $_GET['lname'];
         if (isset($_GET['uname'])) $uname = $_GET['uname'];
+        if (isset($_GET['address'])) $address = $_GET['address'];
+        if (isset($_GET['en'])) $uname = $_GET['en'];
+        if (isset($_GET['pn'])) $uname = $_GET['pn'];
+        if (isset($_GET['qf'])) $uname = $_GET['qf'];
+        if (isset($_GET['email'])) $uname = $_GET['email'];
 
         // PUT VALUE ON THREE INPUT FNAME,LNAME, AND UNAME
 
@@ -217,6 +227,8 @@ if (isset($_SESSION['admin_id']) &&
     </div>
   </div>
 
+  <!-- continue 6:55 -->
+   
   <!-- TO ADD NEW COLUMNS -->
   <div class="mb-3">
     <label class="form-label">Address</label>

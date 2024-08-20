@@ -62,13 +62,18 @@ if(isset($_POST['fname']) &&
 
     // BLANK FIELD CHECKBOX VALIDATOR FOR SECTIONS
     $sections = "";
-    foreach ($_POST['sections'] as $section){
+    foreach ($_POST['section'] as $section){
         $sections .=$section;
     }
 
 
     // VALIDATION SESSION
-    $data = 'uname'.$uname.'&fname'.$fname.'&lname='.$lname;
+    // note: adding variables here must update the isset get method on teacher-add.php
+    
+    // $data = 'uname'.$uname.'&fname'.$fname.'&lname='.$lname.
+    // '&address='.$address.'&en='.$employee_number.'&pn='.$phone_number.
+    // '&qf='.$qualification.'&ea';
+    $data = 'uname='.$uname.'&fname='.$fname.'&lname='.$lname.'&address='.$address.'&en='.$employee_number.'&pn='.$phone_number.'&qf='.$qualification.'&email='.$email_address;
 
     if (empty($fname)) {
       $em  = "First name is required";

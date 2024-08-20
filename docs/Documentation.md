@@ -1373,3 +1373,37 @@ function getSectionById($section_id, $conn){
 
 
 14. update section datatype on the database make it varchar 31 
+
+>EIGHT CHAPTER 
+1. update validation session on teacher-add.php on admin/req folder 
+
+$data = 'uname='.$uname.'&fname='.$fname.'&lname='.$lname.'&address='.$address.'&en='.$employee_number.'&pn='.$phone_number.'&qf='.$qualification.'&email='.$email_address;
+
+
+2.  update validation initialization session get method on teacher-add.php
+
+  // VARIABLE INITIALIZATION FOR VALIDATION SESSION
+        $fname = '';
+        $lname = '';
+        $uname = '';
+        $address = '';
+        $en = '';
+        $pn = '';
+        $qf = '';
+        $email = '';
+
+        // VARIABLE INITIALIZATION FOR SESSION
+        if (isset($_GET['fname'])) $fname = $_GET['fname'];
+        if (isset($_GET['lname'])) $lname = $_GET['lname'];
+        if (isset($_GET['uname'])) $uname = $_GET['uname'];
+        if (isset($_GET['address'])) $address = $_GET['address'];
+        if (isset($_GET['en'])) $uname = $_GET['en'];
+        if (isset($_GET['pn'])) $uname = $_GET['pn'];
+        if (isset($_GET['qf'])) $uname = $_GET['qf'];
+        if (isset($_GET['email'])) $uname = $_GET['email'];
+
+
+
+3. 
+4. 
+5. 
