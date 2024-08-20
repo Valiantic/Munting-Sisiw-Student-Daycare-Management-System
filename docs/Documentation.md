@@ -1372,5 +1372,4 @@ function getSectionById($section_id, $conn){
               exit;
 
 
-14. 
-15. 
+14. update section datatype on the database make it varchar 31 
