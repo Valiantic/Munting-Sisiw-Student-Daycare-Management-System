@@ -47,5 +47,5 @@ subjects
 >subject_code VARCHAR(7)
 
 section
->section_id INT 
+>section_id INT AUTO_INCREMENT
 >section VARCHAR 7
