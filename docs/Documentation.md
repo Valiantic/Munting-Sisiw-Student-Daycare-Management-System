@@ -1404,6 +1404,34 @@ $data = 'uname='.$uname.'&fname='.$fname.'&lname='.$lname.'&address='.$address.'
 
 
 
-3. 
+3. update the value of new added column inputs in teacher-add.php 
+
+ <!-- TO ADD NEW COLUMNS -->
+  <div class="mb-3">
+    <label class="form-label">Address</label>
+    <input type="text" class="form-control" value="<?=$address?>" name="address">
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Employee number</label>
+    <input type="text" class="form-control" value="<?=$en?>" name="employee_number">
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Phone number</label>
+    <input type="text" class="form-control" value="<?=$pn?>" name="phone_number">
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Qualification</label>
+    <input type="text" class="form-control" value="<?=$qf?>" name="qualification">
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Email address</label>
+    <input type="text" class="form-control" value="<?=$email?>" name="email_address">
+  </div>
+
+
 4. 
 5. 
