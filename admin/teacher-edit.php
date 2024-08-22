@@ -220,7 +220,7 @@ if (isset($_SESSION['admin_id']) &&
 
       <div class="mb-3">
       <label class="form-label">Date of birth</label>
-      <input type="text" class="form-control" value="<?=$teacher['date_of_birth']?>" name="date_of_birth">
+      <input type="date" class="form-control" value="<?=$teacher['date_of_birth']?>" name="date_of_birth">
       </div>
 
       <div class="mb-3">
@@ -240,8 +240,10 @@ if (isset($_SESSION['admin_id']) &&
       </div>
 
       <div class="mb-3">
-      <label class="form-label">Gender</label>
-      <input type="text" class="form-control" value="<?=$teacher['gender']?>" name="gender">
+    <label class="form-label">Gender</label><br>
+    <input type="radio" value="Male" <?php if($teacher['gender'] == 'Male') echo 'checked';?> name="gender">Male
+      &nbsp;
+    <input type="radio" value="Female" <?php if($teacher['gender'] == 'Female') echo 'checked';?> name="gender">Female
       </div>
 
 

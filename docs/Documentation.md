@@ -1478,8 +1478,16 @@ $data = 'uname='.$uname.'&fname='.$fname.'&lname='.$lname.'&address='.$address.'
       <!-- NEW ADDED COLUMNS  -->
 
 
-5. 
-6. 
+5. change type value on date of birth in teacher-edit.php to "date"
+6. update the gender input to radio buttons with conditional statement for checked value 
+
+ <div class="mb-3">
+    <label class="form-label">Gender</label><br>
+    <input type="radio" value="Male" <?php if($teacher['gender'] == 'Male') echo 'checked';?> name="gender">Male
+      &nbsp;
+    <input type="radio" value="Female" <?php if($teacher['gender'] == 'Female') echo 'checked';?> name="gender">Female
+  </div>
+
 7. 
 8. 
 9. 
