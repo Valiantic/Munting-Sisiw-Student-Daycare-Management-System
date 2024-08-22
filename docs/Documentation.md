@@ -1433,7 +1433,50 @@ $data = 'uname='.$uname.'&fname='.$fname.'&lname='.$lname.'&address='.$address.'
   </div>
 
 
-4. 
+4.  add this new input type column in teacher-edit.php for data edit visualization 
+
+
+   <!-- NEW ADDED COLUMNS  -->
+
+      <div class="mb-3">
+      <label class="form-label">Address</label>
+      <input type="text" class="form-control" value="<?=$teacher['address']?>" name="address">
+      </div>
+
+      <div class="mb-3">
+      <label class="form-label">Employee number</label>
+      <input type="text" class="form-control" value="<?=$teacher['employee_number']?>" name="employee_number">
+      </div>
+
+      <div class="mb-3">
+      <label class="form-label">Date of birth</label>
+      <input type="text" class="form-control" value="<?=$teacher['date_of_birth']?>" name="date_of_birth">
+      </div>
+
+      <div class="mb-3">
+      <label class="form-label">Phone number</label>
+      <input type="text" class="form-control" value="<?=$teacher['phone_number']?>" name="phone_number">
+      </div>
+
+
+      <div class="mb-3">
+      <label class="form-label">Email address</label>
+      <input type="text" class="form-control" value="<?=$teacher['email_address']?>" name="email_address">
+      </div>
+
+      <div class="mb-3">
+      <label class="form-label">Qualification</label>
+      <input type="text" class="form-control" value="<?=$teacher['qualification']?>" name="qualification">
+      </div>
+
+      <div class="mb-3">
+      <label class="form-label">Gender</label>
+      <input type="text" class="form-control" value="<?=$teacher['gender']?>" name="gender">
+      </div>
+
+
+      <!-- NEW ADDED COLUMNS  -->
+
 
 5. 
 6. 

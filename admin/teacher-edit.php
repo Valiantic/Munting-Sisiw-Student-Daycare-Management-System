@@ -229,6 +229,21 @@ if (isset($_SESSION['admin_id']) &&
       </div>
 
 
+      <div class="mb-3">
+      <label class="form-label">Email address</label>
+      <input type="text" class="form-control" value="<?=$teacher['email_address']?>" name="email_address">
+      </div>
+
+      <div class="mb-3">
+      <label class="form-label">Qualification</label>
+      <input type="text" class="form-control" value="<?=$teacher['qualification']?>" name="qualification">
+      </div>
+
+      <div class="mb-3">
+      <label class="form-label">Gender</label>
+      <input type="text" class="form-control" value="<?=$teacher['gender']?>" name="gender">
+      </div>
+
 
       <!-- NEW ADDED COLUMNS  -->
 
