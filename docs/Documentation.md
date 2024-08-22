@@ -617,10 +617,10 @@ just modify the href file from teacher delete to teacher edit
 19. delete the initialization variable for session in teacher-edit.php this is the code under 
 if session role 
 
-10. cut the password div in teacher-edit.php and paste it under the form 
-11. copy the form tag class and paste it under. enveloping the pasted teacher-edit.php. make sure that the form tag endline spare another endline for div under it. 
+20. cut the password div in teacher-edit.php and paste it under the form 
+21. copy the form tag class and paste it under. enveloping the pasted teacher-edit.php. make sure that the form tag endline spare another endline for div under it. 
 
-12. inside the form below with password paste this code for success and error handling on password 
+22. inside the form below with password paste this code for success and error handling on password 
 modification. 
 
 <!-- COPY THIS CODE FROM ABOVE -->
@@ -641,9 +641,9 @@ modification.
 <?php } ?>
 
 
-13. copy the getsubjectid function on subject.php to admin/data/teacher.php
+23. copy the getsubjectid function on subject.php to admin/data/teacher.php
 
-14. modify the code into this 
+24. modify the code into this 
 
 function getTeacherById($teacher_id, $conn){
     $sql = "SELECT * FROM tbl_teachers
@@ -660,7 +660,7 @@ function getTeacherById($teacher_id, $conn){
 
 }
 
-15. on teacher-edit.php create a variable to get the id of the teacher and an if statement
+25. on teacher-edit.php create a variable to get the id of the teacher and an if statement
 to catch the redirection link 
 
   $teacher_id = $_GET['teacher_id'];
@@ -671,7 +671,7 @@ to catch the redirection link
 	        exit;
         }
 
-16. add value for each input. 
+26. add value for each input. 
 do this for lname and username too so that we can fetch the data within the database.
 
 <div class="mb-3">
@@ -679,7 +679,7 @@ do this for lname and username too so that we can fetch the data within the data
     <input type="text" class="form-control" value="<?=$teacher['fname']?>" name="fname">
   </div>
 
-17. in teacher-edit.php we need to alter the code in order to save the checked data in the form 
+27. in teacher-edit.php we need to alter the code in order to save the checked data in the form 
 to the database see the code below. just replace the subject to grade in the php 
 
   <!-- USE TO DISPLAY SUBJECTS USING FOR LOOP  -->
@@ -707,9 +707,9 @@ to the database see the code below. just replace the subject to grade in the php
 
     <?php } ?>
 
-18. edit the button in teacher-edit.php from add to update
+28. edit the button in teacher-edit.php from add to update
 
-19. create an input to hold the variable for teacher id in teacher-edit.php.
+29. create an input to hold the variable for teacher id in teacher-edit.php.
 put this block of code below the div username 
 
 <!-- INDICATION FOR TEACHER ID -->
@@ -717,11 +717,11 @@ put this block of code below the div username
          name="teacher_id"
          hidden>
 
-20. create a new file teacher-edit.php in the folder req/admin
+30. create a new file teacher-edit.php in the folder req/admin
 
-21. copy the whole code block of teacher-add to /admin/req/teacher-edit.php
+31. copy the whole code block of teacher-add to /admin/req/teacher-edit.php
 
-22. inside the isset if statement paste this code in admin/req/teacher-edit.php 
+32. inside the isset if statement paste this code in admin/req/teacher-edit.php 
 
  // DATABASE CONNECTION
     include '../../connections.php';
@@ -780,7 +780,7 @@ put this block of code below the div username
     
     }
 
-23. in the admin/data/teacher.php file modify the function uniquebyname into this 
+33. in the admin/data/teacher.php file modify the function uniquebyname into this 
 this is to ensure that the updated data is not the same within the recorded data 
 in the database.
 
@@ -812,12 +812,12 @@ function unameIsUnique($uname, $conn, $teacher_id=0){
 
  }
 
-24. in teacher-edit.php change the variable name on the get method of both
+34. in teacher-edit.php change the variable name on the get method of both
 error and success handling to perror and psuccess
 
-25. copy the password div in teacher-edit and paste it below the current password div
+35. copy the password div in teacher-edit and paste it below the current password div
 
-26. modify a little the change password div 
+36. modify a little the change password div 
 
 <!-- CONFIRMATION CHANGE PASSWORD DIV -->
 <div class="mb-3">
@@ -828,31 +828,31 @@ error and success handling to perror and psuccess
 
 </div>  
 
-27. add documentgetbyid and value result on password generator for change password div just duplicate the code
+37. add documentgetbyid and value result on password generator for change password div just duplicate the code
 
-28. copy the confirm new pass word and paste it on top of the label password
+38. copy the confirm new pass word and paste it on top of the label password
 
-29. change the pasted password to admin password 
+39. change the pasted password to admin password 
 
-30. change the current password div to new password while the password div below is the confirm new password
+40. change the current password div to new password while the password div below is the confirm new password
 
-31. in the admin password remove the id=passInput2 so that the generated password will not print on the input for admin 
+41. in the admin password remove the id=passInput2 so that the generated password will not print on the input for admin 
 password
 
-32. put name value on every input for example admin name=admin_pass same goes for new password and confirm password
+42. put name value on every input for example admin name=admin_pass same goes for new password and confirm password
 
-33. add action to the change password section req/teacher-change.php
+43. add action to the change password section req/teacher-change.php
 
-34. copy the content of req/teacher-edit.php to req/teacher-change.php
+44. copy the content of req/teacher-edit.php to req/teacher-change.php
 
-35. paste this code below the new password div in teacher edit.php 
+45. paste this code below the new password div in teacher edit.php 
 
  <!-- INDICATION FOR TEACHER ID -->
   <input type="text" value="<?=$teacher['teacher_id']?>"
          name="teacher_id"
          hidden>
 
-36. put this below the confirm password div. this is to update the password credential 
+46. put this below the confirm password div. this is to update the password credential 
 of a certain user 
 
 <button type="submit" 
@@ -860,13 +860,13 @@ of a certain user
             Update</button>
 
   
-37. copy the name value of every input and paste it on the teacher-change.php 
+47. copy the name value of every input and paste it on the teacher-change.php 
 isset post parameters
 
-38. copy the name value of every input and paste it on the teacher-change.php 
+48. copy the name value of every input and paste it on the teacher-change.php 
 post method parameter
 
-39. the post method function should be like this 
+49. the post method function should be like this 
 
  $admin_pass = $_POST['admin_pass'];
     $new_pass = $_POST['new_pass'];
@@ -874,19 +874,19 @@ post method parameter
     $teacher_id = $_POST['teacher_id'];
     $id = $_SESSION['admin_id'];
 
-40. put an id value on the form change password id="change_password"
+50. put an id value on the form change password id="change_password"
 
-41. in the validation session on req/teacher-change.php put this 
+51. in the validation session on req/teacher-change.php put this 
 
    $data = 'teacher_id='.$teacher_id.'#change_password';
 
-42. change the header error validator value to perror
+52. change the header error validator value to perror
 
     header("Location: ../teacher-edit.php?perror=$em&$data");
 
-43. delete the else if unique name detector in req.teacher-change.php
+53. delete the else if unique name detector in req.teacher-change.php
 
-44. replace it with this code for new password and confirm password confirmation 
+54. replace it with this code for new password and confirm password confirmation 
 
 else if ($new_pass !== $c_new_pass) {
       $em  = "New Password and Confirmation password does not match";
@@ -894,14 +894,14 @@ else if ($new_pass !== $c_new_pass) {
       exit;
     }
 
-45. change the input type of admin password to password
+55. change the input type of admin password to password
 
-46. put this password hash on req/teacher-change.php inside the else statement 
+56. put this password hash on req/teacher-change.php inside the else statement 
 
   // password hashing
         $new_pass = password_hash($pass, PASSWORD_DEFAULT);
   
-47. modify the update query below the password hashing in req/teacher-change.php 
+57. modify the update query below the password hashing in req/teacher-change.php 
 
 // NOTE CHECK THE ALWAYS THE TABLE NAME!
       $sql = "UPDATE tbl_teachers SET 
@@ -915,9 +915,9 @@ else if ($new_pass !== $c_new_pass) {
       header("Location: ../teacher-edit.php?psuccess=$sm&$data");
       exit;
 
-48. create admin.php on admin/data folder 
+58. create admin.php on admin/data folder 
 
-49. create a function on admin/data admin.php this is to confirm the password update on the admin 
+59. create a function on admin/data admin.php this is to confirm the password update on the admin 
 server side.
 
 / FUNCTION FOR PASSWORD VERIFCATION IN TEACHER EDIT 
@@ -943,7 +943,7 @@ function adminPasswordVerify($admin_pass, $conn, $admin_id){
 }
 
 
-50. include this on teacher-change.php database connection 
+60. include this on teacher-change.php database connection 
 
   include "../data/admin.php";
 
