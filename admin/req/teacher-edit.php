@@ -14,6 +14,17 @@ if(isset($_POST['fname'])    &&
    isset($_POST['lname'])    &&
    isset($_POST['username']) &&
    isset($_POST['teacher_id'])     &&
+
+    // NEW COLUMNS ADDED DUE TO SECTION TABLE 
+    isset($_POST['address']) &&
+    isset($_POST['employee_number']) &&
+    isset($_POST['phone_number']) &&
+    isset($_POST['qualification']) &&
+    isset($_POST['email_address']) &&
+    isset($_POST['gender']) &&
+    isset($_POST['date_of_birth']) &&
+    isset($_POST['section']) &&
+
    isset($_POST['subjects']) &&
    isset($_POST['grades'])) {
 
@@ -24,6 +35,16 @@ if(isset($_POST['fname'])    &&
     $fname = $_POST['fname'];
     $lname = $_POST['lname'];
     $uname = $_POST['username'];
+
+     // NEW COLUMNS ADDED DUE TO SECTION TABLE 
+     $address = $_POST['address'];
+     $employee_number = $_POST['employee_number'];
+     $phone_number = $_POST['phone_number'];
+     $qualification = $_POST['qualification'];
+     $email_address = $_POST['email_address'];
+     $gender = $_POST['gender'];
+     $date_of_birth = $_POST['date_of_birth'];
+
     $teacher_id = $_POST['teacher_id'];
 
     $grades = "";
@@ -36,6 +57,11 @@ if(isset($_POST['fname'])    &&
         $subjects .=$subject;
     }
 
+     // BLANK FIELD CHECKBOX VALIDATOR FOR SECTIONS
+     $sections = "";
+     foreach ($_POST['section'] as $section){
+         $sections .=$section;
+     }
 
     // VALIDATION SESSION 
     // TAKE NOTE FOR THE DATA SHOULD BE TEACHER_ID= 
@@ -57,7 +83,48 @@ if(isset($_POST['fname'])    &&
       $em  = "Username is taken! try another";
       header("Location: ../teacher-edit.php?error=$em&$data");
       exit;
-    }else {
+    }
+    
+     // NEW COLUMNS ADDED DUE TO SECTION TABLE 
+     else if (empty($address)) {
+      $em  = "Address is required";
+      header("Location: ../teacher-edit.php?error=$em&$data");
+      exit;
+    }
+    else if (empty($employee_number)) {
+      $em  = "Employee number is required";
+      header("Location: ../teacher-edit.php?error=$em&$data");
+      exit;
+    }
+    else if (empty($phone_number)) {
+      $em  = "Phone number is required";
+      header("Location: ../teacher-edit.php?error=$em&$data");
+      exit;
+    }
+    else if (empty($qualification)) {
+      $em  = "Qualification is required";
+      header("Location: ../teacher-edit.php?error=$em&$data");
+      exit;
+    }
+    else if (empty($email_address)) {
+      $em  = "Email address is required";
+      header("Location: ../teacher-edit.php?error=$em&$data");
+      exit;
+    }
+    else if (empty($gender)) {
+      $em  = "Gender is required";
+      header("Location: ../teacher-edit.php?error=$em&$data");
+      exit;
+    }
+    else if (empty($date_of_birth)) {
+      $em  = "Date of birth is required";
+      header("Location: ../teacher-edit.php?error=$em&$data");
+      exit;
+    }
+    
+
+    
+    else {
     // NOTE CHECK THE ALWAYS THE TABLE NAME!
       $sql = "UPDATE tbl_teachers SET 
               username = ?, fname=?, lname=?, subjects=?, grades=?
