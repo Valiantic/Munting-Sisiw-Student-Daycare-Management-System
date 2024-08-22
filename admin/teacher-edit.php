@@ -206,6 +206,34 @@ if (isset($_SESSION['admin_id']) &&
     <input type="text" class="form-control" value="<?=$teacher['username']?>" name="username">
   </div>
 
+      <!-- NEW ADDED COLUMNS  -->
+
+      <div class="mb-3">
+      <label class="form-label">Address</label>
+      <input type="text" class="form-control" value="<?=$teacher['address']?>" name="address">
+      </div>
+
+      <div class="mb-3">
+      <label class="form-label">Employee number</label>
+      <input type="text" class="form-control" value="<?=$teacher['employee_number']?>" name="employee_number">
+      </div>
+
+      <div class="mb-3">
+      <label class="form-label">Date of birth</label>
+      <input type="text" class="form-control" value="<?=$teacher['date_of_birth']?>" name="date_of_birth">
+      </div>
+
+      <div class="mb-3">
+      <label class="form-label">Phone number</label>
+      <input type="text" class="form-control" value="<?=$teacher['phone_number']?>" name="phone_number">
+      </div>
+
+
+
+      <!-- NEW ADDED COLUMNS  -->
+
+  
+
   <!-- INDICATION FOR TEACHER ID -->
   <input type="text" value="<?=$teacher['teacher_id']?>"
          name="teacher_id"

@@ -227,7 +227,8 @@ if (isset($_SESSION['admin_id']) &&
     </div>
   </div>
 
-    
+    <!-- continue 9:23 -->
+
   <!-- TO ADD NEW COLUMNS -->
   <div class="mb-3">
     <label class="form-label">Address</label>
