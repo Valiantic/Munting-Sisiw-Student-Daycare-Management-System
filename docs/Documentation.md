@@ -1496,7 +1496,46 @@ $data = 'uname='.$uname.'&fname='.$fname.'&lname='.$lname.'&address='.$address.'
     <input type="radio" value="Female" <?php if($teacher['gender'] == 'Female') echo 'checked';?> name="gender">Female
   </div>
 
-7. 
-8. 
+7. include section on teacher-edit.php and getAllSection method
+
+8. add checkbox for section update 
+
+ <!-- CHECKBOX FOR SECTION  -->
+
+<div class="mb-3">
+  <label class="form-label">Section</label>
+
+  <div class="row row-cols-5"> 
+  <!-- USE TO DISPLAY GRADES USING FOR LOOP  -->
+  <?php 
+      // USED TO SPLIT GRADES DATA'S
+      $section_ids = str_split(trim($teacher['section']));
+  
+
+      foreach ($sections as $section){ 
+          $checked = 0;
+          foreach ($section_ids as $section_id){
+              if ($section_id == $section['section_id']) {
+                  $checked = 1;
+              }
+          }
+
+          ?>
+    
+    <div class="col">
+    <input type="checkbox" 
+    name="sections[]" 
+    <?php if($checked) echo "checked"; ?>
+    value="<?=$section['section_id']?>"> 
+    <?=$section['section']?>
+    <!-- ENCLOSED IN PHP TAG ARE THE VARIABLES YOU WANT TO DISPLAY -->
+
+
+  </div>
+  <?php } ?>
+  </div>
+
+</div>
+
 9. 
 10. 
