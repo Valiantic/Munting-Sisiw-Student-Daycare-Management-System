@@ -4,6 +4,7 @@ FEATURES TO ADD
 :FORGOT PASSWORD
 
 >FIRST CHAPTER 
+
 1. get boostrap css links and js links
 2. setup background image
 3. get navbar code to bootstrap
@@ -17,6 +18,7 @@ FEATURES TO ADD
 11. add login page
 
 >SECOND CHAPTER
+
 1. add bootstrap alert
 2. created req folder and login.php for blank field detector
 3. add session on /req/login.php (MAKE SURE TO CHECK ALL INPUTS ARE ADDED!)
@@ -39,6 +41,7 @@ overwrited by this $pass code value once you login to login.php so insert this o
 11. create logout.php and add session_unset and destroy
 
 >THIRD CHAPTER
+
 1. create admin folder and within it index.php
 2. copy the code from home.php and delete it paste the copy code to admin/index.php
 3. change directory on req/login.php
@@ -504,6 +507,7 @@ with this block of code to insert account on the database.
 68. add value on 3 input fname,lname and uname.
 
 >FOURTH CHAPTER
+
 1. Add href="teacher-delete.php" on teachers.php
 2. Do this on the href. make sure that the teacher_id= is close
 
@@ -945,6 +949,7 @@ function adminPasswordVerify($admin_pass, $conn, $admin_id){
 
 
 >FIFTH CHAPTER
+
 1. create students.php on admin folder then on navbar.php put href link on students also in index.
 2. go to teachers.php under admin folder. edit the code below to make sure that the id value will 
 iterate 
@@ -1064,6 +1069,7 @@ student-edit.php page
 38. put &$data for else statement "An Error Occured" in student-change and teacher-change.php
 
 >SIX CHAPTER
+
 1. copy this code and paste this to teachers.php. this is to create a search button for teachers.php
 
  <form action="" class="mt-3 n-table">
@@ -1143,6 +1149,7 @@ searcTeachers and modify it
 13. call the searchStudent method that should make the search button function
 
 >SEVENTH CHAPTER
+
 1. add new columns in tbl_teachers 
 2. add this new columns in teacher-add.php 
 
@@ -1375,6 +1382,7 @@ function getSectionById($section_id, $conn){
 14. update section datatype on the database make it varchar 31 
 
 >EIGHT CHAPTER 
+
 1. update validation session on teacher-add.php on admin/req folder 
 
 $data = 'uname='.$uname.'&fname='.$fname.'&lname='.$lname.'&address='.$address.'&en='.$employee_number.'&pn='.$phone_number.'&qf='.$qualification.'&email='.$email_address;
