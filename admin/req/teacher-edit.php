@@ -127,7 +127,7 @@ if(isset($_POST['fname'])    &&
     else {
 
 
-    // NOTE CHECK THE ALWAYS THE TABLE NAME!
+    // NOTE ALWAYS CHECK THE TABLE NAME!
       $sql = "UPDATE tbl_teachers SET 
               username=?, fname=?, lname=?, subjects=?, grades=?,
               address=?, employee_number=?, date_of_birth=?, phone_number=?, 

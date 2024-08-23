@@ -192,9 +192,11 @@ if (isset($_SESSION['admin_id']) &&
                   <?php $i = 0; foreach ($teachers as $teacher ) { 
                     $i++; ?>
                   <tr>
+                    <!-- Table heading for id iteration -->
                     <th scope="row"><?=$i?></th>
                     <td><?=$teacher['teacher_id']?></td>
-                    <td><?=$teacher['fname']?></td>
+                    <!-- CLICK TO REDIRECT TO TEACHER-VIEW -->
+                    <td><a href="teacher-view.php?teacher_id=<?=$teacher['teacher_id']?>"><?=$teacher['fname']?></a></td>
                     <td><?=$teacher['lname']?></td>
                     <td><?=$teacher['username']?></td>
                     <td>

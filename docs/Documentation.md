@@ -1543,4 +1543,21 @@ ERROR NOTE:
 Fatal error: Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'WHERE teacher_id='13'' at line 5 in C:\xampp\htdocs\Munting_sisiw_daycare\admin\req\teacher-edit.php:141 Stack trace: #0 C:\xampp\htdocs\Munting_sisiw_daycare\admin\req\teacher-edit.php(141): PDOStatement->execute(Array) #1 {main} thrown in C:\xampp\htdocs\Munting_sisiw_daycare\admin\req\teacher-edit.php on line 141
 
 
-10. 
+10. create teacher-view.php in admin folder 
+11. enclosed the fname in anchor tag like this 
+      <td><a href="teacher-view.php"><?=$teacher['fname']?></a></td>
+
+12. add php variable in the anchor tag in order to get the teacher id 
+    <td><a href="teacher-view.php?teacher_id=<?=$teacher['teacher_id']?>"><?=$teacher['fname']?></a></td>
+
+13. copy the code in teacher-add.php to teacher-view.php
+14. remove all code inside div class container in teacher-view.php
+15. put another php tag for else statement catcher to redirect to teachers.php 
+     <?php 
+       }else {
+        header("Location: teacher.php");
+        exit;
+      } 
+     ?>
+
+16. 
