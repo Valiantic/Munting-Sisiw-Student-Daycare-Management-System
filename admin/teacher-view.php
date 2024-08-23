@@ -147,11 +147,15 @@ if (isset($_SESSION['admin_id']) &&
             
      ?>
      <div class="container mt-5">
-     <div class="card" style="width: 18rem;">
+
+            <!-- DIV TO CENTER THE BOOTSTRAP CARD -->
+     <div class="container d-flex justify-content-center">
+            <!-- TEACHER DETAILS -->
+     <div class="card align-items-center" style="width: 18rem;">
         <!-- <img src="..." class="card-img-top" alt="..."> -->
         <div class="card-body">
-            <h5 class="card-title">@<?=$teachers['username']?></h5>
-            <p class="card-text">Details</p>
+            <h5 class="card-title text-center">@<?=$teachers['username']?></h5>
+            <p class="card-text">Information</p>
         </div>
         <ul class="list-group list-group-flush">
             <li class="list-group-item">First name: <?=$teachers['fname']?></li>
@@ -215,9 +219,13 @@ if (isset($_SESSION['admin_id']) &&
     
         </ul>
         <div class="card-body">
-            <a href="teachers.php" class="card-link">Go Back</a>
+            <a href="teachers.php" class="card-link btn btn-dark">Go Back</a>
         </div>
         </div>
+
+
+     </div>
+   
            
 
     </div>
