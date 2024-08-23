@@ -1587,3 +1587,38 @@ Fatal error: Uncaught PDOException: SQLSTATE[42000]: Syntax error or access viol
 
 19. using this tag <?=$teachers['fname']?> put it in the li tag in order to fetch 
 the data within the database 
+
+20. create a li to fetch data for subjects 
+
+   <li class="list-group-item">Subject: 
+                  <!-- TO SHOW SUBJECT -->
+            <?php 
+                           $s = '';
+                           $subjects = str_split(trim($teachers['subjects']));
+                           foreach ($subjects as $subject) {
+                              $s_temp = getSubjectById($subject, $conn);
+                              if ($s_temp != 0) 
+                                $s .=$s_temp['subject_code'].', ';
+                           }
+                           echo $s;
+           ?>
+
+            </li>
+
+21. create a li to fetch data for grades
+
+  <li class="list-group-item">Grade: 
+                  <!-- TO SHOW GRADE -->
+                  <?php 
+                           $g = '';
+                           $grades = str_split(trim($teachers['grades']));
+                           foreach ($grades as $grade) {
+                              $g_temp = getGradeById($grade, $conn);
+                              if ($g_temp != 0) 
+                                $g .=$g_temp['grade_code'].'-'.
+                                     $g_temp['grade'].', ';
+                           }
+                           echo $g;
+                        ?>
+
+            </li>

@@ -6,6 +6,8 @@ if (isset($_SESSION['admin_id']) &&
     if ($_SESSION['role'] == 'Admin') {
         include "../connections.php";
         include "data/teacher.php";
+        include "data/subject.php";
+        include "data/grade.php";
 
         if(isset($_GET['teacher_id'])){
 
@@ -163,11 +165,41 @@ if (isset($_SESSION['admin_id']) &&
             <li class="list-group-item">Gender: <?=$teachers['gender']?></li>
             <li class="list-group-item">Email address: <?=$teachers['email_address']?></li>
 
-            
+            <li class="list-group-item">Subject: 
+                  <!-- TO SHOW SUBJECT -->
+            <?php 
+                           $s = '';
+                           $subjects = str_split(trim($teachers['subjects']));
+                           foreach ($subjects as $subject) {
+                              $s_temp = getSubjectById($subject, $conn);
+                              if ($s_temp != 0) 
+                                $s .=$s_temp['subject_code'].', ';
+                           }
+                           echo $s;
+           ?>
+
+            </li>
+
+
+            <li class="list-group-item">Grade: 
+                  <!-- TO SHOW GRADE -->
+                  <?php 
+                           $g = '';
+                           $grades = str_split(trim($teachers['grades']));
+                           foreach ($grades as $grade) {
+                              $g_temp = getGradeById($grade, $conn);
+                              if ($g_temp != 0) 
+                                $g .=$g_temp['grade_code'].'-'.
+                                     $g_temp['grade'].', ';
+                           }
+                           echo $g;
+                        ?>
+
+            </li>
+    
         </ul>
         <div class="card-body">
-            <a href="#" class="card-link">Card link</a>
-            <a href="#" class="card-link">Another link</a>
+            <a href="teachers.php" class="card-link">Go Back</a>
         </div>
         </div>
            
