@@ -1537,5 +1537,10 @@ $data = 'uname='.$uname.'&fname='.$fname.'&lname='.$lname.'&address='.$address.'
 
 </div>
 
-9. 
+9. Fixed error in mysql queries due to "," in query command by removing it. and rename the variables within 
+post and isset method "section" to "sections".
+ERROR NOTE: 
+Fatal error: Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'WHERE teacher_id='13'' at line 5 in C:\xampp\htdocs\Munting_sisiw_daycare\admin\req\teacher-edit.php:141 Stack trace: #0 C:\xampp\htdocs\Munting_sisiw_daycare\admin\req\teacher-edit.php(141): PDOStatement->execute(Array) #1 {main} thrown in C:\xampp\htdocs\Munting_sisiw_daycare\admin\req\teacher-edit.php on line 141
+
+
 10. 

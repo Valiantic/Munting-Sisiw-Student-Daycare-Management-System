@@ -23,7 +23,7 @@ if(isset($_POST['fname'])    &&
     isset($_POST['email_address']) &&
     isset($_POST['gender']) &&
     isset($_POST['date_of_birth']) &&
-    isset($_POST['section']) &&
+    isset($_POST['sections']) &&
 
    isset($_POST['subjects']) &&
    isset($_POST['grades'])) {
@@ -59,7 +59,7 @@ if(isset($_POST['fname'])    &&
 
      // BLANK FIELD CHECKBOX VALIDATOR FOR SECTIONS
      $sections = "";
-     foreach ($_POST['section'] as $section){
+     foreach ($_POST['sections'] as $section){
          $sections .=$section;
      }
 
@@ -125,15 +125,20 @@ if(isset($_POST['fname'])    &&
 
     
     else {
+
+
     // NOTE CHECK THE ALWAYS THE TABLE NAME!
       $sql = "UPDATE tbl_teachers SET 
-              username = ?, fname=?, lname=?, subjects=?, grades=?
+              username=?, fname=?, lname=?, subjects=?, grades=?,
+              address=?, employee_number=?, date_of_birth=?, phone_number=?, 
+              qualification=?, gender=?, email_address=?, section=?
               WHERE teacher_id=?";
             
+
+
       $stmt = $conn->prepare($sql);
-      $stmt->execute([$uname, $fname, $lname, $subjects, $grades
-                    , $teacher_id]);
-    
+      // continue 30:42 fix error!
+      $stmt->execute([$uname,$fname, $lname, $subjects, $grades, $address, $employee_number, $date_of_birth, $phone_number, $qualification, $gender, $email_address, $sections, $teacher_id]);
       $sm = "Successfully Updated!";
       header("Location: ../teacher-edit.php?success=$sm&$data");
       exit;
@@ -146,7 +151,7 @@ if(isset($_POST['fname'])    &&
     // IF NO DATA INSERTED THEN USER CLICK ADD BUTTON
    }else {
     $em = "Error Occurred";
-    header("Location: ../teacher-edit.php?error=$em");
+    header("Location: ../teacher-edit.php?error=$em&$data");
     exit;
   } 
 
