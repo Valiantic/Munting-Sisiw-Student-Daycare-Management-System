@@ -146,7 +146,7 @@ if (isset($_SESSION['admin_id']) &&
 
             
      ?>
-     <div class="container mt-5">
+     <div class="container mt-2">
 
             <!-- DIV TO CENTER THE BOOTSTRAP CARD -->
      <div class="container d-flex justify-content-center">
@@ -155,7 +155,7 @@ if (isset($_SESSION['admin_id']) &&
         <!-- <img src="..." class="card-img-top" alt="..."> -->
         <div class="card-body">
             <h5 class="card-title text-center">@<?=$teachers['username']?></h5>
-            <p class="card-text">Information</p>
+            <p class="card-text">Teacher Information</p>
         </div>
         <ul class="list-group list-group-flush">
             <li class="list-group-item">First name: <?=$teachers['fname']?></li>
