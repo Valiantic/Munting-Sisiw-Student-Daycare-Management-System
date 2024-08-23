@@ -1622,3 +1622,6 @@ the data within the database
                         ?>
 
             </li>
+
+
+22. upon what you do in 20 and 21 do the same for section too. see git documentation for more details. 

@@ -8,6 +8,7 @@ if (isset($_SESSION['admin_id']) &&
         include "data/teacher.php";
         include "data/subject.php";
         include "data/grade.php";
+        include "data/section.php";
 
         if(isset($_GET['teacher_id'])){
 
@@ -193,6 +194,21 @@ if (isset($_SESSION['admin_id']) &&
                                      $g_temp['grade'].', ';
                            }
                            echo $g;
+                        ?>
+
+            </li>
+
+            <li class="list-group-item">Section: 
+                  <!-- TO SHOW SECTION -->
+                  <?php 
+                           $s = '';
+                           $sections = str_split(trim($teachers['section']));
+                           foreach ($sections as $section) {
+                              $s_temp = getSectionById($section, $conn);
+                              if ($s_temp != 0) 
+                                $s .=$s_temp['section'].', ';
+                           }
+                           echo $s;
                         ?>
 
             </li>
