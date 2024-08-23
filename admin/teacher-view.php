@@ -6,9 +6,14 @@ if (isset($_SESSION['admin_id']) &&
     if ($_SESSION['role'] == 'Admin') {
         include "../connections.php";
         include "data/teacher.php";
-        include "data/subject.php";
-        include "data/grade.php";
-        $teachers = getAllTeachers($conn);
+
+        if(isset($_GET['teacher_id'])){
+
+        $teacher_id = $_GET['teacher_id'];
+
+        // get information of teachers within the database
+        $teachers = getTeacherById($teacher_id, $conn);
+       
  ?>
 
 <!DOCTYPE html>
@@ -135,9 +140,36 @@ if (isset($_SESSION['admin_id']) &&
     <?php 
         include "inc/navbar.php";
         if ($teachers != 0) {
+
+            
      ?>
      <div class="container mt-5">
-        <!-- continue 39:38 -->
+     <div class="card" style="width: 18rem;">
+        <!-- <img src="..." class="card-img-top" alt="..."> -->
+        <div class="card-body">
+            <h5 class="card-title">@<?=$teachers['username']?></h5>
+            <p class="card-text">Details</p>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">First name: <?=$teachers['fname']?></li>
+            <li class="list-group-item">Last name: <?=$teachers['lname']?></li>
+            <li class="list-group-item">Username: <?=$teachers['username']?></li>
+
+            <li class="list-group-item">Address: <?=$teachers['address']?></li>
+            <li class="list-group-item">Employee number: <?=$teachers['employee_number']?></li>
+            <li class="list-group-item">Date of birth: <?=$teachers['date_of_birth']?></li>
+            <li class="list-group-item">Phone number: <?=$teachers['phone_number']?></li>
+            <li class="list-group-item">Qualification: <?=$teachers['qualification']?></li>
+            <li class="list-group-item">Gender: <?=$teachers['gender']?></li>
+            <li class="list-group-item">Email address: <?=$teachers['email_address']?></li>
+
+            
+        </ul>
+        <div class="card-body">
+            <a href="#" class="card-link">Card link</a>
+            <a href="#" class="card-link">Another link</a>
+        </div>
+        </div>
            
 
     </div>
@@ -160,6 +192,12 @@ if (isset($_SESSION['admin_id']) &&
 
 </html>
 <?php 
+
+  }else {
+    header("Location: teachers.php");
+    exit;
+  } 
+
 
   }else {
     header("Location: ../login.php");

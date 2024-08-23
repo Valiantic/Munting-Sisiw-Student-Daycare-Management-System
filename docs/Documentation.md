@@ -1560,4 +1560,30 @@ Fatal error: Uncaught PDOException: SQLSTATE[42000]: Syntax error or access viol
       } 
      ?>
 
-16. 
+16. remove include grade and subject in teacher-view.php
+17. add get variable and getTeacgerById in teacher-view.php 
+        $teacher_id = $_GET['teacher_id'];
+
+        $teacher = getTeacherById($teacher_id, $conn);
+
+18. copy the boostrap card in bootsrap and paste it inside the div container in teacher-view.php 
+
+<div class="card" style="width: 18rem;">
+  <img src="..." class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">An item</li>
+    <li class="list-group-item">A second item</li>
+    <li class="list-group-item">A third item</li>
+  </ul>
+  <div class="card-body">
+    <a href="#" class="card-link">Card link</a>
+    <a href="#" class="card-link">Another link</a>
+  </div>
+</div>
+
+19. using this tag <?=$teachers['fname']?> put it in the li tag in order to fetch 
+the data within the database 
