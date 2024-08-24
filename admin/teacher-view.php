@@ -152,7 +152,10 @@ if (isset($_SESSION['admin_id']) &&
      <div class="container d-flex justify-content-center">
             <!-- TEACHER DETAILS -->
      <div class="card align-items-center" style="width: 18rem;">
-        <!-- <img src="..." class="card-img-top" alt="..."> -->
+
+                <!-- IMAGE TAG WITH GENDER AVATAR DETECTION -->
+        <img src="../images/teacher-<?=$teachers['gender']?>.png" class="card-img-top" alt="...">
+
         <div class="card-body">
             <h5 class="card-title text-center">@<?=$teachers['username']?></h5>
             <p class="card-text">Teacher Information</p>

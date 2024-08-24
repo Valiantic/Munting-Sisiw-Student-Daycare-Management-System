@@ -1626,4 +1626,15 @@ the data within the database
 
 22. upon what you do in 20 and 21 do the same for section too. see git documentation for more details. 
 23. add some styling in the card. 
-24. 
+
+>NINTH CHAPTER
+1. add new images one for male and female avatar icon stores in images folder 
+2. uncomment the img tag in bootstrap card and put a php tag for avatar gender icon 
+NOTE: teacher-Male.png the teacher is the name of the file follow by the Male that will php 
+detect to choose the gender within the database record. 
+
+  <img src="../images/teacher-<?=$teachers['gender']?>.png" class="card-img-top" alt="...">
+
+3. 
+4. 
+5. 
