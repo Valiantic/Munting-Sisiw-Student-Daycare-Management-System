@@ -69,28 +69,36 @@ if (isset($_SESSION['admin_id']) &&
             width: 100%;
             max-width: 800px;
             margin: 10px auto;
-            background-color: #f5f5f5;
+            background-color: lightgray;
             border: 1px solid #ccc;
             padding: 30px;
             display: flex;
             flex-wrap: wrap;
+            
         }
 
         .card-item {
             /* space in between */
             flex: 1 1 40px;
             padding: 10px;
+         
         }
 
         .card-item label {
-            font-weight: bold;
+         
             display: block;
+            background: #F5EDED;
+            border-radius: 10px;
+            padding: 7px;
+            margin: 4spx;
+           
         }
 
         .card-item input {
             width: 100%;
             padding: 5px;
             border: 1px solid #ccc;
+            color: #252525;
         }
         .avatar {
           height: 200px;
