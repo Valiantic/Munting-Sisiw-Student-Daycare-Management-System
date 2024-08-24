@@ -1635,6 +1635,6 @@ detect to choose the gender within the database record.
 
   <img src="../images/teacher-<?=$teachers['gender']?>.png" class="card-img-top" alt="...">
 
-3. 
+3. not related to the ninth chapter. major changes on information card please refer to git documentation
 4. 
 5. 
