@@ -67,9 +67,9 @@ if (isset($_SESSION['admin_id']) &&
     
     .card {
             width: 100%;
-            max-width: 800px;
+            max-width: 700px;
             margin: 10px auto;
-            background-color: lightgray;
+            background-color: #E2DAD6;
             border: 1px solid #ccc;
             padding: 30px;
             display: flex;
@@ -92,13 +92,6 @@ if (isset($_SESSION['admin_id']) &&
             padding: 7px;
             margin: 4spx;
            
-        }
-
-        .card-item input {
-            width: 100%;
-            padding: 5px;
-            border: 1px solid #ccc;
-            color: #252525;
         }
         .avatar {
           height: 200px;
