@@ -198,6 +198,7 @@ if (isset($_SESSION['admin_id']) &&
                   <tr>
                     <th scope="row"><?=$i?></th>
                     <td><?=$teacher['teacher_id']?></td>
+                    <td><a href="teacher-view.php?teacher_id=<?=$teacher['teacher_id']?>"><?=$teacher['fname']?></a></td>
                     <td><?=$teacher['fname']?></td>
                     <td><?=$teacher['lname']?></td>
                     <td><?=$teacher['username']?></td>

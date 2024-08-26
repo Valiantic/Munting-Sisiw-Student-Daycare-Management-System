@@ -1636,5 +1636,5 @@ detect to choose the gender within the database record.
   <img src="../images/teacher-<?=$teachers['gender']?>.png" class="card-img-top" alt="...">
 
 3. not related to the ninth chapter. major changes on information card please refer to git documentation
-4. 
+4. copy the table data of teacher id and fname to teacher-search.php
 5. 
