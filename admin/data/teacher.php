@@ -82,15 +82,29 @@ function unameIsUnique($uname, $conn, $teacher_id=0){
 
  // SEARCH FUNCTION TO GET DATA FROM TBL TEACHERS
 function searchTeachers($key, $conn){
-    $key = "%{$key}%";
+    // modifying the variable key to get all results 
+    // using LIKE operator
+    // $key = "%{$key}%";
+    $key = preg_replace('/(?<!\\\)([%_])/', '\\\$1',$key);
+
+
+
     $sql = "SELECT * FROM tbl_teachers
             WHERE teacher_id LIKE ? 
             OR fname LIKE ?
             OR lname LIKE ? 
-            OR username LIKE ?";
+            OR username LIKE ?
+            OR address LIKE ?
+            OR employee_number LIKE ?
+            OR date_of_birth LIKE ?
+            OR phone_number LIKE ?
+            OR qualification LIKE ?
+            OR gender LIKE ? 
+            OR email_address LIKE ?";
+
     $stmt = $conn->prepare($sql);
-    // HANDLING COLUMN KEYS
-    $stmt->execute([$key, $key, $key, $key]);
+    // HANDLING COLUMN KEYS DEPENDS ON HOW MANY CONDITION ON THE SQL QUERY 
+    $stmt->execute([$key, $key, $key, $key, $key, $key, $key, $key, $key, $key, $key]);
 
     if($stmt->rowCount() == 1){
         $teachers = $stmt->fetchAll();

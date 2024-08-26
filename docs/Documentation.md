@@ -1636,5 +1636,34 @@ detect to choose the gender within the database record.
   <img src="../images/teacher-<?=$teachers['gender']?>.png" class="card-img-top" alt="...">
 
 3. not related to the ninth chapter. major changes on information card please refer to git documentation
-4. copy the table data of teacher id and fname to teacher-search.php
-5. 
+4. copy the table data of teacher id and fname to teacher-search.php. this is when the user is searching 
+the clickable teacherview link will still appear.
+5. update the sql query on teacher.php add more OR operators and like operators. dont forget to add keys!!!
+
+   $sql = "SELECT * FROM tbl_teachers
+            WHERE teacher_id LIKE ? 
+            OR fname LIKE ?
+            OR lname LIKE ? 
+            OR username LIKE ?
+            OR address LIKE ?
+            OR employee_number LIKE ?
+            OR date_of_birth LIKE ?
+            OR phone_number LIKE ?
+            OR qualification LIKE ?
+            OR gender LIKE ? 
+            OR email_address LIKE ?";
+
+    $stmt = $conn->prepare($sql);
+    // HANDLING COLUMN KEYS DEPENDS ON HOW MANY CONDITION ON THE SQL QUERY 
+    $stmt->execute([$key, $key, $key, $key, $key, $key, $key, $key, $key, $key, $key]);
+
+6. in teacher.php modify the key variable in searchTeachers function. 
+this code allows mysqli query to get all results using LIKE operator. 
+do this too in student.php in data folder.
+
+  $key = preg_replace('/(?<!\\\)([%_])/', '\\\$1',$key);
+
+7. 
+8. 
+9. 
+10. 

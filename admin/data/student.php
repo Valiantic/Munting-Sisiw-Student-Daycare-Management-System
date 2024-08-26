@@ -84,7 +84,11 @@ function unameIsUnique($uname, $conn, $student_id=0){
 
  // SEARCH FUNCTION TO GET DATA FROM TBL STUDENTS
 function searchStudents($key, $conn){
-    $key = "%{$key}%";
+    // modifying the variable key to get all results 
+    // using LIKE operator
+    // $key = "%{$key}%";
+    $key = preg_replace('/(?<!\\\)([%_])/', '\\\$1',$key);
+
     $sql = "SELECT * FROM tbl_students
             WHERE student_id LIKE ? 
             OR fname LIKE ?
