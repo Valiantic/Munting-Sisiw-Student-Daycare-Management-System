@@ -148,6 +148,10 @@ if (isset($_SESSION['admin_id']) &&
         <div class="card-item">
             <label>Username:&nbsp;&nbsp;&nbsp;<?=$teachers['username']?></label>
         </div>
+        <!-- FORGOT TO ADD  -->
+        <div class="card-item">
+            <label>Address:&nbsp;&nbsp;&nbsp;<?=$teachers['address']?></label>
+        </div>
         <div class="card-item">
             <label>Employee Number:&nbsp;&nbsp;&nbsp;<?=$teachers['employee_number']?></label>
         </div>
