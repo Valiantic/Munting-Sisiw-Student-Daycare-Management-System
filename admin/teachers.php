@@ -137,7 +137,7 @@ if (isset($_SESSION['admin_id']) &&
         if ($teachers != 0) {
      ?>
      <div class="container mt-5">
-        <!-- continue 52:17 -->
+        <!-- continue 13:18 -->
         <a href="teacher-add.php"
            class="btn btn-dark">Add New Teacher</a>
 

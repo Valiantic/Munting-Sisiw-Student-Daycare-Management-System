@@ -159,10 +159,13 @@ if (isset($_SESSION['admin_id']) &&
             <label>Date of Birth:&nbsp;&nbsp;&nbsp;<?=$teachers['date_of_birth']?></label>
         </div>
         <div class="card-item">
-            <label>Phone Number:&nbsp;&nbsp;&nbsp;<?=$teachers['date_of_birth']?></label>
+            <label>Phone Number:&nbsp;&nbsp;&nbsp;<?=$teachers['phone_number']?></label>
         </div>
         <div class="card-item">
             <label>Qualification:&nbsp;&nbsp;&nbsp;<?=$teachers['qualification']?></label>
+        </div>
+        <div class="card-item">
+            <label>Date joined:&nbsp;&nbsp;&nbsp;<?=$teachers['date_of_joined']?></label>
         </div>
         <div class="card-item">
             <label>Gender:&nbsp;&nbsp;&nbsp;<?=$teachers['gender']?></label>

@@ -1663,7 +1663,12 @@ do this too in student.php in data folder.
 
   $key = preg_replace('/(?<!\\\)([%_])/', '\\\$1',$key);
 
-7. 
+7. add new label for date joined in teacher view 
+
+ <div class="card-item">
+            <label>Date joined:&nbsp;&nbsp;&nbsp;<?=$teachers['date_of_joined']?></label>
+  </div>
+
 8. 
 9. 
 10. 
