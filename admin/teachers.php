@@ -19,10 +19,13 @@ if (isset($_SESSION['admin_id']) &&
     <title>Admin - Teachers</title>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="shortcut icon" href="../images/logo.png">
+    
+    <!-- BOOTSTRAP LINK  -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- FONT AWESOME LINK -->
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -128,7 +131,7 @@ if (isset($_SESSION['admin_id']) &&
         max-width: 800px;
     }
 
-
+ 
 </style>
 
 <body>
@@ -142,8 +145,10 @@ if (isset($_SESSION['admin_id']) &&
            class="btn btn-dark">Add New Teacher</a>
 
 
+          
+
             <!-- SEARCH BUTTON  -->
-           <form action="teacher-search.php" class="mt-3 n-table" method="post">
+           <form action="teacher-search.php" class="smt-3 n-table" method="post">
 
            <div class="input-group mb-3">
           <input type="text" class="form-control" name="searchKey" placeholder="Search...">
@@ -227,8 +232,16 @@ if (isset($_SESSION['admin_id']) &&
                     <td>
                         <a href="teacher-edit.php?teacher_id=<?=$teacher['teacher_id']?>"
                            class="btn btn-warning">Edit</a>
-                        <a href="teacher-delete.php?teacher_id=<?=$teacher['teacher_id']?>"
+                              
+
+                       
+                       
+                          <a href="teacher-delete.php?teacher_id=<?=$teacher['teacher_id']?>"
                            class="btn btn-danger">Delete</a>
+                           
+                
+
+                           
                     </td>
                   </tr>
                 <?php } ?>
@@ -243,11 +256,18 @@ if (isset($_SESSION['admin_id']) &&
          <?php } ?>
      </div>
      
+
+    
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>	
     <script>
         $(document).ready(function(){
              $("#navLinks li:nth-child(2) a").addClass('active');
         });
+
+  
+
+  
     </script>
 
 </body>
