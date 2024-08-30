@@ -1687,7 +1687,7 @@ parent_phone_number VARCHAR 31
 
 12. create new input for the new columns in student-add.php  
 13. inlude data/section.php in student-add.php 
-14. 
+14. copy the input for grade and modify it for section 
 15. 
 16. 
 17. 

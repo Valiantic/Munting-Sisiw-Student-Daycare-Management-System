@@ -9,6 +9,7 @@ if (isset($_SESSION['admin_id']) &&
         include "data/grade.php";
         include "data/section.php";
         $grades = getAllGrades($conn);
+        $sections = getAllSections($conn);
 
 
         // VARIABLE INITIALIZATION FOR VALIDATION SESSION
@@ -240,6 +241,8 @@ if (isset($_SESSION['admin_id']) &&
     <input type="radio" value="Female" name="gender">Female
   </div>
 
+  <hr>
+
   <div class="mb-3">
     <label class="form-label">Parent First name </label>
     <input type="text" class="form-control" value="<?=$uname?>" name="username">
@@ -283,11 +286,11 @@ if (isset($_SESSION['admin_id']) &&
     <label class="form-label">Section</label>
 
     <div class="row row-cols-5"> 
-    <?php foreach ($grades as $grade): ?>
+    <?php foreach ($sections as $section): ?>
       
       <div class="col">
-      <input type="radio" name="grade" value="<?=$grade['grade_id']?>"> 
-      <?=$grade['grade_code']?>-<?=$grade['grade']?>
+      <input type="radio" name="section" value="<?=$section['section_id']?>"> 
+      <?=$section['section']?>
       <!-- ENCLOSED IN PHP TAG ARE THE VARIABLES YOU WANT TO DISPLAY -->
         
       <!-- continue 13:58 -->

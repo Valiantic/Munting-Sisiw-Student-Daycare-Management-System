@@ -17,6 +17,7 @@ tbl_students
 >lname VARCHAR(25)
 >grade INT(25)
 --TO ADD NEW COLUMNS-- 
+section INT 11 
 address VARCHAR 31
 gender VARCHAR 7 
 email_address VARCHAR 255 
