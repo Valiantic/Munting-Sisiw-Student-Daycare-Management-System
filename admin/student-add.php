@@ -166,7 +166,7 @@ if (isset($_SESSION['admin_id']) &&
         include "inc/navbar.php";
      ?>
      <div class="container mt-5">
-        <!-- continue 52:17 -->
+        <!-- continue 26:13 -->
         <a href="students.php"
            class="btn btn-dark">Go Back</a>
 

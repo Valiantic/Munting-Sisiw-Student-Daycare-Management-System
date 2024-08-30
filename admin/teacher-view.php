@@ -69,11 +69,14 @@ if (isset($_SESSION['admin_id']) &&
             width: 100%;
             max-width: 700px;
             margin: 10px auto;
-            background-color: #E2DAD6;
+            background-color: white;
             border: 1px solid #ccc;
             padding: 20px;
             display: flex;
             flex-wrap: wrap;
+            border: 1px solid #ccc;
+            
+            box-shadow: 0px 2px 5px rgba(5, 2, 2, 5);
             
         }
 
@@ -87,7 +90,7 @@ if (isset($_SESSION['admin_id']) &&
         .card-item label {
          
             display: block;
-            background: #F5EDED;
+            background: #F5F5F5;
             border-radius: 10px;
             padding: 7px;
             margin: 4spx;
