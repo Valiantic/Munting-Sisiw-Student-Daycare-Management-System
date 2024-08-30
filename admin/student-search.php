@@ -234,7 +234,7 @@ if (isset($_SESSION['admin_id']) &&
          <?php }else{ ?>
              <div class="alert alert-info .w-450 m-5" 
                   role="alert">
-                There are no Records!
+               No Results Found!
 
                  <!-- spacing -->
                  &nbsp
