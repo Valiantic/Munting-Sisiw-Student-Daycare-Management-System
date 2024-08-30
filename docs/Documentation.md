@@ -1669,6 +1669,6 @@ do this too in student.php in data folder.
             <label>Date joined:&nbsp;&nbsp;&nbsp;<?=$teachers['date_of_joined']?></label>
   </div>
 
-8. 
+8. add generate employee number on teacher-add.php 
 9. 
 10. 

@@ -142,7 +142,7 @@ if (isset($_SESSION['admin_id']) &&
      <div class="container mt-5">
         <!-- continue 13:18 -->
         <a href="teacher-add.php"
-           class="btn btn-dark">Add New Teacher</a>
+           class="btn btn-dark mb-3">Add New Teacher</a>
 
 
           

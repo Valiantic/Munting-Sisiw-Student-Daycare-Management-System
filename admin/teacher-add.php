@@ -223,7 +223,10 @@ if (isset($_SESSION['admin_id']) &&
     <label class="form-label">Password</label>
     <div class="input-group mb-3">
     <input type="text" class="form-control" name="pass" id="passInput">
+
+    <!-- GENERATE RANDOM PASSWORD -->
     <button class="btn btn-secondary" id="gBtn">Random Password</button>
+
     </div>
   </div>
 
@@ -237,7 +240,11 @@ if (isset($_SESSION['admin_id']) &&
 
   <div class="mb-3">
     <label class="form-label">Employee number</label>
-    <input type="text" class="form-control" value="<?=$en?>" name="employee_number">
+    <input type="text" class="form-control mb-3" value="<?=$en?>" name="employee_number" id="empInput">
+
+    <!-- GENERATE EMPLOYEE NUMBER -->
+    <button class="btn btn-secondary" id="eBtn">Generate Employee Number</button>
+
   </div>
 
   <div class="mb-3">
@@ -329,6 +336,8 @@ if (isset($_SESSION['admin_id']) &&
      </div>
      
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>	
+
+    <!-- SCRIPT FOR GENERATE RANDOM PASSWORD -->
     <script>
         $(document).ready(function(){
              $("#navLinks li:nth-child(2) a").addClass('active');
@@ -354,6 +363,37 @@ if (isset($_SESSION['admin_id']) &&
           makePass(7); // just adjust the number to increase the character length of the password generator
         });
     </script>
+
+
+        <!-- SCRIPT FOR GENERATE EMPLOYEE NUMBER  -->
+        <script>
+        $(document).ready(function(){
+             $("#navLinks li:nth-child(2) a").addClass('active');
+        });
+
+        // EMPLOYEE NUMBER GENERATION
+        function makeEmployeenum(length) {
+            var result           = '';
+            var characters       = '0123456789';
+            var charactersLength = characters.length;
+            for ( var i = 0; i < length; i++ ) {
+              result += characters.charAt(Math.floor(Math.random() * 
+         charactersLength));
+
+           }
+           var empInput = document.getElementById('empInput');
+           empInput.value = result;
+        }
+
+        var eBtn = document.getElementById('eBtn');
+        eBtn.addEventListener('click', function(e){
+          e.preventDefault();
+          makeEmployeenum(10); // just adjust the number to increase the character length of the password generator
+        });
+    </script>
+
+
+
 
 </body>
 
