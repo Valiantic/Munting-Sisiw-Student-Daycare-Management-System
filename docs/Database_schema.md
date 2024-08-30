@@ -16,6 +16,15 @@ tbl_students
 >fname  VARCHAR(25)
 >lname VARCHAR(25)
 >grade INT(25)
+--TO ADD NEW COLUMNS-- 
+address VARCHAR 31
+gender VARCHAR 7 
+email_address VARCHAR 255 
+date_of_birth DATE 
+date_of_joined TIMESTAMP CURRENT_TIMESTAMP
+parent_fname VARCHAR 127 
+parent_lname VARCHAR 127
+parent_phone_number VARCHAR 31 
 
 tbl_teachers
 >teacher_id INT(11) AUTO_INCREMENT

@@ -1673,9 +1673,20 @@ do this too in student.php in data folder.
 9. add delete confirmation modal on teacher-delete.php
 10. change method of search input FROM POST TO GET 
 in teachers, students, teacher-search, student-search and teacher-view.php
-11. 
-12. 
-13. 
+
+11. create new columns in database 
+address VARCHAR 31
+gender VARCHAR 7 
+email_address VARCHAR 255 
+date_of_birth DATE 
+date_of_joined TIMESTAMP CURRENT_TIMESTAMP
+
+parent_fname VARCHAR 127 
+parent_lname VARCHAR 127
+parent_phone_number VARCHAR 31 
+
+12. create new input for the new columns in student-add.php  
+13. inlude data/section.php in student-add.php 
 14. 
 15. 
 16. 

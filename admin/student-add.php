@@ -7,6 +7,7 @@ if (isset($_SESSION['admin_id']) &&
 
         include "../connections.php";;
         include "data/grade.php";
+        include "data/section.php";
         $grades = getAllGrades($conn);
 
 
@@ -171,7 +172,7 @@ if (isset($_SESSION['admin_id']) &&
 
 
                                                     <!-- ALWAYS CHECK THE ACTION -->
-<form class="shadow p-3 mt-4 form-w" method="post" action="req/student-add.php">
+<form class="shadow p-3 mt-4 mb-3 form-w" method="post" action="req/student-add.php">
 
 
    <hr><h3>Add new student</h3></hr>
@@ -214,9 +215,72 @@ if (isset($_SESSION['admin_id']) &&
     </div>
   </div>
 
+  <!-- NEW COLUMNS ADDED  -->
+  <div class="mb-3">
+    <label class="form-label">Address</label>
+    <input type="text" class="form-control" value="<?=$uname?>" name="username">
+  </div>
+
+
+  <div class="mb-3">
+    <label class="form-label">Email address</label>
+    <input type="text" class="form-control" value="<?=$uname?>" name="username">
+  </div>
+
+
+  <div class="mb-3">
+    <label class="form-label">Date of birth</label>
+    <input type="date" class="form-control" value="<?=$uname?>" name="username">
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Gender</label><br>
+    <input type="radio" checked value="Male" name="gender">Male
+      &nbsp;
+    <input type="radio" value="Female" name="gender">Female
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Parent First name </label>
+    <input type="text" class="form-control" value="<?=$uname?>" name="username">
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Parent Last name </label>
+    <input type="text" class="form-control" value="<?=$uname?>" name="username">
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Parent Phone number</label>
+    <input type="text" class="form-control" value="<?=$uname?>" name="username">
+  </div>
+  <!-- NEW COLUMNS ADDED  -->
+
+
+
 
   <div class="mb-3">
     <label class="form-label">Grade</label>
+
+    <div class="row row-cols-5"> 
+    <?php foreach ($grades as $grade): ?>
+      
+      <div class="col">
+      <input type="radio" name="grade" value="<?=$grade['grade_id']?>"> 
+      <?=$grade['grade_code']?>-<?=$grade['grade']?>
+      <!-- ENCLOSED IN PHP TAG ARE THE VARIABLES YOU WANT TO DISPLAY -->
+        
+      <!-- continue 13:58 -->
+
+    </div>
+    <?php endforeach ?>
+    </div>
+
+  </div>
+
+
+  <div class="mb-3">
+    <label class="form-label">Section</label>
 
     <div class="row row-cols-5"> 
     <?php foreach ($grades as $grade): ?>

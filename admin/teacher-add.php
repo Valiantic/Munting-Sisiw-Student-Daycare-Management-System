@@ -184,7 +184,7 @@ if (isset($_SESSION['admin_id']) &&
         <a href="teachers.php"
            class="btn btn-dark">Go Back</a>
 
-<form class="shadow p-3 mt-4 form-w" method="post" action="req/teacher-add.php">
+<form class="shadow p-3 mt-4 mb-3 form-w" method="post" action="req/teacher-add.php">
 
 
    <hr><h3>Add new teacher</h3></hr>
