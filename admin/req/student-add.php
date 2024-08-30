@@ -44,17 +44,13 @@ if (isset($_POST['fname']) &&
 
 
     $grade = $_POST['grade'];
+    $grade = $_POST['section'];
 
-     // BLANK FIELD CHECKBOX VALIDATOR FOR SECTIONS
-     $sections = "";
-     foreach ($_POST['section'] as $section){
-         $sections .=$section;
-     }
-    
+     
     // continue 15:11
 
 
-    $data = 'uname='.$uname.'&fname='.$fname.'&lname='.$lname;
+    $data = 'uname='.$uname.'&fname='.$fname.'&lname='.$lname.'&address='.$address.'&gender='.$email_address.'&pfn='.$parent_fname.'&pln='.$parent_lname.'&ppn='.$parent_phone_number;
 
     if (empty($fname)) {
 		$em  = "First name is required";
@@ -96,17 +92,17 @@ if (isset($_POST['fname']) &&
     exit;
   }
   else if (empty($parent_fname)) {
-    $em  = "Date of birth is required";
+    $em  = "Parent First name is required";
     header("Location: ../student-add.php?error=$em&$data");
     exit;
   }
   else if (empty($parent_lname)) {
-    $em  = "Date of birth is required";
+    $em  = "Parent Last name is required";
     header("Location: ../student-add.php?error=$em&$data");
     exit;
   }
   else if (empty($parent_phone_number)) {
-    $em  = "Date of birth is required";
+    $em  = "Parent Phone number is required";
     header("Location: ../student-add.php?error=$em&$data");
     exit;
   }

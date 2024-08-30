@@ -1693,4 +1693,7 @@ parent_phone_number VARCHAR 31
 create a isset and post variable for blank field validator 
 new add columns in the database. then create if else for redirection. 
 
-17. 
+17. FIXED! rename the redirection error display on blank field validator on 
+student-add.php parent fname, parent lname and parent phone number
+
+18. 

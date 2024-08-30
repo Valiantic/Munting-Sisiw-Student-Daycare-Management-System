@@ -272,9 +272,9 @@ if (isset($_SESSION['admin_id']) &&
     <input type="text" class="form-control" value="<?=$uname?>" name="parent_phone_number">
   </div>
 
- 
+  <br>
   <hr>
-  
+  <br>
   
   <!-- NEW COLUMNS ADDED  -->
 
