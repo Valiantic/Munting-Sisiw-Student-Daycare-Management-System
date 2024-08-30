@@ -1670,5 +1670,5 @@ do this too in student.php in data folder.
   </div>
 
 8. add generate employee number on teacher-add.php 
-9. 
+9. add delete confirmation modal on teacher-delete.php
 10. 
