@@ -242,6 +242,19 @@ if (isset($_SESSION['admin_id']) &&
         });
     </script>
 
+
+     <!-- SCRIPT FOR DELETE MODAL CONFIRMATION  -->
+     <script type="text/javascript">
+          var elems = document.getElementsByClassName('btn btn-danger');
+          var confirmIt = function (e) {
+              if (!confirm('Are you sure you want to delete this record?')) e.preventDefault();
+          };
+          for (var i = 0, l = elems.length; i < l; i++) {
+              elems[i].addEventListener('click', confirmIt, false);
+          }
+      </script>
+
+
 </body>
 
 </html>

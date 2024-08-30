@@ -44,7 +44,7 @@ if (isset($_POST['fname']) &&
 
 
     $grade = $_POST['grade'];
-    $grade = $_POST['section'];
+    $section = $_POST['section'];
 
      
     // continue 15:11
@@ -103,6 +103,11 @@ if (isset($_POST['fname']) &&
   }
   else if (empty($parent_phone_number)) {
     $em  = "Parent Phone number is required";
+    header("Location: ../student-add.php?error=$em&$data");
+    exit;
+  }
+  else if (empty($section)) {
+    $em  = "Section is required";
     header("Location: ../student-add.php?error=$em&$data");
     exit;
   }
