@@ -1671,4 +1671,12 @@ do this too in student.php in data folder.
 
 8. add generate employee number on teacher-add.php 
 9. add delete confirmation modal on teacher-delete.php
-10. 
+10. change method of search input FROM POST TO GET 
+in teachers, students, teacher-search, student-search and teacher-view.php
+11. 
+12. 
+13. 
+14. 
+15. 
+16. 
+17. 

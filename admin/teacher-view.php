@@ -71,7 +71,7 @@ if (isset($_SESSION['admin_id']) &&
             margin: 10px auto;
             background-color: #E2DAD6;
             border: 1px solid #ccc;
-            padding: 30px;
+            padding: 20px;
             display: flex;
             flex-wrap: wrap;
             
@@ -96,7 +96,7 @@ if (isset($_SESSION['admin_id']) &&
         .avatar {
           height: 200px;
           width: 200px;
-          border-radius: 50%;
+          border-radius: 55%;
         }
         label {
           font-size: 20px;

@@ -148,7 +148,7 @@ if (isset($_SESSION['admin_id']) &&
           
 
             <!-- SEARCH BUTTON  -->
-           <form action="teacher-search.php" class="smt-3 n-table" method="post">
+           <form action="teacher-search.php" class="smt-3 n-table" method="get">
 
            <div class="input-group mb-3">
           <input type="text" class="form-control" name="searchKey" placeholder="Search...">

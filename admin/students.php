@@ -141,7 +141,7 @@ if (isset($_SESSION['admin_id']) &&
            class="btn btn-dark">Add New Students</a>
             
             <!-- SEARCH BUTTON  -->
-           <form action="student-search.php" class="mt-3 n-table" method="post">
+           <form action="student-search.php" class="mt-3 n-table" method="get">
 
            <div class="input-group mb-3">
           <input type="text" class="form-control" name="searchKey" placeholder="Search...">

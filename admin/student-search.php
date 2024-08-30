@@ -5,9 +5,9 @@ if (isset($_SESSION['admin_id']) &&
 
     if ($_SESSION['role'] == 'Admin') {
 
-      if (isset($_POST['searchKey'])){
+      if (isset($_GET['searchKey'])){
 
-        $search_key = $_POST['searchKey'];
+        $search_key = $_GET['searchKey'];
         include "../connections.php";
         include "data/student.php";
         include "data/grade.php";

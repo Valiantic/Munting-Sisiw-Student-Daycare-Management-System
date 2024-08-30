@@ -5,9 +5,9 @@ if (isset($_SESSION['admin_id']) &&
 
     if ($_SESSION['role'] == 'Admin') {
 
-        if (isset($_POST['searchKey'])){
+        if (isset($_GET['searchKey'])){
 
-        $search_key = $_POST['searchKey'];
+        $search_key = $_GET['searchKey'];
         include "../connections.php";
         include "data/teacher.php";
         include "data/subject.php";
@@ -147,7 +147,7 @@ if (isset($_SESSION['admin_id']) &&
 
 
             <!-- SEARCH BUTTON  -->
-           <form action="teacher-search.php" class="mt-3 n-table" method="post">
+           <form action="teacher-search.php" class="mt-3 n-table" method="get">
 
            <div class="input-group mb-3">
           <input type="text" class="form-control" name="searchKey" value="<?=$search_key?>" placeholder="Search...">
