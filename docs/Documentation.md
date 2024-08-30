@@ -1688,6 +1688,9 @@ parent_phone_number VARCHAR 31
 12. create new input for the new columns in student-add.php  
 13. inlude data/section.php in student-add.php 
 14. copy the input for grade and modify it for section 
-15. 
-16. 
+15. put breakline and horizontal rule in student-add.php form 
+16. put names on every input in student-add.php then on req/student-add.php 
+create a isset and post variable for blank field validator 
+new add columns in the database. then create if else for redirection. 
+
 17. 

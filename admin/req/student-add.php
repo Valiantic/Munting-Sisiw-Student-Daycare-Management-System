@@ -10,6 +10,17 @@ if (isset($_POST['fname']) &&
     isset($_POST['lname']) &&
     isset($_POST['username']) &&
     isset($_POST['pass']) &&
+
+      // NEW COLUMNS ADDED DUE TO SECTION TABLE 
+    isset($_POST['address']) &&
+    isset($_POST['email_address']) &&
+    isset($_POST['gender']) &&
+    isset($_POST['date_of_birth']) &&
+    isset($_POST['parent_fname']) &&
+    isset($_POST['parent_lname']) &&
+    isset($_POST['parent_phone_number']) &&
+    isset($_POST['section']) &&
+
     //THE GRADE COLUMN IS NAMED GRADES THATS WHY IT WON'T WORK EARLIER
     //LESSON: ALWAYS CHECK THE NAME VALUE IF THE ERROR VALIDATOR IS NOT WORKING!!!
     isset($_POST['grade'])) {
@@ -22,7 +33,23 @@ if (isset($_POST['fname']) &&
     $uname = $_POST['username'];
     $pass = $_POST['pass'];
 
+     // NEW COLUMNS ADDED DUE TO SECTION TABLE 
+     $address = $_POST['address'];
+     $email_address = $_POST['email_address'];
+     $gender = $_POST['gender'];
+     $date_of_birth = $_POST['date_of_birth'];
+     $parent_fname = $_POST['parent_fname'];
+     $parent_lname = $_POST['parent_lname'];
+     $parent_phone_number = $_POST['parent_phone_number'];
+
+
     $grade = $_POST['grade'];
+
+     // BLANK FIELD CHECKBOX VALIDATOR FOR SECTIONS
+     $sections = "";
+     foreach ($_POST['section'] as $section){
+         $sections .=$section;
+     }
     
     // continue 15:11
 
@@ -45,7 +72,48 @@ if (isset($_POST['fname']) &&
 		$em  = "Username is taken! try another";
 		header("Location: ../student-add.php?error=$em&$data");
 		exit;
-	}else if (empty($pass)) {
+	}
+  
+   // NEW COLUMNS ADDED DUE TO SECTION TABLE 
+   else if (empty($address)) {
+    $em  = "Address is required";
+    header("Location: ../student-add.php?error=$em&$data");
+    exit;
+  }
+  else if (empty($email_address)) {
+    $em  = "Email address is required";
+    header("Location: ../student-add.php?error=$em&$data");
+    exit;
+  }
+  else if (empty($gender)) {
+    $em  = "Gender is required";
+    header("Location: ../student-add.php?error=$em&$data");
+    exit;
+  }
+  else if (empty($date_of_birth)) {
+    $em  = "Date of birth is required";
+    header("Location: ../student-add.php?error=$em&$data");
+    exit;
+  }
+  else if (empty($parent_fname)) {
+    $em  = "Date of birth is required";
+    header("Location: ../student-add.php?error=$em&$data");
+    exit;
+  }
+  else if (empty($parent_lname)) {
+    $em  = "Date of birth is required";
+    header("Location: ../student-add.php?error=$em&$data");
+    exit;
+  }
+  else if (empty($parent_phone_number)) {
+    $em  = "Date of birth is required";
+    header("Location: ../student-add.php?error=$em&$data");
+    exit;
+  }
+  
+  
+  
+  else if (empty($pass)) {
 		$em  = "Password is required";
 		header("Location: ../student-add.php?error=$em&$data");
 		exit;

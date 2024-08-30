@@ -203,6 +203,38 @@ if (isset($_SESSION['admin_id']) &&
     <input type="text" class="form-control" value="<?=$lname?>" name="lname">
   </div>
 
+
+  <!-- NEW COLUMNS ADDED  -->
+  <div class="mb-3">
+    <label class="form-label">Address</label>
+    <input type="text" class="form-control" value="<?=$uname?>" name="address">
+  </div>
+
+
+  <div class="mb-3">
+    <label class="form-label">Email address</label>
+    <input type="text" class="form-control" value="<?=$uname?>" name="email_address">
+  </div>
+
+
+  <div class="mb-3">
+    <label class="form-label">Date of birth</label>
+    <input type="date" class="form-control" value="<?=$uname?>" name="date_of_birth">
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Gender</label><br>
+    <input type="radio" checked value="Male" name="gender">Male
+      &nbsp;
+    <input type="radio" value="Female" name="gender">Female
+  </div>
+  
+  <!-- DIVS FOR STUDENT USERNAME AND PASSWORD  -->
+  
+  <hr>
+  <br>
+
+
   <div class="mb-3">
     <label class="form-label">Username</label>
     <input type="text" class="form-control" value="<?=$uname?>" name="username">
@@ -216,47 +248,34 @@ if (isset($_SESSION['admin_id']) &&
     </div>
   </div>
 
-  <!-- NEW COLUMNS ADDED  -->
-  <div class="mb-3">
-    <label class="form-label">Address</label>
-    <input type="text" class="form-control" value="<?=$uname?>" name="username">
-  </div>
-
-
-  <div class="mb-3">
-    <label class="form-label">Email address</label>
-    <input type="text" class="form-control" value="<?=$uname?>" name="username">
-  </div>
-
-
-  <div class="mb-3">
-    <label class="form-label">Date of birth</label>
-    <input type="date" class="form-control" value="<?=$uname?>" name="username">
-  </div>
-
-  <div class="mb-3">
-    <label class="form-label">Gender</label><br>
-    <input type="radio" checked value="Male" name="gender">Male
-      &nbsp;
-    <input type="radio" value="Female" name="gender">Female
-  </div>
-
+  <br>
   <hr>
+  
+
+
+  <!-- DIVS FOR GUARDIAN CREDENTIALS -->
+  <br>
+
 
   <div class="mb-3">
     <label class="form-label">Parent First name </label>
-    <input type="text" class="form-control" value="<?=$uname?>" name="username">
+    <input type="text" class="form-control" value="<?=$uname?>" name="parent_fname">
   </div>
 
   <div class="mb-3">
     <label class="form-label">Parent Last name </label>
-    <input type="text" class="form-control" value="<?=$uname?>" name="username">
+    <input type="text" class="form-control" value="<?=$uname?>" name="parent_lname">
   </div>
 
   <div class="mb-3">
     <label class="form-label">Parent Phone number</label>
-    <input type="text" class="form-control" value="<?=$uname?>" name="username">
+    <input type="text" class="form-control" value="<?=$uname?>" name="parent_phone_number">
   </div>
+
+ 
+  <hr>
+  
+  
   <!-- NEW COLUMNS ADDED  -->
 
 
@@ -301,7 +320,7 @@ if (isset($_SESSION['admin_id']) &&
 
   </div>
 
-    <button type="submit" class="btn btn-primary">Add</button>
+    <button type="submit" class="btn btn-primary">Register</button>
 </form>
        
      </div>
