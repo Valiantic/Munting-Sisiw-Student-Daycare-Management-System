@@ -1696,4 +1696,4 @@ new add columns in the database. then create if else for redirection.
 17. FIXED! rename the redirection error display on blank field validator on 
 student-add.php parent fname, parent lname and parent phone number
 
-18. 
+18. UPDATE INSERT Query on student-add.php

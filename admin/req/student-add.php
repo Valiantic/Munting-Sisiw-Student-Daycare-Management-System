@@ -114,19 +114,21 @@ if (isset($_POST['fname']) &&
   
   
   
+  
   else if (empty($pass)) {
 		$em  = "Password is required";
 		header("Location: ../student-add.php?error=$em&$data");
 		exit;
 	}else {
+      // continue 39:52
         // hashing the password
         $pass = password_hash($pass, PASSWORD_DEFAULT);
 
         $sql  = "INSERT INTO
-                 tbl_students(username, password, fname, lname, grade)
-                 VALUES(?,?,?,?,?)";
+                 tbl_students(username, password, fname, lname, grade, section, address, gender, email_address, date_of_birth, parent_fname, parent_lname, parent_phone_number)
+                   VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)";
         $stmt = $conn->prepare($sql);
-        $stmt->execute([$uname, $pass, $fname, $lname, $grade]);
+        $stmt->execute([$uname, $pass, $fname, $lname, $grade, $section, $address, $gender, $email_address, $date_of_birth, $parent_fname, $parent_lname, $parent_phone_number]);
         $sm = "New student registered successfully";
         header("Location: ../student-add.php?success=$sm");
         exit;
