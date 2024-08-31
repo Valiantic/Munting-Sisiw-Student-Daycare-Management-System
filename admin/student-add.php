@@ -16,11 +16,21 @@ if (isset($_SESSION['admin_id']) &&
         $fname = '';
         $lname = '';
         $uname = '';
+        $address = '';
+        $email = '';
+        $pfn = '';
+        $pln = '';
+        $ppn = '';
 
         // VARIABLE INITIALIZATION FOR SESSION
         if (isset($_GET['fname'])) $fname = $_GET['fname'];
         if (isset($_GET['lname'])) $lname = $_GET['lname'];
         if (isset($_GET['uname'])) $uname = $_GET['uname'];
+        if (isset($_GET['address'])) $address = $_GET['address'];
+        if (isset($_GET['email'])) $email = $_GET['email'];
+        if (isset($_GET['pfn'])) $pfn = $_GET['pfn'];
+        if (isset($_GET['pln'])) $pln = $_GET['pln'];
+        if (isset($_GET['ppn'])) $ppn = $_GET['ppn'];
 
         // PUT VALUE ON THREE INPUT FNAME,LNAME, AND UNAME
 
@@ -207,13 +217,13 @@ if (isset($_SESSION['admin_id']) &&
   <!-- NEW COLUMNS ADDED  -->
   <div class="mb-3">
     <label class="form-label">Address</label>
-    <input type="text" class="form-control" value="<?=$uname?>" name="address">
+    <input type="text" class="form-control" value="<?=$address?>" name="address">
   </div>
 
 
   <div class="mb-3">
     <label class="form-label">Email address</label>
-    <input type="text" class="form-control" value="<?=$uname?>" name="email_address">
+    <input type="text" class="form-control" value="<?=$email?>" name="email_address">
   </div>
 
 
@@ -259,17 +269,17 @@ if (isset($_SESSION['admin_id']) &&
 
   <div class="mb-3">
     <label class="form-label">Parent First name </label>
-    <input type="text" class="form-control" value="<?=$uname?>" name="parent_fname">
+    <input type="text" class="form-control" value="<?=$pfn?>" name="parent_fname">
   </div>
 
   <div class="mb-3">
     <label class="form-label">Parent Last name </label>
-    <input type="text" class="form-control" value="<?=$uname?>" name="parent_lname">
+    <input type="text" class="form-control" value="<?=$pln?>" name="parent_lname">
   </div>
 
   <div class="mb-3">
     <label class="form-label">Parent Phone number</label>
-    <input type="text" class="form-control" value="<?=$uname?>" name="parent_phone_number">
+    <input type="text" class="form-control" value="<?=$ppn?>" name="parent_phone_number">
   </div>
 
   <br>
