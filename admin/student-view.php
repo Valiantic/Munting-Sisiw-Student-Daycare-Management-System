@@ -135,7 +135,7 @@ if (isset($_SESSION['admin_id']) &&
                 <!-- IMAGE TAG WITH GENDER AVATAR DETECTION -->
         
         <div class="container d-flex justify-content-center">
-        <img src="../images/teacher-<?=$teachers['gender']?>.png" class="avatar" alt="...">
+        <img src="../images/student-<?=$students['gender']?>.png" class="avatar" alt="...">
         </div>
 
         <br>
@@ -227,7 +227,7 @@ if (isset($_SESSION['admin_id']) &&
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>	
     <script>
         $(document).ready(function(){
-             $("#navLinks li:nth-child(2) a").addClass('active');
+             $("#navLinks li:nth-child(3) a").addClass('active');
         });
     </script>
 
