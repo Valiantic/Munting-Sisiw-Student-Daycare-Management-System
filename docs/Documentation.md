@@ -1706,4 +1706,8 @@ student-add.php parent fname, parent lname and parent phone number
 2. make new inputs visible on student-edit.php
 3. change position of back button in student-edit and teacher-edit
 4. add update functionality on student-edit.php
-5. 
+5. add anchor tag on fname in student.php 
+6. create student-view.php on admin folder
+7. copy the code from teacher-view to student-view.php 
+8. change variables from teachers to student to display data from the database
+9. 
