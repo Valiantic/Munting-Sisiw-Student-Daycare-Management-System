@@ -219,7 +219,7 @@ if (isset($_SESSION['admin_id']) &&
 
   <div class="mb-3">
     <label class="form-label">Email address</label>
-    <input type="text" class="form-control" value="<?=$student['email_address']?>" name="email">
+    <input type="text" class="form-control" value="<?=$student['email_address']?>" name="email_address">
   </div>
 
   <div class="mb-3">

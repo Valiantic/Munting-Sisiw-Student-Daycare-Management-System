@@ -137,7 +137,10 @@ if(isset($_POST['fname'])    &&
 
 
       $stmt = $conn->prepare($sql);
-      // continue 30:42 fix error!
+    
+       // NOTE: THE ARRANGEMENT OF THE VARIABLES INSIDE THE EXECUTE 
+        // ARE CORRESPONDING TO THE UPDATE QUERY IN TOP SO MAKE SURE IT HAS 
+        // THE SAME PARALLEL POSITIONING
       $stmt->execute([$uname,$fname, $lname, $subjects, $grades, $address, $employee_number, $date_of_birth, $phone_number, $qualification, $gender, $email_address, $sections, $teacher_id]);
       $sm = "Successfully Updated!";
       header("Location: ../teacher-edit.php?success=$sm&$data");

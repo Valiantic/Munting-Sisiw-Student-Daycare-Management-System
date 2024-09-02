@@ -128,6 +128,10 @@ if (isset($_POST['fname']) &&
                  tbl_students(username, password, fname, lname, grade, section, address, gender, email_address, date_of_birth, parent_fname, parent_lname, parent_phone_number)
                    VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)";
         $stmt = $conn->prepare($sql);
+
+         // NOTE: THE ARRANGEMENT OF THE VARIABLES INSIDE THE EXECUTE 
+        // ARE CORRESPONDING TO THE UPDATE QUERY IN TOP SO MAKE SURE IT HAS 
+        // THE SAME PARALLEL POSITIONING
         $stmt->execute([$uname, $pass, $fname, $lname, $grade, $section, $address, $gender, $email_address, $date_of_birth, $parent_fname, $parent_lname, $parent_phone_number]);
         $sm = "New student registered successfully";
         header("Location: ../student-add.php?success=$sm");
