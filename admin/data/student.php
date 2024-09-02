@@ -92,11 +92,16 @@ function searchStudents($key, $conn){
     $sql = "SELECT * FROM tbl_students
             WHERE student_id LIKE ? 
             OR fname LIKE ?
+            OR address LIKE ?
+            OR email_address LIKE ?
+            OR parent_fname LIKE ?
+            OR parent_lname LIKE ?
+            OR parent_phone_number LIKE ?
             OR lname LIKE ? 
             OR username LIKE ?";
     $stmt = $conn->prepare($sql);
     // HANDLING COLUMN KEYS
-    $stmt->execute([$key, $key, $key, $key]);
+    $stmt->execute([$key, $key, $key, $key, $key, $key, $key, $key, $key]);
 
     if($stmt->rowCount() == 1){
         $students = $stmt->fetchAll();

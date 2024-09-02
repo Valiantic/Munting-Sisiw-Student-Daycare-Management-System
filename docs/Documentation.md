@@ -1712,3 +1712,12 @@ student-add.php parent fname, parent lname and parent phone number
 8. change variables from teachers to student to display data from the database
 9. add gender images on student-view.php
 10. add date enrolled on student-view.php
+11. add new LIKE operator in data folder on student.php
+12. copy the td on fname in student.php to student-search.php in order 
+to be clickable when searched
+
+>ELEVENTH CHAPTER
+1. 
+2. 
+3. 
+4. 
