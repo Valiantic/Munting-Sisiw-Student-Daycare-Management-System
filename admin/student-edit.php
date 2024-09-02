@@ -10,8 +10,10 @@ if (isset($_SESSION['admin_id']) &&
         include "data/subject.php";
         include "data/grade.php";
         include "data/student.php";
+        include "data/section.php";
         $subjects = getAllSubjects($conn);
         $grades = getAllGrades($conn);
+        $sections = getAllsections($conn);
 
         $student_id = $_GET['student_id'];
         $student = getStudentById($student_id, $conn);
@@ -207,6 +209,54 @@ if (isset($_SESSION['admin_id']) &&
     <input type="text" class="form-control" value="<?=$student['username']?>" name="username">
   </div>
 
+      <!-- NEW COLUMNS ADDED -->
+  <div class="mb-3">
+    <label class="form-label">Address</label>
+    <input type="text" class="form-control" value="<?=$student['address']?>" name="address">
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Email address</label>
+    <input type="text" class="form-control" value="<?=$student['email_address']?>" name="email">
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Date of birth</label>
+    <input type="date" class="form-control" value="<?=$student['date_of_birth']?>" name="date_of_birth">
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Gender</label><br>
+    <input type="radio" checked value="Male" name="gender">Male
+      &nbsp;
+    <input type="radio" value="Female" name="gender">Female
+  </div>
+
+  <br>
+  <hr>
+  <br>
+  <div class="mb-3">
+    <label class="form-label">Parent First name </label>
+    <input type="text" class="form-control" value="<?=$student['parent_fname']?>" name="parent_fname">
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Parent Last name </label>
+    <input type="text" class="form-control" value="<?=$student['parent_lname']?>" name="parent_lname">
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Parent Phone number</label>
+    <input type="text" class="form-control" value="<?=$student['parent_phone_number']?>" name="parent_phone_number">
+  </div>
+  <br>
+  <hr>
+  <br>
+
+
+       <!-- NEW COLUMNS ADDED -->
+
+
   <!-- INDICATION FOR TEACHER ID -->
   <input type="text" value="<?=$student['student_id']?>"
          name="student_id"
@@ -241,11 +291,43 @@ if (isset($_SESSION['admin_id']) &&
       value="<?=$grade['grade_id']?>"> 
       <?=$grade['grade_code']?>-<?=$grade['grade']?>
       <!-- ENCLOSED IN PHP TAG ARE THE VARIABLES YOU WANT TO DISPLAY -->
-
-
     </div>
     <?php } ?>
     </div>
+            <br>
+
+    <div class="mb-3">
+    <label class="form-label">Section</label>
+
+    <div class="row row-cols-5"> 
+    <!-- USE TO DISPLAY GRADES USING FOR LOOP  -->
+    <?php 
+        // USED TO SPLIT GRADES DATA'S
+        $section_ids = str_split(trim($student['section']));
+    
+
+        foreach ($sections as $section){ 
+            $checked = 0;
+            foreach ($section_ids as $section_id){
+                if ($section_id == $section['section_id']) {
+                    $checked = 1;
+                }
+            }
+
+            ?>
+      
+      <div class="col">
+      <input type="radio" 
+      name="section" 
+      <?php if($checked) echo "checked"; ?>
+      value="<?=$section['section_id']?>"> 
+      <?=$section['section']?>
+      <!-- ENCLOSED IN PHP TAG ARE THE VARIABLES YOU WANT TO DISPLAY -->
+    </div>
+    <?php } ?>
+    </div>
+
+
 
   </div>
 
@@ -253,8 +335,11 @@ if (isset($_SESSION['admin_id']) &&
             class="btn btn-primary">
             Update</button>
 </form>
-                  <!-- CHANGE PASSWORD SECTION -->
-<form class="shadow p-3 my-5 form-w" method="post" action="req/student-change.php" id="change_password">
+     </div>
+
+
+      <!-- CHANGE PASSWORD SECTION -->
+<form class="shadow p-3 my-5 form-w " method="post" action="req/student-change.php" id="change_password">
 
 
 <!-- COPY THIS CODE FROM ABOVE -->
@@ -294,7 +379,7 @@ if (isset($_SESSION['admin_id']) &&
 
 </div>  
 
-<!-- continue 42:43 -->
+
 
  <!-- INDICATION FOR STUDENT ID -->
  <input type="text" value="<?=$student['student_id']?>"
@@ -316,7 +401,6 @@ if (isset($_SESSION['admin_id']) &&
 
 
     </form>
-     </div>
      
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>	
     <script>
