@@ -52,7 +52,10 @@
     }
     .login h3{
 	text-align: center;
-	font-size: 50px;
+	font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 3rem;
     }
 
 </style>

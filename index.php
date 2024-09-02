@@ -42,6 +42,12 @@
         /* TO MAKE THE NAVBAR TRANSPARENT */
          /* background: rgba(255,255,255, 0.5) !important;  */
          border-radius:20px;
+         position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          z-index: 999;
+          transition: background-color 0.3s ease-in-out; 
     }
     .welcome-text{
       min-height: 80vh;

@@ -1698,3 +1698,12 @@ student-add.php parent fname, parent lname and parent phone number
 
 18. UPDATE INSERT Query on req/student-add.php
 19. ADD GET METHOD in student-add.php and value for new columns 
+20. minor changes on navbar and login h4 text 
+
+> TENTH CHAPTER
+
+1. 
+2. 
+3. 
+4.  
+5. 
