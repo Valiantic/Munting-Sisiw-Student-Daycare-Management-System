@@ -293,43 +293,7 @@ if (isset($_SESSION['admin_id']) &&
     </div>
   </div>
 
-  <div class="mb-3">
-    <label class="form-label">Grade</label>
-
-    <div class="row row-cols-5"> 
-    <!-- USE TO DISPLAY GRADES USING FOR LOOP  -->
-    <?php 
-        // USED TO SPLIT GRADES DATA'S
-        $grade_ids = str_split(trim($teacher['grades']));
-    
-
-        foreach ($grades as $grade){ 
-            $checked = 0;
-            foreach ($grade_ids as $grade_id){
-                if ($grade_id == $grade['grade_id']) {
-                    $checked = 1;
-                }
-            }
-
-            ?>
-      
-      <div class="col">
-      <input type="checkbox" 
-      name="grades[]" 
-      <?php if($checked) echo "checked"; ?>
-      value="<?=$grade['grade_id']?>"> 
-      <?=$grade['grade_code']?>-<?=$grade['grade']?>
-      <!-- ENCLOSED IN PHP TAG ARE THE VARIABLES YOU WANT TO DISPLAY -->
-
-
-    </div>
-    <?php } ?>
-    </div>
-
-  </div>
-
-  <!-- CHECKBOX FOR SECTION  -->
-
+  
    <div class="mb-3">
     <label class="form-label">Grade</label>
 

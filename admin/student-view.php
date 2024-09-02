@@ -162,10 +162,44 @@ if (isset($_SESSION['admin_id']) &&
         <div class="card-item">
             <label>Date of Birth:&nbsp;&nbsp;&nbsp;<?=$students['date_of_birth']?></label>
         </div>
+
+        <div class="card-item">
+            <label>Date enrolled:&nbsp;&nbsp;&nbsp;<?=$students['date_of_joined']?></label>
+        </div>
       
         <div class="card-item">
             <label>Gender:&nbsp;&nbsp;&nbsp;<?=$students['gender']?></label>
         </div>
+
+        <div class="card-item">
+            <label>Grade:&nbsp;&nbsp;&nbsp;<?php 
+                           $g = '';
+                           $grades = str_split(trim($students['grade']));
+                           foreach ($grades as $grade) {
+                              $g_temp = getGradeById($grade, $conn);
+                              if ($g_temp != 0) 
+                                $g .=$g_temp['grade_code'].'-'.
+                                     $g_temp['grade'].' ';
+                           }
+                           echo $g;
+                        ?></label>
+        </div>
+        <div class="card-item">
+            <label>Section:&nbsp;&nbsp;&nbsp; <?php 
+                           $s = '';
+                           $sections = str_split(trim($students['section']));
+                           foreach ($sections as $section) {
+                              $s_temp = getSectionById($section, $conn);
+                              if ($s_temp != 0) 
+                                $s .=$s_temp['section'].' ';
+                           }
+                           echo $s;
+                        ?></label>
+        </div>
+
+        <br>
+        <p class="card-text text-center texprimary">Parent Information</p>
+        <hr> 
 
         <div class="card-item">
             <label>Parent First name:&nbsp;&nbsp;&nbsp;<?=$students['parent_fname']?></label>
@@ -179,32 +213,9 @@ if (isset($_SESSION['admin_id']) &&
             <label>Parent Phone number:&nbsp;&nbsp;&nbsp;<?=$students['parent_phone_number']?></label>
         </div>
        
-       
-        <div class="card-item">
-            <label>Grade:&nbsp;&nbsp;&nbsp;<?php 
-                           $g = '';
-                           $grades = str_split(trim($students['grade']));
-                           foreach ($grades as $grade) {
-                              $g_temp = getGradeById($grade, $conn);
-                              if ($g_temp != 0) 
-                                $g .=$g_temp['grade_code'].'-'.
-                                     $g_temp['grade'].', ';
-                           }
-                           echo $g;
-                        ?></label>
-        </div>
-        <div class="card-item">
-            <label>Section:&nbsp;&nbsp;&nbsp; <?php 
-                           $s = '';
-                           $sections = str_split(trim($students['section']));
-                           foreach ($sections as $section) {
-                              $s_temp = getSectionById($section, $conn);
-                              if ($s_temp != 0) 
-                                $s .=$s_temp['section'].', ';
-                           }
-                           echo $s;
-                        ?></label>
-        </div>
+       <hr>
+       <br>
+
        
         <div class="card-body d-flex justify-content-center">
             <a href="students.php" class="card-link btn btn-dark">Go Back</a>

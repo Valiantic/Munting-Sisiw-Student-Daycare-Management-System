@@ -1711,4 +1711,4 @@ student-add.php parent fname, parent lname and parent phone number
 7. copy the code from teacher-view to student-view.php 
 8. change variables from teachers to student to display data from the database
 9. add gender images on student-view.php
-10. 
+10. add date enrolled on student-view.php
