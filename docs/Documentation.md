@@ -1702,8 +1702,8 @@ student-add.php parent fname, parent lname and parent phone number
 
 > TENTH CHAPTER
 
-1. 
-2. 
-3. 
+1. add new inputs from the new added columns in the database 
+2. make new inputs visible on student-edit.php
+3. change position of back button in student-edit and teacher-edit
 4.  
 5. 

@@ -158,6 +158,9 @@ if (isset($_SESSION['admin_id']) &&
         max-width:600px;
         width: 100%;
     }
+    a{
+      margin-bottom: 15px; 
+    }
 
 
 
@@ -169,8 +172,7 @@ if (isset($_SESSION['admin_id']) &&
      ?>
      <div class="container mt-5">
         <!-- continue 52:17 -->
-        <a href="students.php"
-           class="btn btn-dark">Go Back</a>
+    
 
                                                 <!-- ADD ACTION TO REDIRECT TO TEACHER EDIT IN REQ FOLDER -->
 <form class="shadow p-3 mt-4 form-w" method="post" action="req/student-edit.php">
@@ -433,6 +435,9 @@ if (isset($_SESSION['admin_id']) &&
           makePass(7); // just adjust the number to increase the character length of the password generator
         });
     </script>
+
+<a href="students.php"
+class="btn btn-dark">Go Back</a>
 
 </body>
 

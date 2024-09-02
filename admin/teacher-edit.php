@@ -157,7 +157,11 @@ if (isset($_SESSION['admin_id']) &&
         max-width:600px;
         width: 100%;
     }
-
+    /* NOTE: change to id instead of a tag to avoid editing the navbar */
+    #backbtn{
+      margin-bottom: 15px; 
+      margin-left: 5.7%;
+    }
 
 
 </style>
@@ -167,9 +171,8 @@ if (isset($_SESSION['admin_id']) &&
         include "inc/navbar.php";
      ?>
      <div class="container mt-5">
-        <!-- continue 52:17 -->
-        <a href="teachers.php"
-           class="btn btn-dark">Go Back</a>
+       
+       
 
                                                 <!-- ADD ACTION TO REDIRECT TO TEACHER EDIT IN REQ FOLDER -->
 <form class="shadow p-3 mt-4 form-w" method="post" action="req/teacher-edit.php">
@@ -503,6 +506,9 @@ if (isset($_SESSION['admin_id']) &&
           makePass(7); // just adjust the number to increase the character length of the password generator
         });
     </script>
+
+        <a href="teachers.php"
+      class="btn btn-dark mb-4" id="backbtn">Go Back</a>
 
 </body>
 
