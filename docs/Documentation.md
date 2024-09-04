@@ -1722,5 +1722,5 @@ to be clickable when searched
 3. in grade.php organize arrangement of codes 
 4. create grade-add.php in admin folder copy the code from teacher-add.php
 5. create grade-add.php in req folder to fetch data from the database 
-6. 
-7. 
+6. add blank field validator on grade-add.php
+7. update insertion query on grade-add.php 
