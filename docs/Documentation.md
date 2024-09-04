@@ -1724,3 +1724,6 @@ to be clickable when searched
 5. create grade-add.php in req folder to fetch data from the database 
 6. add blank field validator on grade-add.php
 7. update insertion query on grade-add.php 
+8. create grade-delete.php 
+9. create a function removeGrade on grade.php
+10. on grade-delete modify the variable to make it functional

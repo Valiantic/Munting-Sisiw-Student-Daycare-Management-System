@@ -7,6 +7,8 @@ if (isset($_SESSION['admin_id']) &&
         include "../connections.php";
         include "data/grade.php";
         $grades = getAllGrades($conn);
+
+        
  ?>
 
 <!DOCTYPE html>
@@ -183,15 +185,10 @@ if (isset($_SESSION['admin_id']) &&
                     </td>
                    
                     <td>
-                        <a href="teacher-edit.php?teacher_id=<?=$teacher['teacher_id']?>"
+                    <a href="grade-edit.php?grade_id=<?=$grade['grade_id']?>"
                            class="btn btn-warning">Edit</a>
-                              
-
-                       
-                       
-                          <a href="teacher-delete.php?teacher_id=<?=$teacher['teacher_id']?>"
+                    <a href="grade-delete.php?grade_id=<?=$grade['grade_id']?>"
                            class="btn btn-danger">Delete</a>
-                           
                 
 
                            
