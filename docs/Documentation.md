@@ -1721,6 +1721,6 @@ to be clickable when searched
 2. in the inc/navbar.php add another li for grade
 3. in grade.php organize arrangement of codes 
 4. create grade-add.php in admin folder copy the code from teacher-add.php
-5. 
+5. create grade-add.php in req folder to fetch data from the database 
 6. 
 7. 
