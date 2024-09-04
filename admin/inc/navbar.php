@@ -24,15 +24,21 @@
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" href="#contacts">Registrar-Office</a>
+        <a class="nav-link" href="./grade.php">Grade</a>
       </li>
+
+      
+      <li class="nav-item">
+        <a class="nav-link" href="#contacts">Section</a>
+      </li>
+
 
       <li class="nav-item">
         <a class="nav-link" href="#contacts">Class</a>
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" href="#contacts">Section</a>
+        <a class="nav-link" href="#contacts">Registrar-Office</a>
       </li>
 
       <li class="nav-item">

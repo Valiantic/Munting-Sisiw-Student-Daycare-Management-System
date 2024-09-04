@@ -1717,7 +1717,7 @@ student-add.php parent fname, parent lname and parent phone number
 to be clickable when searched
 
 >ELEVENTH CHAPTER
-1. 
-2. 
-3. 
+1. create grade.php within admin folder copy the code from teachers.php
+2. in the inc/navbar.php add another li for grade
+3. in grade.php organize arrangement of codes 
 4. 
