@@ -29,7 +29,7 @@
 
       
       <li class="nav-item">
-        <a class="nav-link" href="#contacts">Section</a>
+        <a class="nav-link" href="./section.php">Section</a>
       </li>
 
 

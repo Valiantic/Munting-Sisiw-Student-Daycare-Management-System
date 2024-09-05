@@ -1733,3 +1733,13 @@ to be clickable when searched
 14. copy the code from student-edit on req folder to grade-edit on req folder
 15. add blank field detector on grade-edit.php
 16. update insertion query on grade-edit.php 
+
+>TWELVE CHAPTER
+1. create section.php within admin folder copy the code from grade.php
+2. include href on section navbar 
+3. in section.php organize arrangement of codes 
+4. 
+5. 
+6. 
+7. 
+
