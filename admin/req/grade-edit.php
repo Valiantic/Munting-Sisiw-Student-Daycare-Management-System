@@ -37,17 +37,19 @@ if (isset($_POST['grade_code']) &&
 		header("Location: ../grade-edit.php?error=$em&$data");
 		exit;
 	}else {
-        $sql = "UPDATE tbl_students SET
-                username = ?, fname=?, lname=?, grade=?, address=?,gender = ?, section=?, email_address=?, date_of_birth=?, parent_fname=?,parent_lname=?,parent_phone_number=?
-                WHERE student_id=?";
+        // NOTE: ALWAYS CHECK THE TABLE NAME!
+        // NOTE: THE LAST VARIABLE TO BE ? HAS NO ,
+        $sql = "UPDATE grades SET
+                grade_code=?, grade=?
+                WHERE grade_id=?";
         $stmt = $conn->prepare($sql);
         
         // NOTE: THE ARRANGEMENT OF THE VARIABLES INSIDE THE EXECUTE 
         // ARE CORRESPONDING TO THE UPDATE QUERY IN TOP SO MAKE SURE IT HAS 
         // THE SAME PARALLEL POSITIONING
-        $stmt->execute([$uname, $fname, $lname, $grade, $address, $gender, $section, $email_address, $date_of_birth, $parent_fname, $parent_lname, $parent_phone_number, $student_id]);
+        $stmt->execute([$grade_code, $grade, $grade_id]);
         $sm = "Successfully updated!";
-        header("Location: ../student-edit.php?success=$sm&$data");
+        header("Location: ../grade-edit.php?success=$sm&$data");
         exit;
     }
     

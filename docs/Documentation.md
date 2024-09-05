@@ -1732,3 +1732,4 @@ to be clickable when searched
 13. create a grade-edit.php on req folder to edit data
 14. copy the code from student-edit on req folder to grade-edit on req folder
 15. add blank field detector on grade-edit.php
+16. update insertion query on grade-edit.php 
