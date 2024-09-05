@@ -34,5 +34,19 @@ function getSectionById($section_id, $conn){
 
 }
 
+// FUNCTION TO REMOVE SECTION 
+function removeSection($id, $conn){
+    $sql = "DELETE FROM section
+            WHERE section_id=?";
+    $stmt = $conn->prepare($sql);
+    $re = $stmt->execute([$id]);
+ 
+    if ($re) {
+      return 1;
+    }else {
+        return 0;
+    }
+ }
+
 
 ?>

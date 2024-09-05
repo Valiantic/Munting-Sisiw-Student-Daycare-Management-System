@@ -1740,6 +1740,8 @@ to be clickable when searched
 3. in section.php organize arrangement of codes 
 4. create section-add.php and organize arrangement of codes 
 5. add blank field detector on section-add.php
-6. 
-7. 
+6. update insertion query on section-add.php 
+7. create a section-delete.php on admin folder copy the code from grade-delete.php
+8. creat a function removeSection on grade.php
+9. on section-delete modify the variable to make it functional
 
