@@ -52,6 +52,8 @@ if (isset($_POST['fname']) &&
 
     $data = 'uname='.$uname.'&fname='.$fname.'&lname='.$lname.'&address='.$address.'&gender='.$email_address.'&pfn='.$parent_fname.'&pln='.$parent_lname.'&ppn='.$parent_phone_number;
 
+    //BLANK FIELD DETECTOR
+
     if (empty($fname)) {
 		$em  = "First name is required";
 		header("Location: ../student-add.php?error=$em&$data");

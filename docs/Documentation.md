@@ -880,7 +880,7 @@ post method parameter
 
    $data = 'teacher_id='.$teacher_id.'#change_password';
 
-52. change the header error validator value to perror
+52. change the header error detector value to perror
 
     header("Location: ../teacher-edit.php?perror=$em&$data");
 
@@ -1045,7 +1045,7 @@ to be same with the table in the database
 19. delete the subject div on student-add.php
 20. change the type value of grade in student-add.php to radio
 21. create a student-add.php on admin/req folder
-22. create an error null input validator N
+22. create an error null input detector N
 NOTE: ALWAYS CHECK THE name value!
 23. create a function for getallstudent and uniquename in admin/req student.php
 24. create student-delete.php within admin folder 
@@ -1301,7 +1301,7 @@ function getSectionById($section_id, $conn){
 
 10. foreach loop for section
 
-  // BLANK FIELD CHECKBOX VALIDATOR FOR SECTIONS
+  // BLANK FIELD CHECKBOX detector FOR SECTIONS
     $sections = "";
     foreach ($_POST['sections'] as $section){
         $sections .=$section;
@@ -1319,7 +1319,7 @@ function getSectionById($section_id, $conn){
     $date_of_birth = $_POST['date_of_birth'];
 
 
-12. create if else statement for the blank field validator
+12. create if else statement for the blank field detector
 
    // NEW COLUMNS ADDED DUE TO SECTION TABLE 
     else if (empty($address)) {
@@ -1690,10 +1690,10 @@ parent_phone_number VARCHAR 31
 14. copy the input for grade and modify it for section 
 15. put breakline and horizontal rule in student-add.php form 
 16. put names on every input in student-add.php then on req/student-add.php 
-create a isset and post variable for blank field validator 
+create a isset and post variable for blank field detector 
 new add columns in the database. then create if else for redirection. 
 
-17. FIXED! rename the redirection error display on blank field validator on 
+17. FIXED! rename the redirection error display on blank field detector on 
 student-add.php parent fname, parent lname and parent phone number
 
 18. UPDATE INSERT Query on req/student-add.php
@@ -1722,7 +1722,7 @@ to be clickable when searched
 3. in grade.php organize arrangement of codes 
 4. create grade-add.php in admin folder copy the code from teacher-add.php
 5. create grade-add.php in req folder to fetch data from the database 
-6. add blank field validator on grade-add.php
+6. add blank field detector on grade-add.php
 7. update insertion query on grade-add.php 
 8. create grade-delete.php 
 9. create a function removeGrade on grade.php
@@ -1731,4 +1731,4 @@ to be clickable when searched
 12. in grade-edit.php organize arrangement of codes 
 13. create a grade-edit.php on req folder to edit data
 14. copy the code from student-edit on req folder to grade-edit on req folder
-15. add blank field validator on grade-edit.php
+15. add blank field detector on grade-edit.php

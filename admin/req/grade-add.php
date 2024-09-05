@@ -21,6 +21,8 @@ if (
      
     $data = 'grade_code='.$grade_code.'&grade='.$grade;
 
+    //BLANK FIELD DETECTOR
+
 
     if (empty($grade_code)) {
 		$em  = "Grade code is required";
