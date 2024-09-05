@@ -35,16 +35,16 @@ if (
         $pass = password_hash($pass, PASSWORD_DEFAULT);
 
         $sql  = "INSERT INTO
-                 grades(grade_code, grade)
-                   VALUES(?,?)";
+                  section(section)
+                   VALUES(?)";
         $stmt = $conn->prepare($sql);
 
          // NOTE: THE ARRANGEMENT OF THE VARIABLES INSIDE THE EXECUTE 
         // ARE CORRESPONDING TO THE UPDATE QUERY IN TOP SO MAKE SURE IT HAS 
         // THE SAME PARALLEL POSITIONING
-        $stmt->execute([$grade_code, $grade]);
-        $sm = "New Grade added";
-        header("Location: ../grade-add.php?success=$sm");
+        $stmt->execute([$section]);
+        $sm = "New Section added";
+        header("Location: ../section-add.php?success=$sm");
         exit;
 	}
     
