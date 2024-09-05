@@ -1729,3 +1729,6 @@ to be clickable when searched
 10. on grade-delete modify the variable to make it functional
 11. create grade-edit.php in admin folder  copy the code from teachers-edit.php
 12. in grade-edit.php organize arrangement of codes 
+13. create a grade-edit.php on req folder to edit data
+14. copy the code from student-edit on req folder to grade-edit on req folder
+15. add blank field validator on grade-edit.php

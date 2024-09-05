@@ -214,6 +214,11 @@ if (isset($_SESSION['admin_id']) &&
     <input type="text" class="form-control" value="<?=$grades['grade']?>" name="grade">
   </div>
 
+  <!-- INDICATION FOR GRADE ID -->
+ <input type="text" value="<?=$grades['grade_id']?>"
+         name="grade_id"
+         hidden>
+
 
     <button type="submit" 
             class="btn btn-primary">
