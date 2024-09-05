@@ -1738,7 +1738,7 @@ to be clickable when searched
 1. create section.php within admin folder copy the code from grade.php
 2. include href on section navbar 
 3. in section.php organize arrangement of codes 
-4. 
+4. create section-add.php and organize arrangement of codes 
 5. 
 6. 
 7. 
