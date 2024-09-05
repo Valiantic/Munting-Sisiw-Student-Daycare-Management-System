@@ -1734,7 +1734,7 @@ to be clickable when searched
 15. add blank field detector on grade-edit.php
 16. update insertion query on grade-edit.php 
 
->TWELVE CHAPTER
+>TWELVE CHAPTER (CRUD WALKTHROUGH)
 1. create section.php within admin folder copy the code from grade.php
 2. include href on section navbar 
 3. in section.php organize arrangement of codes 
@@ -1742,6 +1742,12 @@ to be clickable when searched
 5. add blank field detector on section-add.php
 6. update insertion query on section-add.php 
 7. create a section-delete.php on admin folder copy the code from grade-delete.php
-8. creat a function removeSection on grade.php
+8. create a function removeSection on grade.php
 9. on section-delete modify the variable to make it functional
+10. create section-edit.php on admin folder copy the code from grade-edit.php
+11. in section-edit.php organize arrangement of codes 
+12. create a section-edit.php on req folder to edit data
+13. copy the code from grade-edit on req folder to section-edit on req folder
+14. add blank field detector on section-edit.php
+15. update insertion query on section-edit.php 
 
