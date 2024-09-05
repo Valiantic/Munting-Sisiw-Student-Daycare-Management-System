@@ -1739,7 +1739,7 @@ to be clickable when searched
 2. include href on section navbar 
 3. in section.php organize arrangement of codes 
 4. create section-add.php and organize arrangement of codes 
-5. 
+5. add blank field detector on section-add.php
 6. 
 7. 
 
