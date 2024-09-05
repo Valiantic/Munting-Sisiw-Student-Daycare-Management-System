@@ -1727,3 +1727,5 @@ to be clickable when searched
 8. create grade-delete.php 
 9. create a function removeGrade on grade.php
 10. on grade-delete modify the variable to make it functional
+11. create grade-edit.php in admin folder  copy the code from teachers-edit.php
+12. in grade-edit.php organize arrangement of codes 
