@@ -1,34 +1,14 @@
 <?php 
 session_start();
 if (isset($_SESSION['admin_id']) && 
-    isset($_SESSION['role']) &&
-    // NOTE: THE WEBPAGE WILL NOT REDIRECT IF THIS PARAMETERS 
-    // IS NOT THE SAME WITH THE ANCHOR TAG BUTTON ON THE PREV PAGE
-    isset($_GET['grade_id'])) {
+    isset($_SESSION['role'])) {
 
     if ($_SESSION['role'] == 'Admin') {
-
         include "../connections.php";
-   
-        include "data/grade.php";
-   
-    
-        $grades = getAllGrades($conn);
+        include "data/class.php";
+        $classes = getAllClasses($conn);
 
-        // NOTE: FETCH ALL DATA FROM THE DATABASE THIS IS WHEN THE ERROR DISPLAY 
-        // C:\xampp\htdocs\Munting_sisiw_daycare\admin\grade-edit.php on line 202
-        // " name="grade_code
-        $grade_id = $_GET['grade_id'];
-        $grades = getGradeById($grade_id, $conn);
-
-       
-        // LOGICAL ERROR: CAUSING REDIRECTION TO teachers.php
-        if ($grades == 0){
-            header("Location: grade.php");
-	        exit;
-        }
-        // continue 25:52
-
+        
  ?>
 
 <!DOCTYPE html>
@@ -36,13 +16,16 @@ if (isset($_SESSION['admin_id']) &&
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin - Edit Grade</title>
+    <title>Admin - Class</title>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="shortcut icon" href="../images/logo.png">
+    
+    <!-- BOOTSTRAP LINK  -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- FONT AWESOME LINK -->
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -147,100 +130,105 @@ if (isset($_SESSION['admin_id']) &&
     .n-table{
         max-width: 800px;
     }
-    .login {
-	max-width: 500px;
-	width: 90%;
-	background: rgba(255,255,255, 0.7);
-	padding: 10px;
-	border-radius: 10px;
-    }
-    .login h3{
-	text-align: center;
-	font-size: 50px;
-    }
-    .form-w{
-        max-width:600px;
-        width: 100%;
-    }
-    a{
-      margin-bottom: 15px; 
-    }
-    #backbtn{
-     
-      margin-top: 20px;
-      margin-left: 6.4%;
-    }
 
-
+ 
 </style>
 
 <body>
     <?php 
         include "inc/navbar.php";
+        if ($classes != 0) {
      ?>
      <div class="container mt-5">
-        <!-- continue 52:17 -->
-    
-
-                                                <!-- ADD ACTION TO REDIRECT TO TEACHER EDIT IN REQ FOLDER -->
-<form class="shadow p-3 mt-4 form-w" method="post" action="req/grade-edit.php">
+        <!-- continue 15:30 -->
+        <a href="grade-add.php"
+           class="btn btn-dark mb-3">Add New Classes</a>
 
 
-   <hr><h3>Edit Grade</h3></hr>
+          
 
-     <!-- ERROR HANDLING   -->
-     <?php if (isset($_GET['error'])) { ?>
-    		<div class="alert alert-danger" role="alert">
-			  <?=$_GET['error']?>
-			</div>
-	<?php } ?>
+                      <!-- ERROR HANDLING  -->
+            <?php if (isset($_GET['error'])) { ?>
+                <div class="alert alert-danger mt-3 n-table" role="alert">
+                <?=$_GET['error']?>
+              </div>
+             <?php } ?>
 
-    <!-- SUCCESS HANDLING   -->
-    <?php if (isset($_GET['success'])) { ?>
-    		<div class="alert alert-success" role="alert">
-			  <?=$_GET['success']?>
-			</div>
-	<?php } ?>
-    
-    
+                         <!-- SUCCESS HANDLING FOR GRADE-DELETE -->
+             <?php if (isset($_GET['success'])) { ?>
+                <div class="alert alert-info mt-3 n-table" role="alert">
+                <?=$_GET['success']?>
+              </div>
+             <?php } ?>
 
-  <div class="mb-3">
-    <label class="form-label">Grade Code</label>
-    <input type="text" class="form-control" value="<?=$grades['grade_code']?>" name="grade_code">
-  </div>
-
-  <div class="mb-3">
-    <label class="form-label">Grade</label>
-    <input type="text" class="form-control" value="<?=$grades['grade']?>" name="grade">
-  </div>
-
-  <!-- INDICATION FOR GRADE ID -->
-  <!-- BLANK FIELD DETECTOR ISSUE FIXED BECAUSE OF THIS -->
- <input type="text" value="<?=$grades['grade_id']?>"
-         name="grade_id"
-         hidden>
-
-
-    <button type="submit" 
-            class="btn btn-primary">
-            Update</button>
-</form>
-   
-</div>  
-
-    </form>
+           <div class="table-responsive">
+              <table class="table table-bordered mt-3 n-table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Class</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <!--CREATE THIS FOR LOOP TO DISPLAY THE DATABASE DATA ON THE TABLE -->
+                  <?php $i = 0; foreach ($classes as $class ) { 
+                    $i++; ?>
+                  <tr>
+                    <!-- Table heading for id iteration -->
+                    <th scope="row"><?=$i?></th>
+                    <td>
+                        <?php
+                          echo $class['grade'].'-'.
+                          $class['section'];
+                        // continue 5:22
+                        ?>
+                    </td>
+                   
+                    <td>
+                    <a href="class-edit.php?class_id=<?=$class['class_id']?>"
+                           class="btn btn-warning">Edit</a>
+                    <a href="class-delete.php?class_id=<?=$class['class_id']?>"
+                           class="btn btn-danger">Delete</a>
+                  
+                           
+                    </td>
+                  </tr>
+                <?php } ?>
+                </tbody>
+              </table>
+           </div>
+         <?php }else{ ?>
+             <div class="alert alert-info .w-450 m-5" 
+                  role="alert">
+              No Results Found!
+              </div>
+         <?php } ?>
+     </div>
      
+
+          <!-- SCRIPT FOR ACTIVE HOVER IN NAV -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>	
     <script>
         $(document).ready(function(){
-             $("#navLinks li:nth-child(4) a").addClass('active');
+             $("#navLinks li:nth-child(6) a").addClass('active');
         });
 
-      
+  
+
+  
     </script>
 
-<a href="grade.php"
-class="btn btn-dark" id="backbtn">Go Back</a>
+
+        <!-- SCRIPT FOR DELETE MODAL CONFIRMATION  -->
+      <script type="text/javascript">
+          var elems = document.getElementsByClassName('btn btn-danger');
+          var confirmIt = function (e) {
+              if (!confirm('Are you sure you want to delete this record?')) e.preventDefault();
+          };
+          for (var i = 0, l = elems.length; i < l; i++) {
+              elems[i].addEventListener('click', confirmIt, false);
+          }
+      </script>
 
 </body>
 
@@ -252,7 +240,7 @@ class="btn btn-dark" id="backbtn">Go Back</a>
     exit;
   } 
 }else {
-	header("Location: grade.php");
+	header("Location: ../login.php");
 	exit;
 } 
 

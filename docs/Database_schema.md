@@ -59,3 +59,8 @@ subjects
 section
 >section_id INT AUTO_INCREMENT
 >section VARCHAR 7
+
+class
+>class_id INT AUTO_INCREMENT
+>grade INT
+>section VARCHAR

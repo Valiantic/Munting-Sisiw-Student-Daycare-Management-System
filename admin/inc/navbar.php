@@ -34,7 +34,7 @@
 
 
       <li class="nav-item">
-        <a class="nav-link" href="#contacts">Class</a>
+        <a class="nav-link" href="./class.php">Class</a>
       </li>
 
       <li class="nav-item">

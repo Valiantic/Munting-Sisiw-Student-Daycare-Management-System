@@ -1751,3 +1751,15 @@ to be clickable when searched
 14. add blank field detector on section-edit.php
 15. update insertion query on section-edit.php 
 
+>THIRTEEN CHAPTER
+1. create class.php within admin folder copy the code from class.php
+2. include href on class navbar 
+3. in class.php organize arrangement of codes 
+4. create class.php on data folder and include it on the class.php 
+5. within class.php copy all the code from data/grade.php to data/class.php
+6. create a function within data/class.php getallClasses
+7. create a new table within database named "class" see documentation
+8. in data/class create a function getClassbyId and removeClass 
+9. 
+10. 
+
