@@ -1771,3 +1771,4 @@ grade_code, grade and section
 15. create a sql query to check if there is an existing data that has been added in class-add.php 
 16. put the INSERT sql query to the else of the sql query STMT_CHECK
 17. create class-delete.php and a function removeClass for delete functionality
+18. add new column for class.php in database 
