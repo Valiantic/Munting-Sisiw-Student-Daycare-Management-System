@@ -9,6 +9,7 @@ if (isset($_SESSION['admin_id']) &&
         include "data/subject.php";
         include "data/grade.php";
         include "data/section.php";
+        include "data/class.php";
 
         if(isset($_GET['teacher_id'])){
 
@@ -189,30 +190,24 @@ if (isset($_SESSION['admin_id']) &&
            ?></label>
         </div>
         <div class="card-item">
-            <label>Grade:&nbsp;&nbsp;&nbsp;<?php 
-                           $g = '';
-                           $grades = str_split(trim($teachers['grades']));
-                           foreach ($grades as $grade) {
-                              $g_temp = getGradeById($grade, $conn);
-                              if ($g_temp != 0) 
-                                $g .=$g_temp['grade_code'].'-'.
-                                     $g_temp['grade'].', ';
-                           }
-                           echo $g;
+            <label>Class:&nbsp;&nbsp;&nbsp; <?php 
+                            // REMOVE GRADES AND REPLACE CLASS FOR DISPLAY OPTIMIZATION
+                            $c = '';
+                            $classes = str_split(trim($teachers['class']));
+ 
+                            foreach ($classes as $class_id) {
+                                $class = getClassById($class_id, $conn);
+ 
+                               $c_temp = getGradeById($class['grade'], $conn);
+                               $section = getSectionById($class['section'], $conn);
+                               if ($c_temp != 0) 
+                                 $c .=$c_temp['grade_code'].'-'.
+                                      $c_temp['grade'].$section['section'].', ';
+                            }
+                            echo $c;
                         ?></label>
         </div>
-        <div class="card-item">
-            <label>Section:&nbsp;&nbsp;&nbsp; <?php 
-                           $s = '';
-                           $sections = str_split(trim($teachers['section']));
-                           foreach ($sections as $section) {
-                              $s_temp = getSectionById($section, $conn);
-                              if ($s_temp != 0) 
-                                $s .=$s_temp['section'].', ';
-                           }
-                           echo $s;
-                        ?></label>
-        </div>
+        
        
         <div class="card-body d-flex justify-content-center">
             <a href="teachers.php" class="card-link btn btn-dark">Go Back</a>

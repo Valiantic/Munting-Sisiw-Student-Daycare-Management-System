@@ -1772,3 +1772,6 @@ grade_code, grade and section
 16. put the INSERT sql query to the else of the sql query STMT_CHECK
 17. create class-delete.php and a function removeClass for delete functionality
 18. add new column for class.php in database 
+19. remove td on grade in teachers.php and replace with class td for display optimization 
+20. copy the td for class and paste it on teacher-view to display grade and section
+21. 
