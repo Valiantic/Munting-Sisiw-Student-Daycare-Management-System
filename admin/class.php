@@ -5,7 +5,10 @@ if (isset($_SESSION['admin_id']) &&
 
     if ($_SESSION['role'] == 'Admin') {
         include "../connections.php";
+        // FETCHING DATA FROM data/ class,grade,section
         include "data/class.php";
+        include "data/grade.php";
+        include "data/section.php";
         $classes = getAllClasses($conn);
 
         
@@ -141,7 +144,7 @@ if (isset($_SESSION['admin_id']) &&
      ?>
      <div class="container mt-5">
         <!-- continue 15:30 -->
-        <a href="grade-add.php"
+        <a href="class-add.php"
            class="btn btn-dark mb-3">Add New Classes</a>
 
 
@@ -178,9 +181,17 @@ if (isset($_SESSION['admin_id']) &&
                     <th scope="row"><?=$i?></th>
                     <td>
                         <?php
-                          echo $class['grade'].'-'.
-                          $class['section'];
-                        // continue 5:22
+                          echo $class['class_id'];
+                         
+                          // TO INITIALIZE THE DATA VARIABLE FROM DATA GRADE AND SECTION
+                          // IN ORDER TO DISPLAY THE DATA HERE
+                          // NOTE: DON'T ALWAYS FORGET THIS ";" WHEN ADDING ANOTHER VARIABLE
+                          $grade = getGradeById($class['grade'], $conn);
+                          $section = getSectionById($class['section'], $conn);
+
+                          // TO DISPLAY THE DATA HERE 
+                          // NOTE: USE TO SEPARATE THE VARIABLES '-'
+                          echo $grade['grade_code'].'-'.$grade['grade'].'-'.$section['section'];
                         ?>
                     </td>
                    

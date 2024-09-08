@@ -1760,6 +1760,9 @@ to be clickable when searched
 6. create a function within data/class.php getallClasses
 7. create a new table within database named "class" see documentation
 8. in data/class create a function getClassbyId and removeClass 
-9. 
-10. 
+9. include /data grade and section on class.php
+10. create an initialization in order to display the variables using function
+getGradeById and getSectionById
+11. using the initialization variable to display the function call it to display 
+grade_code, grade and section
 
