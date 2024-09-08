@@ -34,6 +34,7 @@ function getClassById($class_id, $conn){
 
 }
 
+// FUNCTION TO DELETE CLASS
 function removeClass($id, $conn){
     $sql = "DELETE FROM class
             WHERE class_id=?";
