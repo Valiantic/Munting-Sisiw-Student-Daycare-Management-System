@@ -1765,4 +1765,5 @@ to be clickable when searched
 getGradeById and getSectionById
 11. using the initialization variable to display the function call it to display 
 grade_code, grade and section
+12. display data on dropdown grade input using for loop in class-add.php
 
