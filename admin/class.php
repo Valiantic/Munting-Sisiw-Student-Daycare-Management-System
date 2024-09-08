@@ -181,7 +181,7 @@ if (isset($_SESSION['admin_id']) &&
                     <th scope="row"><?=$i?></th>
                     <td>
                         <?php
-                          echo $class['class_id'];
+                          // echo $class['class_id'];
                          
                           // TO INITIALIZE THE DATA VARIABLE FROM DATA GRADE AND SECTION
                           // IN ORDER TO DISPLAY THE DATA HERE
@@ -191,7 +191,7 @@ if (isset($_SESSION['admin_id']) &&
 
                           // TO DISPLAY THE DATA HERE 
                           // NOTE: USE TO SEPARATE THE VARIABLES '-'
-                          echo $grade['grade_code'].'-'.$grade['grade'].'-'.$section['section'];
+                          echo $grade['grade_code'].'-'.$grade['grade'].$section['section'];
                         ?>
                     </td>
                    

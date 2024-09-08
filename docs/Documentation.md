@@ -1767,3 +1767,5 @@ getGradeById and getSectionById
 grade_code, grade and section
 12. display data on dropdown grade input using for loop in class-add.php
 13. display data on dropdown section input using for loop in class-add.php
+14. create /req/class-add.php update blank field detector and insertion query
+15. 

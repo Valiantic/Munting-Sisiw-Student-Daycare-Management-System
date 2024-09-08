@@ -210,8 +210,8 @@ if (isset($_SESSION['admin_id']) &&
     </select>
 
   </div>
-        <!-- continue 11:31 -->
-         <!-- displaying data on class-add -->
+        <!-- continue 17:58 -->
+        
   <div class="mb-3">
     <label class="form-label">Section</label>
     <select name="section" class="form-control">
