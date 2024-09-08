@@ -1774,4 +1774,6 @@ grade_code, grade and section
 18. add new column for class.php in database 
 19. remove td on grade in teachers.php and replace with class td for display optimization 
 20. copy the td for class and paste it on teacher-view to display grade and section
-21. 
+21. remove grade and section input on teacher-add.php and replace it with class input 
+22. create backup_codes.php and paste the remove grade and section input
+23. update the insertion query on teacher-add and remove grade and section input from the query add class instead

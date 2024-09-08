@@ -27,10 +27,9 @@ if(isset($_POST['fname']) &&
    isset($_POST['email_address']) &&
    isset($_POST['gender']) &&
    isset($_POST['date_of_birth']) &&
-   isset($_POST['section']) &&
 
    isset($_POST['subjects']) &&
-   isset($_POST['grades'])) {
+   isset($_POST['classes'])) {
 
     // DATABASE CONNECTION
     include '../../connections.php';
@@ -50,9 +49,9 @@ if(isset($_POST['fname']) &&
     $gender = $_POST['gender'];
     $date_of_birth = $_POST['date_of_birth'];
 
-    $grades = "";
-    foreach ($_POST['grades'] as $grade){
-        $grades .=$grade;
+    $classes = "";
+    foreach ($_POST['classes'] as $class){
+        $classes .=$class;
     }
     
     $subjects = "";
@@ -60,11 +59,7 @@ if(isset($_POST['fname']) &&
         $subjects .=$subject;
     }
 
-    // BLANK FIELD CHECKBOX VALIDATOR FOR SECTIONS
-    $sections = "";
-    foreach ($_POST['section'] as $section){
-        $sections .=$section;
-    }
+  
 
 
     // VALIDATION SESSION
@@ -143,18 +138,19 @@ if(isset($_POST['fname']) &&
 
         // query to push data on the database
         $sql = "INSERT INTO
-                tbl_teachers(username, password, fname, lname,
-                            subjects, grades, section, address,
+                tbl_teachers(username, password, class, fname, lname,
+                            subjects, address,
                             employee_number, date_of_birth, phone_number,
                             qualification, gender, email_address)
-                            VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)"; // 14 
+                            VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)"; // 13  -- DON'T FORGET TO UPDATE THIS FUNCTION WHEN MODIFYING THE QUERY!
+                            
         $stmt = $conn->prepare($sql);
 
          // NOTE: THE ARRANGEMENT OF THE VARIABLES INSIDE THE EXECUTE 
         // ARE CORRESPONDING TO THE UPDATE QUERY IN TOP SO MAKE SURE IT HAS 
         // THE SAME PARALLEL POSITIONING
-        $stmt->execute([$uname, $pass, $fname, $lname, $subjects, 
-              $grades, $sections, $address, $employee_number, $date_of_birth, 
+        $stmt->execute([$uname, $pass, $classes, $fname, $lname, $subjects, 
+              $address, $employee_number, $date_of_birth, 
               $phone_number, $qualification, $gender, $email_address]);
 
               $sm = "New teacher has been registered successfully";
