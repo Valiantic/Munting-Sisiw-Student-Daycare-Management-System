@@ -36,21 +36,37 @@ if (
 		exit;
 	}else {
      
-        // hashing the password
-        $pass = password_hash($pass, PASSWORD_DEFAULT);
+        // CHECK IF THERE IS AN EXISTING RECORD IN THE DATABASE
+        $sql_check = "SELECT * FROM class WHERE grade=? AND section=?";
+        $stmt_check = $conn->prepare($sql_check);
+        $stmt_check->execute([$grade, $section]);
+
+        // CHECKS IF THE VALUE OF THE STATEMENT CHECK IS EQUAL TO 1 OR MORE 
+        // DISPLAY CLASS IS ALREADY ADDED!
+        if($stmt_check->rowCount() > 0){
+            // REDIRECTION IF EXISTING RECORD FOUND
+            $em  = "Class is already added!";
+            header("Location: ../class-add.php?error=$em");
+            exit;
+
+        }else{
+        // CLASS CREATION QUERY 
 
         $sql  = "INSERT INTO
-                 class(grade, section)
-                   VALUES(?,?)";
+        class(grade, section)
+          VALUES(?,?)";
         $stmt = $conn->prepare($sql);
 
-         // NOTE: THE ARRANGEMENT OF THE VARIABLES INSIDE THE EXECUTE 
+        // NOTE: THE ARRANGEMENT OF THE VARIABLES INSIDE THE EXECUTE 
         // ARE CORRESPONDING TO THE UPDATE QUERY IN TOP SO MAKE SURE IT HAS 
         // THE SAME PARALLEL POSITIONING
         $stmt->execute([$grade, $section]);
         $sm = "New Class added";
         header("Location: ../class-add.php?success=$sm");
         exit;
+        
+        }
+
 	}
     
   }else {

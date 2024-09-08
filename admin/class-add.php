@@ -167,7 +167,7 @@ if (isset($_SESSION['admin_id']) &&
            class="btn btn-dark">Go Back</a>
 
       <?php } ?>
-     ?>
+     
      <div class="container mt-5">
         <!-- continue 26:13 -->
         <a href="class.php"

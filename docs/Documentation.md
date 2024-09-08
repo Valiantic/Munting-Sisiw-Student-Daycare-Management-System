@@ -1768,5 +1768,6 @@ grade_code, grade and section
 12. display data on dropdown grade input using for loop in class-add.php
 13. display data on dropdown section input using for loop in class-add.php
 14. create /req/class-add.php update blank field detector and insertion query
-15. 
-16. create class-delete.php and a function removeClass for delete functionality
+15. create a sql query to check if there is an existing data that has been added in class-add.php 
+16. put the INSERT sql query to the else of the sql query STMT_CHECK
+17. create class-delete.php and a function removeClass for delete functionality
