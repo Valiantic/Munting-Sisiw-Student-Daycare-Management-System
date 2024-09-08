@@ -215,7 +215,11 @@ if (isset($_SESSION['admin_id']) &&
   <div class="mb-3">
     <label class="form-label">Section</label>
     <select name="section" class="form-control">
-      <option value="">1</option>
+    <?php foreach ($sections as $section) { ?>
+        <option value="<?=$section['section_id']?>">
+          <?=$section['section']?>
+        </option>
+      <?php } ?>
     </select>
   </div>
 
