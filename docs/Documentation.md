@@ -1780,4 +1780,4 @@ grade_code, grade and section
 24. copy the grade input from backup_codes to teacher-edit.php change the parameter of grades to class 
 to display data on teacher-edit.php
 25. REVERT ALL CODES BACK TO GRADE AND SECTION INSTEAD OF CLASS
-26. 
+26. REVERT ALL CODES BACK TO GRADE AND SECTION INSTEAD OF CLASS IN TEACHER-EDIT 

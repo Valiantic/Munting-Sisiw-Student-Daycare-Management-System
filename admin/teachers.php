@@ -226,8 +226,9 @@ if (isset($_SESSION['admin_id']) &&
                            foreach ($grades as $grade) {
                               $g_temp = getGradeById($grade, $conn);
                               if ($g_temp != 0) 
-                                $g .=$g_temp['grade_code'].
-                                     $g_temp['grade'];
+                                $g .=
+                                     
+                                     $g_temp['grade'].', ';
                            }
                            echo $g;
                         ?>
@@ -240,7 +241,7 @@ if (isset($_SESSION['admin_id']) &&
                            foreach ($sections as $section) {
                               $s_temp = getSectionById($section, $conn);
                               if ($s_temp != 0) 
-                                $s .=$s_temp['section'];
+                                $s .=$s_temp['section'].', ';
                                      
                            }
                            echo $s;

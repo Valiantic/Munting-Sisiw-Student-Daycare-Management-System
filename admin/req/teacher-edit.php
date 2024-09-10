@@ -25,7 +25,8 @@ if(isset($_POST['fname'])    &&
     isset($_POST['date_of_birth']) &&
 
    isset($_POST['subjects']) &&
-   isset($_POST['class'])) {
+   isset($_POST['sections']) &&
+   isset($_POST['grades'])) {
 
     // DATABASE CONNECTION
     include '../../connections.php';
@@ -46,14 +47,20 @@ if(isset($_POST['fname'])    &&
 
     $teacher_id = $_POST['teacher_id'];
 
-    $classes = "";
-    foreach ($_POST['class'] as $class){
-        $classes .=$class;
+    $grades = "";
+    foreach ($_POST['grades'] as $grade){
+        $grades .=$grade;
     }
     
     $subjects = "";
     foreach ($_POST['subjects'] as $subject){
         $subjects .=$subject;
+    }
+
+    // BLANK FIELD CHECKBOX VALIDATOR FOR SECTIONS
+    $sections = "";
+    foreach ($_POST['sections'] as $section){
+        $sections .=$section;
     }
 
     
@@ -123,9 +130,9 @@ if(isset($_POST['fname'])    &&
 
     // NOTE ALWAYS CHECK THE TABLE NAME!
       $sql = "UPDATE tbl_teachers SET 
-              username=?, fname=?, lname=?, subjects=?, class=?,
+              username=?, fname=?, lname=?, subjects=?, grades=?,
               address=?, employee_number=?, date_of_birth=?, phone_number=?, 
-              qualification=?, gender=?, email_address=?
+              qualification=?, gender=?, email_address=?, section=?
               WHERE teacher_id=?";
             
 
@@ -135,7 +142,7 @@ if(isset($_POST['fname'])    &&
        // NOTE: THE ARRANGEMENT OF THE VARIABLES INSIDE THE EXECUTE 
         // ARE CORRESPONDING TO THE UPDATE QUERY IN TOP SO MAKE SURE IT HAS 
         // THE SAME PARALLEL POSITIONING
-      $stmt->execute([$uname,$fname, $lname, $subjects, $classes, $address, $employee_number, $date_of_birth, $phone_number, $qualification, $gender, $email_address, $teacher_id]);
+      $stmt->execute([$uname,$fname, $lname, $subjects, $grades, $address, $employee_number, $date_of_birth, $phone_number, $qualification, $gender, $email_address, $sections, $teacher_id]);
       $sm = "Successfully Updated!";
       header("Location: ../teacher-edit.php?success=$sm&$data");
       exit;
