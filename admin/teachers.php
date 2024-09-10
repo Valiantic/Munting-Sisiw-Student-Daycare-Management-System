@@ -190,7 +190,8 @@ if (isset($_SESSION['admin_id']) &&
                     <th scope="col">Last Name</th>
                     <th scope="col">Username</th>
                     <th scope="col">Subject</th>
-                    <th scope="col">Class</th>
+                    <th scope="col">Grade</th>
+                    <th scope="col">Section</th>
                     <th scope="col">Action</th>
                   </tr>
                 </thead>
@@ -220,25 +221,33 @@ if (isset($_SESSION['admin_id']) &&
                     </td>
                     <td>
                     <?php 
-                           
-                           $c = '';
-                           $classes = str_split(trim($teacher['class']));
-
-                           foreach ($classes as $class_id) {
-                               $class = getClassById($class_id, $conn);
-                               var_dump($class);
-                               var_dump(getClassById($class_id, $conn));
-
-                              $c_temp = getGradeById($class['grade'], $conn);
-                              $section = getSectionById($class['section'], $conn);
-                              if ($c_temp != 0) 
-                                $c .=$c_temp['grade_code'].'-'.
-                                     $c_temp['grade'].$section['section'].', ';
+                           $g = '';
+                           $grades = str_split(trim($teacher['grades']));
+                           foreach ($grades as $grade) {
+                              $g_temp = getGradeById($grade, $conn);
+                              if ($g_temp != 0) 
+                                $g .=$g_temp['grade_code'].
+                                     $g_temp['grade'];
                            }
-                           echo $c;
-                       ?>
+                           echo $g;
+                        ?>
 
                     </td>
+                    <td>
+                    <?php 
+                           $s = '';
+                           $sections = str_split(trim($teacher['section']));
+                           foreach ($sections as $section) {
+                              $s_temp = getSectionById($section, $conn);
+                              if ($s_temp != 0) 
+                                $s .=$s_temp['section'];
+                                     
+                           }
+                           echo $s;
+                        ?>
+
+                    </td>
+                    
                   
                     <td>
                         <a href="teacher-edit.php?teacher_id=<?=$teacher['teacher_id']?>"

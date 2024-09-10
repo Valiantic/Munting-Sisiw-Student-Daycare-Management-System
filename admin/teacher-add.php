@@ -10,7 +10,9 @@ if (isset($_SESSION['admin_id']) &&
         include "data/subject.php";
         include "data/grade.php";
         include "data/section.php";
-        include "data/class.php";
+        include "data/class.php"; // NOT USED ANYMORE 
+        $grades = getAllGrades($conn);
+        $sections = getAllSections($conn);
         $subjects = getAllSubjects($conn);
         $classes = getAllClasses($conn);
  
@@ -279,41 +281,59 @@ if (isset($_SESSION['admin_id']) &&
     <!-- 17:15 adding new column in database  -->
 
   <div class="mb-3">
-    <label class="form-label">Subject</label>
-    <div class="row row-cols-5">
+                <label class="form-label">Subject</label>
+                <div class="row row-cols-5">
 
-    <!-- USE TO DISPLAY SUBJECTS USING FOR LOOP  -->
-    <?php foreach ($subjects as $subject): ?>
-      
-        <div class="col">
-        <input type="checkbox" name="subjects[]" value="<?=$subject['subject_id']?>"> 
-        <?=$subject['subjects']?>
+                <!-- USE TO DISPLAY SUBJECTS USING FOR LOOP  -->
+                <?php foreach ($subjects as $subject): ?>
+                  
+                    <div class="col">
+                    <input type="checkbox" name="subjects[]" value="<?=$subject['subject_id']?>"> 
+                    <?=$subject['subjects']?>
+                    </div>
+
+                <?php endforeach ?>
+
+                </div>
+              </div>
+
+
+              <div class="mb-3">
+              <label class="form-label">Grade</label>
+
+            <div class="row row-cols-5"> 
+            <?php foreach ($grades as $grade): ?>
+
+              <div class="col">
+              <input type="checkbox" name="grades[]" value="<?=$grade['grade_id']?>"> 
+              <?=$grade['grade_code']?>-<?=$grade['grade']?>
+              <!-- ENCLOSED IN PHP TAG ARE THE VARIABLES YOU WANT TO DISPLAY -->
+
+
+            </div>
+            <?php endforeach ?>
+</div>
+
+</div>
+
+            <!-- NEW COLUMN THAT HAS BEEN ADDED -->
+        <div class="mb-3">
+        <label class="form-label">Section</label>
+        <div class="row row-cols-5">
+
+        <!-- USE TO DISPLAY SECTION USING FOR LOOP  -->
+        <?php foreach ($sections as $section): ?>
+
+            <div class="col">
+            <input type="checkbox" name="section[]" value="<?=$section['section_id']?>"> 
+            <?=$section['section']?>
+
         </div>
 
-    <?php endforeach ?>
+        <?php endforeach ?>
 
     </div>
   </div>
-
-
-  <div class="mb-3">
-          <label class="form-label">Class</label>
-          <div class="row row-cols-5">
-            <?php foreach ($classes as $class): ?>
-            <div class="col">
-              <input type="checkbox"
-                     name="classes[]"
-                     value="<?=$class['class_id']?>">
-                     <?php 
-                        $grade = getGradeById($class['grade'], $conn); 
-                        $section = getSectionById($class['section'], $conn); 
-                      ?>
-                     <?=$grade['grade_code']?>-<?=$grade['grade'].$section['section']?>
-            </div>
-            <?php endforeach ?>
-             
-          </div>
-        </div>
 
     <button type="submit" class="btn btn-primary">Add</button>
 </form>

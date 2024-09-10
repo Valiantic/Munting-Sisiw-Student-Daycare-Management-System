@@ -1779,4 +1779,5 @@ grade_code, grade and section
 23. update the insertion query on teacher-add and remove grade and section input from the query add class instead
 24. copy the grade input from backup_codes to teacher-edit.php change the parameter of grades to class 
 to display data on teacher-edit.php
-25. 
+25. REVERT ALL CODES BACK TO GRADE AND SECTION INSTEAD OF CLASS
+26. 

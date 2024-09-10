@@ -20,7 +20,7 @@
                               $g_temp = getGradeById($grade, $conn);
                               if ($g_temp != 0) 
                                 $g .=$g_temp['grade_code'].'-'.
-                                     $g_temp['grade'].', ';
+                                     $g_temp['grade'];
                            }
                            echo $g;
                         ?>

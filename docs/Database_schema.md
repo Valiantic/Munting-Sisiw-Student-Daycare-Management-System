@@ -31,11 +31,12 @@ tbl_teachers
 >teacher_id INT(11) AUTO_INCREMENT
 >username VARCHAR(25)
 >password VARCHAR(255)
->class INT(31)
 >subject VARCHAR(255)
 >fname VARCHAR(25)
 >lname VARCHAR(25)
 --(to add NOTE: ADD THIS ONE BY ONE UNKNOWN ERROR ADDING ALL 8 AT ONCE)-- 
+>grade INT(25)
+>section VARCHAR(31) 
 >address VARCHAR(31)
 >employee_number INT(11)
 >date_of_birth DATE 

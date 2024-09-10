@@ -27,9 +27,10 @@ if(isset($_POST['fname']) &&
    isset($_POST['email_address']) &&
    isset($_POST['gender']) &&
    isset($_POST['date_of_birth']) &&
+   isset($_POST['section']) &&
 
    isset($_POST['subjects']) &&
-   isset($_POST['classes'])) {
+   isset($_POST['grades'])) {
 
     // DATABASE CONNECTION
     include '../../connections.php';
@@ -49,15 +50,21 @@ if(isset($_POST['fname']) &&
     $gender = $_POST['gender'];
     $date_of_birth = $_POST['date_of_birth'];
 
-    $classes = "";
-    foreach ($_POST['classes'] as $class){
-        $classes .=$class;
+    $grades = "";
+    foreach ($_POST['grades'] as $grade){
+        $grades .=$grade;
     }
     
     $subjects = "";
     foreach ($_POST['subjects'] as $subject){
         $subjects .=$subject;
     }
+
+     // BLANK FIELD CHECKBOX VALIDATOR FOR SECTIONS
+     $sections = "";
+     foreach ($_POST['section'] as $section){
+         $sections .=$section;
+     }
 
   
 
@@ -138,18 +145,18 @@ if(isset($_POST['fname']) &&
 
         // query to push data on the database
         $sql = "INSERT INTO
-                tbl_teachers(username, password, class, fname, lname,
+                tbl_teachers(username, password, grades, section, fname, lname,
                             subjects, address,
                             employee_number, date_of_birth, phone_number,
                             qualification, gender, email_address)
-                            VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)"; // 13  -- DON'T FORGET TO UPDATE THIS FUNCTION WHEN MODIFYING THE QUERY!
+                            VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)"; // 14  -- DON'T FORGET TO UPDATE THIS FUNCTION WHEN MODIFYING THE QUERY!
                             
         $stmt = $conn->prepare($sql);
 
          // NOTE: THE ARRANGEMENT OF THE VARIABLES INSIDE THE EXECUTE 
         // ARE CORRESPONDING TO THE UPDATE QUERY IN TOP SO MAKE SURE IT HAS 
         // THE SAME PARALLEL POSITIONING
-        $stmt->execute([$uname, $pass, $classes, $fname, $lname, $subjects, 
+        $stmt->execute([$uname, $pass, $grades, $sections, $fname, $lname, $subjects, 
               $address, $employee_number, $date_of_birth, 
               $phone_number, $qualification, $gender, $email_address]);
 
