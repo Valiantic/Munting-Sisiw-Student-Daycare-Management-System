@@ -64,3 +64,82 @@
 
                     </div>
                 </div>
+
+
+
+<!-- 
+                GRADE AND SECTION INPUT IN TEACHER EDIT  -->
+
+                
+   <div class="mb-3">
+    <label class="form-label">Grade</label>
+
+    <div class="row row-cols-5"> 
+    <!-- USE TO DISPLAY GRADES USING FOR LOOP  -->
+    <?php 
+        // USED TO SPLIT GRADES DATA'S
+        $grade_ids = str_split(trim($teacher['grades']));
+    
+
+        foreach ($grades as $grade){ 
+            $checked = 0;
+            foreach ($grade_ids as $grade_id){
+                if ($grade_id == $grade['grade_id']) {
+                    $checked = 1;
+                }
+            }
+
+            ?>
+      
+      <div class="col">
+      <input type="checkbox" 
+      name="grades[]" 
+      <?php if($checked) echo "checked"; ?>
+      value="<?=$grade['grade_id']?>"> 
+      <?=$grade['grade_code']?>-<?=$grade['grade']?>
+      <!-- ENCLOSED IN PHP TAG ARE THE VARIABLES YOU WANT TO DISPLAY -->
+
+
+    </div>
+    <?php } ?>
+    </div>
+
+  </div>
+
+
+  <!-- CHECKBOX FOR SECTION  -->
+
+<div class="mb-3">
+  <label class="form-label">Section</label>
+
+  <div class="row row-cols-5"> 
+  <!-- USE TO DISPLAY GRADES USING FOR LOOP  -->
+  <?php 
+      // USED TO SPLIT GRADES DATA'S
+      $section_ids = str_split(trim($teacher['section']));
+  
+
+      foreach ($sections as $section){ 
+          $checked = 0;
+          foreach ($section_ids as $section_id){
+              if ($section_id == $section['section_id']) {
+                  $checked = 1;
+              }
+          }
+
+          ?>
+    
+    <div class="col">
+    <input type="checkbox" 
+    name="sections[]" 
+    <?php if($checked) echo "checked"; ?>
+    value="<?=$section['section_id']?>"> 
+    <?=$section['section']?>
+    <!-- ENCLOSED IN PHP TAG ARE THE VARIABLES YOU WANT TO DISPLAY -->
+
+
+  </div>
+  <?php } ?>
+  </div>
+
+</div>

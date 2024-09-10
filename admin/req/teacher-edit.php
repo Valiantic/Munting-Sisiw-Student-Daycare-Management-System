@@ -23,10 +23,9 @@ if(isset($_POST['fname'])    &&
     isset($_POST['email_address']) &&
     isset($_POST['gender']) &&
     isset($_POST['date_of_birth']) &&
-    isset($_POST['sections']) &&
 
    isset($_POST['subjects']) &&
-   isset($_POST['grades'])) {
+   isset($_POST['class'])) {
 
     // DATABASE CONNECTION
     include '../../connections.php';
@@ -47,9 +46,9 @@ if(isset($_POST['fname'])    &&
 
     $teacher_id = $_POST['teacher_id'];
 
-    $grades = "";
-    foreach ($_POST['grades'] as $grade){
-        $grades .=$grade;
+    $classes = "";
+    foreach ($_POST['class'] as $class){
+        $classes .=$class;
     }
     
     $subjects = "";
@@ -57,12 +56,7 @@ if(isset($_POST['fname'])    &&
         $subjects .=$subject;
     }
 
-     // BLANK FIELD CHECKBOX VALIDATOR FOR SECTIONS
-     $sections = "";
-     foreach ($_POST['sections'] as $section){
-         $sections .=$section;
-     }
-
+    
     // VALIDATION SESSION 
     // TAKE NOTE FOR THE DATA SHOULD BE TEACHER_ID= 
     $data = 'teacher_id='.$teacher_id;
@@ -129,9 +123,9 @@ if(isset($_POST['fname'])    &&
 
     // NOTE ALWAYS CHECK THE TABLE NAME!
       $sql = "UPDATE tbl_teachers SET 
-              username=?, fname=?, lname=?, subjects=?, grades=?,
+              username=?, fname=?, lname=?, subjects=?, class=?,
               address=?, employee_number=?, date_of_birth=?, phone_number=?, 
-              qualification=?, gender=?, email_address=?, section=?
+              qualification=?, gender=?, email_address=?
               WHERE teacher_id=?";
             
 
@@ -141,7 +135,7 @@ if(isset($_POST['fname'])    &&
        // NOTE: THE ARRANGEMENT OF THE VARIABLES INSIDE THE EXECUTE 
         // ARE CORRESPONDING TO THE UPDATE QUERY IN TOP SO MAKE SURE IT HAS 
         // THE SAME PARALLEL POSITIONING
-      $stmt->execute([$uname,$fname, $lname, $subjects, $grades, $address, $employee_number, $date_of_birth, $phone_number, $qualification, $gender, $email_address, $sections, $teacher_id]);
+      $stmt->execute([$uname,$fname, $lname, $subjects, $classes, $address, $employee_number, $date_of_birth, $phone_number, $qualification, $gender, $email_address, $teacher_id]);
       $sm = "Successfully Updated!";
       header("Location: ../teacher-edit.php?success=$sm&$data");
       exit;

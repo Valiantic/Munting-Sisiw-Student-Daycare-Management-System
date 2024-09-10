@@ -8,8 +8,8 @@ if (isset($_SESSION['admin_id']) &&
         include "data/teacher.php";
         include "data/subject.php";
         include "data/grade.php";
-        include "data/class.php";
         include "data/section.php";
+        include "data/class.php";
         $teachers = getAllTeachers($conn);
  ?>
 
@@ -219,22 +219,25 @@ if (isset($_SESSION['admin_id']) &&
                         ?>
                     </td>
                     <td>
-                       <?php 
-                            // REMOVE GRADES AND REPLACE CLASS FOR DISPLAY OPTIMIZATION
-                            $c = '';
-                            $classes = str_split(trim($teacher['class']));
- 
-                            foreach ($classes as $class_id) {
-                                $class = getClassById($class_id, $conn);
- 
-                               $c_temp = getGradeById($class['grade'], $conn);
-                               $section = getSectionById($class['section'], $conn);
-                               if ($c_temp != 0) 
-                                 $c .=$c_temp['grade_code'].'-'.
-                                      $c_temp['grade'].$section['section'].', ';
-                            }
-                            echo $c;
-                        ?>
+                    <?php 
+                           
+                           $c = '';
+                           $classes = str_split(trim($teacher['class']));
+
+                           foreach ($classes as $class_id) {
+                               $class = getClassById($class_id, $conn);
+                               var_dump($class);
+                               var_dump(getClassById($class_id, $conn));
+
+                              $c_temp = getGradeById($class['grade'], $conn);
+                              $section = getSectionById($class['section'], $conn);
+                              if ($c_temp != 0) 
+                                $c .=$c_temp['grade_code'].'-'.
+                                     $c_temp['grade'].$section['section'].', ';
+                           }
+                           echo $c;
+                       ?>
+
                     </td>
                   
                     <td>
