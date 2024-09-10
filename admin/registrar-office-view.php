@@ -133,7 +133,7 @@ if (isset($_SESSION['admin_id']) &&
                 <!-- IMAGE TAG WITH GENDER AVATAR DETECTION -->
         
         <div class="container d-flex justify-content-center">
-        <img src="../images/teacher-<?=$r_users['gender']?>.png" class="avatar" alt="...">
+        <img src="../images/registrar-office-<?=$r_users['gender']?>.jpg" class="avatar" alt="...">
         </div>
 
         <br>

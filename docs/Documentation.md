@@ -1787,3 +1787,6 @@ to display data on teacher-edit.php
 30. create registrar-office.php and display all data their by arranging all codes
 31. create /data/registrar-office and functions to fetch data
 32. create registrar-office-view for registrar-office faculty members information 
+33. add new avatar icon for registrar office members
+34. create registrar-office-add to add user from faculty 
+35. create /req/registrar-office-add for blank field detector and insertion query functionality
