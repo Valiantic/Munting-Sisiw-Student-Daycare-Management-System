@@ -249,7 +249,7 @@ if (isset($_SESSION['admin_id']) &&
 
                     </td>
                     
-                  
+                  <!-- continue 59:25; -->
                     <td>
                         <a href="teacher-edit.php?teacher_id=<?=$teacher['teacher_id']?>"
                            class="btn btn-warning">Edit</a>

@@ -33,9 +33,9 @@
       </li>
 
 
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link" href="./class.php">Class</a>
-      </li>
+      </li> -->
 
       <li class="nav-item">
         <a class="nav-link" href="#contacts">Registrar-Office</a>

@@ -59,9 +59,24 @@ subjects
 
 section
 >section_id INT AUTO_INCREMENT
->section VARCHAR 7
+>section VARCHAR 31
 
 class
 >class_id INT AUTO_INCREMENT
 >grade INT
 >section VARCHAR
+
+registrar_office
+>r_user_id INT 11 AUTO_INCREMENT
+>username VARCHAR 127
+>password VARCHAR 255
+>fname VARCHAR 31
+>lname VARCHAR 31
+>address VARCHAR 31
+>employee_number INT 11
+>date_of_birth DATE 31
+>phone_number VARCHAR 31 
+>qualification VARCHAR 31
+>gender VARCHAR 7
+>email_address VARCHAR 255
+>date_ofjoined DATETIME  CURRENT_TIME
