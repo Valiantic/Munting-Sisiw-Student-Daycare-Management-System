@@ -182,7 +182,7 @@ if (isset($_SESSION['admin_id']) &&
                     <th scope="row"><?=$i?></th>
                     <td><?=$r_user['r_user_id']?></td>
                     <!-- CLICK TO REDIRECT TO $r_user-VIEW -->
-                    <td><a href="registrar_office-view.php?teacher_id=<?=$r_user['r_user_id']?>"><?=$r_user['fname']?></a></td>
+                    <td><a href="registrar-office-view.php?r_user_id=<?=$r_user['r_user_id']?>"><?=$r_user['fname']?></a></td>
                     <td><?=$r_user['lname']?></td>
                     <td><?=$r_user['username']?></td>
                     

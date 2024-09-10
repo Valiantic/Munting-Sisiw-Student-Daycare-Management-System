@@ -1785,4 +1785,5 @@ to display data on teacher-edit.php
 28. create new table named registrar_office with 13 new columns see database_schema for reference
 29. comment out class on navbar
 30. create registrar-office.php and display all data their by arranging all codes
-31. create /data/registrar-office and functions to fetch data 
+31. create /data/registrar-office and functions to fetch data
+32. create registrar-office-view for registrar-office faculty members information 

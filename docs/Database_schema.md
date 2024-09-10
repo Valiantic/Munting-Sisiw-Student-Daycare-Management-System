@@ -79,4 +79,4 @@ registrar_office
 >qualification VARCHAR 31
 >gender VARCHAR 7
 >email_address VARCHAR 255
->date_ofjoined DATETIME  CURRENT_TIME
+>date_of_joined DATETIME  CURRENT_TIME
