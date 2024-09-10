@@ -38,7 +38,7 @@
       </li> -->
 
       <li class="nav-item">
-        <a class="nav-link" href="#contacts">Registrar-Office</a>
+        <a class="nav-link" href="./registrar-office.php">Registrar-Office</a>
       </li>
 
       <li class="nav-item">

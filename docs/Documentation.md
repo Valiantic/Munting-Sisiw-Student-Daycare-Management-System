@@ -1783,3 +1783,6 @@ to display data on teacher-edit.php
 26. REVERT ALL CODES BACK TO GRADE AND SECTION INSTEAD OF CLASS IN TEACHER-EDIT 
 27. update section column length from 7 to 31 in section table 
 28. create new table named registrar_office with 13 new columns see database_schema for reference
+29. comment out class on navbar
+30. create registrar-office.php and display all data their by arranging all codes
+31. create /data/registrar-office and functions to fetch data 
