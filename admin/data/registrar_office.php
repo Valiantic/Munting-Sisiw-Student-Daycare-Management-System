@@ -65,20 +65,19 @@ function unameIsUnique($uname, $conn, $teacher_id=0){
 //  <!-- CREATING A DELETE FUNCTION -->
  
 
-//  function removeTeacher($id, $conn){
-//     $sql = "DELETE FROM tbl_teachers
-//             WHERE teacher_id=?";
-//     $stmt = $conn->prepare($sql);
-//     $re = $stmt->execute([$id]);
- 
-//     if ($re) {
-//       return 1;
-//     }else {
-//         return 0;
-//     }
-//  }
+function removeRegistrar($id, $conn){
+    $sql  = "DELETE FROM registrar_office
+            WHERE r_user_id=?";
+    $stmt = $conn->prepare($sql);
+    $re   = $stmt->execute([$id]);
+    if ($re) {
+      return 1;
+    }else {
+     return 0;
+    }
+ }
 
-//  // SEARCH FUNCTION TO GET DATA FROM TBL TEACHERS
+ // SEARCH FUNCTION TO GET DATA FROM TBL TEACHERS
 // function searchTeachers($key, $conn){
 //     // modifying the variable key to get all results 
 //     // using LIKE operator
