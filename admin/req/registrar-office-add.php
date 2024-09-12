@@ -62,63 +62,63 @@ if(isset($_POST['fname']) &&
 
     if (empty($fname)) {
       $em  = "First name is required";
-      header("Location: ../teacher-add.php?error=$em&$data");
+      header("Location: ../registrar-office-add.php?error=$em&$data");
       exit;
     }else if (empty($lname)) {
       $em  = "Last name is required";
-      header("Location: ../teacher-add.php?error=$em&$data");
+      header("Location: ../registrar-office-add.php?error=$em&$data");
       exit;
     }else if (empty($uname)) {
       $em  = "Username is required";
-      header("Location: ../teacher-add.php?error=$em&$data");
+      header("Location: ../registrar-office-add.php?error=$em&$data");
       exit;
     }else if (!unameIsUnique($uname, $conn)) {
       $em  = "Username is taken! try another";
-      header("Location: ../teacher-add.php?error=$em&$data");
+      header("Location: ../registrar-office-add.php?error=$em&$data");
       exit;
     }
     
     // NEW COLUMNS ADDED DUE TO SECTION TABLE 
     else if (empty($address)) {
       $em  = "Address is required";
-      header("Location: ../teacher-add.php?error=$em&$data");
+      header("Location: ../registrar-office-add.php?error=$em&$data");
       exit;
     }
     else if (empty($employee_number)) {
       $em  = "Employee number is required";
-      header("Location: ../teacher-add.php?error=$em&$data");
+      header("Location: ../registrar-office-add.php?error=$em&$data");
       exit;
     }
     else if (empty($phone_number)) {
       $em  = "Phone number is required";
-      header("Location: ../teacher-add.php?error=$em&$data");
+      header("Location: ../tregistrar-office-add.php?error=$em&$data");
       exit;
     }
     else if (empty($qualification)) {
       $em  = "Qualification is required";
-      header("Location: ../teacher-add.php?error=$em&$data");
+      header("Location: ../registrar-office-add.php?error=$em&$data");
       exit;
     }
     else if (empty($email_address)) {
       $em  = "Email address is required";
-      header("Location: ../teacher-add.php?error=$em&$data");
+      header("Location: ../registrar-office-add.php?error=$em&$data");
       exit;
     }
     else if (empty($gender)) {
       $em  = "Gender is required";
-      header("Location: ../teacher-add.php?error=$em&$data");
+      header("Location: ../registrar-office-add.php?error=$em&$data");
       exit;
     }
     else if (empty($date_of_birth)) {
       $em  = "Date of birth is required";
-      header("Location: ../teacher-add.php?error=$em&$data");
+      header("Location: ../registrar-office-add.php?error=$em&$data");
       exit;
     }
     
 
     else if (empty($pass)) {
       $em  = "Password is required";
-      header("Location: ../teacher-add.php?error=$em&$data");
+      header("Location: ../registrar-office-add.php?error=$em&$data");
       exit;
     }else {
         // echo "Success!";
