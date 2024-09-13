@@ -1799,8 +1799,8 @@ to display data on teacher-edit.php
 42. create req/registrar-office-change to fetch password data and change it\
 
 >FOURTEEN CHAPTER
-1. create new table named courses along with columns 
-2. create course on data in order to fetch records from the database 
-3. 
-4. 
+1. create new table named courses along with columns see database schema
+2. create course on data in order to fetch records from the database alongside with functions
+3. create admin/course.php to display course records from the database 
+4. include data/grade and getGradeById to fetch the grade and grade code
 5. 
