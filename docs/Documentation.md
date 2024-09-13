@@ -1806,4 +1806,5 @@ to display data on teacher-edit.php
 5. create course-add.php then include dropdown selection for grade selection 
 6. create data/course-add.php to add data and also check if it already exists within the database
 7. create course-delete.php for delete functionality 
-8. 
+8. create course-edit to display data from course and dropdown to display grades
+9.
