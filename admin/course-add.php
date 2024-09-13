@@ -21,8 +21,6 @@ if (isset($_SESSION['admin_id']) &&
   
        
 
-        // PUT VALUE ON THREE INPUT FNAME,LNAME, AND UNAME
-
  ?>
 
 <!DOCTYPE html>
@@ -170,6 +168,12 @@ if (isset($_SESSION['admin_id']) &&
         <a href="course.php"
            class="btn btn-dark">Go Back</a>
 
+        <?php if ($grades == 0) { ?>
+        <div class="alert alert-info" role="alert">
+           First create grade.
+          </div>
+        <?php }else{ ?>
+
 
                                                     <!-- ALWAYS CHECK THE ACTION -->
 <form class="shadow p-3 mt-4 mb-3 form-w" method="post" action="req/course-add.php">
@@ -202,7 +206,7 @@ if (isset($_SESSION['admin_id']) &&
     <input type="text" class="form-control" value="<?=$course?>" name="course_code">
   </div>
 
-
+            <!-- DROPDOWN SELECTION  -->
   <div class="mb-3">
           <label class="form-label">Grade</label>
           <select name="grade"
@@ -222,6 +226,7 @@ if (isset($_SESSION['admin_id']) &&
 </form>
        
      </div>
+     <?php } ?>
      
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>	
     <script>
