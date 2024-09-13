@@ -282,7 +282,77 @@ if (isset($_SESSION['admin_id']) &&
     <button type="submit" 
             class="btn btn-primary">
             Update</button>
+
+
+      
+        
+
 </form>
+
+  <!-- CHANGE PASSWORD SECTION -->
+  <form class="shadow p-3 my-5 form-w" method="post" action="req/registrar-office-change.php" id="change_password">
+
+
+<!-- COPY THIS CODE FROM ABOVE -->
+<hr><h3>Change Password</h3></hr>
+
+<!-- ERROR HANDLING   -->
+<?php if (isset($_GET['perror'])) { ?>
+       <div class="alert alert-danger" role="alert">
+         <?=$_GET['perror']?>
+       </div>
+<?php } ?>
+
+<!-- continue 38:22 -->
+
+<!-- SUCCESS HANDLING   -->
+<?php if (isset($_GET['psuccess'])) { ?>
+       <div class="alert alert-success" role="alert">
+         <?=$_GET['psuccess']?>
+       </div>
+<?php } ?>
+
+<!-- PASSWORD DIV -->
+<div class="mb-3"> 
+    <div class="mb-3">
+        <label class="form-label">Admin Password</label>
+          
+        <input type="password" class="form-control" name="admin_pass">
+      
+
+    </div>  
+
+    <label class="form-label">New Password</label>
+    <div class="input-group mb-3">
+    <input type="text" class="form-control" name="new_pass" id="passInput">
+    <button class="btn btn-secondary" id="gBtn">Random Password</button>
+    </div>
+
+</div>  
+
+<!-- continue 42:43 -->
+
+ <!-- INDICATION FOR TEACHER ID -->
+ <input type="text" value="<?=$r_users['r_user_id']?>"
+         name="r_user_id"
+         hidden>
+
+<!-- CONFIRMATION CHANGE PASSWORD DIV -->
+<div class="mb-3">
+    <label class="form-label">Confirm new Password</label>
+      
+    <input type="text" class="form-control" name="c_new_pass" id="passInput2">
+
+</div>  
+
+<!-- SUBMIT BUTTOM FOR CHANGE PASSWORD  -->
+<button type="submit" 
+            class="btn btn-primary">
+            Change</button>
+
+
+    </form>
+     </div>
 
 
 
@@ -298,6 +368,31 @@ if (isset($_SESSION['admin_id']) &&
              $("#navLinks li:nth-child(6) a").addClass('active');
         });
 
+
+           // RANDOM PASSWORD GENERATOR 
+           function makePass(length) {
+            var result           = '';
+            var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            var charactersLength = characters.length;
+            for ( var i = 0; i < length; i++ ) {
+              result += characters.charAt(Math.floor(Math.random() * 
+         charactersLength));
+
+           }
+          //  FUNCTIONALITY FOR PASSWORD DIV 1
+           var passInput = document.getElementById('passInput');
+          //  FUNCTIONALITY FOR CHANGE PASSWORD DIV 
+           var passInput2 = document.getElementById('passInput2');
+          // ACTIVE THE FUNCTIONALITY
+           passInput.value = result;
+           passInput2.value = result;
+        }
+
+        var gBtn = document.getElementById('gBtn');
+        gBtn.addEventListener('click', function(e){
+          e.preventDefault();
+          makePass(7); // just adjust the number to increase the character length of the password generator
+        });
       
     </script>
 

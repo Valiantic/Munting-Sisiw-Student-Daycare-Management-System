@@ -1792,5 +1792,8 @@ to display data on teacher-edit.php
 35. create /req/registrar-office-add for blank field detector and insertion query functionality
 36. create registrar-office-delete to delete records from the registrar 
 37. fixed some blank field detector routing 
-37. create registrar-office-edit and make data input visible from the database
-ERROR NOT UPDATING!
+38. create registrar-office-edit and make data input visible from the database
+39. create req/registrar-office-edit to fetch data 
+40. update insertion query on req/registrar-office-edit
+41. added password change on registrar-office-edit
+42. create req/registrar-office-change to fetch password data and change it
