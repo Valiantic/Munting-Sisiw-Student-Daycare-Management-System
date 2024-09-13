@@ -241,7 +241,8 @@ if (isset($_SESSION['admin_id']) &&
 
   <!-- INDICATION FOR COURSE ID -->
   <!-- BLANK FIELD DETECTOR ISSUE FIXED BECAUSE OF THIS -->
- <input type="text" value="<?=$sections['course_id']?>"
+  <!-- NOTE: CHECK THE VARIABLE $ IF ITS RIGHT -->
+ <input type="text" value="<?=$courses['course_id']?>"
          name="course_id"
          hidden>
 

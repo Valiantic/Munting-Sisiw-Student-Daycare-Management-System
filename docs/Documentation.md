@@ -1807,4 +1807,6 @@ to display data on teacher-edit.php
 6. create data/course-add.php to add data and also check if it already exists within the database
 7. create course-delete.php for delete functionality 
 8. create course-edit to display data from course and dropdown to display grades
-9.
+9. create data/course-edit.php to edit data from the database 
+FIXED ERROR NOT UPDATING 
+10. 
