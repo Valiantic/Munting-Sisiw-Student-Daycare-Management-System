@@ -1796,4 +1796,11 @@ to display data on teacher-edit.php
 39. create req/registrar-office-edit to fetch data 
 40. update insertion query on req/registrar-office-edit
 41. added password change on registrar-office-edit
-42. create req/registrar-office-change to fetch password data and change it
+42. create req/registrar-office-change to fetch password data and change it\
+
+>FOURTEEN CHAPTER
+1. create new table named courses along with columns 
+2. create course on data in order to fetch records from the database 
+3. 
+4. 
+5. 

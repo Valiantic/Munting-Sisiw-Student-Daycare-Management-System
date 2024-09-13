@@ -46,7 +46,7 @@
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" href="#contacts">Course</a>
+        <a class="nav-link" href="course.php">Course</a>
       </li>
 
       <li class="nav-item">

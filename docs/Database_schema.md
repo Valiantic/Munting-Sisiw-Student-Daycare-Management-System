@@ -80,3 +80,9 @@ registrar_office
 >gender VARCHAR 7
 >email_address VARCHAR 255
 >date_of_joined DATETIME  CURRENT_TIME
+
+courses
+>course_id INT AUTO INCREMENT
+>grade INT 
+>course_name VARCHAR 127
+>course_code VARCHAR 31  
