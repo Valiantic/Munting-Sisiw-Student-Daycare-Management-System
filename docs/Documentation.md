@@ -1782,23 +1782,25 @@ to display data on teacher-edit.php
 25. REVERT ALL CODES BACK TO GRADE AND SECTION INSTEAD OF CLASS
 26. REVERT ALL CODES BACK TO GRADE AND SECTION INSTEAD OF CLASS IN TEACHER-EDIT 
 27. update section column length from 7 to 31 in section table 
-28. create new table named registrar_office with 13 new columns see database_schema for reference
-29. comment out class on navbar
-30. create registrar-office.php and display all data their by arranging all codes
-31. create /data/registrar-office and functions to fetch data
-32. create registrar-office-view for registrar-office faculty members information 
-33. add new avatar icon for registrar office members
-34. create registrar-office-add to add user from faculty 
-35. create /req/registrar-office-add for blank field detector and insertion query functionality
-36. create registrar-office-delete to delete records from the registrar 
-37. fixed some blank field detector routing 
-38. create registrar-office-edit and make data input visible from the database
-39. create req/registrar-office-edit to fetch data 
-40. update insertion query on req/registrar-office-edit
-41. added password change on registrar-office-edit
-42. create req/registrar-office-change to fetch password data and change it\
 
 >FOURTEEN CHAPTER
+1. create new table named registrar_office with 13 new columns see database_schema for reference
+2. comment out class on navbar
+3. create registrar-office.php and display all data their by arranging all codes
+4. create /data/registrar-office and functions to fetch data
+5. create registrar-office-view for registrar-office faculty members information 
+6. add new avatar icon for registrar office members
+7. create registrar-office-add to add user from faculty 
+8. create /req/registrar-office-add for blank field detector and insertion query functionality
+9. create registrar-office-delete to delete records from the registrar 
+10. fixed some blank field detector routing 
+11. create registrar-office-edit and make data input visible from the database
+12. create req/registrar-office-edit to fetch data 
+13. update insertion query on req/registrar-office-edit
+14. added password change on registrar-office-edit
+15. create req/registrar-office-change to fetch password data and change it\
+
+>FIFTEEN CHAPTER
 1. create new table named courses along with columns see database schema
 2. create course on data in order to fetch records from the database alongside with functions
 3. create admin/course.php to display course records from the database 
@@ -1809,4 +1811,10 @@ to display data on teacher-edit.php
 8. create course-edit to display data from course and dropdown to display grades
 9. create data/course-edit.php to edit data from the database 
 FIXED ERROR NOT UPDATING 
-10. 
+
+SIXTEEN CHAPTER 
+1. add new option in the login page "Registrar-Office"
+2. add role selection and role session verification 
+3. create registrar office folder and index.php 
+4. change the role from admin to "Registrar Office" in index page
+continue 4:03

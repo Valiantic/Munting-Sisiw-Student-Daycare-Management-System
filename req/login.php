@@ -31,7 +31,8 @@ if(isset($_POST['uname']) &&
 		header("Location: ../login.php?error=$em");
 		exit;
 	}else {
-       
+		
+		// ROLE SELECTION
 		if($role == '1'){
 			$sql = "SELECT * FROM tbl_admin 
 					WHERE username = ?";
@@ -41,10 +42,14 @@ if(isset($_POST['uname']) &&
 			$sql = "SELECT * FROM tbl_teachers
 					WHERE username = ?";
 			$role = "Teacher";
-		}else {
-			$sql = "SELECT * FROM tbl_students
+		}else if($role == '3'){
+			$sql = "SELECT * FROM tbl_teachers
 					WHERE username = ?";
 			$role = "Student";
+		}else {
+			$sql = "SELECT * FROM registrar_office
+					WHERE username = ?";
+			$role = "Registrar Office";
 		}
 			$stmt = $conn->prepare($sql);
 			$stmt->execute([$uname]);
@@ -57,13 +62,21 @@ if(isset($_POST['uname']) &&
 			
 				if($username === $uname){
 					if(password_verify($pass, $password)){
-					
+						
+
+						// ROLE SESSION VERIFICATION
 						$_SESSION['role'] = $role;
 						// continue 27:01
 						if($role == 'Admin'){
 							$id = $user['admin_id'];
 							$_SESSION['admin_id'] = $id;
 							header("Location: ../admin/index.php");
+							exit;
+
+						}else if($role == 'Registrar Office'){
+							$id = $user['r_user_id'];
+							$_SESSION['r_user_id'] = $id;
+							header("Location: ../RegistrarOffice/index.php");
 							exit;
 
 						}

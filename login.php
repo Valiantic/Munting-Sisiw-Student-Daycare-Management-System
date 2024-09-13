@@ -93,8 +93,9 @@ align-items-center flex-column">
     <label class="form-label">Login As</label>
     <select class="form-control" name="role">
         <option value="1">Admin</option>
-        <option value="2">Student</option>
-        <option value="3">Teacher</option>
+        <option value="2">Teacher</option>
+        <option value="3">Students</option>
+        <option value="4">Registrar-Office</option>
     </select> 
   </div>
     <button type="submit" class="btn btn-primary">Login</button>
