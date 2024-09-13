@@ -1803,4 +1803,5 @@ to display data on teacher-edit.php
 2. create course on data in order to fetch records from the database alongside with functions
 3. create admin/course.php to display course records from the database 
 4. include data/grade and getGradeById to fetch the grade and grade code
-5. 
+5. create course-add.php then include dropdown selection for grade selection 
+6. 
