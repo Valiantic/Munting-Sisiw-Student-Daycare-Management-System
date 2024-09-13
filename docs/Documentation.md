@@ -1793,3 +1793,4 @@ to display data on teacher-edit.php
 36. create registrar-office-delete to delete records from the registrar 
 37. fixed some blank field detector routing 
 37. create registrar-office-edit and make data input visible from the database
+ERROR NOT UPDATING!

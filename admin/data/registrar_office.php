@@ -34,14 +34,14 @@ function getAllR_users($conn){
 
 // FUNCTION TO FOR UNIQUE USERNAME CHECKER
 
-function unameIsUnique($uname, $conn, $teacher_id=0){
-    $sql = "SELECT username, teacher_id FROM tbl_teachers
+function unameIsUnique($uname, $conn, $r_user_id=0){
+    $sql = "SELECT username, r_user_id FROM registrar_office
             WHERE username=?";
     $stmt = $conn->prepare($sql);
     $stmt->execute([$uname]);
  
     // To check if the teacher id is unique
-    if($teacher_id == 0){
+    if($r_user_id == 0){
 
         if ($stmt->rowCount() >= 1) {
             return 0;
@@ -51,8 +51,8 @@ function unameIsUnique($uname, $conn, $teacher_id=0){
     }else {
         // check if the data is recorded
         if ($stmt->rowCount() >= 1) {
-             $teacher = $stmt->fetch();
-             if($teacher['teacher_id'] == $teacher_id){
+             $r_user = $stmt->fetch();
+             if($r_user['r_user_id'] == $r_user_id){
                 return 1;
              }else return 0;
           }else {

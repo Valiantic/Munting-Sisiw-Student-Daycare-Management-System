@@ -183,7 +183,7 @@ if (isset($_SESSION['admin_id']) &&
     
 
                                                 <!-- ADD ACTION TO REDIRECT TO TEACHER EDIT IN REQ FOLDER -->
-<form class="shadow p-3 mt-4 form-w" method="post" action="req/grade-edit.php">
+<form class="shadow p-3 mt-4 form-w" method="post" action="req/registrar-office-edit.php">
 
 
    <hr><h3>Edit facutly user</h3></hr>
@@ -250,12 +250,19 @@ if (isset($_SESSION['admin_id']) &&
     <input type="text" class="form-control" value="<?=$r_users['email_address']?>" name="email_address">
   </div>
 
+  
   <div class="mb-3">
-    <label class="form-label">Gender</label><br>
-    <input type="radio" value="Male" <?php if($r_users['gender'] == 'Male') echo 'checked';?> name="gender">Male
-      &nbsp;
-    <input type="radio" value="Female" <?php if($r_users['gender'] == 'Female') echo 'checked';?> name="gender">Female
-    </div>
+          <label class="form-label">Gender</label><br>
+          <input type="radio"
+                 value="Male"
+                 <?php if($r_users['gender'] == 'Male') echo 'checked';  ?> 
+                 name="gender"> Male
+                 &nbsp;&nbsp;&nbsp;&nbsp;
+          <input type="radio"
+                 value="Female"
+                 <?php if($r_users['gender'] == 'Female') echo 'checked';  ?> 
+                 name="gender"> Female
+        </div>
 
   <div class="mb-3">
     <label class="form-label">Date of birth</label>
@@ -264,9 +271,10 @@ if (isset($_SESSION['admin_id']) &&
 
 
 
-  <!-- INDICATION FOR GRADE ID -->
-  <!-- BLANK FIELD DETECTOR ISSUE FIXED BECAUSE OF THIS -->
- <input type="text" value="<?=$grades['r_user_id']?>"
+  <!-- INDICATION FOR REGISTRAR ID INPUT HIDDEN -->
+  <!-- NOTE ALWAYS DON'T FORGET TO INCLUDE THIS AND PASS 
+  IT TO REQ IN ORDER TO UPDATE THE RECORD -->
+  <input type="text" value="<?=$r_users['r_user_id']?>"
          name="r_user_id"
          hidden>
 
@@ -278,70 +286,7 @@ if (isset($_SESSION['admin_id']) &&
 
 
 
-   <!-- CHANGE PASSWORD SECTION -->
-   <form class="shadow p-3 my-5 form-w" method="post" action="req/teacher-change.php" id="change_password">
-
-
-<!-- COPY THIS CODE FROM ABOVE -->
-<hr><h3>Change Password</h3></hr>
-
-<!-- ERROR HANDLING   -->
-<?php if (isset($_GET['perror'])) { ?>
-       <div class="alert alert-danger" role="alert">
-         <?=$_GET['perror']?>
-       </div>
-<?php } ?>
-
-<!-- continue 38:22 -->
-
-<!-- SUCCESS HANDLING   -->
-<?php if (isset($_GET['psuccess'])) { ?>
-       <div class="alert alert-success" role="alert">
-         <?=$_GET['psuccess']?>
-       </div>
-<?php } ?>
-
-<!-- PASSWORD DIV -->
-<div class="mb-3"> 
-    <div class="mb-3">
-        <label class="form-label">Admin Password</label>
-          
-        <input type="password" class="form-control" name="admin_pass">
-      
-
-    </div>  
-
-    <label class="form-label">New Password</label>
-    <div class="input-group mb-3">
-    <input type="text" class="form-control" name="new_pass" id="passInput">
-    <button class="btn btn-secondary" id="gBtn">Random Password</button>
-    </div>
-
-</div>  
-
-<!-- continue 42:43 -->
-
- <!-- INDICATION FOR TEACHER ID -->
- <input type="text" value="<?=$teacher['teacher_id']?>"
-         name="teacher_id"
-         hidden>
-
-<!-- CONFIRMATION CHANGE PASSWORD DIV -->
-<div class="mb-3">
-    <label class="form-label">Confirm new Password</label>
-      
-    <input type="text" class="form-control" name="c_new_pass" id="passInput2">
-
-</div>  
-
-<!-- SUBMIT BUTTOM FOR CHANGE PASSWORD  -->
-<button type="submit" 
-            class="btn btn-primary">
-            Change</button>
-
-
-    </form>
-     </div>
+   
    
 </div>  
 
@@ -350,7 +295,7 @@ if (isset($_SESSION['admin_id']) &&
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>	
     <script>
         $(document).ready(function(){
-             $("#navLinks li:nth-child(7) a").addClass('active');
+             $("#navLinks li:nth-child(6) a").addClass('active');
         });
 
       
@@ -358,6 +303,34 @@ if (isset($_SESSION['admin_id']) &&
 
 <a href="grade.php"
 class="btn btn-dark" id="backbtn">Go Back</a>
+
+
+   <!-- SCRIPT FOR GENERATE EMPLOYEE NUMBER  -->
+   <script>
+        $(document).ready(function(){
+             $("#navLinks li:nth-child(6) a").addClass('active');
+        });
+
+        // EMPLOYEE NUMBER GENERATION
+        function makeEmployeenum(length) {
+            var result           = '';
+            var characters       = '0123456789';
+            var charactersLength = characters.length;
+            for ( var i = 0; i < length; i++ ) {
+              result += characters.charAt(Math.floor(Math.random() * 
+         charactersLength));
+
+           }
+           var empInput = document.getElementById('empInput');
+           empInput.value = result;
+        }
+
+        var eBtn = document.getElementById('eBtn');
+        eBtn.addEventListener('click', function(e){
+          e.preventDefault();
+          makeEmployeenum(10); // just adjust the number to increase the character length of the password generator
+        });
+    </script>
 
 </body>
 
