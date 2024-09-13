@@ -168,6 +168,8 @@ if (isset($_SESSION['admin_id']) &&
         <a href="course.php"
            class="btn btn-dark">Go Back</a>
 
+
+           <!-- CHECK IF THERE IS GRADE INPUTED -->
         <?php if ($grades == 0) { ?>
         <div class="alert alert-info" role="alert">
            First create grade.
