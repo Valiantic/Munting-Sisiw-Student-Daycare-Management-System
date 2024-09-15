@@ -1826,3 +1826,12 @@ FIXED ERROR NOT UPDATING
 11. finalization of registrar office homepage 
 
 >SEVENTEEN CHAPTER 
+1. add another role in req/login.php for student
+2. create Student folder and index.php for landing page for student
+3. in student/index.php modify session from admin to student id 
+4. in data folder add grade, section, student and subject 
+5. add inc folder with navbar
+6. in student/index.php copy the code from student-view to index.php 
+7. modify get to session 
+8. include all data folders  
+
