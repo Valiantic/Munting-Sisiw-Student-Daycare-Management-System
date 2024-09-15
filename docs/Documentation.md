@@ -1820,4 +1820,6 @@ SIXTEEN CHAPTER
 5. modify variable on hashing password in req/registrar-office-add.php 
 6. create data folder on RegistrarOffice and add grade, section and student.php on it 
 7. create req folder on RegistrarOffice and add student-add.php to fetch records on database
-8. 
+8. add subject.php on data folder 
+9. add student-search on registrar office
+10. add student-view on registrar office  

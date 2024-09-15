@@ -1,9 +1,9 @@
 <?php 
 session_start();
-if (isset($_SESSION['admin_id']) && 
+if (isset($_SESSION['r_user_id']) && 
     isset($_SESSION['role'])) {
 
-    if ($_SESSION['role'] == 'Admin') {
+    if ($_SESSION['role'] == 'Registrar Office') {
 
       if (isset($_GET['searchKey'])){
 
@@ -19,7 +19,7 @@ if (isset($_SESSION['admin_id']) &&
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin - Students</title>
+    <title>Registrar Office - Students</title>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="shortcut icon" href="../images/logo.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
@@ -136,7 +136,7 @@ if (isset($_SESSION['admin_id']) &&
 
 <body>
     <?php 
-        include "inc/navbar.php";
+     
         if ($students != 0) {
      ?>
      <div class="container mt-5">
