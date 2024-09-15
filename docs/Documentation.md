@@ -1812,7 +1812,7 @@ to display data on teacher-edit.php
 9. create data/course-edit.php to edit data from the database 
 FIXED ERROR NOT UPDATING 
 
-SIXTEEN CHAPTER 
+>SIXTEEN CHAPTER 
 1. add new option in the login page "Registrar-Office"
 2. add role selection and role session verification 
 3. create registrar office folder and index.php 
@@ -1822,4 +1822,7 @@ SIXTEEN CHAPTER
 7. create req folder on RegistrarOffice and add student-add.php to fetch records on database
 8. add subject.php on data folder 
 9. add student-search on registrar office
-10. add student-view on registrar office  
+10. add student-view on registrar office 
+11. finalization of registrar office homepage 
+
+>SEVENTEEN CHAPTER 

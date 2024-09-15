@@ -139,6 +139,9 @@ if (isset($_SESSION['r_user_id']) &&
        
         <a href="student-add.php"
            class="btn btn-dark">Add New Students</a>
+           <a href="index.php"
+           class="btn btn-dark">Go Back</a>
+
             
             <!-- SEARCH BUTTON  -->
            <form action="student-search.php" class="mt-3 n-table" method="get">
@@ -181,7 +184,7 @@ if (isset($_SESSION['r_user_id']) &&
                     <th scope="col">Last Name</th>
                     <th scope="col">Username</th>
                     <th scope="col">Grade</th>
-                    <th scope="col">Action</th>
+                   
                   </tr>
                 </thead>
                 <tbody>
@@ -217,13 +220,7 @@ if (isset($_SESSION['r_user_id']) &&
                     </td>
                     
                     <!-- Table column for edit and delete button -->
-                    <td>
-                          <!-- Buttons for edit and delete -->
-                        <a href="student-edit.php?student_id=<?=$student['student_id']?>"
-                           class="btn btn-warning">Edit</a>
-                        <a href="student-delete.php?student_id=<?=$student['student_id']?>"
-                           class="btn btn-danger">Delete</a>
-                    </td>
+               
 
                   </tr>
                 <?php } ?>
