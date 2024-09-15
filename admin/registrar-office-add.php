@@ -177,7 +177,7 @@ if (isset($_SESSION['admin_id']) &&
      ?>
      <div class="container mt-5">
         <!-- continue 52:17 -->
-        <a href="teachers.php"
+        <a href="registrar-office.php"
            class="btn btn-dark">Go Back</a>
 
 <form class="shadow p-3 mt-4 mb-3 form-w" method="post" action="req/registrar-office-add.php">

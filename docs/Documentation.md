@@ -1817,4 +1817,4 @@ SIXTEEN CHAPTER
 2. add role selection and role session verification 
 3. create registrar office folder and index.php 
 4. change the role from admin to "Registrar Office" in index page
-continue 4:03
+5. modify variable on hashing password in req/registrar-office-add.php 

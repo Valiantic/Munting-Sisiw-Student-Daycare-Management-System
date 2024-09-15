@@ -1,24 +1,17 @@
-<?php
+<?php 
 session_start();
 
-// ALWAYS REMEMBER TO THE SESSION IF-ELSE STATEMENT 
-// isset($_POST['variable'])
-
-
-//BLANK FIELD DETECTOR
-
-if(isset($_POST['uname']) && 
-   isset($_POST['pass']) &&
-   isset($_POST['role'])) {
-
+if (isset($_POST['uname']) &&
+    isset($_POST['pass']) &&
+    isset($_POST['role'])) {
 
 	include "../connections.php";
+	
+	$uname = $_POST['uname'];
+	$pass = $_POST['pass'];
+	$role = $_POST['role'];
 
-    $uname = $_POST['uname'];
-    $pass = $_POST['pass'];
-    $role = $_POST['role'];
-
-    if (empty($uname)) {
+	if (empty($uname)) {
 		$em  = "Username is required";
 		header("Location: ../login.php?error=$em");
 		exit;
@@ -31,83 +24,67 @@ if(isset($_POST['uname']) &&
 		header("Location: ../login.php?error=$em");
 		exit;
 	}else {
-		
-		// ROLE SELECTION
-		if($role == '1'){
-			$sql = "SELECT * FROM tbl_admin 
-					WHERE username = ?";
-			$role = "Admin";
-		}
-		else if($role == '2'){
-			$sql = "SELECT * FROM tbl_teachers
-					WHERE username = ?";
-			$role = "Teacher";
-		}else if($role == '3'){
-			$sql = "SELECT * FROM tbl_teachers
-					WHERE username = ?";
-			$role = "Student";
-		}else {
-			$sql = "SELECT * FROM registrar_office
-					WHERE username = ?";
-			$role = "Registrar Office";
-		}
-			$stmt = $conn->prepare($sql);
-			$stmt->execute([$uname]);
+        
+        if($role == '1'){
+        	$sql = "SELECT * FROM tbl_admin 
+        	        WHERE username = ?";
+        	$role = "Admin";
+        }else if($role == '2'){
+        	$sql = "SELECT * FROM tbl_teachers 
+        	        WHERE username = ?";
+        	$role = "Teacher";
+        }else if($role == '3'){
+        	$sql = "SELECT * FROM tbl_students 
+        	        WHERE username = ?";
+        	$role = "Student";
+        }else if($role == '4'){
+        	$sql = "SELECT * FROM registrar_office 
+        	        WHERE username = ?";
+        	$role = "Registrar Office";
+        }
 
-			if($stmt->rowCount() == 1){
-				$user = $stmt->fetch();
-				// continue 19:52
-				$username = $user['username'];
-				$password = $user['password'];
-			
-				if($username === $uname){
-					if(password_verify($pass, $password)){
-						
+        $stmt = $conn->prepare($sql);
+        $stmt->execute([$uname]);
 
-						// ROLE SESSION VERIFICATION
-						$_SESSION['role'] = $role;
-						// continue 27:01
-						if($role == 'Admin'){
-							$id = $user['admin_id'];
-							$_SESSION['admin_id'] = $id;
-							header("Location: ../admin/index.php");
-							exit;
+        if ($stmt->rowCount() == 1) {
+        	$user = $stmt->fetch();
+        	$username = $user['username'];
+        	$password = $user['password'];
+        	
+            if ($username === $uname) {
+            	if (password_verify($pass, $password)) {
+            		$_SESSION['role'] = $role;
+            		if ($role == 'Admin') {
+                        $id = $user['admin_id'];
+                        $_SESSION['admin_id'] = $id;
+                        header("Location: ../admin/index.php");
+                        exit;
+                    }else if ($role == 'Registrar Office') {
+                        $id = $user['r_user_id'];
+                        $_SESSION['r_user_id'] = $id;
+                        header("Location: ../RegistrarOffice/index.php");
+                        exit;
+                    }
+				    
+            	}else {
+		        	$em  = "Incorrect Username or Password";
+				    header("Location: ../login.php?error=$em");
+				    exit;
+		        }
+            }else {
+	        	$em  = "Incorrect Username or Password";
+			    header("Location: ../login.php?error=$em");
+			    exit;
+	        }
+        }else {
+        	$em  = "Incorrect Username or Password";
+		    header("Location: ../login.php?error=$em");
+		    exit;
+        }
+	}
 
-						}else if($role == 'Registrar Office'){
-							$id = $user['r_user_id'];
-							$_SESSION['r_user_id'] = $id;
-							header("Location: ../RegistrarOffice/index.php");
-							exit;
 
-						}
-
-		
-					}else {
-						$em  = "Incorrect Username or Password";
-						header("Location: ../login.php?error=$em");
-						exit;
-						}
-				}
-				else {
-				$em  = "Incorrect Username or Password";
-				header("Location: ../login.php?error=$em");
-				exit;
-				}
-
-				
-			}else {
-				$em  = "Incorrect Username or Password";
-				header("Location: ../login.php?error=$em");
-				exit;
-			}
-
-	
-    }
-
-}else {
-    header("Location: ../login.php");
+}else{
+	header("Location: ../login.php");
 	exit;
 }
-
-
-?>

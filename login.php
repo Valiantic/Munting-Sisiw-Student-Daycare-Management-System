@@ -95,7 +95,7 @@ align-items-center flex-column">
         <option value="1">Admin</option>
         <option value="2">Teacher</option>
         <option value="3">Students</option>
-        <option value="4">Registrar-Office</option>
+        <option value="4">Registrar Office</option>
     </select> 
   </div>
     <button type="submit" class="btn btn-primary">Login</button>
@@ -112,11 +112,14 @@ align-items-center flex-column">
 
      <!-- ADMIN HASH PASSWORD CREATE THIS AND INSERT ANOTHER DATA ON PHPMYADMIN
         DON'T FORGET THE PHP TAG!
-        $pass = 123;
-        $pass = password_hash($pass, PASSWORD_DEFAULT);
-        echo $pass;
      
      -->
+        <?php
+        //    $pass = 123;
+        //    $pass = password_hash($pass, PASSWORD_DEFAULT);
+        //    echo $pass;
+        
+        ?>
 </div>
 
     </div>
