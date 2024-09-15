@@ -125,63 +125,25 @@ if (isset($_SESSION['r_user_id']) &&
 
 <body>
 
-<?php
 
-include "inc/navbar.php";
-
-?>
 
 <div class="container mt-5">
 
     <div class="container text-center">
         <div class="row row-cols-5">
             <!-- continue 21:10 create teacher.php-->
-            <a href="teachers.php" class="col btn btn-dark m-2 py-3">
-            <i class="fa fa-user-circle fs-1" aria-hidden="true"></i>
+            <a href="student-add.php" class="col btn btn-dark m-2 py-3">
+            <i class="fa fa-user-plus fs-1" aria-hidden="true"></i>
             <br>
-            Teachers
+            Register Students
             </a>
             <a href="students.php" class="col btn btn-dark m-2 py-3">
-            <i class="fa fa-graduation-cap fs-1" aria-hidden="true"></i>
+            <i class="fa fa-user fs-1" aria-hidden="true"></i>
             <br>
-            Students
+            All Students
             </a>
-            <a href="" class="col btn btn-dark m-2 py-3">
-            <i class="fa fa-pencil-square fs-1" aria-hidden="true"></i>
-            <br>
-            Registrar-Office
-            </a>
-            <a href="" class="col btn btn-dark m-2 py-3">
-            <i class="fa fa-cubes fs-1" aria-hidden="true"></i>
-            <br>
-            Class
-            </a>
-            <a href="" class="col btn btn-dark m-2 py-3">
-            <i class="fa fa-columns fs-1" aria-hidden="true"></i>
-            <br>
-            Section
-            </a>
-            <a href="" class="col btn btn-dark m-2 py-3">
-            <i class="fa fa-calendar fs-1" aria-hidden="true"></i>
-            <br>
-            Schedule
-            </a>
-            <a href="" class="col btn btn-dark m-2 py-3">
-            <i class="fa fa-book fs-1" aria-hidden="true"></i>
-            <br>
-            Courses
-            </a>
-            <a href="" class="col btn btn-dark m-2 py-3">
-            <i class="fa fa-commenting fs-1" aria-hidden="true"></i>
-            <br>
-            Message
-            </a>
-            <a href="" class="col btn btn-primary m-2 py-3 col-5">
-            <i class="fa fa-gear fs-1" aria-hidden="true"></i>
-            <br>
-            Settings
-            </a>
-            <a href="../logout.php" class="col btn btn-warning m-2 py-3 col-5">
+           
+            <a href="../logout.php" class="col btn btn-warning m-2 py-3 col-10">
             <i class="fa fa-sign-out fs-1" aria-hidden="true"></i>
             <br>
             Log-out

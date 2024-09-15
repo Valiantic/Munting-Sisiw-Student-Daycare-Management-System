@@ -1818,3 +1818,5 @@ SIXTEEN CHAPTER
 3. create registrar office folder and index.php 
 4. change the role from admin to "Registrar Office" in index page
 5. modify variable on hashing password in req/registrar-office-add.php 
+6. create data folder on RegistrarOffice and add grade, section and student.php on it 
+7. 
