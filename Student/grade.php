@@ -23,7 +23,7 @@ if (isset($_SESSION['student_id']) &&
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student - Change Password</title>
+    <title>Student - Grade Summary</title>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="shortcut icon" href="../images/logo.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
@@ -189,79 +189,47 @@ include "inc/navbar.php";
 			  <?=$_GET['success']?>
 			</div>
 	<?php } ?>
+
+    <br/>
+    <h4>First Semester</h4>
+
+    <div class="table-responsive">
+              <table class="table table-bordered mt-3 n-table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Course Code</th>
+                    <th scope="col">Course Title</th>
+                    <th scope="col">Grade</th>
+                    <th scope="col">Results</th>
+                    <th scope="col">Total</th>
+                  
+                  </tr>
+                </thead>
+                <tbody>
+                
+                   
+                  <tr>
+                    <th scope="row">1</th>
+                    <th>Lorem</th>
+                    <th>Ipsum</th>
+                    <th>Detale</th>
+                    <th>Icos</th>
+                    <th>Zing</th>
+                  </tr>
+        
+                </tbody>
+              </table>
     
     
 
 
-      <!-- CHANGE PASSWORD SECTION -->
-<form class="shadow p-3 my-5 form-w " method="post"  action="req/student-change.php" id="change_password">
-
-
-<!-- COPY THIS CODE FROM ABOVE -->
-<hr><h3>Change Password</h3></hr>
-
-<!-- ERROR HANDLING   -->
-<?php if (isset($_GET['perror'])) { ?>
-       <div class="alert alert-danger" role="alert">
-         <?=$_GET['perror']?>
-       </div>
-<?php } ?>
-
-<!-- continue 38:22 -->
-
-<!-- SUCCESS HANDLING   -->
-<?php if (isset($_GET['psuccess'])) { ?>
-       <div class="alert alert-success" role="alert">
-         <?=$_GET['psuccess']?>
-       </div>
-<?php } ?>
-
-<!-- PASSWORD DIV -->
-<div class="mb-3"> 
-    <div class="mb-3">
-        <label class="form-label">Old Password</label>
-          
-        <input type="password" class="form-control" name="old_pass">
-      
-
-    </div>  
-
-    <label class="form-label">New Password</label>
-    <div class="input-group mb-3">
-    <input type="password" class="form-control" name="new_pass" id="passInput">
-    <button class="btn btn-secondary" id="gBtn">Random Password</button>
-    </div>
-
-</div>  
-
-
-
-<!-- CONFIRMATION CHANGE PASSWORD DIV -->
-<div class="mb-3">
-    <label class="form-label">Confirm new Password</label>
-      
-    <input type="password" class="form-control" name="c_new_pass" id="passInput2">
-
-</div>  
-
-<!-- SUBMIT BUTTOM FOR CHANGE PASSWORD  -->
-<button type="submit" 
-            class="btn btn-primary">
-            Change</button>
-
-
-            <!-- BUTTON REMOVE DUE TO OPTIMIZATION -->
-            <!-- <a href="index.php"
-class="btn btn-dark" id="gobtn">Go Back</a> -->
-
-
-
-    </form>
+    
      
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>	
     <script>
         $(document).ready(function(){
-             $("#navLinks li:nth-child(3) a").addClass('active');
+             $("#navLinks li:nth-child(2) a").addClass('active');
         });
 
         // RANDOM PASSWORD GENERATOR 
@@ -295,7 +263,7 @@ class="btn btn-dark" id="gobtn">Go Back</a> -->
 <script>
 
     $(document).ready(function(){
-        $("#navLinks li:nth-child(3) a").addClass('active');
+        $("#navLinks li:nth-child(2) a").addClass('active');
     });
 
 </script>

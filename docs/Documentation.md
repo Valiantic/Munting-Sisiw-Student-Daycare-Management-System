@@ -1839,3 +1839,5 @@ data folder student
 10. create req/student-change for blank field detector and change password insertion query 
 plus password hashing 
 11. create pass.php within Student folder and change password form 
+12. create grade.php inside Student folder to display grade summary 
+
