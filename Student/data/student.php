@@ -35,6 +35,32 @@ function getStudentById($student_id, $conn){
 
 }
 
+
+
+// STUDENT CHANGE PASSWORD VERIFICATION 
+
+function studentPasswordVerify($student_pass, $conn, $student_id){
+    $sql = "SELECT * FROM tbl_students 
+            WHERE student_id=?";
+
+    $stmt = $conn->prepare($sql);
+    $stmt->execute([$student_id]);
+
+    if($stmt->rowCount() == 1){
+        $student = $stmt->fetch();
+        $hashpass = $student['password'];
+
+        if(password_verify($student_pass, $hashpass)){
+            return 1;
+        }else{
+            return 0;
+        }
+    }else{
+        return 0;
+    }
+
+}
+
 // FUNCTION TO FOR UNIQUE USERNAME CHECKER
 
 function unameIsUnique($uname, $conn, $student_id=0){

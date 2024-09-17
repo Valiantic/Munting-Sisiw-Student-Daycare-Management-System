@@ -93,6 +93,9 @@ if (isset($_SESSION['student_id']) &&
     #about {
       min-height: 100vh;
     }
+
+
+
     #about .card-1{
       max-width: 600px;
       width:90%;
@@ -131,60 +134,26 @@ if (isset($_SESSION['student_id']) &&
         width:450px;
         border-radius:20px;
     }
+    .n-table{
+        max-width: 800px;
+    }
+    .login {
+	max-width: 500px;
+	width: 90%;
+	background: rgba(255,255,255, 0.7);
+	padding: 10px;
+	border-radius: 10px;
+    }
+    .login h3{
+	text-align: center;
+	font-size: 50px;
+    }
+    .form-w{
+        max-width:600px;
+        width: 100%;
+    }
+   
 
-
-
-     /* styling for employee card information */
-    
-     .card {
-            width: 100%;
-            max-width: 700px;
-            margin: 10px auto;
-            background-color: white;
-            border: 1px solid #ccc;
-            padding: 20px;
-            display: flex;
-            flex-wrap: wrap;
-            border: 1px solid #ccc;
-            
-            box-shadow: 0px 2px 5px rgba(5, 2, 2, 5);
-            
-        }
-
-        .card-item {
-            /* space in between */
-            flex: 1 1 40px;
-            padding: 10px;
-         
-        }
-
-        .card-item label {
-         
-            display: block;
-            background: #F5F5F5;
-            border-radius: 10px;
-            padding: 7px;
-            margin: 4spx;
-           
-        }
-        .avatar {
-          height: 200px;
-          width: 200px;
-          border-radius: 55%;
-        }
-        label {
-          font-size: 20px;
-        }
-
-        @media only screen and (max-width: 600px) {
-            .card {
-                flex-direction: column;
-            }
-
-            .card-item {
-                flex: 1 1 100%;
-            }
-        }
 
 
 
@@ -197,112 +166,136 @@ if (isset($_SESSION['student_id']) &&
 include "inc/navbar.php";
 
 ?>
-  <div class="container mt-2">
+  
+        <!-- CLASS TO BE CENTER -->
+        <div class="d-flex justify-content-center
+        align-items-center flex-column">
+        <!-- continue 52:17 -->
+    
 
-<!-- continue 4:09 -->
-
-<div class="card">
-
-    <!-- IMAGE TAG WITH GENDER AVATAR DETECTION -->
-
-<div class="container d-flex justify-content-center">
-<img src="../images/student-<?=$students['gender']?>.png" class="avatar" alt="...">
-</div>
-
-<br>
-<h5 class="card-title text-center">@<?=$students['username']?></h5>
-<p class="card-text text-center">Student Information</p>
+                                                <!-- ADD ACTION TO REDIRECT TO TEACHER EDIT IN REQ FOLDER -->
 
 
-<div class="card-item">
-<label>First Name:&nbsp;&nbsp;&nbsp;<?=$students['fname']?></label>
-</div>
-<div class="card-item">
-<label>Last Name:&nbsp;&nbsp;&nbsp;<?=$students['lname']?></label>
-</div>
-<div class="card-item">
-<label>Username:&nbsp;&nbsp;&nbsp;<?=$students['username']?></label>
-</div>
-<!-- FORGOT TO ADD  -->
-<div class="card-item">
-<label>Address:&nbsp;&nbsp;&nbsp;<?=$students['address']?></label>
-</div>
-<div class="card-item">
-<label>Email Address:&nbsp;&nbsp;&nbsp;<?=$students['email_address']?></label>
-</div>
-<div class="card-item">
-<label>Date of Birth:&nbsp;&nbsp;&nbsp;<?=$students['date_of_birth']?></label>
-</div>
+     <!-- ERROR HANDLING   -->
+     <?php if (isset($_GET['error'])) { ?>
+    		<div class="alert alert-danger" role="alert">
+			  <?=$_GET['error']?>
+			</div>
+	<?php } ?>
 
-<div class="card-item">
-<label>Date enrolled:&nbsp;&nbsp;&nbsp;<?=$students['date_of_joined']?></label>
-</div>
+    <!-- SUCCESS HANDLING   -->
+    <?php if (isset($_GET['success'])) { ?>
+    		<div class="alert alert-success" role="alert">
+			  <?=$_GET['success']?>
+			</div>
+	<?php } ?>
+    
+    
 
-<div class="card-item">
-<label>Gender:&nbsp;&nbsp;&nbsp;<?=$students['gender']?></label>
-</div>
 
-<div class="card-item">
-<label>Grade:&nbsp;&nbsp;&nbsp;<?php 
-               $g = '';
-               $grades = str_split(trim($students['grade']));
-               foreach ($grades as $grade) {
-                  $g_temp = getGradeById($grade, $conn);
-                  if ($g_temp != 0) 
-                    $g .=$g_temp['grade_code'].'-'.
-                         $g_temp['grade'].' ';
-               }
-               echo $g;
-            ?></label>
-</div>
-<div class="card-item">
-<label>Section:&nbsp;&nbsp;&nbsp; <?php 
-               $s = '';
-               $sections = str_split(trim($students['section']));
-               foreach ($sections as $section) {
-                  $s_temp = getSectionById($section, $conn);
-                  if ($s_temp != 0) 
-                    $s .=$s_temp['section'].' ';
-               }
-               echo $s;
-            ?></label>
-</div>
+      <!-- CHANGE PASSWORD SECTION -->
+<form class="shadow p-3 my-5 form-w " method="post"  action="req/student-change.php" id="change_password">
 
-<br>
-<p class="card-text text-center texprimary">Parent Information</p>
-<hr> 
 
-<div class="card-item">
-<label>Parent First name:&nbsp;&nbsp;&nbsp;<?=$students['parent_fname']?></label>
-</div>
+<!-- COPY THIS CODE FROM ABOVE -->
+<hr><h3>Change Password</h3></hr>
 
-<div class="card-item">
-<label>Parent Last name:&nbsp;&nbsp;&nbsp;<?=$students['parent_lname']?></label>
-</div>
+<!-- ERROR HANDLING   -->
+<?php if (isset($_GET['perror'])) { ?>
+       <div class="alert alert-danger" role="alert">
+         <?=$_GET['perror']?>
+       </div>
+<?php } ?>
 
-<div class="card-item">
-<label>Parent Phone number:&nbsp;&nbsp;&nbsp;<?=$students['parent_phone_number']?></label>
-</div>
+<!-- continue 38:22 -->
 
-<hr>
-<br>
+<!-- SUCCESS HANDLING   -->
+<?php if (isset($_GET['psuccess'])) { ?>
+       <div class="alert alert-success" role="alert">
+         <?=$_GET['psuccess']?>
+       </div>
+<?php } ?>
+
+<!-- PASSWORD DIV -->
+<div class="mb-3"> 
+    <div class="mb-3">
+        <label class="form-label">Old Password</label>
+          
+        <input type="password" class="form-control" name="old_pass">
+      
+
+    </div>  
+
+    <label class="form-label">New Password</label>
+    <div class="input-group mb-3">
+    <input type="password" class="form-control" name="new_pass" id="passInput">
+    <button class="btn btn-secondary" id="gBtn">Random Password</button>
+    </div>
+
+</div>  
 
 
 
+<!-- CONFIRMATION CHANGE PASSWORD DIV -->
+<div class="mb-3">
+    <label class="form-label">Confirm new Password</label>
+      
+    <input type="password" class="form-control" name="c_new_pass" id="passInput2">
 
-</div>
+</div>  
+
+<!-- SUBMIT BUTTOM FOR CHANGE PASSWORD  -->
+<button type="submit" 
+            class="btn btn-primary">
+            Change</button>
+
+
+            <!-- BUTTON REMOVE DUE TO OPTIMIZATION -->
+            <!-- <a href="index.php"
+class="btn btn-dark" id="gobtn">Go Back</a> -->
 
 
 
-</div>
+    </form>
+     
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>	
+    <script>
+        $(document).ready(function(){
+             $("#navLinks li:nth-child(3) a").addClass('active');
+        });
 
+        // RANDOM PASSWORD GENERATOR 
+        function makePass(length) {
+            var result           = '';
+            var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            var charactersLength = characters.length;
+            for ( var i = 0; i < length; i++ ) {
+              result += characters.charAt(Math.floor(Math.random() * 
+         charactersLength));
+
+           }
+          //  FUNCTIONALITY FOR PASSWORD DIV 1
+           var passInput = document.getElementById('passInput');
+          //  FUNCTIONALITY FOR CHANGE PASSWORD DIV 
+           var passInput2 = document.getElementById('passInput2');
+          // ACTIVE THE FUNCTIONALITY
+           passInput.value = result;
+           passInput2.value = result;
+        }
+
+        var gBtn = document.getElementById('gBtn');
+        gBtn.addEventListener('click', function(e){
+          e.preventDefault();
+          makePass(7); // just adjust the number to increase the character length of the password generator
+        });
+    </script>
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
 
     $(document).ready(function(){
-        $("#navLinks li:nth-child(1) a").addClass('active');
+        $("#navLinks li:nth-child(3) a").addClass('active');
     });
 
 </script>

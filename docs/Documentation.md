@@ -1834,4 +1834,8 @@ FIXED ERROR NOT UPDATING
 6. in student/index.php copy the code from student-view to index.php 
 7. modify get to session 
 8. include all data folders  
-
+9. create a function studentPasswordVerify for change password functionality within 
+data folder student
+10. create req/student-change for blank field detector and change password insertion query 
+plus password hashing 
+11. create pass.php within Student folder and change password form 

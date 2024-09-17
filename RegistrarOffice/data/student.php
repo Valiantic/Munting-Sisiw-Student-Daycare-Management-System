@@ -35,6 +35,8 @@ function getStudentById($student_id, $conn){
 
 }
 
+
+
 // FUNCTION TO FOR UNIQUE USERNAME CHECKER
 
 function unameIsUnique($uname, $conn, $student_id=0){
