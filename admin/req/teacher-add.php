@@ -141,7 +141,7 @@ if(isset($_POST['fname']) &&
         // echo "Success!";
 
         // password hashing
-        $pass = password_hash($pass, PASSWORD_DEFAULT);
+        $hashedpass = password_hash($pass, PASSWORD_DEFAULT);
 
         // query to push data on the database
         $sql = "INSERT INTO
@@ -156,7 +156,7 @@ if(isset($_POST['fname']) &&
          // NOTE: THE ARRANGEMENT OF THE VARIABLES INSIDE THE EXECUTE 
         // ARE CORRESPONDING TO THE UPDATE QUERY IN TOP SO MAKE SURE IT HAS 
         // THE SAME PARALLEL POSITIONING
-        $stmt->execute([$uname, $pass, $grades, $sections, $fname, $lname, $subjects, 
+        $stmt->execute([$uname, $hashedpass, $grades, $sections, $fname, $lname, $subjects, 
               $address, $employee_number, $date_of_birth, 
               $phone_number, $qualification, $gender, $email_address]);
 

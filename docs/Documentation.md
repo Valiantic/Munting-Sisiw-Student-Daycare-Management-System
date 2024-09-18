@@ -1846,4 +1846,7 @@ plus password hashing
 14. Fixed student-add password hashing encryption in database
 15. Fixed student-change password hashing encryption in database
 16. Change the input type to password in registrar-office-edit and student-edit
+17. Fixed teacher-add password hashing encryption in database
+18. Fixed teacher-change password hashing encryption in database
+19. Change the input type to password in teacher-edit
 
