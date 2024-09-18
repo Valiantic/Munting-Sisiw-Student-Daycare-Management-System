@@ -28,6 +28,8 @@ if(isset($_POST['admin_pass'])    &&
     $new_pass = $_POST['new_pass'];
     $c_new_pass = $_POST['c_new_pass'];
     $r_user_id = $_POST['r_user_id'];
+
+    // SESSION PERMISSION TO LOOKUP FOR THE RECORD IN THE DATABASE
     $id = $_SESSION['admin_id'];
 
 
@@ -57,7 +59,10 @@ if(isset($_POST['admin_pass'])    &&
       exit;
     }else {
         // password hashing
-        $new_pass = password_hash($pass, PASSWORD_DEFAULT);
+        // NOTE: IF password is incorrect check the variable inside password_hash
+        // make sure its the variable that hold that new password!!!
+        
+        $hashedpass = password_hash($new_pass, PASSWORD_DEFAULT);
 
 
     // NOTE CHECK THE ALWAYS THE TABLE NAME!
@@ -66,7 +71,7 @@ if(isset($_POST['admin_pass'])    &&
               WHERE r_user_id=?";
             
       $stmt = $conn->prepare($sql);
-      $stmt->execute([$new_pass, $r_user_id]);
+      $stmt->execute([$hashedpass, $r_user_id]);
     
       $sm = "The password has been changed successfully!";
       header("Location: ../registrar-office-edit.php?psuccess=$sm&$data");

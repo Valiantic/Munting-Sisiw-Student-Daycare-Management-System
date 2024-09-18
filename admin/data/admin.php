@@ -12,8 +12,9 @@ function adminPasswordVerify($admin_pass, $conn, $admin_id){
 
     if($stmt->rowCount() == 1){
         $admin = $stmt->fetch();
-        $pass = $admin['password'];
-        if(password_verify($admin_pass, $pass)){
+        $hashpass = $admin['password'];
+
+        if(password_verify($admin_pass, $hashpass)){
             return 1;
         } else {
             return 0;
