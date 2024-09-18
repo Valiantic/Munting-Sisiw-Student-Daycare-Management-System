@@ -1855,4 +1855,6 @@ plus password hashing
 2. create folder for Teacher 
 3. create folder for inc and a file navbar 
 4. create index.php 
+5. create data folder and add grade, section, student, subject ang teacher on it 
+6. display Teacher information on index.php and include all important data files
 

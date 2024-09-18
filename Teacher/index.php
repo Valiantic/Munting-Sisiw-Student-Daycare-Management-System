@@ -5,8 +5,15 @@ if (isset($_SESSION['teacher_id']) &&
 
     if ($_SESSION['role'] == 'Teacher') {
         include "../connections.php";
+        include "data/teacher.php";
+        include "data/subject.php";
+        include "data/grade.php";
+        include "data/section.php";
       
+        $teacher_id = $_SESSION['teacher_id'];
 
+        // get information of students within the database
+        $teachers = getTeacherById($teacher_id, $conn);
 
       
         
@@ -191,6 +198,105 @@ if (isset($_SESSION['teacher_id']) &&
 include "inc/navbar.php";
 
 ?>
+
+
+<div class="container mt-2">
+
+<!-- continue 4:09 -->
+
+<div class="card">
+
+    <!-- IMAGE TAG WITH GENDER AVATAR DETECTION -->
+
+<div class="container d-flex justify-content-center">
+<img src="../images/teacher-<?=$teachers['gender']?>.png" class="avatar" alt="...">
+</div>
+
+    <br>
+        <h5 class="card-title text-center">@<?=$teachers['username']?></h5>
+        <p class="card-text text-center">Teacher Information</p>
+
+
+        <div class="card-item">
+            <label>First Name:&nbsp;&nbsp;&nbsp;<?=$teachers['fname']?></label>
+        </div>
+        <div class="card-item">
+            <label>Last Name:&nbsp;&nbsp;&nbsp;<?=$teachers['lname']?></label>
+        </div>
+        <div class="card-item">
+            <label>Username:&nbsp;&nbsp;&nbsp;<?=$teachers['username']?></label>
+        </div>
+        <!-- FORGOT TO ADD  -->
+        <div class="card-item">
+            <label>Address:&nbsp;&nbsp;&nbsp;<?=$teachers['address']?></label>
+        </div>
+        <div class="card-item">
+            <label>Employee Number:&nbsp;&nbsp;&nbsp;<?=$teachers['employee_number']?></label>
+        </div>
+        <div class="card-item">
+            <label>Date of Birth:&nbsp;&nbsp;&nbsp;<?=$teachers['date_of_birth']?></label>
+        </div>
+        <div class="card-item">
+            <label>Phone Number:&nbsp;&nbsp;&nbsp;<?=$teachers['phone_number']?></label>
+        </div>
+        <div class="card-item">
+            <label>Qualification:&nbsp;&nbsp;&nbsp;<?=$teachers['qualification']?></label>
+        </div>
+        <div class="card-item">
+            <label>Date joined:&nbsp;&nbsp;&nbsp;<?=$teachers['date_of_joined']?></label>
+        </div>
+        <div class="card-item">
+            <label>Gender:&nbsp;&nbsp;&nbsp;<?=$teachers['gender']?></label>
+        </div>
+        <div class="card-item">
+            <label>Email Address:&nbsp;&nbsp;&nbsp;<?=$teachers['email_address']?></label>
+        </div>
+        <div class="card-item">
+            <label>Subject:&nbsp;&nbsp;&nbsp; <?php 
+                           $s = '';
+                           $subjects = str_split(trim($teachers['subjects']));
+                           foreach ($subjects as $subject) {
+                              $s_temp = getSubjectById($subject, $conn);
+                              if ($s_temp != 0) 
+                                $s .=$s_temp['subject_code'].', ';
+                           }
+                           echo $s;
+           ?></label>
+        </div>
+        <div class="card-item">
+        <label>Grade:&nbsp;&nbsp;&nbsp;<?php 
+                           $g = '';
+                           $grades = str_split(trim($teachers['grades']));
+                           foreach ($grades as $grade) {
+                              $g_temp = getGradeById($grade, $conn);
+                              if ($g_temp != 0) 
+                                $g .=$g_temp['grade_code'].'-'.
+                                     $g_temp['grade'].', ';
+                           }
+                           echo $g;
+                        ?></label>
+        </div>
+        <div class="card-item">
+            <label>Section:&nbsp;&nbsp;&nbsp; <?php 
+                           $s = '';
+                           $sections = str_split(trim($teachers['section']));
+                           foreach ($sections as $section) {
+                              $s_temp = getSectionById($section, $conn);
+                              if ($s_temp != 0) 
+                                $s .=$s_temp['section'].', ';
+                           }
+                           echo $s;
+                        ?></label>
+        </div>
+        
+
+</div>
+
+
+
+</div>
+
+
  
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
