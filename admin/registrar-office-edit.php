@@ -324,7 +324,7 @@ if (isset($_SESSION['admin_id']) &&
 
     <label class="form-label">New Password</label>
     <div class="input-group mb-3">
-    <input type="text" class="form-control" name="new_pass" id="passInput">
+    <input type="password" class="form-control" name="new_pass" id="passInput">
     <button class="btn btn-secondary" id="gBtn">Random Password</button>
     </div>
 
@@ -341,7 +341,7 @@ if (isset($_SESSION['admin_id']) &&
 <div class="mb-3">
     <label class="form-label">Confirm new Password</label>
       
-    <input type="text" class="form-control" name="c_new_pass" id="passInput2">
+    <input type="password" class="form-control" name="c_new_pass" id="passInput2">
 
 </div>  
 

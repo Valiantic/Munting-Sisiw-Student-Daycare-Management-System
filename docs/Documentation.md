@@ -1842,6 +1842,8 @@ plus password hashing
 12. create grade.php inside Student folder to display grade summary 
 
 --PASSWORD HASHING PROBLEMS FIXED--
-13. fixed registrar-office-change password hashing encryption in database
-
+13. Fixed registrar-office-change password hashing encryption in database
+14. Fixed student-add password hashing encryption in database
+15. Fixed student-change password hashing encryption in database
+16. Change the input type to password in registrar-office-edit and student-edit
 

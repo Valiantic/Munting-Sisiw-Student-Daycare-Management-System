@@ -55,7 +55,7 @@ if(isset($_POST['admin_pass'])    &&
       exit;
     }else {
         // password hashing
-        $new_pass = password_hash($pass, PASSWORD_DEFAULT);
+        $hashedpass = password_hash($new_pass, PASSWORD_DEFAULT);
 
 
     // NOTE CHECK THE ALWAYS THE TABLE NAME!
@@ -64,7 +64,7 @@ if(isset($_POST['admin_pass'])    &&
               WHERE student_id=?";
             
       $stmt = $conn->prepare($sql);
-      $stmt->execute([$new_pass, $student_id]);
+      $stmt->execute([$hashedpass, $student_id]);
     
       $sm = "The password has been changed successfully!";
       header("Location: ../student-edit.php?psuccess=$sm&$data");
