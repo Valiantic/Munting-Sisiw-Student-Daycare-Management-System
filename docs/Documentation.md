@@ -1850,3 +1850,9 @@ plus password hashing
 18. Fixed teacher-change password hashing encryption in database
 19. Change the input type to password in teacher-edit
 
+>EIGHTEEN CHAPTER
+1. update req/login add another role for teacher and web route
+2. create folder for Teacher 
+3. create folder for inc and a file navbar 
+4. create index.php 
+
