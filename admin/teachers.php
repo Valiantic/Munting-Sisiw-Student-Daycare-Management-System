@@ -248,10 +248,34 @@ if (isset($_SESSION['admin_id']) &&
                         ?>
 
                     </td>
+
+
+                    <!-- <td>
+                      <?php 
+                          //  $c = '';
+                          //  $classes = str_split(trim($teacher['class']));
+
+                          //  foreach ($classes as $class_id) {
+                          //      $class = getClassById($class_id, $conn);
+
+                          //     $c_temp = getGradeById($class['grade'], $conn);
+                          //     $section = getSectionById($class['section'], $conn);
+                          //     if ($c_temp != 0) 
+                          //       $c .=$c_temp['grade_code'].'-'.
+                          //            $c_temp['grade'].$section['section'].', ';
+                          //  }
+                          //  echo $c;
+                          //  // FIX THIS
+                        ?>
+                    </td> -->
+                   
                     
                   <!-- continue 59:25; -->
                     <td>
-                        <a href="teacher-edit.php?teacher_id=<?=$teacher['teacher_id']?>"
+
+                    <div class="d-grid gap-2">
+
+                     <a href="teacher-edit.php?teacher_id=<?=$teacher['teacher_id']?>"
                            class="btn btn-warning">Edit</a>
                               
 
@@ -260,8 +284,9 @@ if (isset($_SESSION['admin_id']) &&
                           <a href="teacher-delete.php?teacher_id=<?=$teacher['teacher_id']?>"
                            class="btn btn-danger">Delete</a>
                            
-                
-
+    
+                    </div>
+          
                            
                     </td>
                   </tr>

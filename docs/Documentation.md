@@ -1857,4 +1857,5 @@ plus password hashing
 4. create index.php 
 5. create data folder and add grade, section, student, subject ang teacher on it 
 6. display Teacher information on index.php and include all important data files
+7. edit dashboard on admin add another panel button fir grade
 

@@ -13,8 +13,7 @@ if (
     isset($_POST['section'])) {
     
     include '../../connections.php';
-    include "../data/grade.php";
-    include "../data/section.php";
+   
   
    
     $grade = $_POST['grade'];

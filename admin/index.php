@@ -146,11 +146,34 @@ include "inc/navbar.php";
             <br>
             Students
             </a>
+
+            <a href="grade.php" class="col btn btn-dark m-2 py-3">
+            <i class="fa fa-star fs-1" aria-hidden="true"></i>
+            <br>
+            Grade
+            </a>
+
+            <a href="section.php" class="col btn btn-dark m-2 py-3">
+            <i class="fa fa-columns fs-1" aria-hidden="true"></i>
+            <br>
+            Section
+            </a>
+
+
             <a href="registrar-office.php" class="col btn btn-dark m-2 py-3">
             <i class="fa fa-pencil-square fs-1" aria-hidden="true"></i>
             <br>
             Registrar-Office
             </a>
+
+
+            
+            <a href="course.php" class="col btn btn-dark m-2 py-3">
+            <i class="fa fa-book fs-1" aria-hidden="true"></i>
+            <br>
+            Courses
+            </a>
+
             <!-- <a href="" class="col btn btn-dark m-2 py-3">
             <i class="fa fa-cubes fs-1" aria-hidden="true"></i>
             <br>
@@ -161,15 +184,9 @@ include "inc/navbar.php";
             <br>
             Message
             </a>
-            <a href="section.php" class="col btn btn-dark m-2 py-3">
-            <i class="fa fa-columns fs-1" aria-hidden="true"></i>
-            <br>
-            Section
-            <a href="course.php" class="col btn btn-dark m-2 py-3">
-            <i class="fa fa-book fs-1" aria-hidden="true"></i>
-            <br>
-            Courses
-            </a>
+
+      
+
             </a>
             <a href=".php" class="col btn btn-dark m-2 py-3">
             <i class="fa fa-calendar fs-1" aria-hidden="true"></i>

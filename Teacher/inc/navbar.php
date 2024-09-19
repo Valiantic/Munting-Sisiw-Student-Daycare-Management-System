@@ -15,12 +15,12 @@
         <a class="nav-link" aria-current="page" href="index.php">Dashboard</a>
       </li>
 
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link" href="./classes.php">Classes</a>
-      </li>
+      </li> -->
 
       <li class="nav-item">
-        <a class="nav-link" href="message.php">Students</a>
+        <a class="nav-link" href="students.php">Students</a>
       </li>
 
       <li class="nav-item">
