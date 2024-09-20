@@ -1860,3 +1860,9 @@ plus password hashing
 7. edit dashboard on admin add another panel button fir grade
 8. create student page in Teacher
 9. add student view on Teacher
+10. add student search on Teacher
+11. add new table setting 
+12. discard course table and use subject table instead
+13. add another column grade in subject
+14. create setting.php on data folder 
+15. replace student-view with student grade onclick in teachers

@@ -33,6 +33,21 @@ function getSubjectById($subject_id, $conn){
 
 }
 
+// Get Subjects by ID
+function getSubjectByGrade($grade, $conn){
+    $sql = "SELECT * FROM subjects
+            WHERE grade=?";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute([$grade]);
+ 
+    if ($stmt->rowCount() > 0) {
+      $subject = $stmt->fetchAll();
+      return $subject;
+    }else {
+     return 0;
+    }
+ }
+
 
 
 ?>

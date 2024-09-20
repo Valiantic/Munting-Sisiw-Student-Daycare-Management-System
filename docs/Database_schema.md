@@ -56,6 +56,7 @@ subjects
 >subject_id INT(11) AUTO_INCREMENT
 >subjects VARCHAR(31)
 >subject_code VARCHAR(7)
+>grade INT 
 
 section
 >section_id INT AUTO_INCREMENT
@@ -86,3 +87,10 @@ courses
 >grade INT 
 >course_name VARCHAR 127
 >course_code VARCHAR 31  
+
+setting 
+>current_year INT 
+>current_semester VARCHAR
+
+
+

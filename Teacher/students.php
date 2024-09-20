@@ -18,6 +18,7 @@ if (isset($_SESSION['teacher_id']) &&
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Teacher - Students</title>
+    
     <link rel="stylesheet" href="./css/style.css">
     <link rel="shortcut icon" href="../images/logo.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
@@ -201,7 +202,9 @@ if (isset($_SESSION['teacher_id']) &&
                     <th scope="row"><?=$i?></th>
                     <td><?=$student['student_id']?></td>
                     <td>
-                      <a href="student-view.php?student_id=<?=$student['student_id']?>"><?=$student['fname']?></a>
+                    <a href="student-grade.php?student_id=<?=$student['student_id']?>">
+                        <?=$student['fname']?>
+                      </a>
                     </td>
                     <td><?=$student['lname']?></td>
                     <td><?=$student['username']?></td>
