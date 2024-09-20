@@ -2,7 +2,7 @@
 
 // All courses
 function getAllCourses($conn){
-   $sql = "SELECT * FROM courses";
+   $sql = "SELECT * FROM subjects";
    $stmt = $conn->prepare($sql);
    $stmt->execute();
 

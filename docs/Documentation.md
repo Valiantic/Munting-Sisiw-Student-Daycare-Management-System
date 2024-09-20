@@ -1866,3 +1866,4 @@ plus password hashing
 13. add another column grade in subject
 14. create setting.php on data folder 
 15. replace student-view with student grade onclick in teachers
+16. change table from course to subject in course view admin page 

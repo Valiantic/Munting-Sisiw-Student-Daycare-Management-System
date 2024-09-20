@@ -6,6 +6,7 @@ if (isset($_SESSION['admin_id']) &&
     if ($_SESSION['role'] == 'Admin') {
         include "../connections.php";
         include "data/course.php";
+        include "data/subject.php";
         include "data/grade.php";
         $courses = getAllCourses($conn);
 
@@ -181,13 +182,13 @@ if (isset($_SESSION['admin_id']) &&
                     <th scope="row"><?=$i?></th>
                     <td>
                         <?php
-                          echo $course['course_name'];
+                          echo $course['subjects'];
                         
                         ?>
                     </td>
                     <td>
                         <?php
-                          echo $course['course_code'];
+                          echo $course['subject_code'];
                         
                         ?>
                     </td>
@@ -201,9 +202,9 @@ if (isset($_SESSION['admin_id']) &&
                     </td>
                    
                     <td>
-                    <a href="course-edit.php?course_id=<?=$course['course_id']?>"
+                    <a href="course-edit.php?course_id=<?=$course['subject_id']?>"
                            class="btn btn-warning">Edit</a>
-                    <a href="course-delete.php?course_id=<?=$course['course_id']?>"
+                    <a href="course-delete.php?course_id=<?=$course['subject_id']?>"
                            class="btn btn-danger">Delete</a>
                   
                            
