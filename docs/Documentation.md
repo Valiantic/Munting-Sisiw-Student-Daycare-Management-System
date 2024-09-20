@@ -1859,3 +1859,4 @@ plus password hashing
 6. display Teacher information on index.php and include all important data files
 7. edit dashboard on admin add another panel button fir grade
 8. create student page in Teacher
+9. add student view on Teacher
