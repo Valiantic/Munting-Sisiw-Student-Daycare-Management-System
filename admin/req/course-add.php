@@ -45,7 +45,7 @@ if (
 		exit;
 	}else {
         // CHECK IF THE COURSE IS ALREADY EXISTED
-        $sql_check = "SELECT * FROM courses WHERE grade=? AND course_code=?";
+        $sql_check = "SELECT * FROM subjects WHERE grade=? AND subject_code=?";
         $stmt_check = $conn->prepare($sql_check);
         $stmt_check->execute([$grade, $course_code]);
         if ($stmt_check->rowCount() > 0) {
@@ -54,7 +54,7 @@ if (
             exit;
         } 
         else {
-            $sql  = "INSERT INTO courses(course_name, course_code, grade)
+            $sql  = "INSERT INTO subjects(subjects, subject_code, grade)
              VALUES(?,?,?)";
             $stmt = $conn->prepare($sql);
 
