@@ -12,15 +12,16 @@ if (isset($_SESSION['admin_id']) &&
    
         include "data/course.php";
         include "data/grade.php";
-   
-    
+        include "data/subject.php";
         $courses = getAllCourses($conn);
 
         // NOTE: FETCH ALL DATA FROM THE DATABASE THIS IS WHEN THE ERROR DISPLAY 
         // C:\xampp\htdocs\Munting_sisiw_daycare\admin\grade-edit.php on line 202
         // " name="grade_code
         $course_id = $_GET['course_id'];
-        $courses = getCourseById($course_id, $conn);
+
+        // NOTE: TO DISPLAY DATA ON EDITS
+        $courses = getSubjectById($course_id, $conn);
         $grades = getAllGrades($conn);
 
        
@@ -207,12 +208,12 @@ if (isset($_SESSION['admin_id']) &&
 
   <div class="mb-3">
     <label class="form-label">Course name</label>
-    <input type="text" class="form-control" value="<?=$courses['course_name']?>" name="course_name">
+    <input type="text" class="form-control" value="<?=$courses['subjects']?>" name="course_name">
   </div>
-
+            <!-- EDIT THIS -->
   <div class="mb-3">
     <label class="form-label">Course code</label>
-    <input type="text" class="form-control" value="<?=$courses['course_code']?>" name="course_code">
+    <input type="text" class="form-control" value="<?=$courses['subject_code']?>" name="course_code">
   </div>
 
             <!-- DROPDOWN SELECTION  -->
@@ -242,7 +243,7 @@ if (isset($_SESSION['admin_id']) &&
   <!-- INDICATION FOR COURSE ID -->
   <!-- BLANK FIELD DETECTOR ISSUE FIXED BECAUSE OF THIS -->
   <!-- NOTE: CHECK THE VARIABLE $ IF ITS RIGHT -->
- <input type="text" value="<?=$courses['course_id']?>"
+ <input type="text" value="<?=$courses['subject_id']?>"
          name="course_id"
          hidden>
 

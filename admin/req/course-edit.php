@@ -49,7 +49,7 @@ if (isset($_POST['course_name']) &&
     }
     else {
             // CHECK IF THE COURSE IS ALREADY EXISTED
-            $sql_check = "SELECT * FROM courses WHERE grade=? AND course_code=?";
+            $sql_check = "SELECT * FROM subjects WHERE grade=? AND subject_code=?";
             $stmt_check = $conn->prepare($sql_check);
             $stmt_check->execute([$grade, $course_code]);
 
@@ -57,7 +57,7 @@ if (isset($_POST['course_name']) &&
             $courses = $stmt_check->fetch();
 
             if($courses['course_id'] == $course_id) {
-                $sql = "UPDATE courses SET course_name=?, course_code=?, grade=?
+                $sql = "UPDATE subjects SET subjects=?, subject_code=?, grade=?
                 WHERE course_id=?";
                 $stmt = $conn->prepare($sql);
                 $stmt->execute([$course_name, $course_code, $grade, $course_id]);
@@ -78,9 +78,9 @@ if (isset($_POST['course_name']) &&
 
         // NOTE: ALWAYS CHECK THE TABLE NAME!
         // NOTE: THE LAST VARIABLE TO BE ? HAS NO ,
-        $sql = "UPDATE courses SET
-                course_name=?, course_code=?, grade=?
-                WHERE course_id=?";
+        $sql = "UPDATE subjects SET
+                subjects=?, subject_code=?, grade=?
+                WHERE subject_id=?";
         $stmt = $conn->prepare($sql);
         
         // NOTE: THE ARRANGEMENT OF THE VARIABLES INSIDE THE EXECUTE 
