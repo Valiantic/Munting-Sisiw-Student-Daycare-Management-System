@@ -1869,3 +1869,6 @@ plus password hashing
 16. change table from course to subject in course view admin page 
 17. change table source in course-add from course to subjects 
 18. change table source in course-edit from course to subjects
+
+>NINETEEN CHAPTER 
+1. create new table named student_score 

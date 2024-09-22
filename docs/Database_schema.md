@@ -93,4 +93,14 @@ setting
 >current_semester VARCHAR
 
 
+student_score
+>id INT AUTO_INCREMENT
+>semester VARCHAR 100 
+>year INT 
+>student_id INT 
+>teacher_id INT 
+>subject_id INT 
+>results VARCHAR 100
+
+
 
