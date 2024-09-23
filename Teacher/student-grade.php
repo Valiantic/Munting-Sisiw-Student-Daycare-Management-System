@@ -143,8 +143,8 @@ if (isset($_SESSION['teacher_id']) &&
      ?>
      <div class="container mt-5">
        
-        <a href="course-add.php"
-           class="btn btn-dark mb-3">Add New Course</a>
+        <a href="student-grade-add.php"
+           class="btn btn-dark mb-3">Add New Student Score</a>
 
 
           

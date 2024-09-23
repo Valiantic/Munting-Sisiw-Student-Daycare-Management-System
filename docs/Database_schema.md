@@ -102,5 +102,8 @@ student_score
 >subject_id INT 
 >results VARCHAR 100
 
+test_type
 
+>test_id INT AUTO_INCREMENT
+>test_type VARCHAR 25
 
