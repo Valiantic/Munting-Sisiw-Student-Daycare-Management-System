@@ -8,6 +8,7 @@ if (isset($_SESSION['teacher_id']) &&
         include "data/student-score.php";
         include "data/subject.php";
         include "data/grade.php";
+        include "data/test-type.php";
         $student_scores = getAllScores($conn);
 
         
@@ -171,8 +172,8 @@ if (isset($_SESSION['teacher_id']) &&
                     <th scope="col">First Name</th>
                     <th scope="col">Last Name</th>
                     <th scope="col">Subject</th>
-                    <th scope="col">Exam Type</th>
                     <th scope="col">Score</th>
+                    <th scope="col">Exam Type</th>
                     <th scope="col">Actions</th>
                   </tr>
                 </thead>
@@ -197,19 +198,31 @@ if (isset($_SESSION['teacher_id']) &&
                     </td>
                     <td>
                          <?php
+
                           echo $student_score['subject'];
                         
-                        ?>
-                    </td>
-                    <td>
-                         <?php
-                          echo $student_score['test_type'];
+                        
                         
                         ?>
                     </td>
                     <td>
                          <?php
-                          echo $student_score['score'];
+                        
+
+                        echo $student_score['score'];
+                      
+                        ?>
+                    </td>
+                    <td>
+                         <?php
+
+                        
+
+              
+
+                            $student_score =  getTestTypeById($student_score['test_type'], $conn);
+                         
+                          echo $student_score['test_type'];
                         
                         ?>
                     </td>

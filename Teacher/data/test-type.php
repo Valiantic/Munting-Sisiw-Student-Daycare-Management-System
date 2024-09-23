@@ -16,6 +16,23 @@ function getAllTestType($conn){
 
 }
 
+// Get test type by ID
+function getTestTypeById($test_id, $conn){
+    $sql = "SELECT * FROM test_type
+            WHERE test_id=?";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute([$test_id]);
+
+    if($stmt->rowCount() == 1){
+        $test_type = $stmt->fetch();
+        return $test_type;
+    }else {
+        return 0;
+    }
+
+
+}
+
 
 
 

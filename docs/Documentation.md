@@ -1882,3 +1882,5 @@ II 2023 1 1 1 10 10, 15 20, 30 35
 6. create new table to store type of test see database schema for more info 
 7. create test-type in data folder within teacher to fetch all records 
 8. create student-grade-add.php within teacher folder and display dropdowns
+9. create req/student-grade-add.php for add functionality
+10. 

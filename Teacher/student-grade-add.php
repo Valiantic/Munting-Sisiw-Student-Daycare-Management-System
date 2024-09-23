@@ -181,7 +181,7 @@ if (isset($_SESSION['teacher_id']) &&
 
             
                                                     <!-- ALWAYS CHECK THE ACTION -->
-<form class="shadow p-3 mb-4 form-w" method="post" action="req/course-add.php">
+<form class="shadow p-3 mb-4 form-w" method="post" action="req/student-grade-add.php">
 
 
 <hr><h3>Add new Course</h3></hr>
@@ -208,26 +208,20 @@ if (isset($_SESSION['teacher_id']) &&
 
 <div class="mb-3">
  <label class="form-label">Last name</label>
- <input type="text" class="form-control" value="<?=$student_scores?>" name="last_code">
+ <input type="text" class="form-control" value="<?=$student_scores?>" name="last_name">
 </div>
 
   <!-- DROPDOWN SELECTION FOR SUBJECT  -->
-<div class="mb-3">
-        <label class="form-label">Subject / Course</label>
-       <select name="subjects"
-               class="form-control" >
-               <?php foreach ($subjects as $subject) { ?>
-                 <option value="<?=$ $subject['subject_id']?>">
-                    <?=$subject['subjects']?>
-                 </option> 
-               <?php } ?>
-               
-       </select><br>
+  <div class="mb-3">
+ <label class="form-label">Subject</label>
+ <input type="text" class="form-control" value="<?=$student_scores?>" name="subjects">
+</div>
+
 
          <!-- DROPDOWN SELECTION FOR TEST TYPE -->
 <div class="mb-3">
        <label class="form-label">Test Type</label>
-       <select name="grade"
+       <select name="test_type"
                class="form-control" >
                <?php foreach ($test_types as $test_type) { ?>
                  <option value="<?=$test_type['test_id']?>">
