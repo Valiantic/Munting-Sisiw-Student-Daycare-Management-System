@@ -1872,3 +1872,9 @@ plus password hashing
 
 >NINETEEN CHAPTER 
 1. create new table named student_score 
+2. insert this on the student_score table 
+
+II 2023 1 1 1 10 10, 15 20, 30 35 
+
+3. create student-score on data folder to fetch records on the database 
+4. edit student-grade.php to make the dropddown appear when click
