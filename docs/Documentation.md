@@ -1878,3 +1878,4 @@ II 2023 1 1 1 10 10, 15 20, 30 35
 
 3. create student-score on data folder to fetch records on the database 
 4. edit student-grade.php to make the dropddown appear when click
+5. revise student-grade.php webpage in Teachers

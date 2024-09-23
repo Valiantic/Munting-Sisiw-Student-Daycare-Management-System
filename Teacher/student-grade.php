@@ -4,53 +4,47 @@ if (isset($_SESSION['teacher_id']) &&
     isset($_SESSION['role'])) {
 
     if ($_SESSION['role'] == 'Teacher') {
-       include "../connections.php";
-       include "data/student.php";
-       include "data/grade.php";
-       include "data/section.php";
-       include "data/subject.php";
-       include "data/setting.php";
-       include "data/teacher.php";
-       include "data/student-score.php";
+        include "../connections.php";
+        include "data/student-score.php";
+        include "data/subject.php";
+        include "data/grade.php";
+        $student_scores = getAllScores($conn);
 
-       if (!isset($_GET['student_id'])) {
-           header("Location: students.php");
-           exit;
-       }
-       $student_id = $_GET['student_id'];
-       $student = getStudentById($student_id, $conn);
-       $setting = getSetting($conn);
-       $subjects = getSubjectByGrade($student['grade'], $conn);
-
-       $teacher_id = $_SESSION['teacher_id'];
-       $teacher = getTeacherById($teacher_id, $conn);
-
-       $teacher_subjects = str_split(trim($teacher['subjects']));
-
-
-       $student_score = getAllScores($conn);
-
-       $ssubject_id = 0;
-       if (isset($_POST['ssubject_id'])) {
-           $ssubject_id = $_POST['ssubject_id'];
-
-           $student_score = getScoreById($student_id, $teacher_id, $ssubject_id, $setting['current_semester'], $setting['current_year'], $conn); 
-       }
-
-
+        
  ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Teacher - Students Grade</title>
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
-	<link rel="stylesheet" href="../css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher - Grade Students</title>
+    <link rel="stylesheet" href="./css/style.css">
     <link rel="shortcut icon" href="../images/logo.png">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <!-- BOOTSTRAP LINK  -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- FONT AWESOME LINK -->
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+
+    <!-- JQUERY LINK -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+ 
+
+    <!-- FONT AWESOME LINK -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 </head>
+
+
+<!-- OWN CSS IS HERE! -->
 
 <style>
     body{
@@ -139,140 +133,135 @@ if (isset($_SESSION['teacher_id']) &&
         max-width: 800px;
     }
 
-
+ 
 </style>
-
-
-
-
-
 
 <body>
     <?php 
-    include "inc/navbar.php";
-        if ($student != 0 && $setting !=0 && $subjects !=0 && $teacher_subjects != 0) {
-     ?> 
-     <div class="d-flex align-items-center flex-column"><br><br>
-
-     <div class="login shadow p-3 col-md-6 mb-5" >
-
-        <form 
-              method="post"
-              action="">
-            <div class="mb-3">
-                <ul class="list-group">
-                    <li class="list-group-item"><b>ID: </b> <?php echo $student['student_id'] ?></li>
-                  <li class="list-group-item"><b>First Name: </b> <?php echo $student['fname'] ?></li>
-                  <li class="list-group-item"><b>Last Name: </b> <?php echo $student['lname'] ?></li>
-                  <li class="list-group-item"><b>Grade: </b> 
-                    <?php  $g = getGradeById($student['grade'], $conn); 
-                        echo $g['grade_code'].'-'.$g['grade'];
-                    ?>
-                  </li>
-                  <li class="list-group-item"><b>Section: </b> 
-                    <?php  $s = getSectionById($student['section'], $conn); 
-                        echo $s['section'];
-                    ?>
-                  </li>
-                  <li class="list-group-item text-center"><b>Year: </b> <?php echo $setting['current_year']; ?> &nbsp;&nbsp;&nbsp;<b>Semester</b> <?php echo $setting['current_semester']; ?></li>
-                </ul>
-            </div>
-            <h5 class="text-center">Add Grade</h5>
-            <?php if (isset($_GET['error'])) { ?>
-            <div class="alert alert-danger" role="alert">
-              <?=$_GET['error']?>
-            </div>
-            <?php } ?>
-           
-            <label class="form-label">Subject / Course</label>
-            <select class="form-control"
-                    name="ssubject_id">
-                    <?php foreach($subjects as $subject){ 
-                        foreach($teacher_subjects as $teacher_subject){
-                            if($subject['subject_id'] == $teacher_subject){ ?>
-                    
-                       <option <?php if($ssubject_id == $subject['subject_id']){echo "selected";} ?> 
-                           value="<?php echo $subject['subject_id'] ?>">
-                        <?php echo $subject['subject_code'] ?></option>
-                    <?php }   }
-                        } ?>
-            </select><br>
-
-            <div class="d-flex justify-content-center mb-3">
-
-            <button type="submit" class="btn btn-primary">Select</button><br><br>
-
-            </div>
-        
-        </form>
-        <form method="post"
-              action="req/save-score.php">
-        <?php 
-            
-            if ($ssubject_id != 0) { 
-              $counter = 0;
-              if($student_score != 0){ ?>
-                <input type="text" name="student_score_id"
-            value="<?=$student_score['id']?>" hidden>
-            <?php
-            $scores = explode(',', trim($student_score['results']));
-
-            foreach ($scores as $score) { 
-                $temp =  explode(' ', trim($score));
-                $counter++;
-            ?>
-
-            <div class="input-group mb-3">
-                  <input type="number" min="0" max="100" class="form-control" value="<?=$temp[0]?>"name="score-<?php echo $counter; ?>">
-                  <span class="input-group-text">/</span>
-                  <input type="number" min="0" max="100" class="form-control" value="<?=$temp[1]?>"
-                  name="aoutof-<?php echo $counter; ?>">
-            </div>  
-           <?php } } if($counter <  5){ 
-               for ($i=++$counter; $i <= 5; $i++) { 
-            ?>
-            <div class="input-group mb-3">
-                  <input type="text" class="form-control" value="xx" 
-                  name="score-<?php echo $i; ?>">
-                  <span class="input-group-text">/</span>
-                  <input type="text" class="form-control" value="xx"
-                  name="aoutof-<?php echo $i; ?>">
-            </div>
-            
-                   
-           <?php } } ?>
-
-           <input type="text" name="student_id" value="<?=$student_id?>" hidden>
-            <input type="text" name="subject_id" value="<?=$ssubject_id?>"hidden>
-            <input type="text" name="current_semester" value="<?=$setting['current_semester']?>" hidden>
-            <input type="text" name="current_year" value="<?=$setting['current_year']?>" hidden>
-        
-            <div class="d-flex justify-content-center mb-3">
-
-            <button type="submit" class="btn btn-primary">Save</button><br><br>
-
-            </div>
-
-        </form>  
-        <?php } ?>
-
-
-        </div>
-        </div>
-     <?php 
-         }else{
-            header("Location: students.php");
-            exit;
-         }
+        include "inc/navbar.php";
+        if ($student_scores != 0) {
      ?>
+     <div class="container mt-5">
+       
+        <a href="course-add.php"
+           class="btn btn-dark mb-3">Add New Course</a>
+
+
+          
+
+                      <!-- ERROR HANDLING  -->
+            <?php if (isset($_GET['error'])) { ?>
+                <div class="alert alert-danger mt-3 n-table" role="alert">
+                <?=$_GET['error']?>
+              </div>
+             <?php } ?>
+
+                         <!-- SUCCESS HANDLING FOR GRADE-DELETE -->
+             <?php if (isset($_GET['success'])) { ?>
+                <div class="alert alert-info mt-3 n-table" role="alert">
+                <?=$_GET['success']?>
+              </div>
+             <?php } ?>
+
+           <div class="table-responsive">
+              <table class="table table-bordered mt-3 n-table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">First Name</th>
+                    <th scope="col">Last Name</th>
+                    <th scope="col">Subject</th>
+                    <th scope="col">Exam Type</th>
+                    <th scope="col">Score</th>
+                    <th scope="col">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <!--CREATE THIS FOR LOOP TO DISPLAY THE DATABASE DATA ON THE TABLE -->
+                  <?php $i = 0; foreach ( $student_scores as $student_score ) { 
+                    $i++; ?>
+                  <tr>
+                    <!-- Table heading for id iteration -->
+                    <th scope="row"><?=$i?></th>
+                    <td>
+                        <?php
+                          echo $student_score['first_name'];
+                        
+                        ?>
+                    </td>
+                    <td>
+                        <?php
+                          echo $student_score['last_name'];
+                        
+                        ?>
+                    </td>
+                    <td>
+                         <?php
+                          echo $student_score['subject'];
+                        
+                        ?>
+                    </td>
+                    <td>
+                         <?php
+                          echo $student_score['test_type'];
+                        
+                        ?>
+                    </td>
+                    <td>
+                         <?php
+                          echo $student_score['score'];
+                        
+                        ?>
+                    </td>
+                   
+                    <td>
+                    <a href="course-edit.php?course_id=<?=$course['subject_id']?>"
+                           class="btn btn-warning">Edit</a>
+                    <a href="course-delete.php?course_id=<?=$course['subject_id']?>"
+                           class="btn btn-danger">Delete</a>
+                  
+                           
+                    </td>
+                  </tr>
+                <?php } ?>
+                </tbody>
+              </table>
+           </div>
+         <?php }else{ ?>
+             <div class="alert alert-info .w-450 m-5" 
+                  role="alert">
+              No Results Found!
+              </div>
+         <?php } ?>
+     </div>
+     
+
+          <!-- SCRIPT FOR ACTIVE HOVER IN NAV -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>	
     <script>
         $(document).ready(function(){
              $("#navLinks li:nth-child(3) a").addClass('active');
         });
+
+  
+
+  
     </script>
 
+
+        <!-- SCRIPT FOR DELETE MODAL CONFIRMATION  -->
+      <script type="text/javascript">
+          var elems = document.getElementsByClassName('btn btn-danger');
+          var confirmIt = function (e) {
+              if (!confirm('Are you sure you want to delete this record?')) e.preventDefault();
+          };
+          for (var i = 0, l = elems.length; i < l; i++) {
+              elems[i].addEventListener('click', confirmIt, false);
+          }
+      </script>
+
 </body>
+
 </html>
 <?php 
 
