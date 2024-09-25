@@ -7,24 +7,38 @@ function getAllScores($conn){
    $stmt->execute();
 
    if ($stmt->rowCount() >= 1) {
-     $students_score = $stmt->fetchAll();
-     return $students_score;
+     $students_scores = $stmt->fetchAll();
+     return $students_scores;
    }else {
     return 0;
    }
 }
 
 // Get student_score by ID
-function getScoreById($student_id, $teacher_id, $subject_id, $semester, $year, $conn){
-   $sql = "SELECT * FROM student_score
-           WHERE student_id=? AND teacher_id=? AND subject_id=? AND semester=? AND year=?";
-   $stmt = $conn->prepare($sql);
-   $stmt->execute([$student_id, $teacher_id, $subject_id, $semester, $year]);
+function getScoreById($score_id, $conn){
+    $sql = "SELECT * FROM student_score
+            WHERE score_id=?";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute([$score_id]);
+ 
+    if ($stmt->rowCount() == 1) {
+      $score = $stmt->fetch();
+      return $score;
+    }else {
+     return 0;
+    }
+ }
 
-   if ($stmt->rowCount() == 1) {
-     $student_score = $stmt->fetch();
-     return $student_score;
-   }else {
-    return 0;
-   }
-}
+
+// DELETE course
+function removeScore($id, $conn){
+    $sql  = "DELETE FROM student_score
+            WHERE score_id=?";
+    $stmt = $conn->prepare($sql);
+    $re   = $stmt->execute([$id]);
+    if ($re) {
+      return 1;
+    }else {
+     return 0;
+    }
+ }

@@ -220,17 +220,9 @@ if (isset($_SESSION['teacher_id']) &&
 
          <!-- DROPDOWN SELECTION FOR TEST TYPE -->
 <div class="mb-3">
-       <label class="form-label">Test Type</label>
-       <select name="test_type"
-               class="form-control" >
-               <?php foreach ($test_types as $test_type) { ?>
-                 <option value="<?=$test_type['test_id']?>">
-                    <?=$test_type['test_type']?>
-                 </option> 
-               <?php } ?>
-               
-       </select>
-     </div>
+ <label class="form-label">Test Type</label>
+ <input type="text" class="form-control" value="<?=$student_scores?>" name="test_type">
+</div>
 
 <div class="mb-3">
  <label class="form-label">Score</label>
@@ -260,7 +252,7 @@ if (isset($_SESSION['teacher_id']) &&
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>	
     <script>
         $(document).ready(function(){
-             $("#navLinks li:nth-child(8) a").addClass('active');
+             $("#navLinks li:nth-child(3) a").addClass('active');
         });
 
        

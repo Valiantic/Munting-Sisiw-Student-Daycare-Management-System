@@ -5,10 +5,9 @@ if (isset($_SESSION['teacher_id']) &&
 
     if ($_SESSION['role'] == 'Teacher') {
         include "../connections.php";
-        include "data/student-score.php";
         include "data/subject.php";
         include "data/grade.php";
-        include "data/test-type.php";
+        include "data/student-score.php";
         $student_scores = getAllScores($conn);
 
         
@@ -145,7 +144,7 @@ if (isset($_SESSION['teacher_id']) &&
      <div class="container mt-5">
        
         <a href="student-grade-add.php"
-           class="btn btn-dark mb-3">Add New Student Score</a>
+           class="btn btn-dark mb-3">Grade New Student</a>
 
 
           
@@ -172,14 +171,13 @@ if (isset($_SESSION['teacher_id']) &&
                     <th scope="col">First Name</th>
                     <th scope="col">Last Name</th>
                     <th scope="col">Subject</th>
+                    <th scope="col">Test Type</th>
                     <th scope="col">Score</th>
-                    <th scope="col">Exam Type</th>
-                    <th scope="col">Actions</th>
                   </tr>
                 </thead>
                 <tbody>
                     <!--CREATE THIS FOR LOOP TO DISPLAY THE DATABASE DATA ON THE TABLE -->
-                  <?php $i = 0; foreach ( $student_scores as $student_score ) { 
+                  <?php $i = 0; foreach ($student_scores as $student_score ) { 
                     $i++; ?>
                   <tr>
                     <!-- Table heading for id iteration -->
@@ -197,40 +195,35 @@ if (isset($_SESSION['teacher_id']) &&
                         ?>
                     </td>
                     <td>
-                         <?php
-
-                          echo $student_score['subject'];
-                        
-                        
+                        <?php
+                          echo $student_score['last_name'];
                         
                         ?>
                     </td>
                     <td>
-                         <?php
+                       
                         
-
-                        echo $student_score['score'];
-                      
+                        <?php
+                              echo $student_score['test_type'];
+                        
                         ?>
+
+
+
+
+
                     </td>
                     <td>
-                         <?php
-
-                        
-
-              
-
-                            $student_score =  getTestTypeById($student_score['test_type'], $conn);
-                         
-                          echo $student_score['test_type'];
+                        <?php
+                          echo $student_score['score'];
                         
                         ?>
                     </td>
                    
                     <td>
-                    <a href="course-edit.php?course_id=<?=$course['subject_id']?>"
-                           class="btn btn-warning">Edit</a>
-                    <a href="course-delete.php?course_id=<?=$course['subject_id']?>"
+                    <a href="student-grade-edit.php?score_id=<?=$student_score['score_id']?>"
+                           class="btn btn-primary">Edit</a>
+                    <a href="student-grade-delete.php?score_id=<?=$student_score['score_id']?>"
                            class="btn btn-danger">Delete</a>
                   
                            
@@ -253,7 +246,7 @@ if (isset($_SESSION['teacher_id']) &&
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>	
     <script>
         $(document).ready(function(){
-             $("#navLinks li:nth-child(3) a").addClass('active');
+             $("#navLinks li:nth-child(8) a").addClass('active');
         });
 
   

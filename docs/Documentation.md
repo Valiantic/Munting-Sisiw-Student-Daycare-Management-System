@@ -1883,4 +1883,12 @@ II 2023 1 1 1 10 10, 15 20, 30 35
 7. create test-type in data folder within teacher to fetch all records 
 8. create student-grade-add.php within teacher folder and display dropdowns
 9. create req/student-grade-add.php for add functionality
-10. 
+10. revise test type input from select to manual type 
+
+UNKNOWN ERROR: Unset type array 
+
+11. create read webpage in student-grade and display all records
+12. in Teacher folder create a student-score-grade.php to fetch all records 
+13. create student-grade-delete for delete functionality 
+14. revise display method on student-grade webpage
+15. 
