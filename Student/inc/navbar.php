@@ -16,7 +16,7 @@
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" href="./grade.php">Grade Summary</a>
+        <a class="nav-link" href="./grade-result.php">Grade Results</a>
       </li>
 
       <li class="nav-item">

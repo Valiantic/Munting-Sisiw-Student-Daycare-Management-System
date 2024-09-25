@@ -1895,3 +1895,4 @@ UNKNOWN ERROR: Unset type array
 16. create pass.php in teacher folder for change password functionality
 17. create teacher-change in req/teacher to handle password change 
 18. add student-grade-search in Teacher folder for search functionality
+19. add grade-result on Student folder and student-score to fetch all data 

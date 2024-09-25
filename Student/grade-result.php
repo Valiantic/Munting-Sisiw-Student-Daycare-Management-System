@@ -1,9 +1,9 @@
 <?php 
 session_start();
-if (isset($_SESSION['teacher_id']) && 
+if (isset($_SESSION['student_id']) && 
     isset($_SESSION['role'])) {
 
-    if ($_SESSION['role'] == 'Teacher') {
+    if ($_SESSION['role'] == 'Student') {
         include "../connections.php";
         include "data/subject.php";
         include "data/grade.php";
@@ -18,7 +18,7 @@ if (isset($_SESSION['teacher_id']) &&
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teacher - Grade Students</title>
+    <title>Student - Grade Results</title>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="shortcut icon" href="../images/logo.png">
     
@@ -143,8 +143,7 @@ if (isset($_SESSION['teacher_id']) &&
      ?>
      <div class="container mt-5">
        
-        <a href="student-grade-add.php"
-           class="btn btn-dark mb-3">Grade New Student</a>
+      
 
 
              <!-- SEARCH BUTTON  -->
@@ -191,7 +190,6 @@ if (isset($_SESSION['teacher_id']) &&
                     <th scope="col">Subject</th>
                     <th scope="col">Test Type</th>
                     <th scope="col">Score</th>
-                    <th scope="col">Action</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -239,14 +237,7 @@ if (isset($_SESSION['teacher_id']) &&
                         ?>
                     </td>
                    
-                    <td>
-                    <a href="student-grade-edit.php?score_id=<?=$student_score['score_id']?>"
-                           class="btn btn-primary">Edit</a>
-                    <a href="student-grade-delete.php?score_id=<?=$student_score['score_id']?>"
-                           class="btn btn-danger">Delete</a>
                   
-                           
-                    </td>
                   </tr>
                 <?php } ?>
                 </tbody>
@@ -265,7 +256,7 @@ if (isset($_SESSION['teacher_id']) &&
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>	
     <script>
         $(document).ready(function(){
-             $("#navLinks li:nth-child(3) a").addClass('active');
+             $("#navLinks li:nth-child(2) a").addClass('active');
         });
 
   
