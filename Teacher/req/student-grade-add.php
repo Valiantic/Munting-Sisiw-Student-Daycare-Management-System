@@ -58,9 +58,9 @@ if (
 		exit;
 	}else {
         // CHECK IF THE COURSE IS ALREADY EXISTED
-        $sql_check = "SELECT * FROM student_score WHERE subject=? AND test_type=?";
+        $sql_check = "SELECT * FROM student_score WHERE first_name=? AND last_name=?";
         $stmt_check = $conn->prepare($sql_check);
-        $stmt_check->execute([$subjects, $test_type]);
+        $stmt_check->execute([$first_name, $last_name]);
         if ($stmt_check->rowCount() > 0) {
             $em  = "The Student is already graded!";
             header("Location: ../student-grade-add.php?error=$em&$data");
