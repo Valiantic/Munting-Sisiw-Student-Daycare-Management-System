@@ -1892,3 +1892,5 @@ UNKNOWN ERROR: Unset type array
 13. create student-grade-delete for delete functionality 
 14. revise display method on student-grade webpage
 15. create student-grade-edit for edit functionality 
+16. create pass.php in teacher folder for change password functionality
+17. create teacher-change in req/teacher to handle password change 

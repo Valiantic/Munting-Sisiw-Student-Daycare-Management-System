@@ -34,6 +34,29 @@ function getAllTeachers($conn){
 
 }
 
+// TEACHER CHANGE PASSWORD VERIFICATION 
+
+function teacherPasswordVerify($teacher_pass, $conn, $teacher_id){
+    $sql = "SELECT * FROM tbl_teachers 
+            WHERE teacher_id=?";
+
+    $stmt = $conn->prepare($sql);
+    $stmt->execute([$teacher_id]);
+
+    if($stmt->rowCount() == 1){
+        $teacher = $stmt->fetch();
+        $hashpass = $teacher['password'];
+
+        if(password_verify($teacher_pass, $hashpass)){
+            return 1;
+        }else{
+            return 0;
+        }
+    }else{
+        return 0;
+    }
+
+}
 
 
 //  <!-- CREATING A DELETE FUNCTION -->
