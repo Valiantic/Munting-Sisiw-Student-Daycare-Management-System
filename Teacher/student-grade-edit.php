@@ -1,29 +1,35 @@
 <?php 
 session_start();
 if (isset($_SESSION['teacher_id']) && 
-    isset($_SESSION['role'])) {
+    isset($_SESSION['role']) &&
+    // NOTE: THE WEBPAGE WILL NOT REDIRECT IF THIS PARAMETERS 
+    // IS NOT THE SAME WITH THE ANCHOR TAG BUTTON ON THE PREV PAGE
+    isset($_GET['score_id'])) {
 
     if ($_SESSION['role'] == 'Teacher') {
-        
-        include "../connections.php";;
-        include "data/student-score.php";
-        include "data/test-type.php";
+
+        include "../connections.php";
+   
+        include "data/grade.php";
         include "data/subject.php";
-      
+        include "data/student-score.php";
         $student_scores = getAllScores($conn);
-        $subjects = getAllSubjects($conn);
-        $test_types = getAllTestType($conn);
 
+      
+        $score_id = $_GET['score_id'];
 
-        // VARIABLE INITIALIZATION FOR VALIDATION SESSION
-        $student_scores = '';
+        // NOTE: TO DISPLAY DATA ON EDITS
+        // NOTE: IF THE EDIT CLICK BUTTON IS NOT WORKING ON THE PREV PAGE CHECK THE PARAMETERS HERE
+        $student_scores = getScoreById($score_id, $conn);
      
 
-        // VARIABLE INITIALIZATION FOR SESSION
-        if (isset($_GET['student_score'])) $student_scores = $_GET['student_scores'];
-  
        
-
+        // LOGICAL ERROR: CAUSING REDIRECTION TO teachers.php
+        if ($student_scores == 0){
+            header("Location: student-grade.php");
+	        exit;
+        }
+    
  ?>
 
 <!DOCTYPE html>
@@ -31,7 +37,7 @@ if (isset($_SESSION['teacher_id']) &&
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin - Grade Student</title>
+    <title>Admin - Edit Course</title>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="shortcut icon" href="../images/logo.png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
@@ -157,7 +163,11 @@ if (isset($_SESSION['teacher_id']) &&
         max-width:600px;
         width: 100%;
     }
-
+    #backbtn{
+     
+      margin-top: 20px;
+      margin-left: 6.4%;
+    }
 
 
 </style>
@@ -167,87 +177,74 @@ if (isset($_SESSION['teacher_id']) &&
         include "inc/navbar.php";
      ?>
      <div class="container mt-5">
-       
+        <!-- continue 52:17 -->
+    
+
+                                                <!-- ADD ACTION TO REDIRECT TO TEACHER EDIT IN REQ FOLDER -->
+<form class="shadow p-3 mt-4 form-w" method="post" action="req/student-grade-edit.php">
 
 
-           <!-- CHECK IF THERE IS GRADE INPUTED -->
-        <?php if ($student_scores == 0) { ?>
-        <div class="alert alert-info" role="alert">
-           First create grade.
-          </div>
-        <?php }else{ ?>
+   <hr><h3>Edit Course</h3></hr>
 
-            <div class="d-flex justify-content-center">
+     <!-- ERROR HANDLING   -->
+     <?php if (isset($_GET['error'])) { ?>
+    		<div class="alert alert-danger" role="alert">
+			  <?=$_GET['error']?>
+			</div>
+	<?php } ?>
 
-            
-                                                    <!-- ALWAYS CHECK THE ACTION -->
-<form class="shadow p-3 mb-4 form-w" method="post" action="req/student-grade-add.php">
+    <!-- SUCCESS HANDLING   -->
+    <?php if (isset($_GET['success'])) { ?>
+    		<div class="alert alert-success" role="alert">
+			  <?=$_GET['success']?>
+			</div>
+	<?php } ?>
+    
 
 
-<hr><h3>Add new Student Grade</h3></hr>
-
-  <!-- ERROR HANDLING   -->
-  <?php if (isset($_GET['error'])) { ?>
-         <div class="alert alert-danger" role="alert">
-           <?=$_GET['error']?>
-         </div>
- <?php } ?>
-
- <!-- SUCCESS HANDLING   -->
- <?php if (isset($_GET['success'])) { ?>
-         <div class="alert alert-success" role="alert">
-           <?=$_GET['success']?>
-         </div>
- <?php } ?>
- 
-
-<div class="mb-3">
- <label class="form-label">First name</label>
- <input type="text" class="form-control" value="<?=$student_scores?>" name="first_name">
-</div>
-
-<div class="mb-3">
- <label class="form-label">Last name</label>
- <input type="text" class="form-control" value="<?=$student_scores?>" name="last_name">
-</div>
-
-  <!-- DROPDOWN SELECTION FOR SUBJECT  -->
   <div class="mb-3">
- <label class="form-label">Subject</label>
- <input type="text" class="form-control" value="<?=$student_scores?>" name="subjects">
-</div>
+    <label class="form-label">First name</label>
+    <input type="text" class="form-control" value="<?=$student_scores['first_name']?>" name="first_name">
+  </div>
+            <!-- EDIT THIS -->
+  <div class="mb-3">
+    <label class="form-label">Last name</label>
+    <input type="text" class="form-control" value="<?=$student_scores['last_name']?>" name="last_name">
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Subject</label>
+    <input type="text" class="form-control" value="<?=$student_scores['subject']?>" name="subject">
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Test type</label>
+    <input type="text" class="form-control" value="<?=$student_scores['test_type']?>" name="test_type">
+  </div>
+  
+  <div class="mb-3">
+    <label class="form-label">Score</label>
+    <input type="text" class="form-control" value="<?=$student_scores['score']?>" name="score">
+  </div>
+
+  
+
+  <!-- INDICATION FOR COURSE ID -->
+  <!-- BLANK FIELD DETECTOR ISSUE FIXED BECAUSE OF THIS -->
+  <!-- NOTE: CHECK THE VARIABLE $ IF ITS RIGHT -->
+ <input type="text" value="<?=$student_scores['score_id']?>"
+         name="score_id"
+         hidden>
 
 
-         <!-- DROPDOWN SELECTION FOR TEST TYPE -->
-<div class="mb-3">
- <label class="form-label">Test Type</label>
- <input type="text" class="form-control" value="<?=$student_scores?>" name="test_type">
-</div>
-
-<div class="mb-3">
- <label class="form-label">Score</label>
- <input type="number" min="0" max="100" class="form-control" value="<?=$student_scores?>" name="score">
-</div>
-
-
-<div class="d-flex justify-content-center">
-
-<button type="submit" class="btn btn-primary">Create</button>
-
-</div>
-
-</div>
-
+    <button type="submit" 
+            class="btn btn-primary">
+            Update</button>
 </form>
+   
+</div>  
 
-
-
-
-            </div>
-
-       
-     </div>
-     <?php } ?>
+    </form>
      
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>	
     <script>
@@ -255,8 +252,11 @@ if (isset($_SESSION['teacher_id']) &&
              $("#navLinks li:nth-child(3) a").addClass('active');
         });
 
-       
+      
     </script>
+
+<a href="course.php"
+class="btn btn-dark" id="backbtn">Go Back</a>
 
 </body>
 
@@ -268,7 +268,7 @@ if (isset($_SESSION['teacher_id']) &&
     exit;
   } 
 }else {
-	header("Location: ../login.php");
+	header("Location: student-grade.php");
 	exit;
 } 
 

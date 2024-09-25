@@ -1891,4 +1891,4 @@ UNKNOWN ERROR: Unset type array
 12. in Teacher folder create a student-score-grade.php to fetch all records 
 13. create student-grade-delete for delete functionality 
 14. revise display method on student-grade webpage
-15. 
+15. create student-grade-edit for edit functionality 
