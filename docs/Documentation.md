@@ -1898,3 +1898,10 @@ UNKNOWN ERROR: Unset type array
 19. add grade-result on Student folder and student-score to fetch all data 
 20. add grade-result-search on Student folder for search functionality 
 21. add animation scroll on landing page 
+
+FINAL CHAPTER 
+
+1. create blank field detectors for contact in landing page 
+2. 
+3. 
+4. 

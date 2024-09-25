@@ -112,6 +112,9 @@
     textarea{
       resize:none;
     }
+    #logintxt{
+      font-weight: 1000;
+    }
 
 
 </style>
@@ -150,7 +153,7 @@
          <!-- TO MAKE THE LOGIN STICK TO THE RIGHT SIDE CHANGE ME-->
          <ul class="navbar-nav me-right mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link" href="login.php">Login</a>
+          <a class="nav-link" href="login.php" id="logintxt">Login</a>
         </li>
         </ul>
 
@@ -237,25 +240,34 @@ align-items-center flex-column">
 
 
 <!-- CONTACTS FORM -->
-<form>
+<form method="post" action="req/contact.php">
   <h3>Reach us!</h3>
-  <div class="mb-3">
+
+   <!-- ERROR HANDLING  -->
+   <?php if (isset($_GET['error'])) { ?>
+    		<div class="alert alert-danger" role="alert">
+			  <?=$_GET['error']?>
+			</div>
+	<?php } ?>
+
+  <div class="mb-1">
     <label for="exampleInputEmail1" class="form-label">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
     <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
   </div>
   <div class="mb-3">
-    <label class="form-label">Name</label>
-    <input type="text" class="form-control" id="exampleInputPassword1">
+    <label class="form-label">Full Name</label>
+    <input type="text" name="full_name" class="form-control" id="exampleInputPassword1">
   </div>
   <div class="mb-3">
     <label class="form-label">Message</label>
-    <textarea class="form-control" rows="4"></textarea>
+    <textarea class="form-control"name="message" rows="4"></textarea>
   </div>
   
   <button type="submit" class="btn btn-primary">Send</button>
 </form>
 </section>
+
 <div class="text-center text-light">
     Copyright &copy; 2024 Munting Sisiw. All rights reserved.
 </div>
