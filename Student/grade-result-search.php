@@ -4,13 +4,16 @@ if (isset($_SESSION['student_id']) &&
     isset($_SESSION['role'])) {
 
     if ($_SESSION['role'] == 'Student') {
-        include "../connections.php";
-        include "data/subject.php";
-        include "data/grade.php";
-        include "data/student-score.php";
-        $student_scores = getAllScores($conn);
 
+      if (isset($_GET['searchKey'])){
+
+        $search_key = $_GET['searchKey'];
+        include "../connections.php";
+        include "data/student.php";
+        include "data/grade.php";
         
+        include "data/student-score.php";
+        $student_scores = searchScores($search_key, $conn);
  ?>
 
 <!DOCTYPE html>
@@ -21,13 +24,10 @@ if (isset($_SESSION['student_id']) &&
     <title>Student - Grade Results</title>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="shortcut icon" href="../images/logo.png">
-    
-    <!-- BOOTSTRAP LINK  -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- FONT AWESOME LINK -->
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -133,7 +133,7 @@ if (isset($_SESSION['student_id']) &&
         max-width: 800px;
     }
 
- 
+
 </style>
 
 <body>
@@ -143,28 +143,24 @@ if (isset($_SESSION['student_id']) &&
      ?>
      <div class="container mt-5">
        
-      
+    
+            
+            <!-- SEARCH BUTTON  -->
+           <form action="grade-result-search.php" class="mt-3 n-table" method="post">
 
-
-             <!-- SEARCH BUTTON  -->
-             <form action="grade-result-search.php" class="smt-3 n-table" method="get">
-
-            <div class="input-group mb-3">
-            <input type="text" class="form-control" name="searchKey" placeholder="Search...">
-            <button class="btn btn-info" id="gBtn">
+           <div class="input-group mb-3">
+          <input type="text" class="form-control" name="searchKey" placeholder="Search...">
+          <button class="btn btn-info" id="gBtn">
             Search
             <!-- Search button svg icon -->
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
             <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
             </svg> 
-
-            </button>
-            </div>
-
-            </form>
-
-
           
+          </button>
+          </div>
+
+           </form>
 
                       <!-- ERROR HANDLING  -->
             <?php if (isset($_GET['error'])) { ?>
@@ -173,7 +169,7 @@ if (isset($_SESSION['student_id']) &&
               </div>
              <?php } ?>
 
-                         <!-- SUCCESS HANDLING FOR GRADE-DELETE -->
+                         <!-- SUCCESS HANDLING FOR TEACHER-DELETE -->
              <?php if (isset($_GET['success'])) { ?>
                 <div class="alert alert-info mt-3 n-table" role="alert">
                 <?=$_GET['success']?>
@@ -197,47 +193,20 @@ if (isset($_SESSION['student_id']) &&
                   <?php $i = 0; foreach ($student_scores as $student_score ) { 
                     $i++; ?>
                   <tr>
-                    <!-- Table heading for id iteration -->
                     <th scope="row"><?=$i?></th>
                     <td>
-                        <?php
-                          echo $student_score['first_name'];
-                        
-                        ?>
+                       <?=$student_score['first_name']?>
                     </td>
-                    <td>
-                        <?php
-                          echo $student_score['last_name'];
-                        
-                        ?>
-                    </td>
-                    <td>
-                        <?php
-                          echo $student_score['subject'];
-                        
-                        ?>
-                    </td>
-                    <td>
-                       
-                        
-                        <?php
-                              echo $student_score['test_type'];
-                        
-                        ?>
-
-
-
-
-
-                    </td>
-                    <td>
-                        <?php
-                          echo $student_score['score'];
-                        
-                        ?>
-                    </td>
-                   
+                    <td><?=$student_score['last_name']?></td>
+                    <td><?=$student_score['subject']?></td>
+                    <td><?=$student_score['test_type']?></td>
+                    <td><?=$student_score['score']?></td>
                   
+
+                    <!-- TABLE DATA TO SHOW THE STUDENTS GRADE -->
+                 
+                    
+               
                   </tr>
                 <?php } ?>
                 </tbody>
@@ -246,40 +215,40 @@ if (isset($_SESSION['student_id']) &&
          <?php }else{ ?>
              <div class="alert alert-info .w-450 m-5" 
                   role="alert">
-              No Results Found!
+               No Results Found!
+
+                 <!-- spacing -->
+                 &nbsp
+                &nbsp
+
+                <!-- if the user search nothing this is the back button -->
+                <a href="grade-result.php"
+                class="btn btn-dark">Go Back</a>
+
+
+
               </div>
          <?php } ?>
      </div>
      
-
-          <!-- SCRIPT FOR ACTIVE HOVER IN NAV -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>	
     <script>
         $(document).ready(function(){
              $("#navLinks li:nth-child(2) a").addClass('active');
         });
-
-  
-
-  
     </script>
 
-
-        <!-- SCRIPT FOR DELETE MODAL CONFIRMATION  -->
-      <script type="text/javascript">
-          var elems = document.getElementsByClassName('btn btn-danger');
-          var confirmIt = function (e) {
-              if (!confirm('Are you sure you want to delete this record?')) e.preventDefault();
-          };
-          for (var i = 0, l = elems.length; i < l; i++) {
-              elems[i].addEventListener('click', confirmIt, false);
-          }
-      </script>
+    
 
 </body>
 
 </html>
 <?php 
+
+}else {
+  header("Location: grade-result.php");
+  exit;
+} 
 
   }else {
     header("Location: ../login.php");
