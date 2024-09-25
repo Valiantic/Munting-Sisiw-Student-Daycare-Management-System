@@ -1,3 +1,6 @@
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,6 +18,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+
+    <!-- ANIMATE ON SCROLL -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
   </head>
 
 
@@ -177,6 +184,9 @@
   </div>
 </nav>
 
+<div data-aos="zoom-in">
+
+
 <!-- WELCOME TEXT  -->
 <section class="welcome-text d-flex justify-content-center align-items-center flex-column">
 
@@ -186,12 +196,19 @@
 
 </section>
 
+</div>
+
+
+
 <!-- SECTION FOR ABOUT  -->
 <section id="about" class="d-flex justify-content-center
 align-items-center flex-column">
 
 
 <!-- ABOUT CARD -->
+
+<div data-aos="fade-up">
+
 <div class="card mb-3 card-1">
   <div class="row g-0">
     <div class="col-md-4">
@@ -206,6 +223,10 @@ align-items-center flex-column">
     </div>
   </div>
 </div>
+
+
+</div>
+
 
 </section>
 
@@ -244,6 +265,12 @@ align-items-center flex-column">
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- ANIMATE ON SCROLL -->
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
 
 </body>
 </html>
