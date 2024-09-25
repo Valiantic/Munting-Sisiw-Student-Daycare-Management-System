@@ -250,6 +250,13 @@ align-items-center flex-column">
 			</div>
 	<?php } ?>
 
+       <!-- SUCCESS HANDLING FOR TEACHER-DELETE -->
+       <?php if (isset($_GET['success'])) { ?>
+                <div class="alert alert-info mt-3 n-table" role="alert">
+                <?=$_GET['success']?>
+              </div>
+             <?php } ?>
+
   <div class="mb-1">
     <label for="exampleInputEmail1" class="form-label">Email address</label>
     <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">

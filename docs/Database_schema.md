@@ -107,3 +107,10 @@ test_type
 >test_id INT AUTO_INCREMENT
 >test_type VARCHAR 25
 
+message 
+
+>message_id
+>sender_full_name
+>sender_email
+>message
+

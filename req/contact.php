@@ -6,7 +6,7 @@ if (isset($_POST['email']) &&
     isset($_POST['message'])) {
 
         //database connection 
-    include "../DB_connection.php";
+    include "../connections.php";
 	
     // variable initialization using post method
 	$email     = $_POST['email'];

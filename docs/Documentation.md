@@ -1902,6 +1902,6 @@ UNKNOWN ERROR: Unset type array
 FINAL CHAPTER 
 
 1. create blank field detectors for contact in landing page 
-2. 
-3. 
+2. add new table in the database see database schema for more info 
+3. add success handling in contact req folder 
 4. 
