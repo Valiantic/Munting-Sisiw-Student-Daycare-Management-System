@@ -1912,3 +1912,5 @@ FINAL CHAPTER
 9. create data folder outside admin folder 
 10. create settings.php on that data folder 
 11. include neccessary package in index.php and enclosed the whole code into php
+12. display school_name, slogan, about and current_year in the index page using php tag 
+13. 

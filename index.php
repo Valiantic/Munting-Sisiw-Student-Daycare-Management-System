@@ -202,8 +202,8 @@
 <section class="welcome-text d-flex justify-content-center align-items-center flex-column">
 
     <img src="./images/logo.png">
-    <h4>Welcome to Munting Sisiw Daycare!</h4>
-    <p>Make your child at Home</p>
+    <h4>Welcome to <?=$setting['school_name']?></h4>
+    <p><?=$setting['slogan']?></p>
 
 </section>
 
@@ -228,7 +228,7 @@ align-items-center flex-column">
     <div class="col-md-8">
       <div class="card-body">
         <h5 class="card-title">About</h5>
-        <p class="card-text">At Munting Sisiw Daycare, we provide a loving and nurturing environment where your little ones can learn, grow, and thrive. We believe in fostering a child's natural curiosity and creativity through play-based learning activities that are both educational and fun.</p>
+        <p class="card-text"><?=$setting['about']?></p>
         <p class="card-text"><small class="text-body-secondary"></small></p>
       </div>
     </div>
@@ -284,7 +284,7 @@ align-items-center flex-column">
 </section>
 
 <div class="text-center text-light">
-    Copyright &copy; 2024 Munting Sisiw. All rights reserved.
+    Copyright &copy; <?=$setting['current_year']?> <?=$setting['school_name']?>. All rights reserved.
 </div>
 
     </div>
