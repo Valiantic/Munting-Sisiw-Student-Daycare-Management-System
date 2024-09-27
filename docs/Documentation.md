@@ -1909,3 +1909,6 @@ FINAL CHAPTER
 6. create setting.php in admin folder 
 7. create setting.php in data folder within admin to fetch all records 
 8. add new columns in table setting
+9. create data folder outside admin folder 
+10. create settings.php on that data folder 
+11. include neccessary package in index.php and enclosed the whole code into php

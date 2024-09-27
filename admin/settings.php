@@ -36,6 +36,12 @@ h3{
     text-align: center;
 }
 
+#homeNav {
+        /* TO MAKE THE NAVBAR TRANSPARENT */
+         /* background: rgba(255,255,255, 0.5) !important;  */
+         border-radius:20px;
+    }
+
 </style>
 
 <body>

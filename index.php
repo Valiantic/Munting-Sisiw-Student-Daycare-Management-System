@@ -1,4 +1,12 @@
+<?php
+       include "connections.php";
+       include "data/settings.php";
+       $setting = getSetting($conn);
 
+
+       if ($setting != 0) {
+
+?>
 
 
 <!DOCTYPE html>
@@ -293,3 +301,7 @@ align-items-center flex-column">
 
 </body>
 </html>
+<?php }else {
+	header("Location: login.php");
+	exit;
+}  ?>
