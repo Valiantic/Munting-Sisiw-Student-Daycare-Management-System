@@ -179,7 +179,7 @@ include "inc/navbar.php";
             <br>
             Class
             </a> -->
-            <a href="" class="col btn btn-dark m-2 py-3">
+            <a href="message.php" class="col btn btn-dark m-2 py-3">
             <i class="fa fa-commenting fs-1" aria-hidden="true"></i>
             <br>
             Message
@@ -188,12 +188,12 @@ include "inc/navbar.php";
       
 
             </a>
-            <a href=".php" class="col btn btn-dark m-2 py-3">
+            <!-- <a href=".php" class="col btn btn-dark m-2 py-3">
             <i class="fa fa-calendar fs-1" aria-hidden="true"></i>
             <br>
             Schedule
-            </a>
-            <a href="" class="col btn btn-primary m-2 py-3 col-5">
+            </a> -->
+            <a href="settings.php" class="col btn btn-primary m-2 py-3 col-5">
             <i class="fa fa-gear fs-1" aria-hidden="true"></i>
             <br>
             Settings
