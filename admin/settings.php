@@ -22,16 +22,32 @@ if (isset($_SESSION['admin_id']) &&
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
+
+<style>
+
+
+#formsize {
+    max-width: 800px;
+    width:450px;
+    border-radius:20px;
+}
+
+h3{
+    text-align: center;
+}
+
+</style>
+
 <body>
     <?php 
         include "inc/navbar.php";
 
      ?>
-   <div class="container mt-5">
+   <div class="container mt-1 mb-5 d-flex justify-content-center">
         <form method="post"
               class="shadow p-3 mt-5 form-w" 
-              action="req/setting-edit.php">
-        <h3>Edit</h3><hr>
+              action="req/setting-edit.php" id="formsize">
+        <h3>Edit Information</h3><hr>
         <?php if (isset($_GET['error'])) { ?>
           <div class="alert alert-danger" role="alert">
            <?=$_GET['error']?>
