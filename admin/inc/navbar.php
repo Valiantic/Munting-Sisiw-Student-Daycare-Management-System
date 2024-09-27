@@ -54,7 +54,7 @@
       </li>
           <!-- 9:14 -->
       <li class="nav-item">
-        <a class="nav-link" href="#contacts">Settings</a>
+        <a class="nav-link" href="settings.php">Settings</a>
       </li>
 
       </ul>

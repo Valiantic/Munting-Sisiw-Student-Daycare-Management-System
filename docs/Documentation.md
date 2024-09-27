@@ -1906,4 +1906,5 @@ FINAL CHAPTER
 3. add success handling in contact req folder 
 4. create message on data folder in order to fetch all records in admin 
 5. create message.php in admin folder to display all message 
-6. 
+6. create setting.php in admin folder 
+7. create setting.php in data folder within admin to fetch all records 
