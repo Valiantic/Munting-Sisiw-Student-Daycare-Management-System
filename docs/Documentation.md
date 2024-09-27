@@ -1904,4 +1904,6 @@ FINAL CHAPTER
 1. create blank field detectors for contact in landing page 
 2. add new table in the database see database schema for more info 
 3. add success handling in contact req folder 
-4. 
+4. create message on data folder in order to fetch all records in admin 
+5. create message.php in admin folder to display all message 
+6. 

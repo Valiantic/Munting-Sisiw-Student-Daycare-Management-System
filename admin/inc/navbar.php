@@ -50,9 +50,9 @@
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" href="#contacts">Message</a>
+        <a class="nav-link" href="message.php">Message</a>
       </li>
-
+          <!-- 9:14 -->
       <li class="nav-item">
         <a class="nav-link" href="#contacts">Settings</a>
       </li>

@@ -109,8 +109,8 @@ test_type
 
 message 
 
->message_id
->sender_full_name
->sender_email
->message
-
+>message_id INT AUTO_INCREMENT
+>sender_full_name VARCHAR 
+>sender_email VARCHAR 
+>message VARCHAR 
+>date_time DATE CURRE_TIMESTAMP
