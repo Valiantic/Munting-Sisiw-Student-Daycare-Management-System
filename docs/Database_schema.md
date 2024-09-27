@@ -88,9 +88,12 @@ courses
 >course_name VARCHAR 127
 >course_code VARCHAR 31  
 
-setting 
->current_year INT 
->current_semester VARCHAR
+setting  
+>current_year INT 11 
+>current_semester VARCHAR 11
+>school_name VARCHAR 100 
+>slogan VACHAR 100 
+>about TEXT
 
 
 student_score

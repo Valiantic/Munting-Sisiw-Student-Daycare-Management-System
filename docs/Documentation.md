@@ -1908,3 +1908,4 @@ FINAL CHAPTER
 5. create message.php in admin folder to display all message 
 6. create setting.php in admin folder 
 7. create setting.php in data folder within admin to fetch all records 
+8. add new columns in table setting
